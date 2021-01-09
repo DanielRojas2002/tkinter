@@ -4,7 +4,7 @@ from tkinter import Tk,Label,Button,Entry
 
 def funsuma():
     n1=caja1.get()
-    n2=caja2.get()
+    n2=caja2.get() 
     r=float(n1)+float(n2)
     caja3.delete(0,'end')
     caja3.insert(0,r)
