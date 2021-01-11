@@ -1,4 +1,4 @@
-mport sys 
+import sys 
 import matplotlib.pyplot as plt
 from tkinter import *
 class EstadoFinanciero:
