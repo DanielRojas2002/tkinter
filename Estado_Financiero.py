@@ -69,11 +69,22 @@ try:
         MPDI=Entry(ventana,bg="lightblue")
         MPDI.place(x=150,y=60,width=100,height=30)
 
+        txt3=Label(ventana,text="Produccion en Proceso : ",bg="lightblue")
+        txt3.place(x=10,y=120,width=130,height=30)
+
+        PPI=Entry(ventana,bg="lightblue")
+        PPI.place(x=150,y=120,width=100,height=30)
+
+        txt4=Label(ventana,text="Articulos Terminados : ",bg="lightblue")
+        txt4.place(x=10,y=180,width=130,height=30)
+
+        ATI=Entry(ventana,bg="lightblue")
+        ATI.place(x=150,y=180,width=100,height=30)
 
 
-       # MPDI=int(input("Dime tu materia prima directa del inventario inicial : "))
-        PPI=int(input("Dime tu Produccion en Proceso del inventario inicial : "))
-        ATI=int(input("Dime tus Articulos Terminados del inventario inicial : "))
+
+
+    
         print("-"*30)
         print("INVENTARIO FINAL : ")
         MPDF=int(input("Dime tu Materia Prima Directa del inventario final : "))
