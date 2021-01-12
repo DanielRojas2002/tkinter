@@ -156,103 +156,96 @@ def Graficar():
         GCMPDF.insert(0,'Llena todos los Datos :)')
         DRCMPDF.insert(0,'Llena todos los Datos :)')
 
-opcion=1
+
 try:
     ventana=Tk()
     ventana.title("Estado Financiero Datos : ")
     ventana.geometry("600x600") 
-    while opcion==1:
+   
+    txt1=Label(ventana,text="INVENTARIO INICIAL",bg="yellow")
+    txt1.place(x=220,y=10,width=170,height=30)
 
-        txt1=Label(ventana,text="INVENTARIO INICIAL",bg="yellow")
-        txt1.place(x=220,y=10,width=170,height=30)
+    txt2=Label(ventana,text="Materia Prima Directa : ",bg="lightblue")
+    txt2.place(x=10,y=60,width=170,height=30)
 
-        txt2=Label(ventana,text="Materia Prima Directa : ",bg="lightblue")
-        txt2.place(x=10,y=60,width=170,height=30)
+    MPDI=Entry(ventana,bg="lightblue")
+    MPDI.place(x=220,y=60,width=170,height=30)
 
-        MPDI=Entry(ventana,bg="lightblue")
-        MPDI.place(x=220,y=60,width=170,height=30)
+    txt3=Label(ventana,text="Produccion en Proceso : ",bg="lightblue")
+    txt3.place(x=10,y=100,width=170,height=30)
 
-        txt3=Label(ventana,text="Produccion en Proceso : ",bg="lightblue")
-        txt3.place(x=10,y=100,width=170,height=30)
+    PPI=Entry(ventana,bg="lightblue")
+    PPI.place(x=220,y=100,width=170,height=30)
 
-        PPI=Entry(ventana,bg="lightblue")
-        PPI.place(x=220,y=100,width=170,height=30)
+    txt4=Label(ventana,text="Articulos Terminados : ",bg="lightblue")
+    txt4.place(x=10,y=140,width=170,height=30)
 
-        txt4=Label(ventana,text="Articulos Terminados : ",bg="lightblue")
-        txt4.place(x=10,y=140,width=170,height=30)
+    ATI=Entry(ventana,bg="lightblue")
+    ATI.place(x=220,y=140,width=170,height=30)
 
-        ATI=Entry(ventana,bg="lightblue")
-        ATI.place(x=220,y=140,width=170,height=30)
+    txt5=Label(ventana,text="INVENTARIO FINAL",bg="yellow")
+    txt5.place(x=220,y=200,width=170,height=30)
 
-        txt5=Label(ventana,text="INVENTARIO FINAL",bg="yellow")
-        txt5.place(x=220,y=200,width=170,height=30)
+    txt6=Label(ventana,text="Materia Prima Directa : ",bg="lightblue")
+    txt6.place(x=10,y=240,width=170,height=30)
 
-        txt6=Label(ventana,text="Materia Prima Directa : ",bg="lightblue")
-        txt6.place(x=10,y=240,width=170,height=30)
+    MPDF=Entry(ventana,bg="lightblue")
+    MPDF.place(x=220,y=240,width=170,height=30)
 
-        MPDF=Entry(ventana,bg="lightblue")
-        MPDF.place(x=220,y=240,width=170,height=30)
+    txt7=Label(ventana,text="Produccion de Procesos : ",bg="lightblue")
+    txt7.place(x=10,y=280,width=170,height=30)
 
-        txt7=Label(ventana,text="Produccion de Procesos : ",bg="lightblue")
-        txt7.place(x=10,y=280,width=170,height=30)
+    PPF=Entry(ventana,bg="lightblue")
+    PPF.place(x=220,y=280,width=170,height=30)
 
-        PPF=Entry(ventana,bg="lightblue")
-        PPF.place(x=220,y=280,width=170,height=30)
+    txt8=Label(ventana,text="Articulos Terminados : ",bg="lightblue")
+    txt8.place(x=10,y=320,width=170,height=30)
 
-        txt8=Label(ventana,text="Articulos Terminados : ",bg="lightblue")
-        txt8.place(x=10,y=320,width=170,height=30)
+    ATF=Entry(ventana,bg="lightblue")
+    ATF.place(x=220,y=320,width=170,height=30)
 
-        ATF=Entry(ventana,bg="lightblue")
-        ATF.place(x=220,y=320,width=170,height=30)
+    txt9=Label(ventana,text="Mano de Obra Directa : ",bg="lightblue")
+    txt9.place(x=10,y=360,width=170,height=30)
 
-        txt9=Label(ventana,text="Mano de Obra Directa : ",bg="lightblue")
-        txt9.place(x=10,y=360,width=170,height=30)
+    MODF=Entry(ventana,bg="lightblue")
+    MODF.place(x=220,y=360,width=170,height=30)
 
-        MODF=Entry(ventana,bg="lightblue")
-        MODF.place(x=220,y=360,width=170,height=30)
+    txt10=Label(ventana,text="Compras de M.P.D : ",bg="lightblue")
+    txt10.place(x=10,y=400,width=170,height=30)
 
-        txt10=Label(ventana,text="Compras de M.P.D : ",bg="lightblue")
-        txt10.place(x=10,y=400,width=170,height=30)
+    CMPDF=Entry(ventana,bg="lightblue")
+    CMPDF.place(x=220,y=400,width=170,height=30)
 
-        CMPDF=Entry(ventana,bg="lightblue")
-        CMPDF.place(x=220,y=400,width=170,height=30)
+    txt12=Label(ventana,text="Gasto Indirecto de Fabricacion : ",bg="lightblue")
+    txt12.place(x=10,y=440,width=170,height=30)
 
-        txt12=Label(ventana,text="Gasto Indirecto de Fabricacion : ",bg="lightblue")
-        txt12.place(x=10,y=440,width=170,height=30)
+    GIDFF=Entry(ventana,bg="lightblue")
+    GIDFF.place(x=220,y=440,width=170,height=30)
 
-        GIDFF=Entry(ventana,bg="lightblue")
-        GIDFF.place(x=220,y=440,width=170,height=30)
+    txt13=Label(ventana,text="Gastos/Compras de M.P.D : ",bg="lightblue")
+    txt13.place(x=10,y=480,width=170,height=30)
 
-        txt13=Label(ventana,text="Gastos/Compras de M.P.D : ",bg="lightblue")
-        txt13.place(x=10,y=480,width=170,height=30)
+    GCMPDF=Entry(ventana,bg="lightblue")
+    GCMPDF.place(x=220,y=480,width=170,height=30)
 
-        GCMPDF=Entry(ventana,bg="lightblue")
-        GCMPDF.place(x=220,y=480,width=170,height=30)
+    txt14=Label(ventana,text="Devoluciones y Descuentos ",bg="lightblue")
+    txt14.place(x=10,y=520,width=170,height=30)
 
-        txt14=Label(ventana,text="Devoluciones y Descuentos ",bg="lightblue")
-        txt14.place(x=10,y=520,width=170,height=30)
+    txt15=Label(ventana,text="/Compras de M.P.D : ",bg="lightblue")
+    txt15.place(x=10,y=540,width=170,height=30)
 
-        txt15=Label(ventana,text="/Compras de M.P.D : ",bg="lightblue")
-        txt15.place(x=10,y=540,width=170,height=30)
- 
-        DRCMPDF=Entry(ventana,bg="lightblue")
-        DRCMPDF.place(x=220,y=530,width=170,height=30)
+    DRCMPDF=Entry(ventana,bg="lightblue")
+    DRCMPDF.place(x=220,y=530,width=170,height=30)
 
-        boton1=Button(ventana,text="Calcular",command=RealizarEF)
-        boton1.place(x=460,y=530,width=100,height=30)
+    boton1=Button(ventana,text="Calcular",command=RealizarEF)
+    boton1.place(x=460,y=530,width=100,height=30)
 
-        boton2=Button(ventana,text="Graficar",command=Graficar)
-        boton2.place(x=460,y=480,width=100,height=30)
+    boton2=Button(ventana,text="Graficar",command=Graficar)
+    boton2.place(x=460,y=480,width=100,height=30)
 
-        boton3=Button(ventana,text="Borrar Todo",command=Borrar)
-        boton3.place(x=460,y=430,width=100,height=30)
+    boton3=Button(ventana,text="Borrar Todo",command=Borrar)
+    boton3.place(x=460,y=430,width=100,height=30)
 
-
-
-
-        print("-"*100)
-        opcion=int(input("Deseas seguir sacando Estados Financieros 1=SI 2=NO : "))
-        print("-"*100)
 
 except:
     print("*"*30)
