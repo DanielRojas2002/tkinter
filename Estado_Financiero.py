@@ -90,14 +90,29 @@ try:
         MPDF=Entry(ventana,bg="lightblue")
         MPDF.place(x=150,y=270,width=100,height=30)
 
+        txt7=Label(ventana,text="Produccion de Procesos : ",bg="lightblue")
+        txt7.place(x=10,y=320,width=140,height=30)
+
+        PPF=Entry(ventana,bg="lightblue")
+        PPF.place(x=160,y=320,width=100,height=30)
+
+        txt8=Label(ventana,text="Articulos Terminados : ",bg="lightblue")
+        txt8.place(x=10,y=360,width=120,height=30)
+
+        ATF=Entry(ventana,bg="lightblue")
+        ATF.place(x=160,y=360,width=100,height=30)
+
+
+
+
 
 
     
         print("-"*30)
         print("INVENTARIO FINAL : ")
-        MPDF=int(input("Dime tu Materia Prima Directa del inventario final : "))
-        PPF=int(input("Dime tu Produccion en procesos del inventario final : "))
-        ATF=int(input("Dime tus Articulos Terminados del inventario final : "))
+        #MPDF=int(input("Dime tu Materia Prima Directa del inventario final : "))
+        #PPF=int(input("Dime tu Produccion en procesos del inventario final : "))
+        #ATF=int(input("Dime tus Articulos Terminados del inventario final : "))
         MODF=int(input("Dime tu Mano de Obra Directa del inventaria final : "))
         CMPDF=int(input("Dime tus Compras de M.P.D del inventario final : "))
         GIDFF=int(input("Dime tu Gasto Indirecto de Fabricacion del inventario final : "))
