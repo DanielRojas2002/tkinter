@@ -120,17 +120,25 @@ try:
         GIDFF=Entry(ventana,bg="lightblue")
         GIDFF.place(x=220,y=440,width=170,height=30)
 
+        txt13=Label(ventana,text="Gastos/Compras de M.P.D : ",bg="lightblue")
+        txt13.place(x=10,y=480,width=170,height=30)
+
+        GCMPDF=Entry(ventana,bg="lightblue")
+        GCMPDF.place(x=220,y=480,width=170,height=30)
+
+        txt14=Label(ventana,text="Devoluciones y Descuentos ",bg="lightblue")
+        txt14.place(x=10,y=520,width=170,height=30)
+
+        txt15=Label(ventana,text="/Compras de M.P.D : ",bg="lightblue")
+        txt15.place(x=10,y=540,width=170,height=30)
+ 
+        DRCMPDF=Entry(ventana,bg="lightblue")
+        DRCMPDF.place(x=220,y=530,width=170,height=30)
 
 
-
-       # MODF=int(input("Dime tu Mano de Obra Directa del inventaria final : "))
-       # CMPDF=int(input("Dime tus Compras de M.P.D del inventario final : "))
-        GIDFF=int(input("Dime tu Gasto Indirecto de Fabricacion del inventario final : "))
-        GCMPDF=int(input("Dime tu Gasto/compras de M.P.D del inventario final : "))
-        DRCMPDF=int(input("Dime tus Devoluciones y Descuentos / compras de M.P.D del inventario final : "))
-        a=EstadoFinanciero(MPDI,PPI,ATI,MPDF,PPF,ATF,MODF,CMPDF,GIDFF,GCMPDF,DRCMPDF)
+       # a=EstadoFinanciero(MPDI,PPI,ATI,MPDF,PPF,ATF,MODF,CMPDF,GIDFF,GCMPDF,DRCMPDF)
         print("-"*100)
-        a.RealizarEF()
+       # a.RealizarEF()
         opcion=int(input("Deseas seguir sacando Estados Financieros 1=SI 2=NO : "))
         print("-"*100)
 
