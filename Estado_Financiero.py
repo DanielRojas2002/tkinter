@@ -3,6 +3,22 @@ import matplotlib.pyplot as plt
 from tkinter import *
 
 
+def Borrar():
+    MPDI.delete(0,"end")
+    PPI.delete(0,"end")
+    ATI.delete(0,"end")
+    MPDF.delete(0,"end")
+    PPF.delete(0,"end")
+    ATF.delete(0,"end")
+    MODF.delete(0,"end")
+    CMPDF.delete(0,"end")
+    GIDFF.delete(0,"end")
+    GCMPDF.delete(0,"end")
+    DRCMPDF.delete(0,"end")
+
+
+
+
 def RealizarEF():
     a=(MPDI.get())
     b=(PPI.get())
@@ -148,7 +164,10 @@ try:
         DRCMPDF.place(x=220,y=530,width=170,height=30)
 
         boton1=Button(ventana,text="Registrar",command=RealizarEF)
-        boton1.place(x=500,y=530,width=100,height=30)
+        boton1.place(x=460,y=530,width=100,height=30)
+
+        boton2=Button(ventana,text="Borrar Todo",command=Borrar)
+        boton2.place(x=460,y=460,width=100,height=30)
 
 
         print("-"*100)
