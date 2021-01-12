@@ -1,58 +1,59 @@
 import sys 
 import matplotlib.pyplot as plt
 from tkinter import *
-class EstadoFinanciero:
-    def __init__(self,MPDI,PPI,ATI,MPDF,PPF,ATF,MODF,CMPDF,GIDFF,GCMPDF,DRCMPDF):
-        self.__MPDI=MPDI
-        self.__PPI=PPI
-        self.__ATI=ATI
-        self.__MPDF=MPDF
-        self.__PPF=PPF
-        self.__ATF=ATF
-        self.__MODF=MODF
-        self.__CMPDF=CMPDF
-        self.__GIDFF=GIDFF
-        self.__GCMPDF=GCMPDF
-        self.__DRCMPDF=DRCMPDF
 
-    def RealizarEF(self):
-        ComprasTotales=(self.__CMPDF+self.__GCMPDF)
-        ComprasNetasDeMateriales=(ComprasTotales-self.__DRCMPDF)
-        MaterialesDisponibles=(ComprasNetasDeMateriales+self.__MPDI)
-        MateriaPrimaUtilizada=(MaterialesDisponibles-self.__MPDF)
-        CostoPrimo=(MateriaPrimaUtilizada+self.__MODF)
-        CostoIncurrido=(CostoPrimo+self.__GIDFF)
-        TotalDeProduccionEnProcesos=(CostoIncurrido+self.__PPI)
-        CostoDeProduccion=(TotalDeProduccionEnProcesos-self.__PPF)
-        TotalDeArticulosListosParaLaVenta=(CostoDeProduccion+self.__ATI)
-        CostoDeProduccionDeLoVendido=(TotalDeArticulosListosParaLaVenta-self.__ATF)
-        
-        print(f"Estas son tus Compras Totales : {ComprasTotales} ")
-        print(f"Estas son tus Compras Netas De Materiales : {ComprasNetasDeMateriales} ")
-        print(f"Estas son tus Materiales Disponibles : {MaterialesDisponibles} ")
-        print(f"Esta es tu Materia Prima Utilizada : {MateriaPrimaUtilizada} ")
-        print(f"Esto es tu Costo Primo : {CostoPrimo} ")
-        print(f"Este es tu Costo Incurrido/Costo Previo : {CostoIncurrido} ")
-        print(f"Este es tu Total De Produccion En Procesos : {TotalDeProduccionEnProcesos} ")
-        print(f"Este es tu Costo De Produccion : {CostoDeProduccion} ")
-        print(f"Esto es tu Total De Articulos Listos Para La Venta : {TotalDeArticulosListosParaLaVenta} ")
-        print(f"Este es tu Costo de Produccion De Lo Vendido : { CostoDeProduccionDeLoVendido} ")
-        print("-"*100)
-        print("1=SI\n2=NO")
-        opcion2=int(input("¿Quieres graficar las respuestas? : "))
-        if opcion2==1:
-            datos=["ComprasTotales","ComprasNetasDeMateriales","MaterialesDisponibles","MateriaPrimaUtilizada","CostoPrimo"]
-            valores=[ComprasTotales,ComprasTotales,MaterialesDisponibles,MateriaPrimaUtilizada,CostoPrimo]
-            colores=["red","green","orange","blue","purple"]
-            plt.bar(datos,height=valores,color=colores,width=0.5)
-            plt.title("Respuestas seccion 1 ")
-            plt.show()
 
-            datos2=["CostoIncurrido","TotalDeProduccionEnProcesos","CostoDeProduccion","TotalArticulosParaLaVenta","CostoProduccionDeLoVendido"]
-            valores2=[CostoIncurrido,TotalDeProduccionEnProcesos,CostoDeProduccion,TotalDeArticulosListosParaLaVenta,CostoDeProduccionDeLoVendido] 
-            plt.bar(datos2,height=valores2,color=colores,width=0.5)
-            plt.title("Respuestas seccion 2")
-            plt.show()
+def RealizarEF():
+    a=(MPDI.get())
+    b=(PPI.get())
+    c=(ATI.get())
+    d=(MPDF.get())
+    e=(PPF.get())
+    g=(ATF.get())
+    h=(MODF.get())
+    i=(CMPDF.get())
+    j=(GIDFF.get())
+    k=(GCMPDF.get())
+    l=(DRCMPDF.get())
+
+    
+    ComprasTotales=float(d)+float(k)
+    ComprasNetasDeMateriales=ComprasTotales-float(l)
+    MaterialesDisponibles=ComprasNetasDeMateriales+float(a)
+    MateriaPrimaUtilizada=(MaterialesDisponibles)-float(d)
+    CostoPrimo=(MateriaPrimaUtilizada)+float(h)
+    CostoIncurrido=(CostoPrimo)+float(j)
+    TotalDeProduccionEnProcesos=(CostoIncurrido)+float(b)
+    CostoDeProduccion=(TotalDeProduccionEnProcesos)-float(e)
+    TotalDeArticulosListosParaLaVenta=(CostoDeProduccion)+float(c)
+    CostoDeProduccionDeLoVendido=(TotalDeArticulosListosParaLaVenta)-float(g)
+    
+    print(f"Estas son tus Compras Totales : {ComprasTotales} ")
+    print(f"Estas son tus Compras Netas De Materiales : {ComprasNetasDeMateriales} ")
+    print(f"Estas son tus Materiales Disponibles : {MaterialesDisponibles} ")
+    print(f"Esta es tu Materia Prima Utilizada : {MateriaPrimaUtilizada} ")
+    print(f"Esto es tu Costo Primo : {CostoPrimo} ")
+    print(f"Este es tu Costo Incurrido/Costo Previo : {CostoIncurrido} ")
+    print(f"Este es tu Total De Produccion En Procesos : {TotalDeProduccionEnProcesos} ")
+    print(f"Este es tu Costo De Produccion : {CostoDeProduccion} ")
+    print(f"Esto es tu Total De Articulos Listos Para La Venta : {TotalDeArticulosListosParaLaVenta} ")
+    print(f"Este es tu Costo de Produccion De Lo Vendido : { CostoDeProduccionDeLoVendido} ")
+    print("-"*100)
+    print("1=SI\n2=NO")
+    opcion2=int(input("¿Quieres graficar las respuestas? : "))
+    if opcion2==1:
+        datos=["ComprasTotales","ComprasNetasDeMateriales","MaterialesDisponibles","MateriaPrimaUtilizada","CostoPrimo"]
+        valores=[ComprasTotales,ComprasTotales,MaterialesDisponibles,MateriaPrimaUtilizada,CostoPrimo]
+        colores=["red","green","orange","blue","purple"]
+        plt.bar(datos,height=valores,color=colores,width=0.5)
+        plt.title("Respuestas seccion 1 ")
+        plt.show()
+
+        datos2=["CostoIncurrido","TotalDeProduccionEnProcesos","CostoDeProduccion","TotalArticulosParaLaVenta","CostoProduccionDeLoVendido"]
+        valores2=[CostoIncurrido,TotalDeProduccionEnProcesos,CostoDeProduccion,TotalDeArticulosListosParaLaVenta,CostoDeProduccionDeLoVendido] 
+        plt.bar(datos2,height=valores2,color=colores,width=0.5)
+        plt.title("Respuestas seccion 2")
+        plt.show()
 opcion=1
 try:
     ventana=Tk()
@@ -135,10 +136,11 @@ try:
         DRCMPDF=Entry(ventana,bg="lightblue")
         DRCMPDF.place(x=220,y=530,width=170,height=30)
 
+        boton1=Button(ventana,text="Registrar",command=RealizarEF)
+        boton1.place(x=500,y=530,width=100,height=30)
 
-       # a=EstadoFinanciero(MPDI,PPI,ATI,MPDF,PPF,ATF,MODF,CMPDF,GIDFF,GCMPDF,DRCMPDF)
+
         print("-"*100)
-       # a.RealizarEF()
         opcion=int(input("Deseas seguir sacando Estados Financieros 1=SI 2=NO : "))
         print("-"*100)
 
