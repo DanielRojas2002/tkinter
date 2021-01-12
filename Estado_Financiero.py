@@ -16,7 +16,7 @@ def RealizarEF():
     k=(GCMPDF.get())
     l=(DRCMPDF.get())
 
-    
+    lista=[]
     ComprasTotales=float(d)+float(k)
     ComprasNetasDeMateriales=ComprasTotales-float(l)
     MaterialesDisponibles=ComprasNetasDeMateriales+float(a)
@@ -27,21 +27,32 @@ def RealizarEF():
     CostoDeProduccion=(TotalDeProduccionEnProcesos)-float(e)
     TotalDeArticulosListosParaLaVenta=(CostoDeProduccion)+float(c)
     CostoDeProduccionDeLoVendido=(TotalDeArticulosListosParaLaVenta)-float(g)
+
+    ventana2=Tk()
+    ventana2.title("Estado Financiero Respuestas : ")
+    ventana2.geometry("600x600")
+
     
-    print(f"Estas son tus Compras Totales : {ComprasTotales} ")
-    print(f"Estas son tus Compras Netas De Materiales : {ComprasNetasDeMateriales} ")
-    print(f"Estas son tus Materiales Disponibles : {MaterialesDisponibles} ")
-    print(f"Esta es tu Materia Prima Utilizada : {MateriaPrimaUtilizada} ")
-    print(f"Esto es tu Costo Primo : {CostoPrimo} ")
-    print(f"Este es tu Costo Incurrido/Costo Previo : {CostoIncurrido} ")
-    print(f"Este es tu Total De Produccion En Procesos : {TotalDeProduccionEnProcesos} ")
-    print(f"Este es tu Costo De Produccion : {CostoDeProduccion} ")
-    print(f"Esto es tu Total De Articulos Listos Para La Venta : {TotalDeArticulosListosParaLaVenta} ")
-    print(f"Este es tu Costo de Produccion De Lo Vendido : { CostoDeProduccionDeLoVendido} ")
-    print("-"*100)
-    print("1=SI\n2=NO")
-    opcion2=int(input("¿Quieres graficar las respuestas? : "))
-    if opcion2==1:
+    
+    lista.append("Compras Totales : "+str(ComprasTotales))
+    lista.append("Compras Netas De Materiales : "+str(ComprasNetasDeMateriales))
+    lista.append("Materiales Disponibles : "+str(MaterialesDisponibles))
+    lista.append("Materia Prima Utilizanda"+str(MateriaPrimaUtilizada))
+    lista.append("Costo Primo : "+str(CostoPrimo))
+    lista.append("Costo Incurrido/Costo Previo : "+str(CostoIncurrido))
+    lista.append("Total De Produccion En Procesos : "+str(TotalDeProduccionEnProcesos))
+    lista.append("Costo De Produccion : "+str(CostoDeProduccion))
+    lista.append("Total De Articulos Listos Para La Venta : "+str(TotalDeProduccionEnProcesos))
+    lista.append("Costo De Produccion De Lo Vendido : "+str(CostoDeProduccionDeLoVendido))
+
+    contador=1
+    for elemento in lista:
+        txt16=Label(ventana2,text=elemento,bg="yellow")
+        txt16.grid(row=contador,column=5)
+        contador=contador+1
+    ventana2.mainloop()
+
+    if 1==1:
         datos=["ComprasTotales","ComprasNetasDeMateriales","MaterialesDisponibles","MateriaPrimaUtilizada","CostoPrimo"]
         valores=[ComprasTotales,ComprasTotales,MaterialesDisponibles,MateriaPrimaUtilizada,CostoPrimo]
         colores=["red","green","orange","blue","purple"]
@@ -153,3 +164,4 @@ except:
     
 finally:
     print("*"*30,"Fin del Programa","*"*30) 
+    ventana.mainloop()
