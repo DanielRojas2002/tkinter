@@ -81,6 +81,14 @@ try:
         ATI=Entry(ventana,bg="lightblue")
         ATI.place(x=150,y=180,width=100,height=30)
 
+        txt5=Label(ventana,text="INVENTARIO FINAL",bg="yellow")
+        txt5.place(x=220,y=230,width=120,height=30)
+
+        txt6=Label(ventana,text="Materia Prima Directa : ",bg="lightblue")
+        txt6.place(x=10,y=270,width=120,height=30)
+
+        MPDF=Entry(ventana,bg="lightblue")
+        MPDF.place(x=150,y=270,width=100,height=30)
 
 
 
