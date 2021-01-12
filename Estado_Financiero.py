@@ -61,58 +61,56 @@ try:
     while opcion==1:
 
         txt1=Label(ventana,text="INVENTARIO INICIAL",bg="yellow")
-        txt1.place(x=220,y=10,width=120,height=30)
+        txt1.place(x=220,y=10,width=140,height=30)
 
         txt2=Label(ventana,text="Materia Prima Directa : ",bg="lightblue")
-        txt2.place(x=10,y=60,width=120,height=30)
+        txt2.place(x=10,y=60,width=140,height=30)
 
         MPDI=Entry(ventana,bg="lightblue")
-        MPDI.place(x=150,y=60,width=100,height=30)
+        MPDI.place(x=220,y=60,width=140,height=30)
 
         txt3=Label(ventana,text="Produccion en Proceso : ",bg="lightblue")
-        txt3.place(x=10,y=120,width=130,height=30)
+        txt3.place(x=10,y=120,width=140,height=30)
 
         PPI=Entry(ventana,bg="lightblue")
-        PPI.place(x=150,y=120,width=100,height=30)
+        PPI.place(x=220,y=120,width=140,height=30)
 
         txt4=Label(ventana,text="Articulos Terminados : ",bg="lightblue")
-        txt4.place(x=10,y=180,width=130,height=30)
+        txt4.place(x=10,y=180,width=140,height=30)
 
         ATI=Entry(ventana,bg="lightblue")
-        ATI.place(x=150,y=180,width=100,height=30)
+        ATI.place(x=220,y=180,width=140,height=30)
 
         txt5=Label(ventana,text="INVENTARIO FINAL",bg="yellow")
-        txt5.place(x=220,y=230,width=120,height=30)
+        txt5.place(x=220,y=230,width=140,height=30)
 
         txt6=Label(ventana,text="Materia Prima Directa : ",bg="lightblue")
-        txt6.place(x=10,y=270,width=120,height=30)
+        txt6.place(x=10,y=270,width=140,height=30)
 
         MPDF=Entry(ventana,bg="lightblue")
-        MPDF.place(x=150,y=270,width=100,height=30)
+        MPDF.place(x=220,y=270,width=140,height=30)
 
         txt7=Label(ventana,text="Produccion de Procesos : ",bg="lightblue")
         txt7.place(x=10,y=320,width=140,height=30)
 
         PPF=Entry(ventana,bg="lightblue")
-        PPF.place(x=160,y=320,width=100,height=30)
+        PPF.place(x=220,y=320,width=140,height=30)
 
         txt8=Label(ventana,text="Articulos Terminados : ",bg="lightblue")
-        txt8.place(x=10,y=360,width=120,height=30)
+        txt8.place(x=10,y=360,width=140,height=30)
 
         ATF=Entry(ventana,bg="lightblue")
-        ATF.place(x=160,y=360,width=100,height=30)
+        ATF.place(x=220,y=360,width=140,height=30)
+
+        txt9=Label(ventana,text="Mano de Obra Directa : ",bg="lightblue")
+        txt9.place(x=10,y=400,width=140,height=30)
+
+        MODF=Entry(ventana,bg="lightblue")
+        MODF.place(x=220,y=400,width=140,height=30)
 
 
 
 
-
-
-    
-        print("-"*30)
-        print("INVENTARIO FINAL : ")
-        #MPDF=int(input("Dime tu Materia Prima Directa del inventario final : "))
-        #PPF=int(input("Dime tu Produccion en procesos del inventario final : "))
-        #ATF=int(input("Dime tus Articulos Terminados del inventario final : "))
         MODF=int(input("Dime tu Mano de Obra Directa del inventaria final : "))
         CMPDF=int(input("Dime tus Compras de M.P.D del inventario final : "))
         GIDFF=int(input("Dime tu Gasto Indirecto de Fabricacion del inventario final : "))
