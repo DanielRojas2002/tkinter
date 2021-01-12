@@ -20,67 +20,142 @@ def Borrar():
 
 
 def RealizarEF():
-    a=(MPDI.get())
-    b=(PPI.get())
-    c=(ATI.get())
-    d=(MPDF.get())
-    e=(PPF.get())
-    g=(ATF.get())
-    h=(MODF.get())
-    i=(CMPDF.get())
-    j=(GIDFF.get())
-    k=(GCMPDF.get())
-    l=(DRCMPDF.get())
+    try:
+        a=(MPDI.get())
+        b=(PPI.get())
+        c=(ATI.get())
+        d=(MPDF.get())
+        e=(PPF.get())
+        g=(ATF.get())
+        h=(MODF.get())
+        i=(CMPDF.get())
+        j=(GIDFF.get())
+        k=(GCMPDF.get())
+        l=(DRCMPDF.get())
 
-    lista=[]
-    ComprasTotales=float(d)+float(k)
-    ComprasNetasDeMateriales=ComprasTotales-float(l)
-    MaterialesDisponibles=ComprasNetasDeMateriales+float(a)
-    MateriaPrimaUtilizada=(MaterialesDisponibles)-float(d)
-    CostoPrimo=(MateriaPrimaUtilizada)+float(h)
-    CostoIncurrido=(CostoPrimo)+float(j)
-    TotalDeProduccionEnProcesos=(CostoIncurrido)+float(b)
-    CostoDeProduccion=(TotalDeProduccionEnProcesos)-float(e)
-    TotalDeArticulosListosParaLaVenta=(CostoDeProduccion)+float(c)
-    CostoDeProduccionDeLoVendido=(TotalDeArticulosListosParaLaVenta)-float(g)
+        lista=[]
+        ComprasTotales=float(d)+float(k)
+        ComprasNetasDeMateriales=ComprasTotales-float(l)
+        MaterialesDisponibles=ComprasNetasDeMateriales+float(a)
+        MateriaPrimaUtilizada=(MaterialesDisponibles)-float(d)
+        CostoPrimo=(MateriaPrimaUtilizada)+float(h)
+        CostoIncurrido=(CostoPrimo)+float(j)
+        TotalDeProduccionEnProcesos=(CostoIncurrido)+float(b)
+        CostoDeProduccion=(TotalDeProduccionEnProcesos)-float(e)
+        TotalDeArticulosListosParaLaVenta=(CostoDeProduccion)+float(c)
+        CostoDeProduccionDeLoVendido=(TotalDeArticulosListosParaLaVenta)-float(g)
 
-    ventana2=Tk()
-    ventana2.title("Estado Financiero Respuestas : ")
-    ventana2.geometry("600x600")
 
-    
-    
-    lista.append("Compras Totales : "+str(ComprasTotales))
-    lista.append("Compras Netas De Materiales : "+str(ComprasNetasDeMateriales))
-    lista.append("Materiales Disponibles : "+str(MaterialesDisponibles))
-    lista.append("Materia Prima Utilizanda"+str(MateriaPrimaUtilizada))
-    lista.append("Costo Primo : "+str(CostoPrimo))
-    lista.append("Costo Incurrido/Costo Previo : "+str(CostoIncurrido))
-    lista.append("Total De Produccion En Procesos : "+str(TotalDeProduccionEnProcesos))
-    lista.append("Costo De Produccion : "+str(CostoDeProduccion))
-    lista.append("Total De Articulos Listos Para La Venta : "+str(TotalDeProduccionEnProcesos))
-    lista.append("Costo De Produccion De Lo Vendido : "+str(CostoDeProduccionDeLoVendido))
 
-    contador=1
-    for elemento in lista:
-        txt16=Label(ventana2,text=elemento,bg="yellow")
-        txt16.grid(row=contador,column=5)
-        contador=contador+1
-    ventana2.mainloop()
+        ventana2=Tk()
+        ventana2.title("Estado Financiero Respuestas : ")
+        ventana2.geometry("600x600")
 
-    if 1==1:
-        datos=["ComprasTotales","ComprasNetasDeMateriales","MaterialesDisponibles","MateriaPrimaUtilizada","CostoPrimo"]
-        valores=[ComprasTotales,ComprasTotales,MaterialesDisponibles,MateriaPrimaUtilizada,CostoPrimo]
+        
+        
+        lista.append("Compras Totales : "+str(ComprasTotales))
+        lista.append("Compras Netas De Materiales : "+str(ComprasNetasDeMateriales))
+        lista.append("Materiales Disponibles : "+str(MaterialesDisponibles))
+        lista.append("Materia Prima Utilizanda"+str(MateriaPrimaUtilizada))
+        lista.append("Costo Primo : "+str(CostoPrimo))
+        lista.append("Costo Incurrido/Costo Previo : "+str(CostoIncurrido))
+        lista.append("Total De Produccion En Procesos : "+str(TotalDeProduccionEnProcesos))
+        lista.append("Costo De Produccion : "+str(CostoDeProduccion))
+        lista.append("Total De Articulos Listos Para La Venta : "+str(TotalDeProduccionEnProcesos))
+        lista.append("Costo De Produccion De Lo Vendido : "+str(CostoDeProduccionDeLoVendido))
+
+        contador=1
+        for elemento in lista:
+            txt16=Label(ventana2,text=elemento,bg="yellow")
+            txt16.grid(row=contador,column=5)
+            contador=contador+1
+        ventana2.mainloop()
+    except:
+        Borrar()
+        MPDI.insert(0,'Llena todos los Datos :)')
+        PPI.insert(0,'Llena todos los Datos :)')
+        ATI.insert(0,'Llena todos los Datos :)')
+        MPDF.insert(0,'Llena todos los Datos :)')
+        PPF.insert(0,'Llena todos los Datos :)')
+        ATF.insert(0,'Llena todos los Datos :)')
+        MODF.insert(0,'Llena todos los Datos :)')
+        CMPDF.insert(0,'Llena todos los Datos :)')
+        GIDFF.insert(0,'Llena todos los Datos :)')
+        GCMPDF.insert(0,'Llena todos los Datos :)')
+        DRCMPDF.insert(0,'Llena todos los Datos :)')
+
+
+def Graficar():
+    try:
+
+        a=(MPDI.get())
+        b=(PPI.get())
+        c=(ATI.get())
+        d=(MPDF.get())
+        e=(PPF.get())
+        g=(ATF.get())
+        h=(MODF.get())
+        i=(CMPDF.get())
+        j=(GIDFF.get())
+        k=(GCMPDF.get())
+        l=(DRCMPDF.get())
+
+        ComprasTotales=float(d)+float(k)
+        ComprasNetasDeMateriales=ComprasTotales-float(l)
+        MaterialesDisponibles=ComprasNetasDeMateriales+float(a)
+        MateriaPrimaUtilizada=(MaterialesDisponibles)-float(d)
+        CostoPrimo=(MateriaPrimaUtilizada)+float(h)
+        CostoIncurrido=(CostoPrimo)+float(j)
+        TotalDeProduccionEnProcesos=(CostoIncurrido)+float(b)
+        CostoDeProduccion=(TotalDeProduccionEnProcesos)-float(e)
+        TotalDeArticulosListosParaLaVenta=(CostoDeProduccion)+float(c)
+        CostoDeProduccionDeLoVendido=(TotalDeArticulosListosParaLaVenta)-float(g)
+
+        valores=[]
+        valores2=[]
+
+        valores.append(ComprasTotales)
+        valores.append(ComprasNetasDeMateriales)
+        valores.append(MaterialesDisponibles)
+        valores.append(MateriaPrimaUtilizada)
+        valores.append(CostoPrimo)
+
+        valores2.append(CostoIncurrido)
+        valores2.append(TotalDeProduccionEnProcesos)
+        valores2.append(CostoDeProduccion)
+        valores2.append(TotalDeArticulosListosParaLaVenta)
+        valores2.append(CostoDeProduccionDeLoVendido)
+
+        figura=plt.figure()
+        ax1=figura.add_subplot(211)
+        ax2=figura.add_subplot(212)
+
+        datos=["CompraTotal","CompraNetaMaterial","MaterialDisponible","MateriaPrimaUtilizada","CostoPrimo"]
         colores=["red","green","orange","blue","purple"]
-        plt.bar(datos,height=valores,color=colores,width=0.5)
-        plt.title("Respuestas seccion 1 ")
-        plt.show()
+        ax1.bar(datos,valores,color=colores,width=0.5,align="center")
+        ax1.set_xticklabels(datos)
+        ax1.set_ylabel("Respuestas seccion 1 ")
 
-        datos2=["CostoIncurrido","TotalDeProduccionEnProcesos","CostoDeProduccion","TotalArticulosParaLaVenta","CostoProduccionDeLoVendido"]
-        valores2=[CostoIncurrido,TotalDeProduccionEnProcesos,CostoDeProduccion,TotalDeArticulosListosParaLaVenta,CostoDeProduccionDeLoVendido] 
-        plt.bar(datos2,height=valores2,color=colores,width=0.5)
-        plt.title("Respuestas seccion 2")
+        datos2=["CostoIncurrido","TotalProduccionProcesos","CostoProduccion","TotalArticulosVenta","CostoProduccionVendido"]
+        ax2.bar(datos2,height=valores2,color=colores,width=0.5,align="center")
+        ax2.set_xticklabels(datos2)
+        ax2.set_ylabel("Respuestas seccion 2 ")
         plt.show()
+        
+    except:
+        Borrar()
+        MPDI.insert(0,'Llena todos los Datos :)')
+        PPI.insert(0,'Llena todos los Datos :)')
+        ATI.insert(0,'Llena todos los Datos :)')
+        MPDF.insert(0,'Llena todos los Datos :)')
+        PPF.insert(0,'Llena todos los Datos :)')
+        ATF.insert(0,'Llena todos los Datos :)')
+        MODF.insert(0,'Llena todos los Datos :)')
+        CMPDF.insert(0,'Llena todos los Datos :)')
+        GIDFF.insert(0,'Llena todos los Datos :)')
+        GCMPDF.insert(0,'Llena todos los Datos :)')
+        DRCMPDF.insert(0,'Llena todos los Datos :)')
+
 opcion=1
 try:
     ventana=Tk()
@@ -163,11 +238,16 @@ try:
         DRCMPDF=Entry(ventana,bg="lightblue")
         DRCMPDF.place(x=220,y=530,width=170,height=30)
 
-        boton1=Button(ventana,text="Registrar",command=RealizarEF)
+        boton1=Button(ventana,text="Calcular",command=RealizarEF)
         boton1.place(x=460,y=530,width=100,height=30)
 
-        boton2=Button(ventana,text="Borrar Todo",command=Borrar)
-        boton2.place(x=460,y=460,width=100,height=30)
+        boton2=Button(ventana,text="Graficar",command=Graficar)
+        boton2.place(x=460,y=480,width=100,height=30)
+
+        boton3=Button(ventana,text="Borrar Todo",command=Borrar)
+        boton3.place(x=460,y=430,width=100,height=30)
+
+
 
 
         print("-"*100)
