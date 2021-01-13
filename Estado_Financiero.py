@@ -1,4 +1,5 @@
 import sys 
+import datetime
 import matplotlib.pyplot as plt
 from tkinter import *
 
@@ -15,6 +16,10 @@ def Borrar():
     GIDFF.delete(0,"end")
     GCMPDF.delete(0,"end")
     DRCMPDF.delete(0,"end")
+    ahora = datetime.datetime.now()
+    ahora1=ahora.strftime('%d/%m/%Y %H:%M:%S')
+    caja4.delete(0,"end")
+    caja4.insert(0,ahora1)
 
 
 
@@ -32,6 +37,10 @@ def RealizarEF():
         j=(GIDFF.get())
         k=(GCMPDF.get())
         l=(DRCMPDF.get())
+        ahora = datetime.datetime.now()
+        ahora1=ahora.strftime('%d/%m/%Y %H:%M:%S')
+        caja4.delete(0,"end")
+        caja4.insert(0,ahora1)
 
         lista=[]
         ComprasTotales=float(d)+float(k)
@@ -99,6 +108,10 @@ def Graficar():
         j=(GIDFF.get())
         k=(GCMPDF.get())
         l=(DRCMPDF.get())
+        ahora = datetime.datetime.now()
+        ahora1=ahora.strftime('%d/%m/%Y %H:%M:%S')
+        caja4.delete(0,"end")
+        caja4.insert(0,ahora1)
 
         ComprasTotales=float(d)+float(k)
         ComprasNetasDeMateriales=ComprasTotales-float(l)
@@ -245,6 +258,14 @@ try:
 
     boton3=Button(ventana,text="Borrar Todo",command=Borrar)
     boton3.place(x=460,y=430,width=100,height=30)
+
+    txt16=Label(ventana,text="Hora : ",bg="lightblue")
+    txt16.place(x=450,y=60,width=80,height=30)
+
+    caja4=Entry(ventana,bg="lightblue")
+    caja4.place(x=435,y=100,width=120,height=30)
+
+
 
 
 except:
