@@ -20,9 +20,7 @@ def funsuma():
         global Ccontador
         Ccontador=Ccontador+1
     except:
-        caja1.delete(0,"end")
-        caja2.delete(0,"end")
-        caja3.delete(0,"end")
+        funborrar()
 
         caja1.insert(0,"Error")
         caja2.insert(0,"Error")
@@ -47,9 +45,7 @@ def funresta():
         caja4.insert(0,indice)
 
     except:
-        caja1.delete(0,"end")
-        caja2.delete(0,"end")
-        caja3.delete(0,"end")
+        funborrar()
 
         caja1.insert(0,"Error")
         caja2.insert(0,"Error")
@@ -74,9 +70,7 @@ def funmulti():
         caja4.insert(0,indice)
 
     except:
-        caja1.delete(0,"end")
-        caja2.delete(0,"end")
-        caja3.delete(0,"end")
+        funborrar()
 
         caja1.insert(0,"Error")
         caja2.insert(0,"Error")
@@ -102,9 +96,7 @@ def fundiv():
         caja4.insert(0,indice)
     
     except:
-        caja1.delete(0,"end")
-        caja2.delete(0,"end")
-        caja3.delete(0,"end")
+        funborrar()
 
         caja1.insert(0,"Error")
         caja2.insert(0,"Error")
