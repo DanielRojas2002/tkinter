@@ -5,69 +5,110 @@ Ccontador=0
 
 
 def funsuma():
-    n1=caja1.get()
-    n2=caja2.get() 
-    r=float(n1)+float(n2)
-    listaOperaciones.append(n1+" + "+n2+" = "+str(r))
-    caja3.delete(0,'end')
-    caja3.insert(0,r)
+    try:
+        n1=caja1.get()
+        n2=caja2.get() 
+        r=float(n1)+float(n2)
+        listaOperaciones.append(n1+" + "+n2+" = "+str(r))
+        caja3.delete(0,'end')
+        caja3.insert(0,r)
 
-    global indice
-    indice=indice+1
-    caja4.delete(0,"end")
-    caja4.insert(0,indice)
-    global Ccontador
-    Ccontador=Ccontador+1
+        global indice
+        indice=indice+1
+        caja4.delete(0,"end")
+        caja4.insert(0,indice)
+        global Ccontador
+        Ccontador=Ccontador+1
+    except:
+        caja1.delete(0,"end")
+        caja2.delete(0,"end")
+        caja3.delete(0,"end")
+
+        caja1.insert(0,"Error")
+        caja2.insert(0,"Error")
+        caja3.insert(0,"Error")
+        
     
 def funresta():
-    n1=caja1.get()
-    n2=caja2.get()
-    r=float(n1)-float(n2)
-    listaOperaciones.append(n1+" - "+n2+" = "+str(r))
-    caja3.delete(0,'end')
-    caja3.insert(0,r)
+    try:
+        n1=caja1.get()
+        n2=caja2.get()
+        r=float(n1)-float(n2)
+        listaOperaciones.append(n1+" - "+n2+" = "+str(r))
+        caja3.delete(0,'end')
+        caja3.insert(0,r)
 
-    global Ccontador
-    Ccontador=Ccontador+1
-    
-    global indice
-    indice=indice+1
-    caja4.delete(0,"end")
-    caja4.insert(0,indice)
+        global Ccontador
+        Ccontador=Ccontador+1
+        
+        global indice
+        indice=indice+1
+        caja4.delete(0,"end")
+        caja4.insert(0,indice)
+
+    except:
+        caja1.delete(0,"end")
+        caja2.delete(0,"end")
+        caja3.delete(0,"end")
+
+        caja1.insert(0,"Error")
+        caja2.insert(0,"Error")
+        caja3.insert(0,"Error")
+
     
 def funmulti():
-    n1=caja1.get()
-    n2=caja2.get()
-    r=float(n1)*float(n2)
-    listaOperaciones.append(n1+" / "+n2+" = "+str(r))
-    caja3.delete(0,"end")
-    caja3.insert(0,r)
+    try:
+        n1=caja1.get()
+        n2=caja2.get()
+        r=float(n1)*float(n2)
+        listaOperaciones.append(n1+" / "+n2+" = "+str(r))
+        caja3.delete(0,"end")
+        caja3.insert(0,r)
 
-    global Ccontador
-    Ccontador=Ccontador+1
-    
-    global indice
-    indice=indice+1
-    caja4.delete(0,"end")
-    caja4.insert(0,indice)
+        global Ccontador
+        Ccontador=Ccontador+1
+        
+        global indice
+        indice=indice+1
+        caja4.delete(0,"end")
+        caja4.insert(0,indice)
+
+    except:
+        caja1.delete(0,"end")
+        caja2.delete(0,"end")
+        caja3.delete(0,"end")
+
+        caja1.insert(0,"Error")
+        caja2.insert(0,"Error")
+        caja3.insert(0,"Error")
 
 
     
 def fundiv():
-    n1=caja1.get()
-    n2=caja2.get()
-    r=float(n1)/float(n2)
-    listaOperaciones.append(n1+" X "+n2+" = "+str(r))
-    caja3.delete(0,"end")
-    caja3.insert(0,r)
+    try:
+        n1=caja1.get()
+        n2=caja2.get()
+        r=float(n1)/float(n2)
+        listaOperaciones.append(n1+" X "+n2+" = "+str(r))
+        caja3.delete(0,"end")
+        caja3.insert(0,r)
 
-    global Ccontador
-    Ccontador=Ccontador+1
+        global Ccontador
+        Ccontador=Ccontador+1
+        
+        global indice
+        indice=indice+1
+        caja4.delete(0,"end")
+        caja4.insert(0,indice)
     
-    global indice
-    indice=indice+1
-    caja4.delete(0,"end")
-    caja4.insert(0,indice)
+    except:
+        caja1.delete(0,"end")
+        caja2.delete(0,"end")
+        caja3.delete(0,"end")
+
+        caja1.insert(0,"Error")
+        caja2.insert(0,"Error")
+        caja3.insert(0,"Error")
     
 def funborrar():
     caja1.delete(0,"end")
