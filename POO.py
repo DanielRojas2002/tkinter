@@ -58,7 +58,7 @@ class Aplicacion():
         self.ventana1.mainloop()
         self.ventana2=tk.Tk()
         self.ventana2.title("REGISTRO DE OPERACIONES")
-        self.ventana2.geometry("300x300")
+        self.ventana2.geometry("350x350")
         contador=1
         for elemento in self.listaOperaciones:
             self.txt5=tk.Label(self.ventana2,text=elemento,bg="yellow")
