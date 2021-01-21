@@ -100,6 +100,7 @@ class Aplicacion():
 
         self.caja4=tk.Entry(self.ventana,bg="lightblue")
         self.caja4.place(x=435,y=100,width=120,height=30)
+        self.ventana.mainloop()
 
     def Borrar(self):
         self.MPDI.delete(0,"end")
@@ -188,75 +189,78 @@ class Aplicacion():
             self.DRCMPDF.insert(0,'Llena todos los Datos :)')
 
     def Graficar(self):
-    try:
-        a=(self.MPDI.get())
-        b=(self.PPI.get())
-        c=(self.ATI.get())
-        d=(self.MPDF.get())
-        e=(self.PPF.get())
-        g=(self.ATF.get())
-        h=(self.MODF.get())
-        i=(self.CMPDF.get())
-        j=(self.GIDFF.get())
-        k=(self.GCMPDF.get())
-        l=(self.DRCMPDF.get())
-        ahora = datetime.datetime.now()
-        ahora1=ahora.strftime('%d/%m/%Y %H:%M:%S')
-        self.caja4.delete(0,"end")
-        self.caja4.insert(0,ahora1)
+        try:
+            a=(self.MPDI.get())
+            b=(self.PPI.get())
+            c=(self.ATI.get())
+            d=(self.MPDF.get())
+            e=(self.PPF.get())
+            g=(self.ATF.get())
+            h=(self.MODF.get())
+            i=(self.CMPDF.get())
+            j=(self.GIDFF.get())
+            k=(self.GCMPDF.get())
+            l=(self.DRCMPDF.get())
+            ahora = datetime.datetime.now()
+            ahora1=ahora.strftime('%d/%m/%Y %H:%M:%S')
+            self.caja4.delete(0,"end")
+            self.caja4.insert(0,ahora1)
 
-        ComprasTotales=float(d)+float(k)
-        ComprasNetasDeMateriales=ComprasTotales-float(l)
-        MaterialesDisponibles=ComprasNetasDeMateriales+float(a)
-        MateriaPrimaUtilizada=(MaterialesDisponibles)-float(d)
-        CostoPrimo=(MateriaPrimaUtilizada)+float(h)
-        CostoIncurrido=(CostoPrimo)+float(j)
-        TotalDeProduccionEnProcesos=(CostoIncurrido)+float(b)
-        CostoDeProduccion=(TotalDeProduccionEnProcesos)-float(e)
-        TotalDeArticulosListosParaLaVenta=(CostoDeProduccion)+float(c)
-        CostoDeProduccionDeLoVendido=(TotalDeArticulosListosParaLaVenta)-float(g)
+            ComprasTotales=float(d)+float(k)
+            ComprasNetasDeMateriales=ComprasTotales-float(l)
+            MaterialesDisponibles=ComprasNetasDeMateriales+float(a)
+            MateriaPrimaUtilizada=(MaterialesDisponibles)-float(d)
+            CostoPrimo=(MateriaPrimaUtilizada)+float(h)
+            CostoIncurrido=(CostoPrimo)+float(j)
+            TotalDeProduccionEnProcesos=(CostoIncurrido)+float(b)
+            CostoDeProduccion=(TotalDeProduccionEnProcesos)-float(e)
+            TotalDeArticulosListosParaLaVenta=(CostoDeProduccion)+float(c)
+            CostoDeProduccionDeLoVendido=(TotalDeArticulosListosParaLaVenta)-float(g)
 
-        valores=[]
-        valores2=[]
+            valores=[]
+            valores2=[]
 
-        valores.append(ComprasTotales)
-        valores.append(ComprasNetasDeMateriales)
-        valores.append(MaterialesDisponibles)
-        valores.append(MateriaPrimaUtilizada)
-        valores.append(CostoPrimo)
+            valores.append(ComprasTotales)
+            valores.append(ComprasNetasDeMateriales)
+            valores.append(MaterialesDisponibles)
+            valores.append(MateriaPrimaUtilizada)
+            valores.append(CostoPrimo)
 
-        valores2.append(CostoIncurrido)
-        valores2.append(TotalDeProduccionEnProcesos)
-        valores2.append(CostoDeProduccion)
-        valores2.append(TotalDeArticulosListosParaLaVenta)
-        valores2.append(CostoDeProduccionDeLoVendido)
+            valores2.append(CostoIncurrido)
+            valores2.append(TotalDeProduccionEnProcesos)
+            valores2.append(CostoDeProduccion)
+            valores2.append(TotalDeArticulosListosParaLaVenta)
+            valores2.append(CostoDeProduccionDeLoVendido)
 
-        figura=plt.figure()
-        ax1=figura.add_subplot(211)
-        ax2=figura.add_subplot(212)
+            figura=plt.figure()
+            ax1=figura.add_subplot(211)
+            ax2=figura.add_subplot(212)
 
-        datos=["CompraTotal","CompraNetaMaterial","MaterialDisponible","MateriaPrimaUtilizada","CostoPrimo"]
-        colores=["red","green","orange","blue","purple"]
-        ax1.bar(datos,valores,color=colores,width=0.5,align="center")
-        ax1.set_xticklabels(datos)
-        ax1.set_ylabel("Respuestas seccion 1 ")
+            datos=["CompraTotal","CompraNetaMaterial","MaterialDisponible","MateriaPrimaUtilizada","CostoPrimo"]
+            colores=["red","green","orange","blue","purple"]
+            ax1.bar(datos,valores,color=colores,width=0.5,align="center")
+            ax1.set_xticklabels(datos)
+            ax1.set_ylabel("Respuestas seccion 1 ")
 
-        datos2=["CostoIncurrido","TotalProduccionProcesos","CostoProduccion","TotalArticulosVenta","CostoProduccionVendido"]
-        ax2.bar(datos2,height=valores2,color=colores,width=0.5,align="center")
-        ax2.set_xticklabels(datos2)
-        ax2.set_ylabel("Respuestas seccion 2 ")
-        plt.show()
-        
-    except:
-        self.Borrar()
-        self.MPDI.insert(0,'Llena todos los Datos :)')
-        self.PPI.insert(0,'Llena todos los Datos :)')
-        self.ATI.insert(0,'Llena todos los Datos :)')
-        self.MPDF.insert(0,'Llena todos los Datos :)')
-        self.PPF.insert(0,'Llena todos los Datos :)')
-        self.ATF.insert(0,'Llena todos los Datos :)')
-        self.MODF.insert(0,'Llena todos los Datos :)')
-        self.CMPDF.insert(0,'Llena todos los Datos :)')
-        self.GIDFF.insert(0,'Llena todos los Datos :)')
-        self.GCMPDF.insert(0,'Llena todos los Datos :)')
-        self.DRCMPDF.insert(0,'Llena todos los Datos :)')
+            datos2=["CostoIncurrido","TotalProduccionProcesos","CostoProduccion","TotalArticulosVenta","CostoProduccionVendido"]
+            ax2.bar(datos2,height=valores2,color=colores,width=0.5,align="center")
+            ax2.set_xticklabels(datos2)
+            ax2.set_ylabel("Respuestas seccion 2 ")
+            plt.show()
+            
+        except:
+            self.Borrar()
+            self.MPDI.insert(0,'Llena todos los Datos :)')
+            self.PPI.insert(0,'Llena todos los Datos :)')
+            self.ATI.insert(0,'Llena todos los Datos :)')
+            self.MPDF.insert(0,'Llena todos los Datos :)')
+            self.PPF.insert(0,'Llena todos los Datos :)')
+            self.ATF.insert(0,'Llena todos los Datos :)')
+            self.MODF.insert(0,'Llena todos los Datos :)')
+            self.CMPDF.insert(0,'Llena todos los Datos :)')
+            self.GIDFF.insert(0,'Llena todos los Datos :)')
+            self.GCMPDF.insert(0,'Llena todos los Datos :)')
+            self.DRCMPDF.insert(0,'Llena todos los Datos :)')
+
+
+app=Aplicacion()
