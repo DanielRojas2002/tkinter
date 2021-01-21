@@ -56,6 +56,18 @@ class Aplicacion():
         self.caja4.place(x=450,y=140,width=30,height=30)
 
         self.ventana1.mainloop()
+        self.ventana2=tk.Tk()
+        self.ventana2.title("REGISTRO DE OPERACIONES")
+        self.ventana2.geometry("300x300")
+        contador=1
+        for elemento in self.listaOperaciones:
+            self.txt5=tk.Label(self.ventana2,text=elemento,bg="yellow")
+            self.txt5.grid(row=contador,column=5)
+            contador=contador+1
+            
+        self.txt2=tk.Label(self.ventana2,text=(f"Numero de Operaciones : {self.Ccontador} "),bg="yellow")
+        self.txt2.grid(row=contador,column=5)
+        self.ventana2.mainloop()
 
     
     def funsuma(self):
