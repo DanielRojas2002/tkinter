@@ -63,16 +63,15 @@ class Aplicacion():
             n1=self.caja1.get()
             n2=self.caja2.get() 
             r=float(n1)+float(n2)
-            listaOperaciones.append(n1+" + "+n2+" = "+str(r))
+            self.listaOperaciones.append(n1+" + "+n2+" = "+str(r))
             self.caja3.delete(0,'end')
             self.caja3.insert(0,r)
 
-            global indice
-            indice=indice+1
+            self.indice=self.indice+1
             self.caja4.delete(0,"end")
-            self.caja4.insert(0,indice)
-            global Ccontador
-            Ccontador=Ccontador+1
+            self.caja4.insert(0,self.indice)
+           
+            self.Ccontador=self.Ccontador+1
         except:
             self.funborrar()
             self.caja1.insert(0,"Error")
@@ -84,17 +83,15 @@ class Aplicacion():
             n1=self.caja1.get()
             n2=self.caja2.get()
             r=float(n1)-float(n2)
-            listaOperaciones.append(n1+" - "+n2+" = "+str(r))
+            self.listaOperaciones.append(n1+" - "+n2+" = "+str(r))
             self.caja3.delete(0,'end')
             self.caja3.insert(0,r)
 
-            global Ccontador
-            Ccontador=Ccontador+1
+            self.Ccontador=self.Ccontador+1
             
-            global indice
-            indice=indice+1
+            self.indice=self.indice+1
             self.caja4.delete(0,"end")
-            self.caja4.insert(0,indice)
+            self.caja4.insert(0,self.indice)
 
         except:
             self.funborrar()
@@ -109,17 +106,17 @@ class Aplicacion():
             n1=self.caja1.get()
             n2=self.caja2.get()
             r=float(n1)*float(n2)
-            listaOperaciones.append(n1+" / "+n2+" = "+str(r))
+            self.listaOperaciones.append(n1+" / "+n2+" = "+str(r))
             self.caja3.delete(0,"end")
             self.caja3.insert(0,r)
 
-            global Ccontador
-            Ccontador=Ccontador+1
             
-            global indice
-            indice=indice+1
+            self.Ccontador=self.Ccontador+1
+            
+            
+            self.indice=self.indice+1
             self.caja4.delete(0,"end")
-            self.caja4.insert(0,indice)
+            self.caja4.insert(0,self.indice)
 
         except:
             self.funborrar()
@@ -135,17 +132,17 @@ class Aplicacion():
             n1=self.caja1.get()
             n2=self.caja2.get()
             r=float(n1)/float(n2)
-            listaOperaciones.append(n1+" X "+n2+" = "+str(r))
+            self.listaOperaciones.append(n1+" X "+n2+" = "+str(r))
             self.caja3.delete(0,"end")
             self.caja3.insert(0,r)
 
-            global Ccontador
-            Ccontador=Ccontador+1
+
+            self.Ccontador=self.Ccontador+1
             
-            global indice
-            indice=indice+1
+            
+            self.indice=self.indice+1
             self.caja4.delete(0,"end")
-            self.caja4.insert(0,indice)
+            self.caja4.insert(0,self.indice)
         
         except:
             self.funborrar()
