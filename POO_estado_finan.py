@@ -86,13 +86,13 @@ class Aplicacion():
         self.DRCMPDF=Entry(self.ventana,bg="lightblue")
         self.DRCMPDF.place(x=220,y=530,width=170,height=30)
 
-        self.boton1=Button(self.ventana,text="Calcular",command=RealizarEF)
+        self.boton1=Button(self.ventana,text="Calcular",command=self.RealizarEF)
         self.boton1.place(x=460,y=530,width=100,height=30)
 
-        self.boton2=Button(self.ventana,text="Graficar",command=Graficar)
+        self.boton2=Button(self.ventana,text="Graficar",command=self.Graficar)
         self.boton2.place(x=460,y=480,width=100,height=30)
 
-        self.boton3=Button(self.ventana,text="Borrar Todo",command=Borrar)
+        self.boton3=Button(self.ventana,text="Borrar Todo",command=self.Borrar)
         self.boton3.place(x=460,y=430,width=100,height=30)
 
         self.txt16=Label(self.ventana,text="Hora : ",bg="lightblue")
@@ -100,3 +100,20 @@ class Aplicacion():
 
         self.caja4=Entry(self.ventana,bg="lightblue")
         self.caja4.place(x=435,y=100,width=120,height=30)
+
+    def Borrar(self):
+        self.MPDI.delete(0,"end")
+        self.PPI.delete(0,"end")
+        self.ATI.delete(0,"end")
+        self.MPDF.delete(0,"end")
+        self.PPF.delete(0,"end")
+        self.ATF.delete(0,"end")
+        self.MODF.delete(0,"end")
+        self.CMPDF.delete(0,"end")
+        self.GIDFF.delete(0,"end")
+        self.GCMPDF.delete(0,"end")
+        self.DRCMPDF.delete(0,"end")
+        ahora = datetime.datetime.now()
+        ahora1=ahora.strftime('%d/%m/%Y %H:%M:%S')
+        self.caja4.delete(0,"end")
+        self.caja4.insert(0,ahora1)
