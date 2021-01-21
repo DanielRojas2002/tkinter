@@ -9,15 +9,15 @@ class Aplicacion():
         self.ventana.title("Registro de Empleados : ")
         self.ventana.geometry("600x600")
 
-        self.frame=tk.Frame(self.ventana,bg="lightblue")
+        self.frame=tk.Frame(self.ventana,bg="DarkOliveGreen3")
         self.frame.pack(expand=True,fill="both")
         self.frame.config(cursor="pirate")
         
 
-        self.txt0=tk.Label(self.frame,text="EMPLEADO : ")
+        self.txt0=tk.Label(self.frame,text="EMPLEADO : ",bg="olivedrab2")
         self.txt0.place(x=250,y=30,width=100,height=40)
 
-        self.txt1=tk.Label(self.frame,text="Matricula : ",bg="yellow")
+        self.txt1=tk.Label(self.frame,text="Matricula : ",bg="gold3")
         self.txt1.place(x=40,y=110,width=100,height=40)
 
         self.caja1=tk.Entry(self.frame)
@@ -29,7 +29,7 @@ class Aplicacion():
         self.caja2=tk.Entry(self.frame)
         self.caja2.place(x=250,y=170,width=100,height=40)
 
-        self.txt3=tk.Label(self.frame,text="Apellidos : ",bg="yellow")
+        self.txt3=tk.Label(self.frame,text="Apellidos : ",bg="gold3")
         self.txt3.place(x=40,y=230,width=100,height=40)
 
         self.caja3=tk.Entry(self.frame)
@@ -41,11 +41,17 @@ class Aplicacion():
         self.caja4=tk.Entry(self.frame)
         self.caja4.place(x=250,y=290,width=100,height=40)
 
-        self.txt5=tk.Label(self.frame,text="Telefono : ",bg="yellow")
+        self.txt5=tk.Label(self.frame,text="Telefono : ",bg="gold3")
         self.txt5.place(x=40,y=350,width=100,height=40)
 
         self.caja5=tk.Entry(self.frame)
         self.caja5.place(x=250,y=350,width=100,height=40)
+
+        self.txt6=tk.Label(self.frame,text="Domicilio : ",bg="yellow")
+        self.txt6.place(x=40,y=410,width=100,height=40)
+
+        self.caja6=tk.Entry(self.frame)
+        self.caja6.place(x=250,y=410,width=100,height=40)
 
         self.ventana.mainloop()
 
