@@ -416,26 +416,13 @@ class Aplicacion():
                     self.Empleado_Tabla.column("telefono",width=90)
                     self.Empleado_Tabla.column("domicilio",width=120)
                     
-                    #self.txt010=tk.Label(self.frame09,text="Matricula",bg="peach puff")
-                   # self.txt010.place(x=10,y=20,width=80,height=30)
-
-                    #self.txt011=tk.Label(self.frame09,text="Nombre",bg="peach puff")
-                    #self.txt011.place(x=100,y=20,width=80,height=30)
-
-                    #self.txt012=tk.Label(self.frame09,text="Apellidos",bg="peach puff")
-                    #self.txt012.place(x=190,y=20,width=80,height=30)
-
-                    #self.txt013=tk.Label(self.frame09,text="Edad",bg="peach puff")
-                   # self.txt013.place(x=280,y=20,width=80,height=30)
-
-                    #self.txt014=tk.Label(self.frame09,text="Telefono",bg="peach puff")
-                   # self.txt014.place(x=370,y=20,width=80,height=30)
-
-                   # self.txt015=tk.Label(self.frame09,text="Domicilio",bg="peach puff")
-                   # self.txt015.place(x=460,y=20,width=80,height=30)
-
-                   #for clave,nombre,apellido,edad,telefono,domicilio in registros:
-                        #self.txt016=tk.Label(self.frame09,text=clave,bg="orange")
+                    for clave,nombre,apellido,edad,telefono,domicilio in registros:
+                        self.Empleado_Tabla.insert('',0,text=clave,values=clave)
+                        self.Empleado_Tabla.insert('',1,text=nombre,values=nombre)
+                        self.Empleado_Tabla.insert('',2,text=apellido,values=apellido)
+                        self.Empleado_Tabla.insert('',3,text=edad,values=edad)
+                        self.Empleado_Tabla.insert('',4,text=telefono,values=telefono)
+                        self.Empleado_Tabla.insert('',5,text=domicilio,values=domicilio)
                         #self.txt016.place(x=xl,y=lugar,width=80,height=30)
                        # xl=xl+90
                         
