@@ -67,7 +67,7 @@ class Aplicacion():
         self.boton2=tk.Button(self.frame2,text="Borrar Registro",command=self.Borrar)
         self.boton2.place(x=60,y=80,width=100,height=30)
 
-        self.boton3=tk.Button(self.frame2,text="Checar Datos",command=self.Checar)
+        self.boton3=tk.Button(self.frame2,text="Buscar Registros",command=self.Buscar_Registros)
         self.boton3.place(x=60,y=150,width=100,height=30)
 
         self.ventana.mainloop()
@@ -190,7 +190,20 @@ class Aplicacion():
     def Borrar(self):
         pass
 
-    def Checar(self):
-        pass
+    def Buscar_Registros(self):
+        self.ventana4=tk.Tk()
+        self.ventana4.title("Buscador de Registros: ")
+        self.ventana4.geometry("600x500")
+
+        self.frame3=tk.Frame(self.ventana4,bg="steel blue")
+        self.frame3.pack(expand=True,fill="both")
+
+        self.txt7=tk.Label(self.frame3,text="Buscador de Registros ",bg="dark turquoise")
+        self.txt7.place(x=170,y=30,width=250,height=30)
+
+
+
+
+        self.ventana4.mainloop()
 
 app=Aplicacion()
