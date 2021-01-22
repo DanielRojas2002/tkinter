@@ -82,36 +82,68 @@ class Aplicacion():
         self.caja5.delete(0,"end")
         self.caja6.delete(0,"end")
 
+
+
     def Registrar(self):
+       
+        clave=(self.caja1.get() )
+        nombre=(self.caja2.get())
+        apellido=(self.caja3.get())
+        edad=(self.caja4.get())
+        telefono=(self.caja5.get())
+        domicilio=(self.caja6.get())
+        contador=0
+   
         try:
-            clave=(self.caja1.get()is not NULL)
-            nombre=(self.caja2.get()is not NULL)
-            apellido=(self.caja3.get()is not NULL)
-            edad=(self.caja4.get()is not NULL)
-            telefono=(self.caja5.get() is not NULL)
-            domicilio=(self.caja6.get() is not NULL)
-            
+            clave1=int(clave)
+            edad1=int(edad)
+            telefono1=int(telefono)
+
+            if len(nombre)==0:
+                x=clave1+nombre
+
+            if len(apellido)==0:
+                x=clave1+nombre
+
+            if len(domicilio)==0:
+                x=clave1+nombre
 
             try:
                 with sqlite3.connect("Empleados.db") as conn:
                     c = conn.cursor()
                     c.execute("CREATE TABLE IF NOT EXISTS registro (clave INTEGER PRIMARY KEY, nombre TEXT NOT NULL, apellido TEXT NOT NULL,edad INTEGER NOT NULL,telefono INTEGER NOT null,domicilio TEXT NOT NULL );")
-                    valores={"clave":clave,"nombre":nombre,"apellido":apellido,"edad":edad,"telefono":telefono,"domicilio":domicilio}
+                    valores={"clave":clave1,"nombre":nombre,"apellido":apellido,"edad":edad1,"telefono":telefono1,"domicilio":domicilio}
                     c.execute("INSERT INTO registro VALUES (:clave,:nombre,:apellido,:edad,:telefono,:domicilio)",valores)
                     
             except Error as e:
-                print("-"*30)
-                print(f"ERROR :{e}")
-                print("No se registro el registro")
-                print("-"*30)
+                self.ventana2=tk.Tk()
+                self.ventana2.title("Error: ")
+                self.ventana2.geometry("500x250")
+                self.txt00=tk.Label(self.ventana2,text="No se pudo registrar el registro: ",bg="peach puff")
+                self.txt00.place(x=150,y=20,width=200,height=40)
+
+                self.txt01=tk.Label(self.ventana2,text="Motivos: ",bg="peach puff")
+                self.txt01.place(x=150,y=80,width=200,height=40)
+
+                self.txt02=tk.Label(self.ventana2,text=" - Clave Repetida ",bg="peach puff")
+                self.txt02.place(x=150,y=150,width=200,height=50)
         except:
-            self.Borrar_Todo()
-            self.caja1.insert(0,'Llena todos los Datos :)')
-            self.caja2.insert(0,'Llena todos los Datos :)')
-            self.caja3.insert(0,'Llena todos los Datos :)')
-            self.caja4.insert(0,'Llena todos los Datos :)')
-            self.caja5.insert(0,'Llena todos los Datos :)')
-            self.caja6.insert(0,'Llena todos los Datos :)')
+
+            self.ventana3=tk.Tk()
+            self.ventana3.title("Error: ")
+            self.ventana3.geometry("500x250")
+            self.txt00=tk.Label(self.ventana3,text="No se pudo registrar el registro: ",bg="peach puff")
+            self.txt00.place(x=150,y=20,width=200,height=40)
+
+            self.txt01=tk.Label(self.ventana3,text="Motivos: ",bg="peach puff")
+            self.txt01.place(x=150,y=80,width=200,height=40)
+
+            self.txt02=tk.Label(self.ventana3,text="- Introdujo valores no permitidos\n - No llenaste todos los datos ",bg="peach puff")
+            self.txt02.place(x=150,y=150,width=200,height=50)
+            
+
+        
+        
             
         
 
