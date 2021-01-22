@@ -85,7 +85,6 @@ class Aplicacion():
 
 
     def Registrar(self):
-       
         clave=(self.caja1.get() )
         nombre=(self.caja2.get())
         apellido=(self.caja3.get())
@@ -93,6 +92,7 @@ class Aplicacion():
         telefono=(self.caja5.get())
         domicilio=(self.caja6.get())
         contador=0
+        
    
         try:
             clave1=int(clave)
@@ -114,6 +114,46 @@ class Aplicacion():
                     c.execute("CREATE TABLE IF NOT EXISTS registro (clave INTEGER PRIMARY KEY, nombre TEXT NOT NULL, apellido TEXT NOT NULL,edad INTEGER NOT NULL,telefono INTEGER NOT null,domicilio TEXT NOT NULL );")
                     valores={"clave":clave1,"nombre":nombre,"apellido":apellido,"edad":edad1,"telefono":telefono1,"domicilio":domicilio}
                     c.execute("INSERT INTO registro VALUES (:clave,:nombre,:apellido,:edad,:telefono,:domicilio)",valores)
+                lista=[]
+                lista.append(clave)
+                lista.append(nombre)
+                lista.append(apellido)
+                lista.append(edad)
+                lista.append(telefono)
+                lista.append(domicilio)
+                self.ventana=tk.Tk()
+                self.ventana.title("Registro Datos : ")
+                self.ventana.geometry("500x500")
+                self.txt00=tk.Label(self.ventana,text="Registro Completado Satisfactoriamente: ",bg="peach puff")
+                self.txt00.place(x=120,y=20,width=250,height=40)
+
+                self.txt01=tk.Label(self.ventana,text="Datos del Empleado : ",bg="peach puff")
+                self.txt01.place(x=120,y=80,width=250,height=40)
+
+                self.txt02=tk.Label(self.ventana,text="Matricula : ",bg="peach puff")
+                self.txt02.place(x=30,y=140,width=100,height=30)
+
+                self.txt03=tk.Label(self.ventana,text="Nombre : ",bg="peach puff")
+                self.txt03.place(x=30,y=190,width=100,height=30)
+
+                self.txt04=tk.Label(self.ventana,text="Apellidos : ",bg="peach puff")
+                self.txt04.place(x=30,y=240,width=100,height=30)
+
+                self.txt04=tk.Label(self.ventana,text="Edad : ",bg="peach puff")
+                self.txt04.place(x=30,y=290,width=100,height=30)
+
+                self.txt04=tk.Label(self.ventana,text="Telefono : ",bg="peach puff")
+                self.txt04.place(x=30,y=340,width=100,height=30)
+
+                self.txt04=tk.Label(self.ventana,text="Domicilio : ",bg="peach puff")
+                self.txt04.place(x=30,y=390,width=100,height=30)
+
+                lugar=140
+                for elemento in lista:
+                    self.txt02=tk.Label(self.ventana,text=elemento,bg="peach puff")
+                    self.txt02.place(x=200,y=lugar,width=100,height=30)
+                    lugar=lugar+50
+                self.ventana.mainloop()
                     
             except Error as e:
                 self.ventana2=tk.Tk()
