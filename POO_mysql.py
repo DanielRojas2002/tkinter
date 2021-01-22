@@ -193,25 +193,34 @@ class Aplicacion():
     def Buscar_Registros(self):
         self.ventana4=tk.Tk()
         self.ventana4.title("Buscador : ")
-        self.ventana4.geometry("250x250")
+        self.ventana4.geometry("250x350")
 
         self.frame3=tk.Frame(self.ventana4,bg="steel blue")
         self.frame3.pack(expand=True,fill="both")
 
         self.txt7=tk.Label(self.frame3,text="Buscar por: ",bg="dark turquoise")
-        self.txt7.place(x=60,y=30,width=130,height=30)
+        self.txt7.place(x=60,y=30,width=120,height=30)
 
-        self.boton10=tk.Button(self.frame,text="Borrar Todo",command=self.Borrar_Todo)
-        self.boton10.place(x=440,y=360,width=100,height=30)
+        self.boton10=tk.Button(self.frame3,text="Matricula",command=self.Borrar_Todo)
+        self.boton10.place(x=70,y=70,width=100,height=30)
 
-        self.boton11=tk.Button(self.frame,text="Borrar Todo",command=self.Borrar_Todo)
-        self.boton11.place(x=440,y=360,width=100,height=30)
+        self.boton11=tk.Button(self.frame3,text="Nombre",command=self.Borrar_Todo)
+        self.boton11.place(x=70,y=110,width=100,height=30)
 
-        self.boton12=tk.Button(self.frame,text="Borrar Todo",command=self.Borrar_Todo)
-        self.boton12.place(x=440,y=360,width=100,height=30)
+        self.boton12=tk.Button(self.frame3,text="Apellido",command=self.Borrar_Todo)
+        self.boton12.place(x=70,y=150,width=100,height=30)
 
-        self.boton13=tk.Button(self.frame,text="Borrar Todo",command=self.Borrar_Todo)
-        self.boton13.place(x=440,y=360,width=100,height=30)
+        self.boton13=tk.Button(self.frame3,text="Edad",command=self.Borrar_Todo)
+        self.boton13.place(x=70,y=190,width=100,height=30)
+
+        self.boton13=tk.Button(self.frame3,text="Telefono",command=self.Borrar_Todo)
+        self.boton13.place(x=70,y=230,width=100,height=30)
+
+        self.boton13=tk.Button(self.frame3,text="Domicilio",command=self.Borrar_Todo)
+        self.boton13.place(x=70,y=270,width=100,height=30)
+
+        self.boton13=tk.Button(self.frame3,text="TODOS",command=self.Borrar_Todo)
+        self.boton13.place(x=70,y=310,width=100,height=30)
 
 
 
