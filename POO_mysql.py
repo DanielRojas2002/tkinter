@@ -52,7 +52,7 @@ class Aplicacion():
         self.caja6=tk.Entry(self.frame)
         self.caja6.place(x=250,y=410,width=100,height=40)
 
-        self.frame2=tk.Frame(self.ventana,bg="lightblue")
+        self.frame2=tk.Frame(self.ventana,bg="chartreuse3")
         self.frame2.place(x=380,y=410,width=230,height=200)
         self.frame2.config(cursor="heart")
 
