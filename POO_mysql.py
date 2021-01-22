@@ -192,14 +192,26 @@ class Aplicacion():
 
     def Buscar_Registros(self):
         self.ventana4=tk.Tk()
-        self.ventana4.title("Buscador de Registros: ")
-        self.ventana4.geometry("600x500")
+        self.ventana4.title("Buscador : ")
+        self.ventana4.geometry("250x250")
 
         self.frame3=tk.Frame(self.ventana4,bg="steel blue")
         self.frame3.pack(expand=True,fill="both")
 
-        self.txt7=tk.Label(self.frame3,text="Buscador de Registros ",bg="dark turquoise")
-        self.txt7.place(x=170,y=30,width=250,height=30)
+        self.txt7=tk.Label(self.frame3,text="Buscar por: ",bg="dark turquoise")
+        self.txt7.place(x=60,y=30,width=130,height=30)
+
+        self.boton10=tk.Button(self.frame,text="Borrar Todo",command=self.Borrar_Todo)
+        self.boton10.place(x=440,y=360,width=100,height=30)
+
+        self.boton11=tk.Button(self.frame,text="Borrar Todo",command=self.Borrar_Todo)
+        self.boton11.place(x=440,y=360,width=100,height=30)
+
+        self.boton12=tk.Button(self.frame,text="Borrar Todo",command=self.Borrar_Todo)
+        self.boton12.place(x=440,y=360,width=100,height=30)
+
+        self.boton13=tk.Button(self.frame,text="Borrar Todo",command=self.Borrar_Todo)
+        self.boton13.place(x=440,y=360,width=100,height=30)
 
 
 
