@@ -11,7 +11,6 @@ class Aplicacion():
 
         self.frame=tk.Frame(self.ventana,bg="DarkOliveGreen3")
         self.frame.pack(expand=True,fill="both")
-        self.frame.config(cursor="pirate")
         
 
         self.txt0=tk.Label(self.frame,text="EMPLEADO : ",bg="olivedrab2")
@@ -53,6 +52,30 @@ class Aplicacion():
         self.caja6=tk.Entry(self.frame)
         self.caja6.place(x=250,y=410,width=100,height=40)
 
+        self.frame2=tk.Frame(self.ventana,bg="lightblue")
+        self.frame2.place(x=380,y=410,width=230,height=200)
+        self.frame2.config(cursor="heart")
+
+        self.boton1=tk.Button(self.frame2,text="Registrar",command=self.Registrar)
+        self.boton1.place(x=60,y=10,width=100,height=30)
+
+        self.boton2=tk.Button(self.frame2,text="Borrar Registro",command=self.Borrar)
+        self.boton2.place(x=60,y=80,width=100,height=30)
+
+        self.boton3=tk.Button(self.frame2,text="Checar Datos",command=self.Checar)
+        self.boton3.place(x=60,y=150,width=100,height=30)
+
         self.ventana.mainloop()
+
+
+
+    def Registrar(self):
+        pass
+
+    def Borrar(self):
+        pass
+
+    def Checar(self):
+        pass
 
 app=Aplicacion()
