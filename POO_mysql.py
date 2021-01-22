@@ -227,7 +227,7 @@ class Aplicacion():
     def BuscMatri(self):
         self.ventana5=tk.Tk()
         self.ventana5.title("Buscador por Matricula : ")
-        self.ventana5.geometry("150x150")
+        self.ventana5.geometry("150x160")
 
         self.frame4=tk.Frame(self.ventana5,bg="steel blue")
         self.frame4.pack(expand=True,fill="both")
@@ -237,8 +237,100 @@ class Aplicacion():
 
         self.caja001=tk.Entry(self.frame4)
         self.caja001.place(x=20,y=80,width=100,height=30)
+
+        self.boton11=tk.Button(self.frame4,text="Buscar",command=self.BuscarMatricula)
+        self.boton11.place(x=20,y=120,width=100,height=30)
         self.ventana5.mainloop()
 
-        
+    def BuscarMatricula(self):
+        try:
+            contador=0
+            lugar=80
+            xl=10
+            with sqlite3.connect("Empleados.db") as conn:
+                c = conn.cursor()
+                mat=self.caja001.get()
+                matricula=int(mat)
+                valor={"clave":matricula}
+                c.execute("SELECT * FROM registro WHERE clave = :clave" , valor)
+                registros=c.fetchall()
 
+            
+                for elemento in registros:
+                    contador=contador+1
+            
+                if contador==0:
+                    self.ventana55=tk.Tk()
+                    self.ventana55.title(" :( ")
+                    self.ventana55.geometry("200x100")
+
+                    self.frame001=tk.Frame(self.ventana55,bg="green3")
+                    self.frame001.pack(expand=True,fill="both")
+
+                    self.txt55=tk.Label(self.frame001,text="No se encontro registro: ",bg="cyan")
+                    self.txt55.place(x=20,y=30,width=150,height=30)
+                    self.ventana55.mainloop()
+
+                else:
+                    self.ventana6=tk.Tk()
+                    self.ventana6.title("Matricula : ")
+                    self.ventana6.geometry("550x500")
+
+                    self.frame5=tk.Frame(self.ventana6,bg="steel blue")
+                    self.frame5.pack(expand=True,fill="both")
+
+                    
+                    self.txt000=tk.Label(self.frame5,text="Matricula",bg="peach puff")
+                    self.txt000.place(x=10,y=20,width=80,height=30)
+
+                    self.txt001=tk.Label(self.frame5,text="Nombre",bg="peach puff")
+                    self.txt001.place(x=100,y=20,width=80,height=30)
+
+                    self.txt002=tk.Label(self.frame5,text="Apellidos",bg="peach puff")
+                    self.txt002.place(x=190,y=20,width=80,height=30)
+
+                    self.txt002=tk.Label(self.frame5,text="Edad",bg="peach puff")
+                    self.txt002.place(x=280,y=20,width=80,height=30)
+
+                    self.txt003=tk.Label(self.frame5,text="Telefono",bg="peach puff")
+                    self.txt003.place(x=370,y=20,width=80,height=30)
+
+                    self.txt004=tk.Label(self.frame5,text="Domicilio",bg="peach puff")
+                    self.txt004.place(x=460,y=20,width=80,height=30)
+
+                    for clave,nombre,apellido,edad,telefono,domicilio in registros:
+                        self.txt002=tk.Label(self.frame5,text=clave,bg="orange")
+                        self.txt002.place(x=xl,y=lugar,width=80,height=30)
+                        xl=xl+90
+                        
+
+                        self.txt003=tk.Label(self.frame5,text=nombre,bg="orange")
+                        self.txt003.place(x=xl,y=lugar,width=80,height=30)
+                        xl=xl+90
+                       
+
+                        self.txt004=tk.Label(self.frame5,text=apellido,bg="orange")
+                        self.txt004.place(x=xl,y=lugar,width=80,height=30)
+                        xl=xl+90
+                     
+
+                        self.txt005=tk.Label(self.frame5,text=edad,bg="orange")
+                        self.txt005.place(x=xl,y=lugar,width=80,height=30)
+                        xl=xl+90
+                        
+
+                        self.txt006=tk.Label(self.frame5,text=telefono,bg="orange")
+                        self.txt006.place(x=xl,y=lugar,width=80,height=30)
+                        xl=xl+90
+                      
+
+                        self.txt007=tk.Label(self.frame5,text=domicilio,bg="orange")
+                        self.txt007.place(x=xl,y=lugar,width=80,height=30)
+                        xl=xl+90
+                        lugar=lugar+30
+                        
+                        self.ventana6.mainloop()
+
+        except Error as e:
+            print (e)        
 app=Aplicacion()
