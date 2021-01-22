@@ -201,7 +201,7 @@ class Aplicacion():
         self.txt7=tk.Label(self.frame3,text="Buscar por: ",bg="dark turquoise")
         self.txt7.place(x=60,y=30,width=120,height=30)
 
-        self.boton10=tk.Button(self.frame3,text="Matricula",command=self.Borrar_Todo)
+        self.boton10=tk.Button(self.frame3,text="Matricula",command=self.BuscMatri)
         self.boton10.place(x=70,y=70,width=100,height=30)
 
         self.boton11=tk.Button(self.frame3,text="Nombre",command=self.Borrar_Todo)
@@ -222,9 +222,23 @@ class Aplicacion():
         self.boton13=tk.Button(self.frame3,text="TODOS",command=self.Borrar_Todo)
         self.boton13.place(x=70,y=310,width=100,height=30)
 
-
-
-
         self.ventana4.mainloop()
+
+    def BuscMatri(self):
+        self.ventana5=tk.Tk()
+        self.ventana5.title("Buscador por Matricula : ")
+        self.ventana5.geometry("150x150")
+
+        self.frame4=tk.Frame(self.ventana5,bg="steel blue")
+        self.frame4.pack(expand=True,fill="both")
+
+        self.txt001=tk.Label(self.frame4,text="MATRICULA: ",bg="dark turquoise")
+        self.txt001.place(x=20,y=30,width=100,height=30)
+
+        self.caja001=tk.Entry(self.frame4)
+        self.caja001.place(x=20,y=80,width=100,height=30)
+        self.ventana5.mainloop()
+
+        
 
 app=Aplicacion()
