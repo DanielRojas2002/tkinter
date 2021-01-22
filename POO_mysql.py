@@ -99,14 +99,14 @@ class Aplicacion():
             edad1=int(edad)
             telefono1=int(telefono)
 
-            if len(nombre)==0:
-                x=clave1+nombre
+            if len(nombre)==0 or nombre.isdigit():
+                x="z"+1
 
-            if len(apellido)==0:
-                x=clave1+nombre
+            if len(apellido)==0 or apellido.isdigit():
+                x="z"+1
 
-            if len(domicilio)==0:
-                x=clave1+nombre
+            if len(domicilio)==0 or domicilio.isdigit():
+                x="z"+1
 
             try:
                 with sqlite3.connect("Empleados.db") as conn:
