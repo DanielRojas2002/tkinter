@@ -384,13 +384,13 @@ class Aplicacion():
                 if contador==0:
                     self.ventanae=tk.Tk()
                     self.ventanae.title(" :( ")
-                    self.ventanae.geometry("200x100")
+                    self.ventanae.geometry("250x100")
 
                     self.frame11=tk.Frame(self.ventanae,bg="green3")
                     self.frame11.pack(expand=True,fill="both")
 
-                    self.txt111=tk.Label(self.frame11,text="No se encontro registro: ",bg="cyan")
-                    self.txt111.place(x=20,y=30,width=150,height=30)
+                    self.txt111=tk.Label(self.frame11,text="- No se encontro registro\n- Introdujo un valor no permitido ",bg="cyan")
+                    self.txt111.place(x=30,y=30,width=180,height=30)
                     self.ventanae.mainloop()
 
                 else:
@@ -434,7 +434,7 @@ class Aplicacion():
                         
                     self.ventana9.mainloop()
 
-        except Error as e:
+        except :
             print (e)
 
 
