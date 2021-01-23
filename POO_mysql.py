@@ -25,6 +25,9 @@ class Aplicacion():
         self.txt0101.place(x=40,y=10,width=500,height=100)
 
     
+        self.image=tk.PhotoImage(file="base.gif")
+        self.txt=tk.Label(image=self.image)
+        self.txt.place(x=85,y=150)
 
 
         self.frame2=tk.Frame(self.ventanai,bg="deep sky blue")
