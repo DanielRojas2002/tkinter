@@ -59,7 +59,7 @@ class Aplicacion():
         self.frame2.place(x=380,y=410,width=230,height=200)
         self.frame2.config(cursor="heart")
 
-        self.boton0=tk.Button(self.frame,text="Borrar Todo",command=self.Borrar_Todo)
+        self.boton0=tk.Button(self.frame,text="Borrar Datos",command=self.Borrar_Todo)
         self.boton0.place(x=440,y=360,width=100,height=30)
 
         self.boton1=tk.Button(self.frame2,text="Registrar",command=self.Registrar)
