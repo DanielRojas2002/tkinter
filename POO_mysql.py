@@ -264,7 +264,7 @@ class Aplicacion():
                     self.txt04.place(x=30,y=390,width=100,height=30)
 
                     self.boton00=tk.Button(self.ventana,text="BORRAR",command=self.Borrar_REGISTRO)
-                    self.boton00.place(x=250,y=450,width=100,height=30)
+                    self.boton00.place(x=380,y=450,width=100,height=30)
 
                     for clave,nombre,apellido,edad,telefono,domicilio in registros:
                         self.txt002=tk.Label(self.ventana,text=clave,bg="orange")
@@ -329,7 +329,7 @@ class Aplicacion():
 
         self.txt55=tk.Label(self.frame001,text="REGISTRO BORRADO SATISFACTORIAMENTE ",bg="tan1")
         self.txt55.place(x=40,y=30,width=250,height=30)
-        self.ventana55.mainloop()
+        self.ventana122.mainloop()
 
    
     def Buscar_Registros(self):
