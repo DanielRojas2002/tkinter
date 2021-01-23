@@ -8,6 +8,30 @@ from sqlite3 import Error
 
 class Aplicacion():
     def __init__(self):
+
+        self.ventanai=tk.Tk()
+        self.ventanai.title("BIENVENIDO : ")
+        self.ventanai.geometry("600x600")
+
+        self.frame=tk.Frame(self.ventanai,bg="slate gray")
+        self.frame.pack(expand=True,fill="both")
+
+        self.frame2=tk.Frame(self.ventanai,bg="deep sky blue")
+        self.frame2.place(x=0,y=480,width=600,height=130)
+
+        self.botonAlta=tk.Button(self.frame2,text="ALTA",command=self.Alta)
+        self.botonAlta.place(x=10,y=20,width=100,height=30)
+
+        self.boton2=tk.Button(self.frame2,text="BAJA",command=self.Borrar_Registro)
+        self.boton2.place(x=10,y=70,width=100,height=30)
+
+        self.boton3=tk.Button(self.frame2,text="CONSULTA",command=self.Buscar_Registros)
+        self.boton3.place(x=140,y=20,width=100,height=30)
+
+
+        self.ventanai.mainloop()
+
+    def Alta(self):
         self.ventana=tk.Tk()
         self.ventana.title("Registro de Empleados : ")
         self.ventana.geometry("600x600")
@@ -65,11 +89,7 @@ class Aplicacion():
         self.boton1=tk.Button(self.frame2,text="Registrar",command=self.Registrar)
         self.boton1.place(x=60,y=10,width=100,height=30)
 
-        self.boton2=tk.Button(self.frame2,text="Borrar Registro",command=self.Borrar_Registro)
-        self.boton2.place(x=60,y=80,width=100,height=30)
-
-        self.boton3=tk.Button(self.frame2,text="Buscar Registros",command=self.Buscar_Registros)
-        self.boton3.place(x=60,y=150,width=100,height=30)
+        
 
         self.ventana.mainloop()
 
