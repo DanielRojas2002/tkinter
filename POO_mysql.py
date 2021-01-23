@@ -94,14 +94,14 @@ class Aplicacion():
         self.caja6.place(x=250,y=410,width=120,height=40)
 
         self.frame2=tk.Frame(self.ventana,bg="deep sky blue")
-        self.frame2.place(x=380,y=410,width=230,height=200)
+        self.frame2.place(x=380,y=510,width=230,height=100)
         self.frame2.config(cursor="heart")
 
         self.boton0=tk.Button(self.frame,text="Borrar Datos",command=self.Borrar_Todo)
-        self.boton0.place(x=440,y=360,width=100,height=30)
+        self.boton0.place(x=440,y=300,width=100,height=30)
 
         self.boton1=tk.Button(self.frame2,text="Registrar",command=self.Registrar)
-        self.boton1.place(x=60,y=10,width=100,height=30)
+        self.boton1.place(x=60,y=30,width=100,height=30)
 
         
 
