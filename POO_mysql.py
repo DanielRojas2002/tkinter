@@ -220,7 +220,7 @@ class Aplicacion():
         self.boton13=tk.Button(self.frame3,text="Domicilio",command=self.BuscDom)
         self.boton13.place(x=70,y=270,width=100,height=30)
 
-        self.boton13=tk.Button(self.frame3,text="TODOS",command=self.Borrar_Todo)
+        self.boton13=tk.Button(self.frame3,text="TODOS",command=self.BuscarTodos)
         self.boton13.place(x=70,y=310,width=100,height=30)
 
         self.ventana4.mainloop()
@@ -814,6 +814,56 @@ class Aplicacion():
                     self.ventana9.mainloop()
         except :
             print ("d")
+
+    def BuscarTodos(self):
+        try:
+            with sqlite3.connect("Empleados.db") as conn:
+                c = conn.cursor()
+                c.execute("SELECT * FROM registro ")
+                registros=c.fetchall()
+
+            self.ventana9=tk.Tk()
+            self.ventana9.title("Todos los Registros: ")
+            self.ventana9.geometry("700x500")
+            self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
+            self.frame09.pack(expand=True,fill="both")
+
+            self.scroll_x=tk.Scrollbar(self.frame09,orient="horizontal")
+            self.scroll_y=tk.Scrollbar(self.frame09,orient="vertical")
+
+            self.Empleado_Tabla=ttk.Treeview(self.frame09,columns=("matricula","nombre","apellido","edad","telefono","domicilio"),xscrollcommand=self.scroll_x.set,yscrollcommand=self.scroll_y.set)
+            self.scroll_x.pack(side="bottom",fill="x")
+            self.scroll_y.pack(side="right",fill="y")
+            self.scroll_x.config(command=self.Empleado_Tabla.xview)
+            self.scroll_y.config(command=self.Empleado_Tabla.yview)
+
+            self.Empleado_Tabla.heading("matricula",text="Matricula")
+            self.Empleado_Tabla.heading("nombre",text="Nombre")
+            self.Empleado_Tabla.heading("apellido",text="Apellido")
+            self.Empleado_Tabla.heading("edad",text="Edad")
+            self.Empleado_Tabla.heading("telefono",text="Telefono")
+            self.Empleado_Tabla.heading("domicilio",text="Domicilio")
+            self.Empleado_Tabla.pack(fill="both",expand=1)
+
+            self.Empleado_Tabla['show']='headings'
+            self.Empleado_Tabla.column("matricula",width=100)
+            self.Empleado_Tabla.column("nombre",width=100)
+            self.Empleado_Tabla.column("apellido",width=100)
+            self.Empleado_Tabla.column("edad",width=50)
+            self.Empleado_Tabla.column("telefono",width=90)
+            self.Empleado_Tabla.column("domicilio",width=120)
+            
+
+            index = iid = 0
+            for elemento in registros:
+                self.Empleado_Tabla.insert("", index, iid, values=elemento)
+                index = iid = index + 1
+
+                
+            self.ventana9.mainloop()
+        except:
+            print("d")
+
 
 
 
