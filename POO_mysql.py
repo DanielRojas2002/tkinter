@@ -332,8 +332,17 @@ class Aplicacion():
                         
                         self.ventana6.mainloop()
 
-        except Error as e:
-            print (e)
+        except:
+            self.ventana555=tk.Tk()
+            self.ventana555.title(" :( ")
+            self.ventana555.geometry("200x100")
+
+            self.frame001=tk.Frame(self.ventana555,bg="green3")
+            self.frame001.pack(expand=True,fill="both")
+
+            self.txt55=tk.Label(self.frame001,text="Ingreso un Dato Incorrecto ",bg="cyan")
+            self.txt55.place(x=20,y=30,width=150,height=30)
+            self.ventana555.mainloop()
 
 
     def BuscNom(self):
