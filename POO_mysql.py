@@ -275,7 +275,7 @@ class Aplicacion():
                 else:
                     self.ventana6=tk.Tk()
                     self.ventana6.title("Matricula : ")
-                    self.ventana6.geometry("550x500")
+                    self.ventana6.geometry("550x200")
 
                     self.frame5=tk.Frame(self.ventana6,bg="steel blue")
                     self.frame5.pack(expand=True,fill="both")
