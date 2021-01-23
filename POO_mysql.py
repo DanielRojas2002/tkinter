@@ -263,6 +263,9 @@ class Aplicacion():
                     self.txt04=tk.Label(self.ventana,text="Domicilio : ",bg="peach puff")
                     self.txt04.place(x=30,y=390,width=100,height=30)
 
+                    self.boton00=tk.Button(self.ventana,text="BORRAR",command=self.Borrar_REGISTRO)
+                    self.boton00.place(x=250,y=450,width=100,height=30)
+
                     for clave,nombre,apellido,edad,telefono,domicilio in registros:
                         self.txt002=tk.Label(self.ventana,text=clave,bg="orange")
                         self.txt002.place(x=200,y=140,width=80,height=30)
@@ -309,35 +312,26 @@ class Aplicacion():
 
 
     def Borrar_REGISTRO(self):
-        try:
-            contador=0
-            lugar=80
-            xl=10
-            with sqlite3.connect("Empleados.db") as conn:
-                c = conn.cursor()
-                mat=self.caja000.get()
-                clave=int(mat)
-                valor={"clave":clave}
-                c.execute("DELETE  FROM registro WHERE clave = :clave" , valor)
-                conn.commit()
+        with sqlite3.connect("Empleados.db") as conn:
+            c = conn.cursor()
+            mat=self.caja000.get()
+            clave=int(mat)
+            valor={"clave":clave}
+            c.execute("DELETE  FROM registro WHERE clave = :clave" , valor)
+            conn.commit()
 
-            self.ventana122=tk.Tk()
-            self.ventana122.title(" :( ")
-            self.ventana122.geometry("200x100")
+        self.ventana122=tk.Tk()
+        self.ventana122.title(" :) ")
+        self.ventana122.geometry("350x100")
 
-            self.frame001=tk.Frame(self.ventana122,bg="green3")
-            self.frame001.pack(expand=True,fill="both")
+        self.frame001=tk.Frame(self.ventana122,bg="gold")
+        self.frame001.pack(expand=True,fill="both")
 
-            self.txt55=tk.Label(self.frame001,text="REGISTRO BORRADO SATISFACTORIAMENTE ",bg="cyan")
-            self.txt55.place(x=20,y=30,width=150,height=30)
-            self.ventana555.mainloop()
-
-        except:
-            print("error")
-                
+        self.txt55=tk.Label(self.frame001,text="REGISTRO BORRADO SATISFACTORIAMENTE ",bg="tan1")
+        self.txt55.place(x=40,y=30,width=250,height=30)
+        self.ventana55.mainloop()
 
    
-
     def Buscar_Registros(self):
         self.ventana4=tk.Tk()
         self.ventana4.title("Buscador : ")
