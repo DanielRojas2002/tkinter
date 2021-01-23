@@ -416,41 +416,12 @@ class Aplicacion():
                     self.Empleado_Tabla.column("telefono",width=90)
                     self.Empleado_Tabla.column("domicilio",width=120)
                     
-                    for clave,nombre,apellido,edad,telefono,domicilio in registros:
-                        self.Empleado_Tabla.insert('',0,text=clave,values=clave)
-                        self.Empleado_Tabla.insert('',1,text=nombre,values=nombre)
-                        self.Empleado_Tabla.insert('',2,text=apellido,values=apellido)
-                        self.Empleado_Tabla.insert('',3,text=edad,values=edad)
-                        self.Empleado_Tabla.insert('',4,text=telefono,values=telefono)
-                        self.Empleado_Tabla.insert('',5,text=domicilio,values=domicilio)
-                        #self.txt016.place(x=xl,y=lugar,width=80,height=30)
-                       # xl=xl+90
-                        
-
-                        #self.txt017=tk.Label(self.frame09,text=nombre,bg="orange")
-                       # self.txt017.place(x=xl,y=lugar,width=80,height=30)
-                       # xl=xl+90
-                       
-
-                       # self.txt018=tk.Label(self.frame09,text=apellido,bg="orange")
-                       # self.txt018.place(x=xl,y=lugar,width=80,height=30)
-                       # xl=xl+90
-                     
-
-                        #self.txt019=tk.Label(self.frame09,text=edad,bg="orange")
-                       # self.txt019.place(x=xl,y=lugar,width=80,height=30)
-                       # xl=xl+90
-                        
-
-                        #self.txt020=tk.Label(self.frame09,text=telefono,bg="orange")
-                        #self.txt020.place(x=xl,y=lugar,width=80,height=30)
-                        #xl=xl+90
-                      
-
-                        #self.txt021=tk.Label(self.frame09,text=domicilio,bg="orange")
-                        #self.txt021.place(x=xl,y=lugar,width=80,height=30)
-                        #xl=10
-                        #lugar=lugar+60
+    
+                    index = iid = 0
+                    for elemento in registros:
+                        self.Empleado_Tabla.insert("", index, iid, values=elemento)
+                        index = iid = index + 1
+    
                         
                     self.ventana9.mainloop()
 
