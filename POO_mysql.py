@@ -11,9 +11,10 @@ class Aplicacion():
     def __init__(self):
 
         self.ventanai=tk.Tk()
-        self.ventanai.title("BIENVENIDO : ")
+        self.ventanai.title("BIENVENIDO AL GESTOR DE EMPLEADOS : ")
         self.ventanai.geometry("600x600")
         self.fontStyle = tkFont.Font(family="Lucida Grande", size=20)
+        self.ventanai.iconbitmap("icono.ico")
 
         self.frame=tk.Frame(self.ventanai,bg="slate gray")
         self.frame.pack(expand=True,fill="both")
@@ -48,10 +49,12 @@ class Aplicacion():
 
         self.ventanai.mainloop()
 
+
     def Alta(self):
         self.ventana=tk.Tk()
         self.ventana.title("Registro de Empleados : ")
         self.ventana.geometry("600x600")
+        self.ventana.iconbitmap("icono.ico")
 
         self.frame=tk.Frame(self.ventana,bg="slate gray")
         self.frame.pack(expand=True,fill="both")
@@ -162,6 +165,7 @@ class Aplicacion():
                 self.ventana=tk.Tk()
                 self.ventana.title("Registro Datos : ")
                 self.ventana.geometry("500x500")
+                self.ventana.iconbitmap("icono.ico")
                 self.txt00=tk.Label(self.ventana,text="Registro Completado Satisfactoriamente: ",bg="peach puff")
                 self.txt00.place(x=120,y=20,width=250,height=40)
 
@@ -197,6 +201,7 @@ class Aplicacion():
                 self.ventana2=tk.Tk()
                 self.ventana2.title("Error: ")
                 self.ventana2.geometry("500x250")
+                self.ventana2.iconbitmap("icono.ico")
                 self.txt00=tk.Label(self.ventana2,text="No se pudo registrar el registro: ",bg="peach puff")
                 self.txt00.place(x=150,y=20,width=200,height=40)
 
@@ -210,6 +215,7 @@ class Aplicacion():
             self.ventana3=tk.Tk()
             self.ventana3.title("Error: ")
             self.ventana3.geometry("500x250")
+            self.ventana3.iconbitmap("icono.ico")
             self.txt00=tk.Label(self.ventana3,text="No se pudo registrar el registro: ",bg="peach puff")
             self.txt00.place(x=150,y=20,width=200,height=40)
 
@@ -229,6 +235,7 @@ class Aplicacion():
         self.ventana5=tk.Tk()
         self.ventana5.title("Borrar Registro : ")
         self.ventana5.geometry("200x200")
+        self.ventana5.iconbitmap("icono.ico")
 
         self.frame4=tk.Frame(self.ventana5,bg="steel blue")
         self.frame4.pack(expand=True,fill="both")
@@ -264,6 +271,7 @@ class Aplicacion():
                     self.ventana55=tk.Tk()
                     self.ventana55.title(" :( ")
                     self.ventana55.geometry("200x100")
+                    self.ventana55.iconbitmap("icono.ico")
 
                     self.frame001=tk.Frame(self.ventana55,bg="green3")
                     self.frame001.pack(expand=True,fill="both")
@@ -276,6 +284,7 @@ class Aplicacion():
                     self.ventana=tk.Tk()
                     self.ventana.title("DATOS A BORRAR : ")
                     self.ventana.geometry("500x500")
+                    self.ventana.iconbitmap("icono.ico")
                     self.txt00=tk.Label(self.ventana,text="Registro a Borrar: ",bg="peach puff")
                     self.txt00.place(x=120,y=20,width=250,height=40)
 
@@ -338,6 +347,7 @@ class Aplicacion():
             self.ventana555=tk.Tk()
             self.ventana555.title(" :( ")
             self.ventana555.geometry("200x100")
+            self.ventana555.iconbitmap("icono.ico")
 
             self.frame001=tk.Frame(self.ventana555,bg="green3")
             self.frame001.pack(expand=True,fill="both")
@@ -360,6 +370,7 @@ class Aplicacion():
         self.ventana122=tk.Tk()
         self.ventana122.title(" :) ")
         self.ventana122.geometry("350x100")
+        self.ventana122.iconbitmap("icono.ico")
 
         self.frame001=tk.Frame(self.ventana122,bg="gold")
         self.frame001.pack(expand=True,fill="both")
@@ -373,6 +384,7 @@ class Aplicacion():
         self.ventana4=tk.Tk()
         self.ventana4.title("Buscador : ")
         self.ventana4.geometry("250x350")
+        self.ventana4.iconbitmap("icono.ico")
 
         self.frame3=tk.Frame(self.ventana4,bg="steel blue")
         self.frame3.pack(expand=True,fill="both")
@@ -407,6 +419,7 @@ class Aplicacion():
         self.ventana5=tk.Tk()
         self.ventana5.title("Buscador por Matricula : ")
         self.ventana5.geometry("150x160")
+        self.ventana5.iconbitmap("icono.ico")
 
         self.frame4=tk.Frame(self.ventana5,bg="steel blue")
         self.frame4.pack(expand=True,fill="both")
@@ -442,6 +455,7 @@ class Aplicacion():
                     self.ventana55=tk.Tk()
                     self.ventana55.title(" :( ")
                     self.ventana55.geometry("200x100")
+                    self.ventana55.iconbitmap("icono.ico")
 
                     self.frame001=tk.Frame(self.ventana55,bg="green3")
                     self.frame001.pack(expand=True,fill="both")
@@ -454,6 +468,7 @@ class Aplicacion():
                     self.ventana6=tk.Tk()
                     self.ventana6.title("Matricula : ")
                     self.ventana6.geometry("550x200")
+                    self.ventana6.iconbitmap("icono.ico")
 
                     self.frame5=tk.Frame(self.ventana6,bg="steel blue")
                     self.frame5.pack(expand=True,fill="both")
@@ -514,6 +529,7 @@ class Aplicacion():
             self.ventana555=tk.Tk()
             self.ventana555.title(" :( ")
             self.ventana555.geometry("200x100")
+            self.ventana555.iconbitmap("icono.ico")
 
             self.frame001=tk.Frame(self.ventana555,bg="green3")
             self.frame001.pack(expand=True,fill="both")
@@ -527,6 +543,7 @@ class Aplicacion():
         self.ventana7=tk.Tk()
         self.ventana7.title("Buscador por Nombre : ")
         self.ventana7.geometry("150x160")
+        self.ventana7.iconbitmap("icono.ico")
 
         self.frame7=tk.Frame(self.ventana7,bg="steel blue")
         self.frame7.pack(expand=True,fill="both")
@@ -563,6 +580,7 @@ class Aplicacion():
                     self.ventanae=tk.Tk()
                     self.ventanae.title(" :( ")
                     self.ventanae.geometry("250x100")
+                    self.ventanae.iconbitmap("icono.ico")
 
                     self.frame11=tk.Frame(self.ventanae,bg="green3")
                     self.frame11.pack(expand=True,fill="both")
@@ -575,6 +593,7 @@ class Aplicacion():
                     self.ventana9=tk.Tk()
                     self.ventana9.title("Matricula : ")
                     self.ventana9.geometry("700x500")
+                    self.ventana9.iconbitmap("icono.ico")
                     self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
                     self.frame09.pack(expand=True,fill="both")
 
@@ -619,6 +638,7 @@ class Aplicacion():
         self.ventana5=tk.Tk()
         self.ventana5.title("Buscador por Apellido : ")
         self.ventana5.geometry("150x160")
+        self.ventana5.iconbitmap("icono.ico")
 
         self.frame4=tk.Frame(self.ventana5,bg="steel blue")
         self.frame4.pack(expand=True,fill="both")
@@ -654,6 +674,7 @@ class Aplicacion():
                     self.ventanae=tk.Tk()
                     self.ventanae.title(" :( ")
                     self.ventanae.geometry("250x100")
+                    self.ventanae.iconbitmap("icono.ico")
 
                     self.frame11=tk.Frame(self.ventanae,bg="green3")
                     self.frame11.pack(expand=True,fill="both")
@@ -666,6 +687,7 @@ class Aplicacion():
                     self.ventana9=tk.Tk()
                     self.ventana9.title("Apellido : ")
                     self.ventana9.geometry("700x500")
+                    self.ventana9.iconbitmap("icono.ico")
                     self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
                     self.frame09.pack(expand=True,fill="both")
 
@@ -709,6 +731,7 @@ class Aplicacion():
         self.ventana7=tk.Tk()
         self.ventana7.title("Buscador por Edad : ")
         self.ventana7.geometry("150x160")
+        self.ventana7.iconbitmap("icono.ico")
 
         self.frame7=tk.Frame(self.ventana7,bg="steel blue")
         self.frame7.pack(expand=True,fill="both")
@@ -744,6 +767,7 @@ class Aplicacion():
                     self.ventanae=tk.Tk()
                     self.ventanae.title(" :( ")
                     self.ventanae.geometry("250x100")
+                    self.ventanae.iconbitmap("icono.ico")
 
                     self.frame11=tk.Frame(self.ventanae,bg="green3")
                     self.frame11.pack(expand=True,fill="both")
@@ -756,6 +780,7 @@ class Aplicacion():
                     self.ventana9=tk.Tk()
                     self.ventana9.title("Edad : ")
                     self.ventana9.geometry("700x500")
+                    self.ventana9.iconbitmap("icono.ico")
                     self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
                     self.frame09.pack(expand=True,fill="both")
 
@@ -796,6 +821,7 @@ class Aplicacion():
             self.ventana555=tk.Tk()
             self.ventana555.title(" :( ")
             self.ventana555.geometry("200x100")
+            self.ventana555.iconbitmap("icono.ico")
 
             self.frame001=tk.Frame(self.ventana555,bg="green3")
             self.frame001.pack(expand=True,fill="both")
@@ -808,6 +834,7 @@ class Aplicacion():
         self.ventana7=tk.Tk()
         self.ventana7.title("Buscador por Telefono : ")
         self.ventana7.geometry("150x160")
+        self.ventana7.iconbitmap("icono.ico")
 
         self.frame7=tk.Frame(self.ventana7,bg="steel blue")
         self.frame7.pack(expand=True,fill="both")
@@ -843,6 +870,7 @@ class Aplicacion():
                     self.ventanae=tk.Tk()
                     self.ventanae.title(" :( ")
                     self.ventanae.geometry("250x100")
+                    self.ventanae.iconbitmap("icono.ico")
 
                     self.frame11=tk.Frame(self.ventanae,bg="green3")
                     self.frame11.pack(expand=True,fill="both")
@@ -855,6 +883,7 @@ class Aplicacion():
                     self.ventana9=tk.Tk()
                     self.ventana9.title("Telefono : ")
                     self.ventana9.geometry("700x500")
+                    self.ventana9.iconbitmap("icono.ico")
                     self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
                     self.frame09.pack(expand=True,fill="both")
 
@@ -895,6 +924,7 @@ class Aplicacion():
             self.ventana555=tk.Tk()
             self.ventana555.title(" :( ")
             self.ventana555.geometry("200x100")
+            self.ventana555.iconbitmap("icono.ico")
 
             self.frame001=tk.Frame(self.ventana555,bg="green3")
             self.frame001.pack(expand=True,fill="both")
@@ -907,6 +937,7 @@ class Aplicacion():
         self.ventana7=tk.Tk()
         self.ventana7.title("Buscador por Domicilio : ")
         self.ventana7.geometry("150x160")
+        self.ventana7.iconbitmap("icono.ico")
 
         self.frame7=tk.Frame(self.ventana7,bg="steel blue")
         self.frame7.pack(expand=True,fill="both")
@@ -942,6 +973,7 @@ class Aplicacion():
                     self.ventanae=tk.Tk()
                     self.ventanae.title(" :( ")
                     self.ventanae.geometry("250x100")
+                    self.ventanae.iconbitmap("icono.ico")
 
                     self.frame11=tk.Frame(self.ventanae,bg="green3")
                     self.frame11.pack(expand=True,fill="both")
@@ -954,6 +986,7 @@ class Aplicacion():
                     self.ventana9=tk.Tk()
                     self.ventana9.title("Domicilio : ")
                     self.ventana9.geometry("700x500")
+                    self.ventana9.iconbitmap("icono.ico")
                     self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
                     self.frame09.pack(expand=True,fill="both")
 
@@ -1003,6 +1036,7 @@ class Aplicacion():
             self.ventana9=tk.Tk()
             self.ventana9.title("Todos los Registros: ")
             self.ventana9.geometry("700x500")
+            self.ventana9.iconbitmap("icono.ico")
             self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
             self.frame09.pack(expand=True,fill="both")
 
@@ -1041,19 +1075,6 @@ class Aplicacion():
             self.ventana9.mainloop()
         except:
             print("d")
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
