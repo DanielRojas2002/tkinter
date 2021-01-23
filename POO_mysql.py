@@ -214,7 +214,7 @@ class Aplicacion():
         self.boton13=tk.Button(self.frame3,text="Edad",command=self.BuscEd)
         self.boton13.place(x=70,y=190,width=100,height=30)
 
-        self.boton13=tk.Button(self.frame3,text="Telefono",command=self.Borrar_Todo)
+        self.boton13=tk.Button(self.frame3,text="Telefono",command=self.BuscTel)
         self.boton13.place(x=70,y=230,width=100,height=30)
 
         self.boton13=tk.Button(self.frame3,text="Domicilio",command=self.Borrar_Todo)
@@ -625,6 +625,108 @@ class Aplicacion():
             self.txt55=tk.Label(self.frame001,text="Ingreso un Dato Incorrecto ",bg="cyan")
             self.txt55.place(x=20,y=30,width=150,height=30)
             self.ventana555.mainloop()
+    
+    def BuscTel(self):
+        self.ventana7=tk.Tk()
+        self.ventana7.title("Buscador por Telefono : ")
+        self.ventana7.geometry("150x160")
+
+        self.frame7=tk.Frame(self.ventana7,bg="steel blue")
+        self.frame7.pack(expand=True,fill="both")
+
+        self.txt77=tk.Label(self.frame7,text="Telefono: ",bg="dark turquoise")
+        self.txt77.place(x=20,y=30,width=100,height=30)
+
+        self.caja777=tk.Entry(self.frame7)
+        self.caja777.place(x=20,y=80,width=100,height=30)
+
+        self.boton77=tk.Button(self.frame7,text="Buscar",command=self.BuscarTelefono)
+        self.boton77.place(x=20,y=120,width=100,height=30)
+        self.ventana7.mainloop()
+
+    def BuscarTelefono(self):
+        try:
+            contador=0
+            lugar=80
+            xl=10
+            with sqlite3.connect("Empleados.db") as conn:
+                c = conn.cursor()
+                tel=self.caja777.get()
+                telefono=int(tel)
+                valor={"telefono":telefono}
+                c.execute("SELECT * FROM registro WHERE telefono = :telefono" , valor)
+                registros=c.fetchall()
+
+            
+                for elemento in registros:
+                    contador=contador+1
+            
+                if contador==0:
+                    self.ventanae=tk.Tk()
+                    self.ventanae.title(" :( ")
+                    self.ventanae.geometry("250x100")
+
+                    self.frame11=tk.Frame(self.ventanae,bg="green3")
+                    self.frame11.pack(expand=True,fill="both")
+
+                    self.txt111=tk.Label(self.frame11,text="- No se encontro registro ",bg="cyan")
+                    self.txt111.place(x=30,y=30,width=180,height=30)
+                    self.ventanae.mainloop()
+
+                else:
+                    self.ventana9=tk.Tk()
+                    self.ventana9.title("Telefono : ")
+                    self.ventana9.geometry("700x500")
+                    self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
+                    self.frame09.pack(expand=True,fill="both")
+
+                    self.scroll_x=tk.Scrollbar(self.frame09,orient="horizontal")
+                    self.scroll_y=tk.Scrollbar(self.frame09,orient="vertical")
+
+                    self.Empleado_Tabla=ttk.Treeview(self.frame09,columns=("matricula","nombre","apellido","edad","telefono","domicilio"),xscrollcommand=self.scroll_x.set,yscrollcommand=self.scroll_y.set)
+                    self.scroll_x.pack(side="bottom",fill="x")
+                    self.scroll_y.pack(side="right",fill="y")
+                    self.scroll_x.config(command=self.Empleado_Tabla.xview)
+                    self.scroll_y.config(command=self.Empleado_Tabla.yview)
+
+                    self.Empleado_Tabla.heading("matricula",text="Matricula")
+                    self.Empleado_Tabla.heading("nombre",text="Nombre")
+                    self.Empleado_Tabla.heading("apellido",text="Apellido")
+                    self.Empleado_Tabla.heading("edad",text="Edad")
+                    self.Empleado_Tabla.heading("telefono",text="Telefono")
+                    self.Empleado_Tabla.heading("domicilio",text="Domicilio")
+                    self.Empleado_Tabla.pack(fill="both",expand=1)
+
+                    self.Empleado_Tabla['show']='headings'
+                    self.Empleado_Tabla.column("matricula",width=100)
+                    self.Empleado_Tabla.column("nombre",width=100)
+                    self.Empleado_Tabla.column("apellido",width=100)
+                    self.Empleado_Tabla.column("edad",width=50)
+                    self.Empleado_Tabla.column("telefono",width=90)
+                    self.Empleado_Tabla.column("domicilio",width=120)
+                    
+    
+                    index = iid = 0
+                    for elemento in registros:
+                        self.Empleado_Tabla.insert("", index, iid, values=elemento)
+                        index = iid = index + 1
+    
+                        
+                    self.ventana9.mainloop()
+        except :
+            self.ventana555=tk.Tk()
+            self.ventana555.title(" :( ")
+            self.ventana555.geometry("200x100")
+
+            self.frame001=tk.Frame(self.ventana555,bg="green3")
+            self.frame001.pack(expand=True,fill="both")
+
+            self.txt55=tk.Label(self.frame001,text="Ingreso un Dato Incorrecto ",bg="cyan")
+            self.txt55.place(x=20,y=30,width=150,height=30)
+            self.ventana555.mainloop()
+
+
+
 
 
 
