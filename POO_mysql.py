@@ -3,6 +3,7 @@ import sys
 import datetime
 import tkinter as tk
 from tkinter import ttk
+import tkinter.font as tkFont
 import sqlite3
 from sqlite3 import Error
 
@@ -12,9 +13,19 @@ class Aplicacion():
         self.ventanai=tk.Tk()
         self.ventanai.title("BIENVENIDO : ")
         self.ventanai.geometry("600x600")
+        self.fontStyle = tkFont.Font(family="Lucida Grande", size=20)
 
         self.frame=tk.Frame(self.ventanai,bg="slate gray")
         self.frame.pack(expand=True,fill="both")
+
+        self.framee=tk.Frame(self.ventanai,bg="royal blue")
+        self.framee.place(x=0,y=0,width=600,height=120)
+
+        self.txt0101=tk.Label(self.framee,text="GESTOR DE EMPLEADOS",background="gold",font=self.fontStyle)
+        self.txt0101.place(x=40,y=10,width=500,height=100)
+
+    
+
 
         self.frame2=tk.Frame(self.ventanai,bg="deep sky blue")
         self.frame2.place(x=0,y=480,width=600,height=130)
@@ -25,8 +36,11 @@ class Aplicacion():
         self.boton2=tk.Button(self.frame2,text="BAJA",command=self.Borrar_Registro)
         self.boton2.place(x=10,y=70,width=100,height=30)
 
-        self.boton3=tk.Button(self.frame2,text="CONSULTA",command=self.Buscar_Registros)
+        self.boton3=tk.Button(self.frame2,text="MODIFICACION",command=None)
         self.boton3.place(x=140,y=20,width=100,height=30)
+
+        self.boton4=tk.Button(self.frame2,text="CONSULTA",command=self.Buscar_Registros)
+        self.boton4.place(x=140,y=70,width=100,height=30)
 
 
         self.ventanai.mainloop()
