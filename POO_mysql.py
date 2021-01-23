@@ -65,7 +65,7 @@ class Aplicacion():
         self.boton1=tk.Button(self.frame2,text="Registrar",command=self.Registrar)
         self.boton1.place(x=60,y=10,width=100,height=30)
 
-        self.boton2=tk.Button(self.frame2,text="Borrar Registro",command=self.Borrar)
+        self.boton2=tk.Button(self.frame2,text="Borrar Registro",command=self.Borrar_Registro)
         self.boton2.place(x=60,y=80,width=100,height=30)
 
         self.boton3=tk.Button(self.frame2,text="Buscar Registros",command=self.Buscar_Registros)
@@ -188,8 +188,211 @@ class Aplicacion():
             
         
 
-    def Borrar(self):
-        pass
+    def Borrar_Registro(self):
+        self.ventana5=tk.Tk()
+        self.ventana5.title("Borrar Registro : ")
+        self.ventana5.geometry("200x200")
+
+        self.frame4=tk.Frame(self.ventana5,bg="steel blue")
+        self.frame4.pack(expand=True,fill="both")
+
+        self.txt001=tk.Label(self.frame4,text="MATRICULA A BORRAR : ",bg="dark turquoise")
+        self.txt001.place(x=30,y=30,width=140,height=30)
+
+        self.caja000=tk.Entry(self.frame4)
+        self.caja000.place(x=50,y=80,width=100,height=30)
+
+        self.boton11=tk.Button(self.frame4,text="Checar Dato",command=self.ChecarDato)
+        self.boton11.place(x=50,y=130,width=100,height=30)
+        self.ventana5.mainloop()
+
+    def ChecarDato(self):
+        try:
+            contador=0
+            lugar=80
+            xl=10
+            with sqlite3.connect("Empleados.db") as conn:
+                c = conn.cursor()
+                mat=self.caja000.get()
+                clave=int(mat)
+                valor={"clave":clave}
+                c.execute("SELECT * FROM registro WHERE clave = :clave" , valor)
+                registros=c.fetchall()
+
+            
+                for elemento in registros:
+                    contador=contador+1
+            
+                if contador==0:
+                    self.ventana55=tk.Tk()
+                    self.ventana55.title(" :( ")
+                    self.ventana55.geometry("200x100")
+
+                    self.frame001=tk.Frame(self.ventana55,bg="green3")
+                    self.frame001.pack(expand=True,fill="both")
+
+                    self.txt55=tk.Label(self.frame001,text="No se encontro registro: ",bg="cyan")
+                    self.txt55.place(x=20,y=30,width=150,height=30)
+                    self.ventana55.mainloop()
+
+                else:
+                    self.ventana6=tk.Tk()
+                    self.ventana6.title("Matricula : ")
+                    self.ventana6.geometry("550x200")
+
+                    self.frame5=tk.Frame(self.ventana6,bg="steel blue")
+                    self.frame5.pack(expand=True,fill="both")
+
+                    
+                    self.txt000=tk.Label(self.frame5,text="Matricula",bg="peach puff")
+                    self.txt000.place(x=10,y=20,width=80,height=30)
+
+                    self.txt001=tk.Label(self.frame5,text="Nombre",bg="peach puff")
+                    self.txt001.place(x=100,y=20,width=80,height=30)
+
+                    self.txt002=tk.Label(self.frame5,text="Apellidos",bg="peach puff")
+                    self.txt002.place(x=190,y=20,width=80,height=30)
+
+                    self.txt002=tk.Label(self.frame5,text="Edad",bg="peach puff")
+                    self.txt002.place(x=280,y=20,width=80,height=30)
+
+                    self.txt003=tk.Label(self.frame5,text="Telefono",bg="peach puff")
+                    self.txt003.place(x=370,y=20,width=80,height=30)
+
+                    self.txt004=tk.Label(self.frame5,text="Domicilio",bg="peach puff")
+                    self.txt004.place(x=460,y=20,width=80,height=30)
+
+                    for clave,nombre,apellido,edad,telefono,domicilio in registros:
+                        self.txt002=tk.Label(self.frame5,text=clave,bg="orange")
+                        self.txt002.place(x=xl,y=lugar,width=80,height=30)
+                        xl=xl+90
+                        
+
+                        self.txt003=tk.Label(self.frame5,text=nombre,bg="orange")
+                        self.txt003.place(x=xl,y=lugar,width=80,height=30)
+                        xl=xl+90
+                       
+
+                        self.txt004=tk.Label(self.frame5,text=apellido,bg="orange")
+                        self.txt004.place(x=xl,y=lugar,width=80,height=30)
+                        xl=xl+90
+                     
+
+                        self.txt005=tk.Label(self.frame5,text=edad,bg="orange")
+                        self.txt005.place(x=xl,y=lugar,width=80,height=30)
+                        xl=xl+90
+                        
+
+                        self.txt006=tk.Label(self.frame5,text=telefono,bg="orange")
+                        self.txt006.place(x=xl,y=lugar,width=80,height=30)
+                        xl=xl+90
+                      
+
+                        self.txt007=tk.Label(self.frame5,text=domicilio,bg="orange")
+                        self.txt007.place(x=xl,y=lugar,width=80,height=30)
+                        xl=xl+90
+                        lugar=lugar+30
+
+                    self.boton111=tk.Button(self.frame5,text="BORRAR",command=self.Borrar_REGISTRO)
+                    self.boton111.place(x=200,y=130,width=100,height=30)
+
+                    self.ventana6.mainloop()
+
+        except:
+            self.ventana555=tk.Tk()
+            self.ventana555.title(" :( ")
+            self.ventana555.geometry("200x100")
+
+            self.frame001=tk.Frame(self.ventana555,bg="green3")
+            self.frame001.pack(expand=True,fill="both")
+
+            self.txt55=tk.Label(self.frame001,text="Ingreso un Dato Incorrecto ",bg="cyan")
+            self.txt55.place(x=20,y=30,width=150,height=30)
+            self.ventana555.mainloop()
+            
+
+
+    def Borrar_REGISTRO(self):
+        try:
+            contador=0
+            lugar=80
+            xl=10
+            with sqlite3.connect("Empleados.db") as conn:
+                c = conn.cursor()
+                mat=self.caja000.get()
+                clave=int(mat)
+                valor={"clave":clave}
+                c.execute("DELETE  FROM registro WHERE clave = :clave" , valor)
+                registros=c.fetchall()
+
+            
+                self.ventana=tk.Tk()
+                self.ventana.title("DATOS BORRADOS SATISFACTORIAMNETE : ")
+                self.ventana.geometry("500x500")
+                self.txt00=tk.Label(self.ventana,text="Registro a Borrado: ",bg="peach puff")
+                self.txt00.place(x=120,y=20,width=250,height=40)
+
+                self.txt01=tk.Label(self.ventana,text="Datos del Empleado : ",bg="peach puff")
+                self.txt01.place(x=120,y=80,width=250,height=40)
+
+                self.txt02=tk.Label(self.ventana,text="Matricula : ",bg="peach puff")
+                self.txt02.place(x=30,y=140,width=100,height=30)
+
+                self.txt03=tk.Label(self.ventana,text="Nombre : ",bg="peach puff")
+                self.txt03.place(x=30,y=190,width=100,height=30)
+
+                self.txt04=tk.Label(self.ventana,text="Apellidos : ",bg="peach puff")
+                self.txt04.place(x=30,y=240,width=100,height=30)
+
+                self.txt04=tk.Label(self.ventana,text="Edad : ",bg="peach puff")
+                self.txt04.place(x=30,y=290,width=100,height=30)
+
+                self.txt04=tk.Label(self.ventana,text="Telefono : ",bg="peach puff")
+                self.txt04.place(x=30,y=340,width=100,height=30)
+
+                self.txt04=tk.Label(self.ventana,text="Domicilio : ",bg="peach puff")
+                self.txt04.place(x=30,y=390,width=100,height=30)
+
+                for clave,nombre,apellido,edad,telefono,domicilio in registros:
+                    self.txt002=tk.Label(self.frame5,text=clave,bg="orange")
+                    self.txt002.place(x=xl,y=lugar,width=80,height=30)
+                    xl=xl+90
+                    
+
+                    self.txt003=tk.Label(self.frame5,text=nombre,bg="orange")
+                    self.txt003.place(x=xl,y=lugar,width=80,height=30)
+                    xl=xl+90
+                    
+
+                    self.txt004=tk.Label(self.frame5,text=apellido,bg="orange")
+                    self.txt004.place(x=xl,y=lugar,width=80,height=30)
+                    xl=xl+90
+                    
+
+                    self.txt005=tk.Label(self.frame5,text=edad,bg="orange")
+                    self.txt005.place(x=xl,y=lugar,width=80,height=30)
+                    xl=xl+90
+                    
+
+                    self.txt006=tk.Label(self.frame5,text=telefono,bg="orange")
+                    self.txt006.place(x=xl,y=lugar,width=80,height=30)
+                    xl=xl+90
+                    
+
+                    self.txt007=tk.Label(self.frame5,text=domicilio,bg="orange")
+                    self.txt007.place(x=xl,y=lugar,width=80,height=30)
+                    xl=xl+90
+                    lugar=lugar+30
+                    
+                self.ventana6.mainloop()
+            conn.commit()
+                    
+
+        except :
+            print ("e")
+
+
+        
 
     def Buscar_Registros(self):
         self.ventana4=tk.Tk()
