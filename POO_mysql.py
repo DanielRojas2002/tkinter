@@ -60,7 +60,7 @@ class Aplicacion():
         self.frame.pack(expand=True,fill="both")
         
 
-        self.txt0=tk.Label(self.frame,text="EMPLEADO : ",bg="peach puff")
+        self.txt0=tk.Label(self.frame,text="EMPLEADO : ",bg="gold",font=self.fontStyle)
         self.txt0.place(x=250,y=30,width=120,height=40)
 
         self.txt1=tk.Label(self.frame,text="Matricula : ",bg="sky blue")
