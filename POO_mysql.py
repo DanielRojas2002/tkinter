@@ -40,7 +40,7 @@ class Aplicacion():
         self.boton2=tk.Button(self.frame2,text="BAJA",command=self.Borrar_Registro)
         self.boton2.place(x=10,y=70,width=100,height=30)
 
-        self.boton3=tk.Button(self.frame2,text="MODIFICACION",command=None)
+        self.boton3=tk.Button(self.frame2,text="MODIFICACION",command=self.Modificacion)
         self.boton3.place(x=140,y=20,width=100,height=30)
 
         self.boton4=tk.Button(self.frame2,text="CONSULTA",command=self.Buscar_Registros)
@@ -113,6 +113,195 @@ class Aplicacion():
 
         self.ventana.mainloop()
 
+    def Modificacion(self):
+        self.ventana5=tk.Tk()
+        self.ventana5.title("Actualizacion : ")
+        self.ventana5.geometry("200x200")
+        self.ventana5.iconbitmap("icono.ico")
+
+        self.frame4=tk.Frame(self.ventana5,bg="steel blue")
+        self.frame4.pack(expand=True,fill="both")
+
+        self.txt001=tk.Label(self.frame4,text="MATRICULA : ",bg="dark turquoise")
+        self.txt001.place(x=30,y=30,width=140,height=30)
+
+        self.caja000=tk.Entry(self.frame4)
+        self.caja000.place(x=50,y=80,width=100,height=30)
+
+        self.boton11=tk.Button(self.frame4,text="Checar Dato",command=self.Modificar)
+        self.boton11.place(x=50,y=130,width=100,height=30)
+        self.ventana5.mainloop()
+
+    def Modificar(self):
+        try:
+            contador=0
+            lugar=80
+            xl=10
+            with sqlite3.connect("Empleados.db") as conn:
+                c = conn.cursor()
+                mat=self.caja000.get()
+                matricula=int(mat)
+                valor={"clave":matricula}
+                c.execute("SELECT * FROM registro WHERE clave = :clave" , valor)
+                registros=c.fetchall()
+
+            
+                for elemento in registros:
+                    contador=contador+1
+            
+                if contador==0:
+                    self.ventana55=tk.Tk()
+                    self.ventana55.title(" :( ")
+                    self.ventana55.geometry("200x100")
+                    self.ventana55.iconbitmap("icono.ico")
+
+                    self.frame001=tk.Frame(self.ventana55,bg="green3")
+                    self.frame001.pack(expand=True,fill="both")
+
+                    self.txt55=tk.Label(self.frame001,text="No se encontro registro: ",bg="cyan")
+                    self.txt55.place(x=20,y=30,width=150,height=30)
+                    self.ventana55.mainloop()
+
+                else:
+                    self.ventana6=tk.Tk()
+                    self.ventana6.title("Matricula : ")
+                    self.ventana6.geometry("790x200")
+                    self.ventana6.iconbitmap("icono.ico")
+
+                    self.frame5=tk.Frame(self.ventana6,bg="steel blue")
+                    self.frame5.pack(expand=True,fill="both")
+
+                    
+                    self.txt000=tk.Label(self.frame5,text="Matricula",bg="peach puff")
+                    self.txt000.place(x=10,y=20,width=80,height=30)
+
+                    self.txt001=tk.Label(self.frame5,text="Nombre",bg="peach puff")
+                    self.txt001.place(x=100,y=20,width=80,height=30)
+
+                    self.txt002=tk.Label(self.frame5,text="Apellidos",bg="peach puff")
+                    self.txt002.place(x=190,y=20,width=80,height=30)
+
+                    self.txt002=tk.Label(self.frame5,text="Edad",bg="peach puff")
+                    self.txt002.place(x=280,y=20,width=80,height=30)
+
+                    self.txt003=tk.Label(self.frame5,text="Telefono",bg="peach puff")
+                    self.txt003.place(x=370,y=20,width=80,height=30)
+
+                    self.txt004=tk.Label(self.frame5,text="Domicilio",bg="peach puff")
+                    self.txt004.place(x=460,y=20,width=80,height=30)
+
+                    self.txt005=tk.Label(self.frame5,text="Inscripcion",bg="peach puff")
+                    self.txt005.place(x=550,y=20,width=80,height=30)
+
+                    self.txt006=tk.Label(self.frame5,text="Ultimo Cambio",bg="peach puff")
+                    self.txt006.place(x=640,y=20,width=100,height=30)
+
+                    self.boton01=tk.Button(self.frame5,text="MODIFICAR",command=self.modificar_ya)
+                    self.boton01.place(x=350,y=150,width=100,height=30)
+
+                    for clave,nombre,apellido,edad,telefono,domicilio,inscripcion,fecha_Modificacion in registros:
+                        self.txt002=tk.Label(self.frame5,text=clave,bg="orange")
+                        self.txt002.place(x=xl,y=lugar,width=80,height=30)
+                        xl=xl+90
+                        
+
+                        self.txt003=tk.Label(self.frame5,text=nombre,bg="orange")
+                        self.txt003.place(x=xl,y=lugar,width=80,height=30)
+                        xl=xl+90
+                       
+
+                        self.txt004=tk.Label(self.frame5,text=apellido,bg="orange")
+                        self.txt004.place(x=xl,y=lugar,width=80,height=30)
+                        xl=xl+90
+                     
+
+                        self.txt005=tk.Label(self.frame5,text=edad,bg="orange")
+                        self.txt005.place(x=xl,y=lugar,width=80,height=30)
+                        xl=xl+90
+                        
+
+                        self.txt006=tk.Label(self.frame5,text=telefono,bg="orange")
+                        self.txt006.place(x=xl,y=lugar,width=80,height=30)
+                        xl=xl+90
+                      
+
+                        self.txt007=tk.Label(self.frame5,text=domicilio,bg="orange")
+                        self.txt007.place(x=xl,y=lugar,width=80,height=30)
+                        xl=xl+90
+
+                        self.txt008=tk.Label(self.frame5,text=inscripcion,bg="orange")
+                        self.txt008.place(x=xl,y=lugar,width=80,height=30)
+                        xl=xl+90
+
+                        self.txt009=tk.Label(self.frame5,text=fecha_Modificacion,bg="orange")
+                        self.txt009.place(x=xl,y=lugar,width=100,height=30)
+                        xl=xl+90
+                        lugar=lugar+30
+                        
+                        self.ventana6.mainloop()
+        except:
+            self.ventana555=tk.Tk()
+            self.ventana555.title(" :( ")
+            self.ventana555.geometry("200x100")
+            self.ventana555.iconbitmap("icono.ico")
+
+            self.frame001=tk.Frame(self.ventana555,bg="green3")
+            self.frame001.pack(expand=True,fill="both")
+
+            self.txt55=tk.Label(self.frame001,text="Ingreso un Dato Incorrecto ",bg="cyan")
+            self.txt55.place(x=20,y=30,width=150,height=30)
+            self.ventana555.mainloop()
+    
+    def modificar_ya(self):
+        self.ventana=tk.Tk()
+        self.ventana.title("Actualizacion del Empleado : ")
+        self.ventana.geometry("600x600")
+        self.ventana.iconbitmap("icono.ico")
+
+        self.frame=tk.Frame(self.ventana,bg="slate gray")
+        self.frame.pack(expand=True,fill="both")
+        
+
+        self.txt0=tk.Label(self.frame,text="EMPLEADO : ",bg="gold",font=self.fontStyle)
+        self.txt0.place(x=250,y=30,width=120,height=40)
+
+        self.txt1=tk.Label(self.frame,text="Nombre : ",bg="sky blue")
+        self.txt1.place(x=40,y=110,width=100,height=40)
+
+        self.caja1=tk.Entry(self.frame)
+        self.caja1.place(x=250,y=110,width=120,height=40)
+
+        self.txt2=tk.Label(self.frame,text="Apellidos :",bg="sky blue")
+        self.txt2.place(x=40,y=170,width=100,height=40)
+
+        self.caja2=tk.Entry(self.frame)
+        self.caja2.place(x=250,y=170,width=120,height=40)
+
+        self.txt3=tk.Label(self.frame,text="Edad :  ",bg="sky blue")
+        self.txt3.place(x=40,y=230,width=100,height=40)
+
+        self.caja3=tk.Entry(self.frame)
+        self.caja3.place(x=250,y=230,width=120,height=40)
+
+        self.txt4=tk.Label(self.frame,text="Telefono : ",bg="sky blue")
+        self.txt4.place(x=40,y=290,width=100,height=40)
+
+        self.caja4=tk.Entry(self.frame)
+        self.caja4.place(x=250,y=290,width=120,height=40)
+
+        self.txt5=tk.Label(self.frame,text="Domicilio : ",bg="sky blue")
+        self.txt5.place(x=40,y=350,width=100,height=40)
+
+        self.caja5=tk.Entry(self.frame)
+        self.caja5.place(x=250,y=350,width=120,height=40)
+
+        self.boton011=tk.Button(self.frame,text="MODIFICAR",command=self.modificar_yaa)
+        self.boton011.place(x=450,y=490,width=100,height=30)
+
+        self.ventana.mainloop()
+        
+    def modificar_yaa(self):
+        
 
 
     def Borrar_Todo(self):
