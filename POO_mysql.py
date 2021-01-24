@@ -149,12 +149,14 @@ class Aplicacion():
             if len(domicilio)==0 or domicilio.isdigit():
                 x="z"+1
 
+            insc=datetime.datetime.now()
+            inscripcion=insc.strftime('%d/%m/%Y')
             try:
                 with sqlite3.connect("Empleados.db") as conn:
                     c = conn.cursor()
-                    c.execute("CREATE TABLE IF NOT EXISTS registro (clave INTEGER PRIMARY KEY, nombre TEXT NOT NULL, apellido TEXT NOT NULL,edad INTEGER NOT NULL,telefono INTEGER NOT null,domicilio TEXT NOT NULL );")
-                    valores={"clave":clave1,"nombre":nombre,"apellido":apellido,"edad":edad1,"telefono":telefono1,"domicilio":domicilio}
-                    c.execute("INSERT INTO registro VALUES (:clave,:nombre,:apellido,:edad,:telefono,:domicilio)",valores)
+                    c.execute("CREATE TABLE IF NOT EXISTS registro (clave INTEGER PRIMARY KEY, nombre TEXT NOT NULL, apellido TEXT NOT NULL,edad INTEGER NOT NULL,telefono INTEGER NOT null,domicilio TEXT NOT NULL,inscripcion DATE NOT null,fecha_Modificacion DATE NOT null );")
+                    valores={"clave":clave1,"nombre":nombre,"apellido":apellido,"edad":edad1,"telefono":telefono1,"domicilio":domicilio,"inscripcion":inscripcion,"fecha_Modificacion":inscripcion}
+                    c.execute("INSERT INTO registro VALUES (:clave,:nombre,:apellido,:edad,:telefono,:domicilio,:inscripcion,:fecha_Modificacion)",valores)
                 lista=[]
                 lista.append(clave)
                 lista.append(nombre)
@@ -467,7 +469,7 @@ class Aplicacion():
                 else:
                     self.ventana6=tk.Tk()
                     self.ventana6.title("Matricula : ")
-                    self.ventana6.geometry("550x200")
+                    self.ventana6.geometry("790x200")
                     self.ventana6.iconbitmap("icono.ico")
 
                     self.frame5=tk.Frame(self.ventana6,bg="steel blue")
@@ -492,7 +494,13 @@ class Aplicacion():
                     self.txt004=tk.Label(self.frame5,text="Domicilio",bg="peach puff")
                     self.txt004.place(x=460,y=20,width=80,height=30)
 
-                    for clave,nombre,apellido,edad,telefono,domicilio in registros:
+                    self.txt005=tk.Label(self.frame5,text="Inscripcion",bg="peach puff")
+                    self.txt005.place(x=550,y=20,width=80,height=30)
+
+                    self.txt006=tk.Label(self.frame5,text="Ultimo Cambio",bg="peach puff")
+                    self.txt006.place(x=640,y=20,width=100,height=30)
+
+                    for clave,nombre,apellido,edad,telefono,domicilio,inscripcion,fecha_Modificacion in registros:
                         self.txt002=tk.Label(self.frame5,text=clave,bg="orange")
                         self.txt002.place(x=xl,y=lugar,width=80,height=30)
                         xl=xl+90
@@ -520,6 +528,14 @@ class Aplicacion():
 
                         self.txt007=tk.Label(self.frame5,text=domicilio,bg="orange")
                         self.txt007.place(x=xl,y=lugar,width=80,height=30)
+                        xl=xl+90
+
+                        self.txt008=tk.Label(self.frame5,text=inscripcion,bg="orange")
+                        self.txt008.place(x=xl,y=lugar,width=80,height=30)
+                        xl=xl+90
+
+                        self.txt009=tk.Label(self.frame5,text=fecha_Modificacion,bg="orange")
+                        self.txt009.place(x=xl,y=lugar,width=100,height=30)
                         xl=xl+90
                         lugar=lugar+30
                         
@@ -592,7 +608,7 @@ class Aplicacion():
                 else:
                     self.ventana9=tk.Tk()
                     self.ventana9.title("Matricula : ")
-                    self.ventana9.geometry("700x500")
+                    self.ventana9.geometry("800x500")
                     self.ventana9.iconbitmap("icono.ico")
                     self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
                     self.frame09.pack(expand=True,fill="both")
@@ -600,7 +616,7 @@ class Aplicacion():
                     self.scroll_x=tk.Scrollbar(self.frame09,orient="horizontal")
                     self.scroll_y=tk.Scrollbar(self.frame09,orient="vertical")
 
-                    self.Empleado_Tabla=ttk.Treeview(self.frame09,columns=("matricula","nombre","apellido","edad","telefono","domicilio"),xscrollcommand=self.scroll_x.set,yscrollcommand=self.scroll_y.set)
+                    self.Empleado_Tabla=ttk.Treeview(self.frame09,columns=("matricula","nombre","apellido","edad","telefono","domicilio","inscripcion","fecha_Modificacion"),xscrollcommand=self.scroll_x.set,yscrollcommand=self.scroll_y.set)
                     self.scroll_x.pack(side="bottom",fill="x")
                     self.scroll_y.pack(side="right",fill="y")
                     self.scroll_x.config(command=self.Empleado_Tabla.xview)
@@ -612,6 +628,8 @@ class Aplicacion():
                     self.Empleado_Tabla.heading("edad",text="Edad")
                     self.Empleado_Tabla.heading("telefono",text="Telefono")
                     self.Empleado_Tabla.heading("domicilio",text="Domicilio")
+                    self.Empleado_Tabla.heading("inscripcion",text="Inscripcion")
+                    self.Empleado_Tabla.heading("fecha_Modificacion",text="Fecha_Modificacion")
                     self.Empleado_Tabla.pack(fill="both",expand=1)
 
                     self.Empleado_Tabla['show']='headings'
@@ -621,6 +639,8 @@ class Aplicacion():
                     self.Empleado_Tabla.column("edad",width=50)
                     self.Empleado_Tabla.column("telefono",width=90)
                     self.Empleado_Tabla.column("domicilio",width=120)
+                    self.Empleado_Tabla.column("inscripcion",width=100)
+                    self.Empleado_Tabla.column("fecha_Modificacion",width=120)
                     
     
                     index = iid = 0
@@ -632,7 +652,7 @@ class Aplicacion():
                     self.ventana9.mainloop()
 
         except :
-            print (e)
+            print ("e")
 
     def BuscApe(self):
         self.ventana5=tk.Tk()
