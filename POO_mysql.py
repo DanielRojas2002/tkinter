@@ -296,7 +296,7 @@ class Aplicacion():
         self.caja5.place(x=250,y=350,width=120,height=40)
 
         self.boton011=tk.Button(self.frame,text="MODIFICAR",command=self.modificar_yaa)
-        self.boton011.place(x=450,y=490,width=100,height=30)
+        self.boton011.place(x=400,y=490,width=100,height=30)
 
         self.ventana.mainloop()
         
