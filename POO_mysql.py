@@ -310,6 +310,7 @@ class Aplicacion():
         fecha=datetime.datetime.now()
         fecha_Modificacion=fecha.strftime('%d/%m/%Y')
 
+
         try:
             clave1=int(clave)
             edad1=int(edad)
@@ -339,9 +340,24 @@ class Aplicacion():
         try:
             with sqlite3.connect("Empleados.db") as conn:
                 c = conn.cursor()
-                valores={"nombre":nombre,"apellido":apellido,"edad":edad1,"telefono":telefono1,"domicilio":domicilio,"fecha_Modificacion":fecha_Modificacion,"clave":clave1}
-                c.execute("UPDATE registro set nombre='nombre',apellido='apellido',edad='edad',telefono='telefono',domicilio='domicilio',fecha_Modificacion='fecha_Modificacion' WHERE clave = :clave1" , valores)
-                c.commit()
+
+                tupla=(nombre,apellido,edad1,telefono1,domicilio,fecha_Modificacion,clave1)
+                sql="UPDATE registro SET nombre = ?, apellido = ? , edad = ? , telefono = ? , domicilio = ? , fecha_Modificacion = ? WHERE clave = ?;"
+                c.execute(sql,tupla)
+
+                self.ventana555=tk.Tk()
+                self.ventana555.title(" :( ")
+                self.ventana555.geometry("300x100")
+                self.ventana555.iconbitmap("icono.ico")
+
+                self.frame001=tk.Frame(self.ventana555,bg="green3")
+                self.frame001.pack(expand=True,fill="both")
+
+                self.txt55=tk.Label(self.frame001,text="El Registro se Actualizo Satisfactoriamente",bg="cyan")
+                self.txt55.place(x=20,y=30,width=230,height=30)
+                self.ventana555.mainloop()
+
+
 
         except Error as e:
             print(e)
