@@ -301,6 +301,50 @@ class Aplicacion():
         self.ventana.mainloop()
         
     def modificar_yaa(self):
+        clave=self.caja000.get()
+        nombre=(self.caja1.get() )
+        apellido=(self.caja2.get())
+        edad=(self.caja3.get())
+        telefono=(self.caja4.get())
+        domicilio=(self.caja5.get())
+        fecha=datetime.datetime.now()
+        fecha_Modificacion=fecha.strftime('%d/%m/%Y')
+
+        try:
+            clave1=int(clave)
+            edad1=int(edad)
+            telefono1=int(telefono)
+
+            if len(nombre)==0 or nombre.isdigit():
+                x="z"+1
+
+            if len(apellido)==0 or apellido.isdigit():
+                x="z"+1
+
+            if len(domicilio)==0 or domicilio.isdigit():
+                x="z"+1
+        except:
+            self.ventana555=tk.Tk()
+            self.ventana555.title(" :( ")
+            self.ventana555.geometry("200x100")
+            self.ventana555.iconbitmap("icono.ico")
+
+            self.frame001=tk.Frame(self.ventana555,bg="green3")
+            self.frame001.pack(expand=True,fill="both")
+
+            self.txt55=tk.Label(self.frame001,text="Ingreso un Dato Incorrecto ",bg="cyan")
+            self.txt55.place(x=20,y=30,width=150,height=30)
+            self.ventana555.mainloop()
+            
+        try:
+            with sqlite3.connect("Empleados.db") as conn:
+                c = conn.cursor()
+                valores={"nombre":nombre,"apellido":apellido,"edad":edad1,"telefono":telefono1,"domicilio":domicilio,"fecha_Modificacion":fecha_Modificacion,"clave":clave1}
+                c.execute("UPDATE registro set nombre='nombre',apellido='apellido',edad='edad',telefono='telefono',domicilio='domicilio',fecha_Modificacion='fecha_Modificacion' WHERE clave = :clave1" , valores)
+                c.commit()
+
+        except Error as e:
+            print(e)
         
 
 
