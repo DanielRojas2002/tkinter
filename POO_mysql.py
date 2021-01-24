@@ -285,7 +285,7 @@ class Aplicacion():
                 else:
                     self.ventana=tk.Tk()
                     self.ventana.title("DATOS A BORRAR : ")
-                    self.ventana.geometry("500x500")
+                    self.ventana.geometry("500x600")
                     self.ventana.iconbitmap("icono.ico")
                     self.txt00=tk.Label(self.ventana,text="Registro a Borrar: ",bg="peach puff")
                     self.txt00.place(x=120,y=20,width=250,height=40)
@@ -311,10 +311,16 @@ class Aplicacion():
                     self.txt04=tk.Label(self.ventana,text="Domicilio : ",bg="peach puff")
                     self.txt04.place(x=30,y=390,width=100,height=30)
 
-                    self.boton00=tk.Button(self.ventana,text="BORRAR",command=self.Borrar_REGISTRO)
-                    self.boton00.place(x=380,y=450,width=100,height=30)
+                    self.txt005=tk.Label(self.ventana,text="Inscripcion",bg="peach puff")
+                    self.txt005.place(x=30,y=440,width=100,height=30)
 
-                    for clave,nombre,apellido,edad,telefono,domicilio in registros:
+                    self.txt006=tk.Label(self.ventana,text="Ultimo Cambio",bg="peach puff")
+                    self.txt006.place(x=30,y=490,width=100,height=30)
+
+                    self.boton00=tk.Button(self.ventana,text="BORRAR",command=self.Borrar_REGISTRO)
+                    self.boton00.place(x=360,y=530,width=100,height=30)
+
+                    for clave,nombre,apellido,edad,telefono,domicilio,inscripcion,fecha_Modificacion in registros:
                         self.txt002=tk.Label(self.ventana,text=clave,bg="orange")
                         self.txt002.place(x=200,y=140,width=80,height=30)
             
@@ -341,6 +347,14 @@ class Aplicacion():
 
                         self.txt007=tk.Label(self.ventana,text=domicilio,bg="orange")
                         self.txt007.place(x=200,y=390,width=80,height=30)
+
+                        self.txt008=tk.Label(self.ventana,text=inscripcion,bg="orange")
+                        self.txt008.place(x=200,y=440,width=80,height=30)
+                        xl=xl+90
+
+                        self.txt009=tk.Label(self.ventana,text=fecha_Modificacion,bg="orange")
+                        self.txt009.place(x=200,y=490,width=80,height=30)
+                        xl=xl+90
                         
                         
                     self.ventana.mainloop()
