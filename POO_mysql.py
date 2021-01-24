@@ -706,7 +706,7 @@ class Aplicacion():
                 else:
                     self.ventana9=tk.Tk()
                     self.ventana9.title("Apellido : ")
-                    self.ventana9.geometry("700x500")
+                    self.ventana9.geometry("800x500")
                     self.ventana9.iconbitmap("icono.ico")
                     self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
                     self.frame09.pack(expand=True,fill="both")
@@ -714,7 +714,7 @@ class Aplicacion():
                     self.scroll_x=tk.Scrollbar(self.frame09,orient="horizontal")
                     self.scroll_y=tk.Scrollbar(self.frame09,orient="vertical")
 
-                    self.Empleado_Tabla=ttk.Treeview(self.frame09,columns=("matricula","nombre","apellido","edad","telefono","domicilio"),xscrollcommand=self.scroll_x.set,yscrollcommand=self.scroll_y.set)
+                    self.Empleado_Tabla=ttk.Treeview(self.frame09,columns=("matricula","nombre","apellido","edad","telefono","domicilio","inscripcion","fecha_Modificacion"),xscrollcommand=self.scroll_x.set,yscrollcommand=self.scroll_y.set)
                     self.scroll_x.pack(side="bottom",fill="x")
                     self.scroll_y.pack(side="right",fill="y")
                     self.scroll_x.config(command=self.Empleado_Tabla.xview)
@@ -726,6 +726,8 @@ class Aplicacion():
                     self.Empleado_Tabla.heading("edad",text="Edad")
                     self.Empleado_Tabla.heading("telefono",text="Telefono")
                     self.Empleado_Tabla.heading("domicilio",text="Domicilio")
+                    self.Empleado_Tabla.heading("inscripcion",text="Inscripcion")
+                    self.Empleado_Tabla.heading("fecha_Modificacion",text="Fecha_Modificacion")
                     self.Empleado_Tabla.pack(fill="both",expand=1)
 
                     self.Empleado_Tabla['show']='headings'
@@ -735,6 +737,8 @@ class Aplicacion():
                     self.Empleado_Tabla.column("edad",width=50)
                     self.Empleado_Tabla.column("telefono",width=90)
                     self.Empleado_Tabla.column("domicilio",width=120)
+                    self.Empleado_Tabla.column("inscripcion",width=100)
+                    self.Empleado_Tabla.column("fecha_Modificacion",width=120)
                     
     
                     index = iid = 0
@@ -799,7 +803,7 @@ class Aplicacion():
                 else:
                     self.ventana9=tk.Tk()
                     self.ventana9.title("Edad : ")
-                    self.ventana9.geometry("700x500")
+                    self.ventana9.geometry("800x500")
                     self.ventana9.iconbitmap("icono.ico")
                     self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
                     self.frame09.pack(expand=True,fill="both")
@@ -807,7 +811,7 @@ class Aplicacion():
                     self.scroll_x=tk.Scrollbar(self.frame09,orient="horizontal")
                     self.scroll_y=tk.Scrollbar(self.frame09,orient="vertical")
 
-                    self.Empleado_Tabla=ttk.Treeview(self.frame09,columns=("matricula","nombre","apellido","edad","telefono","domicilio"),xscrollcommand=self.scroll_x.set,yscrollcommand=self.scroll_y.set)
+                    self.Empleado_Tabla=ttk.Treeview(self.frame09,columns=("matricula","nombre","apellido","edad","telefono","domicilio","inscripcion","fecha_Modificacion"),xscrollcommand=self.scroll_x.set,yscrollcommand=self.scroll_y.set)
                     self.scroll_x.pack(side="bottom",fill="x")
                     self.scroll_y.pack(side="right",fill="y")
                     self.scroll_x.config(command=self.Empleado_Tabla.xview)
@@ -819,6 +823,8 @@ class Aplicacion():
                     self.Empleado_Tabla.heading("edad",text="Edad")
                     self.Empleado_Tabla.heading("telefono",text="Telefono")
                     self.Empleado_Tabla.heading("domicilio",text="Domicilio")
+                    self.Empleado_Tabla.heading("inscripcion",text="Inscripcion")
+                    self.Empleado_Tabla.heading("fecha_Modificacion",text="Fecha_Modificacion")
                     self.Empleado_Tabla.pack(fill="both",expand=1)
 
                     self.Empleado_Tabla['show']='headings'
@@ -828,6 +834,8 @@ class Aplicacion():
                     self.Empleado_Tabla.column("edad",width=50)
                     self.Empleado_Tabla.column("telefono",width=90)
                     self.Empleado_Tabla.column("domicilio",width=120)
+                    self.Empleado_Tabla.column("inscripcion",width=100)
+                    self.Empleado_Tabla.column("fecha_Modificacion",width=120)
                     
     
                     index = iid = 0
@@ -902,7 +910,7 @@ class Aplicacion():
                 else:
                     self.ventana9=tk.Tk()
                     self.ventana9.title("Telefono : ")
-                    self.ventana9.geometry("700x500")
+                    self.ventana9.geometry("800x500")
                     self.ventana9.iconbitmap("icono.ico")
                     self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
                     self.frame09.pack(expand=True,fill="both")
@@ -910,7 +918,7 @@ class Aplicacion():
                     self.scroll_x=tk.Scrollbar(self.frame09,orient="horizontal")
                     self.scroll_y=tk.Scrollbar(self.frame09,orient="vertical")
 
-                    self.Empleado_Tabla=ttk.Treeview(self.frame09,columns=("matricula","nombre","apellido","edad","telefono","domicilio"),xscrollcommand=self.scroll_x.set,yscrollcommand=self.scroll_y.set)
+                    self.Empleado_Tabla=ttk.Treeview(self.frame09,columns=("matricula","nombre","apellido","edad","telefono","domicilio","inscripcion","fecha_Modificacion"),xscrollcommand=self.scroll_x.set,yscrollcommand=self.scroll_y.set)
                     self.scroll_x.pack(side="bottom",fill="x")
                     self.scroll_y.pack(side="right",fill="y")
                     self.scroll_x.config(command=self.Empleado_Tabla.xview)
@@ -922,6 +930,8 @@ class Aplicacion():
                     self.Empleado_Tabla.heading("edad",text="Edad")
                     self.Empleado_Tabla.heading("telefono",text="Telefono")
                     self.Empleado_Tabla.heading("domicilio",text="Domicilio")
+                    self.Empleado_Tabla.heading("inscripcion",text="Inscripcion")
+                    self.Empleado_Tabla.heading("fecha_Modificacion",text="Fecha_Modificacion")
                     self.Empleado_Tabla.pack(fill="both",expand=1)
 
                     self.Empleado_Tabla['show']='headings'
@@ -931,6 +941,8 @@ class Aplicacion():
                     self.Empleado_Tabla.column("edad",width=50)
                     self.Empleado_Tabla.column("telefono",width=90)
                     self.Empleado_Tabla.column("domicilio",width=120)
+                    self.Empleado_Tabla.column("inscripcion",width=100)
+                    self.Empleado_Tabla.column("fecha_Modificacion",width=120)
                     
     
                     index = iid = 0
@@ -1005,7 +1017,7 @@ class Aplicacion():
                 else:
                     self.ventana9=tk.Tk()
                     self.ventana9.title("Domicilio : ")
-                    self.ventana9.geometry("700x500")
+                    self.ventana9.geometry("800x500")
                     self.ventana9.iconbitmap("icono.ico")
                     self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
                     self.frame09.pack(expand=True,fill="both")
@@ -1013,7 +1025,7 @@ class Aplicacion():
                     self.scroll_x=tk.Scrollbar(self.frame09,orient="horizontal")
                     self.scroll_y=tk.Scrollbar(self.frame09,orient="vertical")
 
-                    self.Empleado_Tabla=ttk.Treeview(self.frame09,columns=("matricula","nombre","apellido","edad","telefono","domicilio"),xscrollcommand=self.scroll_x.set,yscrollcommand=self.scroll_y.set)
+                    self.Empleado_Tabla=ttk.Treeview(self.frame09,columns=("matricula","nombre","apellido","edad","telefono","domicilio","inscripcion","fecha_Modificacion"),xscrollcommand=self.scroll_x.set,yscrollcommand=self.scroll_y.set)
                     self.scroll_x.pack(side="bottom",fill="x")
                     self.scroll_y.pack(side="right",fill="y")
                     self.scroll_x.config(command=self.Empleado_Tabla.xview)
@@ -1025,6 +1037,8 @@ class Aplicacion():
                     self.Empleado_Tabla.heading("edad",text="Edad")
                     self.Empleado_Tabla.heading("telefono",text="Telefono")
                     self.Empleado_Tabla.heading("domicilio",text="Domicilio")
+                    self.Empleado_Tabla.heading("inscripcion",text="Inscripcion")
+                    self.Empleado_Tabla.heading("fecha_Modificacion",text="Fecha_Modificacion")
                     self.Empleado_Tabla.pack(fill="both",expand=1)
 
                     self.Empleado_Tabla['show']='headings'
@@ -1034,6 +1048,8 @@ class Aplicacion():
                     self.Empleado_Tabla.column("edad",width=50)
                     self.Empleado_Tabla.column("telefono",width=90)
                     self.Empleado_Tabla.column("domicilio",width=120)
+                    self.Empleado_Tabla.column("inscripcion",width=100)
+                    self.Empleado_Tabla.column("fecha_Modificacion",width=120)
                     
     
                     index = iid = 0
@@ -1055,7 +1071,7 @@ class Aplicacion():
 
             self.ventana9=tk.Tk()
             self.ventana9.title("Todos los Registros: ")
-            self.ventana9.geometry("700x500")
+            self.ventana9.geometry("800x500")
             self.ventana9.iconbitmap("icono.ico")
             self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
             self.frame09.pack(expand=True,fill="both")
@@ -1063,7 +1079,7 @@ class Aplicacion():
             self.scroll_x=tk.Scrollbar(self.frame09,orient="horizontal")
             self.scroll_y=tk.Scrollbar(self.frame09,orient="vertical")
 
-            self.Empleado_Tabla=ttk.Treeview(self.frame09,columns=("matricula","nombre","apellido","edad","telefono","domicilio"),xscrollcommand=self.scroll_x.set,yscrollcommand=self.scroll_y.set)
+            self.Empleado_Tabla=ttk.Treeview(self.frame09,columns=("matricula","nombre","apellido","edad","telefono","domicilio","inscripcion","fecha_Modificacion"),xscrollcommand=self.scroll_x.set,yscrollcommand=self.scroll_y.set)
             self.scroll_x.pack(side="bottom",fill="x")
             self.scroll_y.pack(side="right",fill="y")
             self.scroll_x.config(command=self.Empleado_Tabla.xview)
@@ -1075,6 +1091,8 @@ class Aplicacion():
             self.Empleado_Tabla.heading("edad",text="Edad")
             self.Empleado_Tabla.heading("telefono",text="Telefono")
             self.Empleado_Tabla.heading("domicilio",text="Domicilio")
+            self.Empleado_Tabla.heading("inscripcion",text="Inscripcion")
+            self.Empleado_Tabla.heading("fecha_Modificacion",text="Fecha_Modificacion")
             self.Empleado_Tabla.pack(fill="both",expand=1)
 
             self.Empleado_Tabla['show']='headings'
@@ -1084,6 +1102,8 @@ class Aplicacion():
             self.Empleado_Tabla.column("edad",width=50)
             self.Empleado_Tabla.column("telefono",width=90)
             self.Empleado_Tabla.column("domicilio",width=120)
+            self.Empleado_Tabla.column("inscripcion",width=100)
+            self.Empleado_Tabla.column("fecha_Modificacion",width=120)
             
 
             index = iid = 0
