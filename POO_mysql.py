@@ -354,7 +354,7 @@ class Aplicacion():
                 self.frame001.pack(expand=True,fill="both")
 
                 self.txt55=tk.Label(self.frame001,text="El Registro se Actualizo Satisfactoriamente",bg="cyan")
-                self.txt55.place(x=20,y=30,width=230,height=30)
+                self.txt55.place(x=20,y=30,width=250,height=30)
                 self.ventana555.mainloop()
 
 
