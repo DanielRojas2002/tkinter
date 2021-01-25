@@ -4,6 +4,7 @@ import datetime
 import tkinter as tk
 from tkinter import ttk
 import tkinter.font as tkFont
+from tkinter import messagebox
 import sqlite3
 from sqlite3 import Error
 
@@ -150,17 +151,7 @@ class Aplicacion():
                     contador=contador+1
             
                 if contador==0:
-                    self.ventana55=tk.Tk()
-                    self.ventana55.title(" :( ")
-                    self.ventana55.geometry("200x100")
-                    self.ventana55.iconbitmap("icono.ico")
-
-                    self.frame001=tk.Frame(self.ventana55,bg="green3")
-                    self.frame001.pack(expand=True,fill="both")
-
-                    self.txt55=tk.Label(self.frame001,text="No se encontro registro: ",bg="cyan")
-                    self.txt55.place(x=20,y=30,width=150,height=30)
-                    self.ventana55.mainloop()
+                    messagebox.showerror(message="No se encontro el Registro",title="ERROR")
 
                 else:
                     self.ventana6=tk.Tk()
@@ -240,17 +231,7 @@ class Aplicacion():
                         
                         self.ventana6.mainloop()
         except:
-            self.ventana555=tk.Tk()
-            self.ventana555.title(" :( ")
-            self.ventana555.geometry("200x100")
-            self.ventana555.iconbitmap("icono.ico")
-
-            self.frame001=tk.Frame(self.ventana555,bg="green3")
-            self.frame001.pack(expand=True,fill="both")
-
-            self.txt55=tk.Label(self.frame001,text="Ingreso un Dato Incorrecto ",bg="cyan")
-            self.txt55.place(x=20,y=30,width=150,height=30)
-            self.ventana555.mainloop()
+            messagebox.showerror(message="Ingreso un dato incorrecto",title="ERROR")
     
     def modificar_ya(self):
         self.ventana=tk.Tk()
@@ -324,43 +305,19 @@ class Aplicacion():
 
             if len(domicilio)==0 or domicilio.isdigit():
                 x="z"+1
-        except:
-            self.ventana555=tk.Tk()
-            self.ventana555.title(" :( ")
-            self.ventana555.geometry("200x100")
-            self.ventana555.iconbitmap("icono.ico")
 
-            self.frame001=tk.Frame(self.ventana555,bg="green3")
-            self.frame001.pack(expand=True,fill="both")
-
-            self.txt55=tk.Label(self.frame001,text="Ingreso un Dato Incorrecto ",bg="cyan")
-            self.txt55.place(x=20,y=30,width=150,height=30)
-            self.ventana555.mainloop()
             
-        try:
             with sqlite3.connect("Empleados.db") as conn:
                 c = conn.cursor()
-
                 tupla=(nombre,apellido,edad1,telefono1,domicilio,fecha_Modificacion,clave1)
                 sql="UPDATE registro SET nombre = ?, apellido = ? , edad = ? , telefono = ? , domicilio = ? , fecha_Modificacion = ? WHERE clave = ?;"
                 c.execute(sql,tupla)
+                messagebox.showinfo(message="EL registro se actualizo Satisfactoriamente",title=":)")
 
-                self.ventana555=tk.Tk()
-                self.ventana555.title(" :( ")
-                self.ventana555.geometry("300x100")
-                self.ventana555.iconbitmap("icono.ico")
+        except:
+            messagebox.showerror(message="Ingreso un dato Incorrecto ",title="ERROR")
+            
 
-                self.frame001=tk.Frame(self.ventana555,bg="green3")
-                self.frame001.pack(expand=True,fill="both")
-
-                self.txt55=tk.Label(self.frame001,text="El Registro se Actualizo Satisfactoriamente",bg="cyan")
-                self.txt55.place(x=20,y=30,width=250,height=30)
-                self.ventana555.mainloop()
-
-
-
-        except Error as e:
-            print(e)
         
 
 
@@ -449,32 +406,10 @@ class Aplicacion():
                 self.ventana.mainloop()
                     
             except Error as e:
-                self.ventana2=tk.Tk()
-                self.ventana2.title("Error: ")
-                self.ventana2.geometry("500x250")
-                self.ventana2.iconbitmap("icono.ico")
-                self.txt00=tk.Label(self.ventana2,text="No se pudo registrar el registro: ",bg="peach puff")
-                self.txt00.place(x=150,y=20,width=200,height=40)
+                messagebox.showerror(message="Clave Repetida",title="ERROR")
 
-                self.txt01=tk.Label(self.ventana2,text="Motivos: ",bg="peach puff")
-                self.txt01.place(x=150,y=80,width=200,height=40)
-
-                self.txt02=tk.Label(self.ventana2,text=" - Clave Repetida ",bg="peach puff")
-                self.txt02.place(x=150,y=150,width=200,height=50)
         except:
-
-            self.ventana3=tk.Tk()
-            self.ventana3.title("Error: ")
-            self.ventana3.geometry("500x250")
-            self.ventana3.iconbitmap("icono.ico")
-            self.txt00=tk.Label(self.ventana3,text="No se pudo registrar el registro: ",bg="peach puff")
-            self.txt00.place(x=150,y=20,width=200,height=40)
-
-            self.txt01=tk.Label(self.ventana3,text="Motivos: ",bg="peach puff")
-            self.txt01.place(x=150,y=80,width=200,height=40)
-
-            self.txt02=tk.Label(self.ventana3,text="- Introdujo valores no permitidos\n - No llenaste todos los datos ",bg="peach puff")
-            self.txt02.place(x=150,y=150,width=200,height=50)
+            messagebox.showerror(message="Introdujo valores no permitidos o \nNo llenaste todos los datos",title="ERROR")
             
 
         
