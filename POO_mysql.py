@@ -520,6 +520,14 @@ class Aplicacion():
 
                 else:
                     self.ventana=tk.Tk()
+                    self.ancho_ventana = 500
+                    self.alto_ventana = 600
+
+                    self.x_ventana = self.ventana.winfo_screenwidth() - 310 - self.ancho_ventana // 2
+                    self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
+                    self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+                    self.ventana.geometry(self.posicion)
+
                     self.ventana.title("DATOS A BORRAR : ")
                     self.ventana.geometry("500x600")
                     self.ventana.iconbitmap("icono.ico")
