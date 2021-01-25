@@ -58,8 +58,33 @@ class Aplicacion():
         self.boton4=tk.Button(self.frame2,text="CONSULTA",command=self.Buscar_Registros,bd=5)
         self.boton4.place(x=140,y=70,width=100,height=30)
 
+        self.boton5=tk.Button(self.frame2,text="PDF",command=self.PDF,bd=5)
+        self.boton5.place(x=350,y=20,width=100,height=30)
+
+        self.boton6=tk.Button(self.frame2,text="GMAIL",command=self.GMAIL,bd=5)
+        self.boton6.place(x=350,y=70,width=100,height=30)
+
+        self.boton7=tk.Button(self.frame2,text="GRAFICAR",command=self.GRAFICAR,bd=5)
+        self.boton7.place(x=480,y=20,width=100,height=30)
+
+        self.boton8=tk.Button(self.frame2,text="ALGO",command=self.ALGO,bd=5)
+        self.boton8.place(x=480,y=70,width=100,height=30)
 
         self.ventanai.mainloop()
+
+
+    def PDF(self):
+        pass
+
+    def GMAIL(self):
+        pass
+
+    def GRAFICAR(self):
+        pass
+
+    def ALGO(self):
+        pass
+
 
     
         
