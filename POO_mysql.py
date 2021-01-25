@@ -630,6 +630,14 @@ class Aplicacion():
    
     def Buscar_Registros(self):
         self.ventana4=tk.Tk()
+        self.ancho_ventana = 150
+        self.alto_ventana = 160
+
+        self.x_ventana = self.ventana4.winfo_screenwidth() - 1200 - self.ancho_ventana // 2
+        self.y_ventana = self.ventana4.winfo_screenheight() - 600 - self.alto_ventana // 2
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana4.geometry(self.posicion)
+
         self.ventana4.title("Buscador : ")
         self.ventana4.geometry("250x350")
         self.ventana4.iconbitmap("icono.ico")
@@ -668,6 +676,14 @@ class Aplicacion():
 
     def BuscMatri(self):
         self.ventana5=tk.Tk()
+        self.ancho_ventana = 150
+        self.alto_ventana = 160
+
+        self.x_ventana = self.ventana5.winfo_screenwidth() - 850 - self.ancho_ventana // 2
+        self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana5.geometry(self.posicion)
+
         self.ventana5.title("Buscador por Matricula : ")
         self.ventana5.geometry("150x160")
         self.ventana5.iconbitmap("icono.ico")
@@ -790,6 +806,14 @@ class Aplicacion():
 
     def BuscNom(self):
         self.ventana7=tk.Tk()
+        self.ancho_ventana = 150
+        self.alto_ventana = 160
+
+        self.x_ventana = self.ventana7.winfo_screenwidth() - 850 - self.ancho_ventana // 2
+        self.y_ventana = self.ventana7.winfo_screenheight() // 2 - self.alto_ventana // 2
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana7.geometry(self.posicion)
+
         self.ventana7.title("Buscador por Nombre : ")
         self.ventana7.geometry("150x160")
         self.ventana7.iconbitmap("icono.ico")
@@ -883,6 +907,14 @@ class Aplicacion():
 
     def BuscApe(self):
         self.ventana5=tk.Tk()
+        self.ancho_ventana = 150
+        self.alto_ventana = 160
+
+        self.x_ventana = self.ventana5.winfo_screenwidth() - 850 - self.ancho_ventana // 2
+        self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana5.geometry(self.posicion)
+
         self.ventana5.title("Buscador por Apellido : ")
         self.ventana5.geometry("150x160")
         self.ventana5.iconbitmap("icono.ico")
@@ -974,6 +1006,14 @@ class Aplicacion():
     
     def BuscEd(self):
         self.ventana7=tk.Tk()
+        self.ancho_ventana = 150
+        self.alto_ventana = 160
+
+        self.x_ventana = self.ventana7.winfo_screenwidth() - 850 - self.ancho_ventana // 2
+        self.y_ventana = self.ventana7.winfo_screenheight() // 2 - self.alto_ventana // 2
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana7.geometry(self.posicion)
+
         self.ventana7.title("Buscador por Edad : ")
         self.ventana7.geometry("150x160")
         self.ventana7.iconbitmap("icono.ico")
@@ -1065,6 +1105,14 @@ class Aplicacion():
     
     def BuscTel(self):
         self.ventana7=tk.Tk()
+        self.ancho_ventana = 150
+        self.alto_ventana = 160
+
+        self.x_ventana = self.ventana7.winfo_screenwidth() - 850 - self.ancho_ventana // 2
+        self.y_ventana = self.ventana7.winfo_screenheight() // 2 - self.alto_ventana // 2
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana7.geometry(self.posicion)
+
         self.ventana7.title("Buscador por Telefono : ")
         self.ventana7.geometry("150x160")
         self.ventana7.iconbitmap("icono.ico")
@@ -1156,6 +1204,14 @@ class Aplicacion():
     
     def BuscDom(self):
         self.ventana7=tk.Tk()
+        self.ancho_ventana = 150
+        self.alto_ventana = 160
+
+        self.x_ventana = self.ventana7.winfo_screenwidth() - 850 - self.ancho_ventana // 2
+        self.y_ventana = self.ventana7.winfo_screenheight() // 2 - self.alto_ventana // 2
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana7.geometry(self.posicion)
+
         self.ventana7.title("Buscador por Domicilio : ")
         self.ventana7.geometry("150x160")
         self.ventana7.iconbitmap("icono.ico")
