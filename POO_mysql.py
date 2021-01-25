@@ -12,6 +12,14 @@ class Aplicacion():
     def __init__(self):
 
         self.ventanai=tk.Tk()
+        self.ancho_ventana = 600
+        self.alto_ventana = 600
+
+        self.x_ventana = self.ventanai.winfo_screenwidth() - 1050 - self.ancho_ventana // 2
+        self.y_ventana = self.ventanai.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventanai.geometry(self.posicion)
         self.ventanai.title("BIENVENIDO AL GESTOR DE EMPLEADOS : ")
         self.ventanai.geometry("600x600")
         self.ventanai.maxsize(600, 600)
@@ -59,6 +67,15 @@ class Aplicacion():
 
     def Alta(self):
         self.ventana=tk.Tk()
+        self.ancho_ventana = 600
+        self.alto_ventana = 600
+
+        self.x_ventana = self.ventanai.winfo_screenwidth() - 310 - self.ancho_ventana // 2
+        self.y_ventana = self.ventanai.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana.geometry(self.posicion)
+
         self.ventana.title("Registro de Empleados : ")
         self.ventana.geometry("600x600")
         self.ventana.iconbitmap("icono.ico")
@@ -387,6 +404,15 @@ class Aplicacion():
                 lista.append(telefono)
                 lista.append(domicilio)
                 self.ventana=tk.Tk()
+                self.ancho_ventana = 500
+                self.alto_ventana = 500
+
+                self.x_ventana = self.ventanai.winfo_screenwidth() - 310 - self.ancho_ventana // 2
+                self.y_ventana = self.ventanai.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+                self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+                self.ventana.geometry(self.posicion)
+
                 self.ventana.title("Registro Datos : ")
                 self.ventana.geometry("500x500")
                 self.ventana.iconbitmap("icono.ico")
