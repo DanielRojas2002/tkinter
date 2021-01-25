@@ -35,20 +35,23 @@ class Aplicacion():
         self.frame2=tk.Frame(self.ventanai,bg="deep sky blue")
         self.frame2.place(x=0,y=480,width=600,height=130)
 
-        self.botonAlta=tk.Button(self.frame2,text="ALTA",command=self.Alta)
+        self.botonAlta=tk.Button(self.frame2,text="ALTA",command=self.Alta,bd=5)
         self.botonAlta.place(x=10,y=20,width=100,height=30)
 
-        self.boton2=tk.Button(self.frame2,text="BAJA",command=self.Borrar_Registro)
+        self.boton2=tk.Button(self.frame2,text="BAJA",command=self.Borrar_Registro,bd=5)
         self.boton2.place(x=10,y=70,width=100,height=30)
 
-        self.boton3=tk.Button(self.frame2,text="MODIFICACION",command=self.Modificacion)
+        self.boton3=tk.Button(self.frame2,text="MODIFICACION",command=self.Modificacion,bd=5)
         self.boton3.place(x=140,y=20,width=100,height=30)
 
-        self.boton4=tk.Button(self.frame2,text="CONSULTA",command=self.Buscar_Registros)
+        self.boton4=tk.Button(self.frame2,text="CONSULTA",command=self.Buscar_Registros,bd=5)
         self.boton4.place(x=140,y=70,width=100,height=30)
 
 
         self.ventanai.mainloop()
+
+    
+        
 
 
     def Alta(self):
@@ -104,10 +107,10 @@ class Aplicacion():
         self.frame2.place(x=380,y=510,width=230,height=100)
         self.frame2.config(cursor="heart")
 
-        self.boton0=tk.Button(self.frame,text="Borrar Datos",command=self.Borrar_Todo)
+        self.boton0=tk.Button(self.frame,text="Borrar Datos",command=self.Borrar_Todo,bd=5)
         self.boton0.place(x=440,y=300,width=100,height=30)
 
-        self.boton1=tk.Button(self.frame2,text="Registrar",command=self.Registrar)
+        self.boton1=tk.Button(self.frame2,text="Registrar",command=self.Registrar,bd=5)
         self.boton1.place(x=60,y=30,width=100,height=30)
 
         
@@ -129,7 +132,7 @@ class Aplicacion():
         self.caja000=tk.Entry(self.frame4)
         self.caja000.place(x=50,y=80,width=100,height=30)
 
-        self.boton11=tk.Button(self.frame4,text="Checar Dato",command=self.Modificar)
+        self.boton11=tk.Button(self.frame4,text="Checar Dato",command=self.Modificar,bd=5)
         self.boton11.place(x=50,y=130,width=100,height=30)
         self.ventana5.mainloop()
 
@@ -187,7 +190,7 @@ class Aplicacion():
                     self.txt006=tk.Label(self.frame5,text="Ultimo Cambio",bg="peach puff")
                     self.txt006.place(x=640,y=20,width=100,height=30)
 
-                    self.boton01=tk.Button(self.frame5,text="MODIFICAR",command=self.modificar_ya)
+                    self.boton01=tk.Button(self.frame5,text="MODIFICAR",command=self.modificar_ya,bd=5)
                     self.boton01.place(x=350,y=150,width=100,height=30)
 
                     for clave,nombre,apellido,edad,telefono,domicilio,inscripcion,fecha_Modificacion in registros:
@@ -276,7 +279,7 @@ class Aplicacion():
         self.caja5=tk.Entry(self.frame)
         self.caja5.place(x=250,y=350,width=120,height=40)
 
-        self.boton011=tk.Button(self.frame,text="MODIFICAR",command=self.modificar_yaa)
+        self.boton011=tk.Button(self.frame,text="MODIFICAR",command=self.modificar_yaa,bd=5)
         self.boton011.place(x=400,y=490,width=100,height=30)
 
         self.ventana.mainloop()
@@ -432,7 +435,7 @@ class Aplicacion():
         self.caja000=tk.Entry(self.frame4)
         self.caja000.place(x=50,y=80,width=100,height=30)
 
-        self.boton11=tk.Button(self.frame4,text="Checar Dato",command=self.ChecarDato)
+        self.boton11=tk.Button(self.frame4,text="Checar Dato",command=self.ChecarDato,bd=5)
         self.boton11.place(x=50,y=130,width=100,height=30)
         self.ventana5.mainloop()
 
@@ -491,7 +494,7 @@ class Aplicacion():
                     self.txt006=tk.Label(self.ventana,text="Ultimo Cambio",bg="peach puff")
                     self.txt006.place(x=30,y=490,width=100,height=30)
 
-                    self.boton00=tk.Button(self.ventana,text="BORRAR",command=self.Borrar_REGISTRO)
+                    self.boton00=tk.Button(self.ventana,text="BORRAR",command=self.Borrar_REGISTRO,bd=5)
                     self.boton00.place(x=360,y=530,width=100,height=30)
 
                     for clave,nombre,apellido,edad,telefono,domicilio,inscripcion,fecha_Modificacion in registros:
@@ -562,25 +565,25 @@ class Aplicacion():
         self.txt7=tk.Label(self.frame3,text="Buscar por: ",bg="dark turquoise")
         self.txt7.place(x=60,y=30,width=120,height=30)
 
-        self.boton10=tk.Button(self.frame3,text="Matricula",command=self.BuscMatri)
+        self.boton10=tk.Button(self.frame3,text="Matricula",command=self.BuscMatri,bd=5)
         self.boton10.place(x=70,y=70,width=100,height=30)
 
-        self.boton11=tk.Button(self.frame3,text="Nombre",command=self.BuscNom)
+        self.boton11=tk.Button(self.frame3,text="Nombre",command=self.BuscNom,bd=5)
         self.boton11.place(x=70,y=110,width=100,height=30)
 
-        self.boton12=tk.Button(self.frame3,text="Apellido",command=self.BuscApe)
+        self.boton12=tk.Button(self.frame3,text="Apellido",command=self.BuscApe,bd=5)
         self.boton12.place(x=70,y=150,width=100,height=30)
 
-        self.boton13=tk.Button(self.frame3,text="Edad",command=self.BuscEd)
+        self.boton13=tk.Button(self.frame3,text="Edad",command=self.BuscEd,bd=5)
         self.boton13.place(x=70,y=190,width=100,height=30)
 
-        self.boton13=tk.Button(self.frame3,text="Telefono",command=self.BuscTel)
+        self.boton13=tk.Button(self.frame3,text="Telefono",command=self.BuscTel,bd=5)
         self.boton13.place(x=70,y=230,width=100,height=30)
 
-        self.boton13=tk.Button(self.frame3,text="Domicilio",command=self.BuscDom)
+        self.boton13=tk.Button(self.frame3,text="Domicilio",command=self.BuscDom,bd=5)
         self.boton13.place(x=70,y=270,width=100,height=30)
 
-        self.boton13=tk.Button(self.frame3,text="TODOS",command=self.BuscarTodos)
+        self.boton13=tk.Button(self.frame3,text="TODOS",command=self.BuscarTodos,bd=5)
         self.boton13.place(x=70,y=310,width=100,height=30)
 
         self.ventana4.mainloop()
@@ -600,7 +603,7 @@ class Aplicacion():
         self.caja001=tk.Entry(self.frame4)
         self.caja001.place(x=20,y=80,width=100,height=30)
 
-        self.boton11=tk.Button(self.frame4,text="Buscar",command=self.BuscarMatricula)
+        self.boton11=tk.Button(self.frame4,text="Buscar",command=self.BuscarMatricula,bd=5)
         self.boton11.place(x=20,y=120,width=100,height=30)
         self.ventana5.mainloop()
 
@@ -718,7 +721,7 @@ class Aplicacion():
         self.caja77=tk.Entry(self.frame7)
         self.caja77.place(x=20,y=80,width=100,height=30)
 
-        self.boton77=tk.Button(self.frame7,text="Buscar",command=self.BuscarNombre)
+        self.boton77=tk.Button(self.frame7,text="Buscar",command=self.BuscarNombre,bd=5)
         self.boton77.place(x=20,y=120,width=100,height=30)
         self.ventana7.mainloop()
 
@@ -807,7 +810,7 @@ class Aplicacion():
         self.caja001=tk.Entry(self.frame4)
         self.caja001.place(x=20,y=80,width=100,height=30)
 
-        self.boton11=tk.Button(self.frame4,text="Buscar",command=self.BuscarApellido)
+        self.boton11=tk.Button(self.frame4,text="Buscar",command=self.BuscarApellido,bd=5)
         self.boton11.place(x=20,y=120,width=100,height=30)
         self.ventana5.mainloop()
     
@@ -894,7 +897,7 @@ class Aplicacion():
         self.caja777=tk.Entry(self.frame7)
         self.caja777.place(x=20,y=80,width=100,height=30)
 
-        self.boton77=tk.Button(self.frame7,text="Buscar",command=self.BuscarEdad)
+        self.boton77=tk.Button(self.frame7,text="Buscar",command=self.BuscarEdad,bd=5)
         self.boton77.place(x=20,y=120,width=100,height=30)
         self.ventana7.mainloop()
 
@@ -981,7 +984,7 @@ class Aplicacion():
         self.caja777=tk.Entry(self.frame7)
         self.caja777.place(x=20,y=80,width=100,height=30)
 
-        self.boton77=tk.Button(self.frame7,text="Buscar",command=self.BuscarTelefono)
+        self.boton77=tk.Button(self.frame7,text="Buscar",command=self.BuscarTelefono,bd=5)
         self.boton77.place(x=20,y=120,width=100,height=30)
         self.ventana7.mainloop()
 
@@ -1068,7 +1071,7 @@ class Aplicacion():
         self.caja7777=tk.Entry(self.frame7)
         self.caja7777.place(x=20,y=80,width=100,height=30)
 
-        self.boton77=tk.Button(self.frame7,text="Buscar",command=self.BuscarDomicilio)
+        self.boton77=tk.Button(self.frame7,text="Buscar",command=self.BuscarDomicilio,bd=5)
         self.boton77.place(x=20,y=120,width=100,height=30)
         self.ventana7.mainloop()
 
