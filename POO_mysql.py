@@ -36,6 +36,7 @@ class Aplicacion():
 
         self.frame2=tk.Frame(self.ventanai,bg="deep sky blue")
         self.frame2.place(x=0,y=480,width=600,height=130)
+        self.frame2.config(cursor="hand1")
 
         self.botonAlta=tk.Button(self.frame2,text="ALTA",command=self.Alta,bd=5)
         self.botonAlta.place(x=10,y=20,width=100,height=30)
@@ -109,7 +110,7 @@ class Aplicacion():
 
         self.frame2=tk.Frame(self.ventana,bg="deep sky blue")
         self.frame2.place(x=380,y=510,width=230,height=100)
-        self.frame2.config(cursor="heart")
+        self.frame2.config(cursor="pencil")
 
         self.boton0=tk.Button(self.frame,text="Borrar Datos",command=self.Borrar_Todo,bd=5)
         self.boton0.place(x=440,y=300,width=100,height=30)
@@ -172,6 +173,7 @@ class Aplicacion():
 
                     self.frame5=tk.Frame(self.ventana6,bg="steel blue")
                     self.frame5.pack(expand=True,fill="both")
+                    self.frame5.config(cursor="exchange")
 
                     
                     self.txt000=tk.Label(self.frame5,text="Matricula",bg="peach puff")
@@ -254,6 +256,7 @@ class Aplicacion():
 
         self.frame=tk.Frame(self.ventana,bg="slate gray")
         self.frame.pack(expand=True,fill="both")
+        self.frame.config(cursor="exchange")
         
 
         self.txt0=tk.Label(self.frame,text="EMPLEADO : ",bg="gold",font=self.fontStyle)
@@ -510,8 +513,14 @@ class Aplicacion():
                     self.txt006=tk.Label(self.ventana,text="Ultimo Cambio",bg="peach puff")
                     self.txt006.place(x=30,y=490,width=100,height=30)
 
-                    self.boton00=tk.Button(self.ventana,text="BORRAR",command=self.Borrar_REGISTRO,bd=5)
-                    self.boton00.place(x=360,y=530,width=100,height=30)
+                    
+                    self.frame=tk.Frame(self.ventana,bg="orange")
+                    self.frame.place(x=320,y=530,width=200,height=200)
+                    self.frame.config(cursor="X_cursor")
+
+                    self.boton00=tk.Button(self.frame,text="BORRAR",command=self.Borrar_REGISTRO,bd=5)
+                    self.boton00.place(x=40,y=20,width=100,height=30)
+                    
 
                     for clave,nombre,apellido,edad,telefono,domicilio,inscripcion,fecha_Modificacion in registros:
                         self.txt002=tk.Label(self.ventana,text=clave,bg="orange")
@@ -579,6 +588,7 @@ class Aplicacion():
 
         self.frame3=tk.Frame(self.ventana4,bg="steel blue")
         self.frame3.pack(expand=True,fill="both")
+        self.frame3.config(cursor="gumby")
 
         self.txt7=tk.Label(self.frame3,text="Buscar por: ",bg="dark turquoise")
         self.txt7.place(x=60,y=30,width=120,height=30)
