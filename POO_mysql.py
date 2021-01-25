@@ -725,6 +725,14 @@ class Aplicacion():
 
                 else:
                     self.ventana6=tk.Tk()
+                    self.ancho_ventana = 790
+                    self.alto_ventana = 200
+
+                    self.x_ventana = self.ventana6.winfo_screenwidth() - 410 - self.ancho_ventana // 2
+                    self.y_ventana = self.ventana6.winfo_screenheight() // 2 - self.alto_ventana // 2
+                    self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+                    self.ventana6.geometry(self.posicion)
+
                     self.ventana6.title("Matricula : ")
                     self.ventana6.geometry("790x200")
                     self.ventana6.iconbitmap("icono.ico")
@@ -856,6 +864,14 @@ class Aplicacion():
 
                 else:
                     self.ventana9=tk.Tk()
+                    self.ancho_ventana = 790
+                    self.alto_ventana = 200
+
+                    self.x_ventana = self.ventana9.winfo_screenwidth() - 410 - self.ancho_ventana // 2
+                    self.y_ventana = self.ventana9.winfo_screenheight() - 500 - self.alto_ventana // 2
+                    self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+                    self.ventana9.geometry(self.posicion)
+
                     self.ventana9.title("Matricula : ")
                     self.ventana9.geometry("800x500")
                     self.ventana9.iconbitmap("icono.ico")
@@ -956,6 +972,14 @@ class Aplicacion():
 
                 else:
                     self.ventana9=tk.Tk()
+                    self.ancho_ventana = 790
+                    self.alto_ventana = 200
+
+                    self.x_ventana = self.ventana9.winfo_screenwidth() - 410 - self.ancho_ventana // 2
+                    self.y_ventana = self.ventana9.winfo_screenheight() - 500 - self.alto_ventana // 2
+                    self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+                    self.ventana9.geometry(self.posicion)
+
                     self.ventana9.title("Apellido : ")
                     self.ventana9.geometry("800x500")
                     self.ventana9.iconbitmap("icono.ico")
@@ -1055,6 +1079,14 @@ class Aplicacion():
 
                 else:
                     self.ventana9=tk.Tk()
+                    self.ancho_ventana = 790
+                    self.alto_ventana = 200
+
+                    self.x_ventana = self.ventana9.winfo_screenwidth() - 410 - self.ancho_ventana // 2
+                    self.y_ventana = self.ventana9.winfo_screenheight() - 500 - self.alto_ventana // 2
+                    self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+                    self.ventana9.geometry(self.posicion)
+
                     self.ventana9.title("Edad : ")
                     self.ventana9.geometry("800x500")
                     self.ventana9.iconbitmap("icono.ico")
@@ -1154,6 +1186,14 @@ class Aplicacion():
 
                 else:
                     self.ventana9=tk.Tk()
+                    self.ancho_ventana = 790
+                    self.alto_ventana = 200
+
+                    self.x_ventana = self.ventana9.winfo_screenwidth() - 410 - self.ancho_ventana // 2
+                    self.y_ventana = self.ventana9.winfo_screenheight() - 500 - self.alto_ventana // 2
+                    self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+                    self.ventana9.geometry(self.posicion)
+
                     self.ventana9.title("Telefono : ")
                     self.ventana9.geometry("800x500")
                     self.ventana9.iconbitmap("icono.ico")
@@ -1253,6 +1293,14 @@ class Aplicacion():
 
                 else:
                     self.ventana9=tk.Tk()
+                    self.ancho_ventana = 790
+                    self.alto_ventana = 200
+
+                    self.x_ventana = self.ventana9.winfo_screenwidth() - 410 - self.ancho_ventana // 2
+                    self.y_ventana = self.ventana9.winfo_screenheight() - 500 - self.alto_ventana // 2
+                    self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+                    self.ventana9.geometry(self.posicion)
+
                     self.ventana9.title("Domicilio : ")
                     self.ventana9.geometry("800x500")
                     self.ventana9.iconbitmap("icono.ico")
