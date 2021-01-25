@@ -409,7 +409,7 @@ class Aplicacion():
                 messagebox.showerror(message="Clave Repetida",title="ERROR")
 
         except:
-            messagebox.showerror(message="Introdujo valores no permitidos o \nNo llenaste todos los datos",title="ERROR")
+            messagebox.showerror(message="Ingreso valores no permitidos o \nNo llenaste todos los datos",title="ERROR")
             
 
         
@@ -454,17 +454,7 @@ class Aplicacion():
                     contador=contador+1
             
                 if contador==0:
-                    self.ventana55=tk.Tk()
-                    self.ventana55.title(" :( ")
-                    self.ventana55.geometry("200x100")
-                    self.ventana55.iconbitmap("icono.ico")
-
-                    self.frame001=tk.Frame(self.ventana55,bg="green3")
-                    self.frame001.pack(expand=True,fill="both")
-
-                    self.txt55=tk.Label(self.frame001,text="No se encontro registro: ",bg="cyan")
-                    self.txt55.place(x=20,y=30,width=150,height=30)
-                    self.ventana55.mainloop()
+                    messagebox.showerror(message="No se encontro el Registro",title="ERROR")
 
                 else:
                     self.ventana=tk.Tk()
@@ -544,17 +534,7 @@ class Aplicacion():
                     self.ventana.mainloop()
 
         except:
-            self.ventana555=tk.Tk()
-            self.ventana555.title(" :( ")
-            self.ventana555.geometry("200x100")
-            self.ventana555.iconbitmap("icono.ico")
-
-            self.frame001=tk.Frame(self.ventana555,bg="green3")
-            self.frame001.pack(expand=True,fill="both")
-
-            self.txt55=tk.Label(self.frame001,text="Ingreso un Dato Incorrecto ",bg="cyan")
-            self.txt55.place(x=20,y=30,width=150,height=30)
-            self.ventana555.mainloop()
+            messagebox.showerror(message="Ingreso un Dato Incorrecto",title="ERROR")
             
 
 
@@ -567,17 +547,7 @@ class Aplicacion():
             c.execute("DELETE  FROM registro WHERE clave = :clave" , valor)
             conn.commit()
 
-        self.ventana122=tk.Tk()
-        self.ventana122.title(" :) ")
-        self.ventana122.geometry("350x100")
-        self.ventana122.iconbitmap("icono.ico")
-
-        self.frame001=tk.Frame(self.ventana122,bg="gold")
-        self.frame001.pack(expand=True,fill="both")
-
-        self.txt55=tk.Label(self.frame001,text="REGISTRO BORRADO SATISFACTORIAMENTE ",bg="tan1")
-        self.txt55.place(x=40,y=30,width=250,height=30)
-        self.ventana122.mainloop()
+        messagebox.showinfo(message="Registro borrado Satisfactoriamente",title="ERROR")
 
    
     def Buscar_Registros(self):
@@ -652,17 +622,7 @@ class Aplicacion():
                     contador=contador+1
             
                 if contador==0:
-                    self.ventana55=tk.Tk()
-                    self.ventana55.title(" :( ")
-                    self.ventana55.geometry("200x100")
-                    self.ventana55.iconbitmap("icono.ico")
-
-                    self.frame001=tk.Frame(self.ventana55,bg="green3")
-                    self.frame001.pack(expand=True,fill="both")
-
-                    self.txt55=tk.Label(self.frame001,text="No se encontro registro: ",bg="cyan")
-                    self.txt55.place(x=20,y=30,width=150,height=30)
-                    self.ventana55.mainloop()
+                    messagebox.showerror(message="No se encontro el Registro",title="ERROR")
 
                 else:
                     self.ventana6=tk.Tk()
@@ -740,17 +700,7 @@ class Aplicacion():
                         self.ventana6.mainloop()
 
         except:
-            self.ventana555=tk.Tk()
-            self.ventana555.title(" :( ")
-            self.ventana555.geometry("200x100")
-            self.ventana555.iconbitmap("icono.ico")
-
-            self.frame001=tk.Frame(self.ventana555,bg="green3")
-            self.frame001.pack(expand=True,fill="both")
-
-            self.txt55=tk.Label(self.frame001,text="Ingreso un Dato Incorrecto ",bg="cyan")
-            self.txt55.place(x=20,y=30,width=150,height=30)
-            self.ventana555.mainloop()
+            messagebox.showerror(message="Ingreso un Dato Incorrecto ",title="ERROR")
 
 
     def BuscNom(self):
@@ -791,17 +741,7 @@ class Aplicacion():
                     contador=contador+1
             
                 if contador==0:
-                    self.ventanae=tk.Tk()
-                    self.ventanae.title(" :( ")
-                    self.ventanae.geometry("250x100")
-                    self.ventanae.iconbitmap("icono.ico")
-
-                    self.frame11=tk.Frame(self.ventanae,bg="green3")
-                    self.frame11.pack(expand=True,fill="both")
-
-                    self.txt111=tk.Label(self.frame11,text="- No se encontro registro o \n- Introdujo un valor no permitido ",bg="cyan")
-                    self.txt111.place(x=30,y=30,width=180,height=30)
-                    self.ventanae.mainloop()
+                    messagebox.showerror(message="No se encontro el Registro o \nIngreso un dato incorrecto",title="ERROR")
 
                 else:
                     self.ventana9=tk.Tk()
@@ -889,17 +829,7 @@ class Aplicacion():
                     contador=contador+1
             
                 if contador==0:
-                    self.ventanae=tk.Tk()
-                    self.ventanae.title(" :( ")
-                    self.ventanae.geometry("250x100")
-                    self.ventanae.iconbitmap("icono.ico")
-
-                    self.frame11=tk.Frame(self.ventanae,bg="green3")
-                    self.frame11.pack(expand=True,fill="both")
-
-                    self.txt111=tk.Label(self.frame11,text="- No se encontro registro  ",bg="cyan")
-                    self.txt111.place(x=30,y=30,width=180,height=30)
-                    self.ventanae.mainloop()
+                    messagebox.showerror(message="No se encontro el Registro o \nIngreso un dato incorrecto",title="ERROR")
 
                 else:
                     self.ventana9=tk.Tk()
@@ -986,17 +916,7 @@ class Aplicacion():
                     contador=contador+1
             
                 if contador==0:
-                    self.ventanae=tk.Tk()
-                    self.ventanae.title(" :( ")
-                    self.ventanae.geometry("250x100")
-                    self.ventanae.iconbitmap("icono.ico")
-
-                    self.frame11=tk.Frame(self.ventanae,bg="green3")
-                    self.frame11.pack(expand=True,fill="both")
-
-                    self.txt111=tk.Label(self.frame11,text="- No se encontro registro o \n- Introdujo un valor no permitido ",bg="cyan")
-                    self.txt111.place(x=30,y=30,width=180,height=30)
-                    self.ventanae.mainloop()
+                    messagebox.showerror(message="No se encontro el Registro",title="ERROR")
 
                 else:
                     self.ventana9=tk.Tk()
@@ -1044,17 +964,7 @@ class Aplicacion():
                         
                     self.ventana9.mainloop()
         except :
-            self.ventana555=tk.Tk()
-            self.ventana555.title(" :( ")
-            self.ventana555.geometry("200x100")
-            self.ventana555.iconbitmap("icono.ico")
-
-            self.frame001=tk.Frame(self.ventana555,bg="green3")
-            self.frame001.pack(expand=True,fill="both")
-
-            self.txt55=tk.Label(self.frame001,text="Ingreso un Dato Incorrecto ",bg="cyan")
-            self.txt55.place(x=20,y=30,width=150,height=30)
-            self.ventana555.mainloop()
+            messagebox.showerror(message="Ingreso un dato Incorrecto",title="ERROR")
     
     def BuscTel(self):
         self.ventana7=tk.Tk()
@@ -1093,17 +1003,7 @@ class Aplicacion():
                     contador=contador+1
             
                 if contador==0:
-                    self.ventanae=tk.Tk()
-                    self.ventanae.title(" :( ")
-                    self.ventanae.geometry("250x100")
-                    self.ventanae.iconbitmap("icono.ico")
-
-                    self.frame11=tk.Frame(self.ventanae,bg="green3")
-                    self.frame11.pack(expand=True,fill="both")
-
-                    self.txt111=tk.Label(self.frame11,text="- No se encontro registro ",bg="cyan")
-                    self.txt111.place(x=30,y=30,width=180,height=30)
-                    self.ventanae.mainloop()
+                    messagebox.showerror(message="No se encontro el Registro",title="ERROR")
 
                 else:
                     self.ventana9=tk.Tk()
@@ -1151,17 +1051,7 @@ class Aplicacion():
                         
                     self.ventana9.mainloop()
         except :
-            self.ventana555=tk.Tk()
-            self.ventana555.title(" :( ")
-            self.ventana555.geometry("200x100")
-            self.ventana555.iconbitmap("icono.ico")
-
-            self.frame001=tk.Frame(self.ventana555,bg="green3")
-            self.frame001.pack(expand=True,fill="both")
-
-            self.txt55=tk.Label(self.frame001,text="Ingreso un Dato Incorrecto ",bg="cyan")
-            self.txt55.place(x=20,y=30,width=150,height=30)
-            self.ventana555.mainloop()
+            messagebox.showerror(message="Ingreso un dato incorrecto",title="ERROR")
     
     def BuscDom(self):
         self.ventana7=tk.Tk()
@@ -1200,17 +1090,7 @@ class Aplicacion():
                     contador=contador+1
             
                 if contador==0:
-                    self.ventanae=tk.Tk()
-                    self.ventanae.title(" :( ")
-                    self.ventanae.geometry("250x100")
-                    self.ventanae.iconbitmap("icono.ico")
-
-                    self.frame11=tk.Frame(self.ventanae,bg="green3")
-                    self.frame11.pack(expand=True,fill="both")
-
-                    self.txt111=tk.Label(self.frame11,text="- No se encontro registro o\n - Ingreso un Dato Incorrecto  ",bg="cyan")
-                    self.txt111.place(x=30,y=30,width=180,height=30)
-                    self.ventanae.mainloop()
+                    messagebox.showerror(message="No se encontro el Registro o \nIngreso un dato incorrecto",title="ERROR")
 
                 else:
                     self.ventana9=tk.Tk()
