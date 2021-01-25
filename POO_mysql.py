@@ -249,8 +249,8 @@ class Aplicacion():
         self.ventana.title("Actualizacion del Empleado : ")
         self.ventana.geometry("600x600")
         self.ventana.iconbitmap("icono.ico")
-        self.ventanaa.maxsize(600, 600)
-        self.ventanaa.minsize(600, 600)
+        self.ventana.maxsize(600, 600)
+        self.ventana.minsize(600, 600)
 
         self.frame=tk.Frame(self.ventana,bg="slate gray")
         self.frame.pack(expand=True,fill="both")
