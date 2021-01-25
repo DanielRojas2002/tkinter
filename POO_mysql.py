@@ -182,6 +182,14 @@ class Aplicacion():
 
                 else:
                     self.ventana6=tk.Tk()
+                    self.ancho_ventana = 790
+                    self.alto_ventana = 200
+
+                    self.x_ventana = self.ventana6.winfo_screenwidth() - 410 - self.ancho_ventana // 2
+                    self.y_ventana = self.ventana6.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+                    self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+                    self.ventana6.geometry(self.posicion)
                     self.ventana6.title("Matricula : ")
                     self.ventana6.geometry("790x200")
                     self.ventana6.iconbitmap("icono.ico")
@@ -265,6 +273,14 @@ class Aplicacion():
     
     def modificar_ya(self):
         self.ventana=tk.Tk()
+        self.ancho_ventana = 600
+        self.alto_ventana = 600
+
+        self.x_ventana = self.ventana.winfo_screenwidth() - 1070 - self.ancho_ventana // 2
+        self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana.geometry(self.posicion)
         self.ventana.title("Actualizacion del Empleado : ")
         self.ventana.geometry("600x600")
         self.ventana.iconbitmap("icono.ico")
