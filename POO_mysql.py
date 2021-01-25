@@ -1355,9 +1355,10 @@ class Aplicacion():
                 c = conn.cursor()
                 c.execute("SELECT * FROM registro ")
                 registros=c.fetchall()
+                
 
             self.ventana9=tk.Tk()
-            
+
             self.ancho_ventana = 800
             self.alto_ventana = 500
 
