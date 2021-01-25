@@ -1357,6 +1357,14 @@ class Aplicacion():
                 registros=c.fetchall()
 
             self.ventana9=tk.Tk()
+            self.ancho_ventana = 800
+            self.alto_ventana = 500
+
+            self.x_ventana = self.ventana9.winfo_screenwidth() - 410 - self.ancho_ventana // 2
+            self.y_ventana = self.ventana9.winfo_screenheight() - 500 - self.alto_ventana // 2
+            self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+            self.ventana9.geometry(self.posicion)
+
             self.ventana9.title("Todos los Registros: ")
             self.ventana9.geometry("800x500")
             self.ventana9.maxsize(800, 500)
