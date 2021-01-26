@@ -195,8 +195,16 @@ class Aplicacion():
                     diccionariov["FECHA_MODIFICACION"]=listamod
                     diccionario2=pd.DataFrame(diccionariov)
                     
-                    ruta = "Reporte.xlsx"
+                    
+                    fecha=datetime.datetime.now()
+                    fecha2=fecha.strftime('%d_%m_%Y_%H_%M_%S')
+                    a="Reporte_"+str(fecha2)
+                    b=".xlsx"
+                    c=a+b
+                    ruta = "C:\\comun\\"+c
                     diccionario2.to_excel(ruta, index=None)
+                    messagebox.showinfo(message="Su Archivo Excel fue generado en C:comun",title="ERROR")
+
         except:
             print("error")
 
