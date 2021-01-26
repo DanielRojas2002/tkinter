@@ -98,6 +98,7 @@ class Aplicacion():
         self.ventana.geometry(self.posicion)
 
         self.ventana.title("OPCIONES")
+        self.ventana.iconbitmap("icono.ico")
         self.ventana.maxsize(300, 300)
         self.ventana.minsize(300, 300)
         self.ventana.geometry("300x300")
@@ -130,23 +131,32 @@ class Aplicacion():
 
     def NomEx(self):
         self.ventana5=tk.Tk()
-        self.ventana5.title("Borrar Registro : ")
+        self.ventana5.title("EXCEL : ")
+        self.ancho_ventana = 300
+        self.alto_ventana = 300
+
+        self.x_ventana = self.ventana5.winfo_screenwidth() - 810 - self.ancho_ventana // 2
+        self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana5.geometry(self.posicion)
+
         self.ventana5.geometry("200x200")
         self.ventana5.iconbitmap("icono.ico")
         self.ventana5.maxsize(200, 200)
         self.ventana5.minsize(200, 200)
 
-        self.frame4=tk.Frame(self.ventana5,bg="steel blue")
+        self.frame4=tk.Frame(self.ventana5,bg="springgreen4")
         self.frame4.pack(expand=True,fill="both")
 
-        self.txt001=tk.Label(self.frame4,text="Nombre: : ",bg="dark turquoise")
+        self.txt001=tk.Label(self.frame4,text="Nombre: : ",bg="olivedrab1")
         self.txt001.place(x=30,y=30,width=140,height=30)
 
         self.caja000=tk.Entry(self.frame4)
         self.caja000.place(x=50,y=80,width=100,height=30)
 
-        self.boton11=tk.Button(self.frame4,text="HACERLO A EXCEL",command=self.NOMEXCEL,bd=5)
-        self.boton11.place(x=50,y=130,width=120,height=30)
+        self.boton11=tk.Button(self.frame4,text="PASARLO A EXCEL",command=self.NOMEXCEL,bd=5)
+        self.boton11.place(x=40,y=130,width=120,height=30)
         self.ventana5.mainloop()
 
     def NOMEXCEL(self):
