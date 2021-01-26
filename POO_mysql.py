@@ -8,6 +8,9 @@ from tkinter import messagebox
 import sqlite3
 from sqlite3 import Error
 
+import pandas as pd
+import os
+
 class Aplicacion():
     def __init__(self):
 
@@ -67,7 +70,7 @@ class Aplicacion():
         self.boton7=tk.Button(self.frame2,text="GRAFICAR",command=self.GRAFICAR,bd=5)
         self.boton7.place(x=480,y=20,width=100,height=30)
 
-        self.boton8=tk.Button(self.frame2,text="EXCEL",command=self.ALGO,bd=5)
+        self.boton8=tk.Button(self.frame2,text="EXCEL",command=self.excel,bd=5)
         self.boton8.place(x=480,y=70,width=100,height=30)
 
         self.ventanai.mainloop()
@@ -81,9 +84,46 @@ class Aplicacion():
 
     def GRAFICAR(self):
         pass
+    
 
+    def excel(self):
+        self.ventana=tk.Tk()
+        self.ancho_ventana = 300
+        self.alto_ventana = 300
+
+        self.x_ventana = self.ventana.winfo_screenwidth() - 610 - self.ancho_ventana // 2
+        self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana.geometry(self.posicion)
+
+        self.ventana.title("OPCIONES")
+        self.ventana.maxsize(300, 300)
+        self.ventana.minsize(300, 300)
+        self.ventana.geometry("300x300")
+
+        self.frame=tk.Frame(self.ventana,bg="springgreen4")
+        self.frame.pack(expand=True,fill="both")
+
+        self.label=tk.Label(self.frame,text="Filtros",bg="olivedrab1")
+        self.label.place(x=100,y=20,width=100,height=30)
+        self.ventana.mainloop()
     def EXCEL(self):
-        pass
+        try:
+            diccionariov={}
+            diccionariov["MATRICULA"]=listadescript
+            diccionariov["NOMBRE"]=listacantidadt
+            diccionariov["APELLIDO"]=listapreciot
+            diccionariov["EDAD"]=listatiempot
+            diccionariov["TELEFONO"]=listatiempot
+            diccionariov["INSCRIPCION"]=listatiempot
+            diccionariov["FECHA_MODIFICACION"]=listatiempot
+            diccionario2=pd.DataFrame(diccionariov)
+            
+            ruta = "Reporte.xlsx"
+            diccionario2.to_excel(ruta, index=None, mode="a", header=not os.path.isfile(ruta))
+        except:
+            print("ed")
 
 
     
