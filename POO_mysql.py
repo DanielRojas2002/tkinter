@@ -196,7 +196,7 @@ class Aplicacion():
                     diccionario2=pd.DataFrame(diccionariov)
                     
                     ruta = "Reporte.xlsx"
-                    diccionario2.to_excel(ruta, index=None, mode="a", header=not os.path.isfile(ruta))
+                    diccionario2.to_excel(ruta, index=None)
         except:
             print("error")
 
