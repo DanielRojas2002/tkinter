@@ -112,7 +112,7 @@ class Aplicacion():
         self.boton01=tk.Button(self.frame,text="Nombre",command=self.NomEx,bd=5)
         self.boton01.place(x=80,y=60,width=140,height=30)
 
-        self.boton02=tk.Button(self.frame,text="Apellido",command=None,bd=5)
+        self.boton02=tk.Button(self.frame,text="Apellido",command=self.ApeEx,bd=5)
         self.boton02.place(x=80,y=100,width=140,height=30)
 
         self.boton03=tk.Button(self.frame,text="Edad",command=None,bd=5)
@@ -217,6 +217,99 @@ class Aplicacion():
 
         except:
             print("error")
+
+        
+    def ApeEx(self):
+        self.ventana5=tk.Tk()
+        self.ventana5.title("EXCEL : ")
+        self.ancho_ventana = 300
+        self.alto_ventana = 300
+
+        self.x_ventana = self.ventana5.winfo_screenwidth() - 810 - self.ancho_ventana // 2
+        self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana5.geometry(self.posicion)
+
+        self.ventana5.geometry("200x200")
+        self.ventana5.iconbitmap("icono.ico")
+        self.ventana5.maxsize(200, 200)
+        self.ventana5.minsize(200, 200)
+
+        self.frame4=tk.Frame(self.ventana5,bg="springgreen4")
+        self.frame4.pack(expand=True,fill="both")
+
+        self.txt001=tk.Label(self.frame4,text="Apellido: : ",bg="olivedrab1")
+        self.txt001.place(x=30,y=30,width=140,height=30)
+
+        self.caja0001=tk.Entry(self.frame4)
+        self.caja0001.place(x=50,y=80,width=100,height=30)
+
+        self.boton11=tk.Button(self.frame4,text="PASARLO A EXCEL",command=self.APEEXCEL,bd=5)
+        self.boton11.place(x=40,y=130,width=120,height=30)
+        self.ventana5.mainloop()
+
+    def APEEXCEL(self):
+        contador=0
+        listaid=[]
+        listanom=[]
+        listaape=[]
+        listaedad=[]
+        listadom=[]
+        listatel=[]
+        listains=[]
+        listamod=[]
+        apellido=self.caja0001.get()
+        try:
+            with sqlite3.connect("Empleados.db") as conn:
+                c = conn.cursor()
+                valor={"apellido":apellido}
+                c.execute("SELECT * FROM registro WHERE apellido = :apellido" , valor)
+                registros=c.fetchall()
+
+            
+                for elemento in registros:
+                    contador=contador+1
+            
+                if contador==0:
+                    messagebox.showerror(message="No se encontro el Registro o \n Ingreso un dato Incorrecto",title="ERROR")
+                
+                else:
+                    for clave,nombre,apellido,edad,telefono,domicilio,inscripcion,fecha_Modificacion in registros:
+                        listaid.append(clave)
+                        listanom.append(nombre)
+                        listaape.append(apellido)
+                        listaedad.append(edad)
+                        listatel.append(telefono)
+                        listadom.append(domicilio)
+                        listains.append(inscripcion)
+                        listamod.append(fecha_Modificacion)
+                    diccionariov={}
+                    diccionariov["MATRICULA"]=listaid
+                    diccionariov["NOMBRE"]=listanom
+                    diccionariov["APELLIDO"]=listaape
+                    diccionariov["EDAD"]=listaedad
+                    diccionariov["TELEFONO"]=listatel
+                    diccionariov["DOMICILIO"]=listadom
+                    diccionariov["INSCRIPCION"]=listains
+                    diccionariov["FECHA_MODIFICACION"]=listamod
+                    diccionario2=pd.DataFrame(diccionariov)
+                    
+                    
+                    fecha=datetime.datetime.now()
+                    fecha2=fecha.strftime('%d_%m_%Y_%H_%M_%S')
+                    a="Reporte_"+str(fecha2)
+                    b=".xlsx"
+                    c=a+b
+                    ruta = "C:\\comun\\"+c
+                    diccionario2.to_excel(ruta, index=None)
+                    messagebox.showinfo(message="Su Archivo Excel fue generado en C:comun",title="ERROR")
+
+        except:
+            print("error")
+
+
+
 
             
 
