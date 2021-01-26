@@ -109,18 +109,17 @@ class Aplicacion():
         self.label=tk.Label(self.frame,text="Filtros",bg="olivedrab1")
         self.label.place(x=100,y=20,width=100,height=30)
 
-        radio1=tk.Radiobutton(self.frame,text="Matricula",value=1,variable=self.selec).place(x=80,y=60,width=140,height=30)
-        radio2=tk.Radiobutton(self.frame,text="Nombre",value=2,variable=self.selec).place(x=80,y=100,width=140,height=30)
-        radio3=tk.Radiobutton(self.frame,text="Apellido",value=3,variable=self.selec).place(x=80,y=140,width=140,height=30)
-        radio4=tk.Radiobutton(self.frame,text="Edad",value=4,variable=self.selec).place(x=80,y=180,width=140,height=30)
-        radio5=tk.Radiobutton(self.frame,text="Telefono",value=5,variable=self.selec).place(x=80,y=220,width=140,height=30)
-        radio6=tk.Radiobutton(self.frame,text="Inscripcion",value=6,variable=self.selec).place(x=80,y=260,width=140,height=30)
-        radio7=tk.Radiobutton(self.frame,text="Fecha_Modificacion",value=7,variable=self.selec).place(x=80,y=300,width=140,height=30)
-        radio8=tk.Radiobutton(self.frame,text="Todos los Registros",value=8,variable=self.selec).place(x=80,y=340,width=140,height=30)
+        self.radio1=tk.Radiobutton(self.frame,text="Matricula",value=1,variable=self.selec,command=self.EXCEL).place(x=80,y=60,width=140,height=30)
+        self.radio2=tk.Radiobutton(self.frame,text="Nombre",value=2,variable=self.selec,command=self.EXCEL).place(x=80,y=100,width=140,height=30)
+        self.radio3=tk.Radiobutton(self.frame,text="Apellido",value=3,variable=self.selec,command=self.EXCEL).place(x=80,y=140,width=140,height=30)
+        self.radio4=tk.Radiobutton(self.frame,text="Edad",value=4,variable=self.selec,command=self.EXCEL).place(x=80,y=180,width=140,height=30)
+        self.radio5=tk.Radiobutton(self.frame,text="Telefono",value=5,variable=self.selec,command=self.EXCEL).place(x=80,y=220,width=140,height=30)
+        self.radio6=tk.Radiobutton(self.frame,text="Inscripcion",value=6,variable=self.selec,command=self.EXCEL).place(x=80,y=260,width=140,height=30)
+        self.radio7=tk.Radiobutton(self.frame,text="Fecha_Modificacion",value=7,variable=self.selec,command=self.EXCEL).place(x=80,y=300,width=140,height=30)
+        self.radio8=tk.Radiobutton(self.frame,text="Todos los Registros",value=8,variable=self.selec,command=self.EXCEL).place(x=80,y=340,width=140,height=30)
 
-        self.boton01=tk.Button(self.frame,text="SELECCIONAR",command=self.EXCEL,bd=5)
-        self.boton01.place(x=100,y=400,width=100,height=30)
-
+        #self.boton01=tk.Button(self.frame,text="SELECCIONAR",command=self.EXCEL,bd=5)
+        #self.boton01.place(x=100,y=400,width=100,height=30)
         self.ventana.mainloop()
         
     def EXCEL(self):
