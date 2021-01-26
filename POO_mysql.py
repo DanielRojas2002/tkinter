@@ -67,7 +67,7 @@ class Aplicacion():
         self.boton7=tk.Button(self.frame2,text="GRAFICAR",command=self.GRAFICAR,bd=5)
         self.boton7.place(x=480,y=20,width=100,height=30)
 
-        self.boton8=tk.Button(self.frame2,text="+ FUNCIONES",command=self.ALGO,bd=5)
+        self.boton8=tk.Button(self.frame2,text="EXCEL",command=self.ALGO,bd=5)
         self.boton8.place(x=480,y=70,width=100,height=30)
 
         self.ventanai.mainloop()
@@ -82,7 +82,7 @@ class Aplicacion():
     def GRAFICAR(self):
         pass
 
-    def ALGO(self):
+    def EXCEL(self):
         pass
 
 
