@@ -90,7 +90,6 @@ class Aplicacion():
         self.ventana=tk.Tk()
         self.ancho_ventana = 300
         self.alto_ventana = 300
-        self.selec=tk.IntVar()
 
         self.x_ventana = self.ventana.winfo_screenwidth() - 610 - self.ancho_ventana // 2
         self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
@@ -99,9 +98,9 @@ class Aplicacion():
         self.ventana.geometry(self.posicion)
 
         self.ventana.title("OPCIONES")
-        self.ventana.maxsize(300, 500)
-        self.ventana.minsize(300, 500)
-        self.ventana.geometry("400x500")
+        self.ventana.maxsize(300, 300)
+        self.ventana.minsize(300, 300)
+        self.ventana.geometry("300x300")
 
         self.frame=tk.Frame(self.ventana,bg="springgreen4")
         self.frame.pack(expand=True,fill="both")
@@ -109,43 +108,101 @@ class Aplicacion():
         self.label=tk.Label(self.frame,text="Filtros",bg="olivedrab1")
         self.label.place(x=100,y=20,width=100,height=30)
 
-        self.radio1=tk.Radiobutton(self.frame,text="Matricula",value=1,variable=self.selec,command=self.EXCEL).place(x=80,y=60,width=140,height=30)
-        self.radio2=tk.Radiobutton(self.frame,text="Nombre",value=2,variable=self.selec,command=self.EXCEL).place(x=80,y=100,width=140,height=30)
-        self.radio3=tk.Radiobutton(self.frame,text="Apellido",value=3,variable=self.selec,command=self.EXCEL).place(x=80,y=140,width=140,height=30)
-        self.radio4=tk.Radiobutton(self.frame,text="Edad",value=4,variable=self.selec,command=self.EXCEL).place(x=80,y=180,width=140,height=30)
-        self.radio5=tk.Radiobutton(self.frame,text="Telefono",value=5,variable=self.selec,command=self.EXCEL).place(x=80,y=220,width=140,height=30)
-        self.radio6=tk.Radiobutton(self.frame,text="Inscripcion",value=6,variable=self.selec,command=self.EXCEL).place(x=80,y=260,width=140,height=30)
-        self.radio7=tk.Radiobutton(self.frame,text="Fecha_Modificacion",value=7,variable=self.selec,command=self.EXCEL).place(x=80,y=300,width=140,height=30)
-        self.radio8=tk.Radiobutton(self.frame,text="Todos los Registros",value=8,variable=self.selec,command=self.EXCEL).place(x=80,y=340,width=140,height=30)
+        self.boton01=tk.Button(self.frame,text="Nombre",command=self.NomEx,bd=5)
+        self.boton01.place(x=80,y=60,width=140,height=30)
 
-        #self.boton01=tk.Button(self.frame,text="SELECCIONAR",command=self.EXCEL,bd=5)
-        #self.boton01.place(x=100,y=400,width=100,height=30)
+        self.boton02=tk.Button(self.frame,text="Apellido",command=None,bd=5)
+        self.boton02.place(x=80,y=100,width=140,height=30)
+
+        self.boton03=tk.Button(self.frame,text="Edad",command=None,bd=5)
+        self.boton03.place(x=80,y=140,width=140,height=30)
+
+        self.boton04=tk.Button(self.frame,text="Inscripcion",command=None,bd=5)
+        self.boton04.place(x=80,y=180,width=140,height=30)
+
+        self.boton05=tk.Button(self.frame,text="Fecha_Modificacion",command=None,bd=5)
+        self.boton05.place(x=80,y=220,width=140,height=30)
+
+        self.boton06=tk.Button(self.frame,text="Todos los Registros",command=None,bd=5)
+        self.boton06.place(x=80,y=260,width=140,height=30)
+
         self.ventana.mainloop()
-        
-    def EXCEL(self):
-        opcion=self.selec.get()
-        if opcion==1:
-            print("dd")
+
+    def NomEx(self):
+        self.ventana5=tk.Tk()
+        self.ventana5.title("Borrar Registro : ")
+        self.ventana5.geometry("200x200")
+        self.ventana5.iconbitmap("icono.ico")
+        self.ventana5.maxsize(200, 200)
+        self.ventana5.minsize(200, 200)
+
+        self.frame4=tk.Frame(self.ventana5,bg="steel blue")
+        self.frame4.pack(expand=True,fill="both")
+
+        self.txt001=tk.Label(self.frame4,text="Nombre: : ",bg="dark turquoise")
+        self.txt001.place(x=30,y=30,width=140,height=30)
+
+        self.caja000=tk.Entry(self.frame4)
+        self.caja000.place(x=50,y=80,width=100,height=30)
+
+        self.boton11=tk.Button(self.frame4,text="HACERLO A EXCEL",command=self.NOMEXCEL,bd=5)
+        self.boton11.place(x=50,y=130,width=120,height=30)
+        self.ventana5.mainloop()
+
+    def NOMEXCEL(self):
+        contador=0
+        listaid=[]
+        listanom=[]
+        listaape=[]
+        listaedad=[]
+        listadom=[]
+        listatel=[]
+        listains=[]
+        listamod=[]
+        nombre=self.caja000.get()
         try:
-            diccionariov={}
-            diccionariov["MATRICULA"]=listadescript
-            diccionariov["NOMBRE"]=listacantidadt
-            diccionariov["APELLIDO"]=listapreciot
-            diccionariov["EDAD"]=listatiempot
-            diccionariov["TELEFONO"]=listatiempot
-            diccionariov["INSCRIPCION"]=listatiempot
-            diccionariov["FECHA_MODIFICACION"]=listatiempot
-            diccionario2=pd.DataFrame(diccionariov)
+            with sqlite3.connect("Empleados.db") as conn:
+                c = conn.cursor()
+                valor={"nombre":nombre}
+                c.execute("SELECT * FROM registro WHERE nombre = :nombre" , valor)
+                registros=c.fetchall()
+
             
-            ruta = "Reporte.xlsx"
-            diccionario2.to_excel(ruta, index=None, mode="a", header=not os.path.isfile(ruta))
+                for elemento in registros:
+                    contador=contador+1
+            
+                if contador==0:
+                    messagebox.showerror(message="No se encontro el Registro o \n Ingreso un dato Incorrecto",title="ERROR")
+                
+                else:
+                    for clave,nombre,apellido,edad,telefono,domicilio,inscripcion,fecha_Modificacion in registros:
+                        listaid.append(clave)
+                        listanom.append(nombre)
+                        listaape.append(apellido)
+                        listaedad.append(edad)
+                        listatel.append(telefono)
+                        listadom.append(domicilio)
+                        listains.append(inscripcion)
+                        listamod.append(fecha_Modificacion)
+                    diccionariov={}
+                    diccionariov["MATRICULA"]=listaid
+                    diccionariov["NOMBRE"]=listanom
+                    diccionariov["APELLIDO"]=listaape
+                    diccionariov["EDAD"]=listaedad
+                    diccionariov["TELEFONO"]=listatel
+                    diccionariov["DOMICILIO"]=listadom
+                    diccionariov["INSCRIPCION"]=listains
+                    diccionariov["FECHA_MODIFICACION"]=listamod
+                    diccionario2=pd.DataFrame(diccionariov)
+                    
+                    ruta = "Reporte.xlsx"
+                    diccionario2.to_excel(ruta, index=None, mode="a", header=not os.path.isfile(ruta))
         except:
-            print("ed")
+            print("error")
 
+            
 
-    
-        
-
+            
 
     def Alta(self):
         self.ventana=tk.Tk()
