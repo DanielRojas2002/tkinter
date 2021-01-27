@@ -422,7 +422,7 @@ class Aplicacion():
         self.frame4=tk.Frame(self.ventana5,bg="springgreen4")
         self.frame4.pack(expand=True,fill="both")
 
-        self.txt001=tk.Label(self.frame4,text="Inscripcion: : ",bg="olivedrab1")
+        self.txt001=tk.Label(self.frame4,text="Inscripcion: : ",bg="medium spring green")
         self.txt001.place(x=250,y=10,width=100,height=30)
 
 
