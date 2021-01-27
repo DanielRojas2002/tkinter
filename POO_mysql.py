@@ -1038,6 +1038,9 @@ class Aplicacion():
             edad1=int(edad)
             telefono1=int(telefono)
 
+            if len(edad)>2:
+                x="z"+1
+
             if len(nombre)==0 or nombre.isdigit():
                 x="z"+1
 
