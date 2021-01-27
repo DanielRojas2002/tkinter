@@ -124,7 +124,7 @@ class Aplicacion():
         self.boton05=tk.Button(self.frame,text="Fecha_Modificacion",command=self.FechaEx,bd=5)
         self.boton05.place(x=80,y=220,width=140,height=30)
 
-        self.boton06=tk.Button(self.frame,text="Todos los Registros",command=None,bd=5)
+        self.boton06=tk.Button(self.frame,text="Todos los Registros",command=self.TodoEx,bd=5)
         self.boton06.place(x=80,y=260,width=140,height=30)
 
         self.ventana.mainloop()
@@ -365,7 +365,7 @@ class Aplicacion():
                     contador=contador+1
             
                 if contador==0:
-                    messagebox.showerror(message="No se encontro el Registro o \n Ingreso un dato Incorrecto",title="ERROR")
+                    messagebox.showerror(message="No se encontro el Registro",title="ERROR")
                 
                 else:
                     for clave,nombre,apellido,edad,telefono,domicilio,inscripcion,fecha_Modificacion in registros:
@@ -550,8 +550,8 @@ class Aplicacion():
         self.frame4=tk.Frame(self.ventana5,bg="springgreen4")
         self.frame4.pack(expand=True,fill="both")
 
-        self.txt001=tk.Label(self.frame4,text="Inscripcion: : ",bg="medium spring green")
-        self.txt001.place(x=250,y=10,width=100,height=30)
+        self.txt001=tk.Label(self.frame4,text="Fecha_Modificacion: ",bg="medium spring green")
+        self.txt001.place(x=240,y=10,width=120,height=30)
 
 
         self.txt001=tk.Label(self.frame4,text="DIA : ",bg="olivedrab1")
@@ -657,6 +657,55 @@ class Aplicacion():
 
         except:
             messagebox.showerror(message="Ingreso mal el dia,mes o año",title="ERROR")
+    
+
+    def TodoEx(self):
+        listaid=[]
+        listanom=[]
+        listaape=[]
+        listaedad=[]
+        listadom=[]
+        listatel=[]
+        listains=[]
+        listamod=[]
+        try:
+            with sqlite3.connect("Empleados.db") as conn:
+                c = conn.cursor()
+                c.execute("SELECT * FROM registro ")
+                registros=c.fetchall()
+
+                for clave,nombre,apellido,edad,telefono,domicilio,inscripcion,fecha_Modificacion in registros:
+                    listaid.append(clave)
+                    listanom.append(nombre)
+                    listaape.append(apellido)
+                    listaedad.append(edad)
+                    listatel.append(telefono)
+                    listadom.append(domicilio)
+                    listains.append(inscripcion)
+                    listamod.append(fecha_Modificacion)
+                diccionariov={}
+                diccionariov["MATRICULA"]=listaid
+                diccionariov["NOMBRE"]=listanom
+                diccionariov["APELLIDO"]=listaape
+                diccionariov["EDAD"]=listaedad
+                diccionariov["TELEFONO"]=listatel
+                diccionariov["DOMICILIO"]=listadom
+                diccionariov["INSCRIPCION"]=listains
+                diccionariov["FECHA_MODIFICACION"]=listamod
+                diccionario2=pd.DataFrame(diccionariov)
+                
+                
+                fecha=datetime.datetime.now()
+                fecha2=fecha.strftime('%d_%m_%Y_%H_%M_%S')
+                a="Reporte_"+"TodosR"+"_"+str(fecha2)
+                b=".xlsx"
+                c=a+b
+                ruta = "C:\\comun\\"+c
+                diccionario2.to_excel(ruta, index=None)
+                messagebox.showinfo(message="Su Archivo Excel fue generado en C:comun",title="ERROR")
+
+        except:
+            print("error")
 
 
     def Alta(self):
