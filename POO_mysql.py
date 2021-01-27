@@ -1502,7 +1502,8 @@ class Aplicacion():
             with sqlite3.connect("Empleados.db") as conn:
                 c = conn.cursor()
                 nom=self.caja77.get()
-                nombre=str(nom)
+                nomb=str(nom)
+                nombre=nomb.capitalize()
                 valor={"nombre":nombre}
                 c.execute("SELECT * FROM registro WHERE nombre = :nombre" , valor)
                 registros=c.fetchall()
@@ -1610,7 +1611,8 @@ class Aplicacion():
             with sqlite3.connect("Empleados.db") as conn:
                 c = conn.cursor()
                 ape=self.caja001.get()
-                apellido=str(ape)
+                apell=str(ape)
+                apellido=apell.capitalize()
                 valor={"apellido":apellido}
                 c.execute("SELECT * FROM registro WHERE apellido = :apellido" , valor)
                 registros=c.fetchall()
@@ -1931,7 +1933,8 @@ class Aplicacion():
             with sqlite3.connect("Empleados.db") as conn:
                 c = conn.cursor()
                 dom=self.caja7777.get()
-                domicilio=str(dom)
+                domici=str(dom)
+                domicilio=domici.capitalize()
                 valor={"domicilio":domicilio}
                 c.execute("SELECT * FROM registro WHERE domicilio = :domicilio" , valor)
                 registros=c.fetchall()
