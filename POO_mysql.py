@@ -1028,11 +1028,14 @@ class Aplicacion():
 
     def Registrar(self):
         clave=(self.caja1.get() )
-        nombre=(self.caja2.get())
-        apellido=(self.caja3.get())
+        nombr=(self.caja2.get())
+        nombre=nombr.capitalize()
+        apell=(self.caja3.get())
+        apellido=apell.capitalize()
         edad=(self.caja4.get())
         telefono=(self.caja5.get())
-        domicilio=(self.caja6.get())
+        domicil=(self.caja6.get())
+        domicilio=domicil.capitalize()
         contador=0
         
    
