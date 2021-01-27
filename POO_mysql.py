@@ -90,6 +90,7 @@ class Aplicacion():
         self.ventana=tk.Tk()
         self.ancho_ventana = 300
         self.alto_ventana = 300
+        self.ventana.iconbitmap("excel.ico")
 
         self.x_ventana = self.ventana.winfo_screenwidth() - 610 - self.ancho_ventana // 2
         self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
@@ -98,7 +99,6 @@ class Aplicacion():
         self.ventana.geometry(self.posicion)
 
         self.ventana.title("OPCIONES")
-        self.ventana.iconbitmap("icono.ico")
         self.ventana.maxsize(300, 300)
         self.ventana.minsize(300, 300)
         self.ventana.geometry("300x300")
@@ -132,6 +132,7 @@ class Aplicacion():
     def NomEx(self):
         self.ventana5=tk.Tk()
         self.ventana5.title("EXCEL : ")
+        self.ventana5.iconbitmap("excel.ico")
         self.ancho_ventana = 300
         self.alto_ventana = 300
 
@@ -142,7 +143,6 @@ class Aplicacion():
         self.ventana5.geometry(self.posicion)
 
         self.ventana5.geometry("200x200")
-        self.ventana5.iconbitmap("icono.ico")
         self.ventana5.maxsize(200, 200)
         self.ventana5.minsize(200, 200)
 
@@ -213,7 +213,7 @@ class Aplicacion():
                     c=a+b
                     ruta = "C:\\comun\\"+c
                     diccionario2.to_excel(ruta, index=None)
-                    messagebox.showinfo(message="Su Archivo Excel fue generado en C:comun",title="ERROR")
+                    messagebox.showinfo(message="Su Archivo Excel fue generado en C:comun",title=":)")
 
         except:
             print("error")
@@ -222,6 +222,7 @@ class Aplicacion():
     def ApeEx(self):
         self.ventana5=tk.Tk()
         self.ventana5.title("EXCEL : ")
+        self.ventana5.iconbitmap("excel.ico")
         self.ancho_ventana = 300
         self.alto_ventana = 300
 
@@ -232,7 +233,6 @@ class Aplicacion():
         self.ventana5.geometry(self.posicion)
 
         self.ventana5.geometry("200x200")
-        self.ventana5.iconbitmap("icono.ico")
         self.ventana5.maxsize(200, 200)
         self.ventana5.minsize(200, 200)
 
@@ -303,7 +303,7 @@ class Aplicacion():
                     c=a+b
                     ruta = "C:\\comun\\"+c
                     diccionario2.to_excel(ruta, index=None)
-                    messagebox.showinfo(message="Su Archivo Excel fue generado en C:comun",title="ERROR")
+                    messagebox.showinfo(message="Su Archivo Excel fue generado en C:comun",title=":)")
 
         except:
             print("error")
@@ -312,6 +312,7 @@ class Aplicacion():
     def EdadEx(self):
         self.ventana5=tk.Tk()
         self.ventana5.title("EXCEL : ")
+        self.ventana5.iconbitmap("excel.ico")
         self.ancho_ventana = 300
         self.alto_ventana = 300
 
@@ -322,7 +323,6 @@ class Aplicacion():
         self.ventana5.geometry(self.posicion)
 
         self.ventana5.geometry("200x200")
-        self.ventana5.iconbitmap("icono.ico")
         self.ventana5.maxsize(200, 200)
         self.ventana5.minsize(200, 200)
 
@@ -396,7 +396,7 @@ class Aplicacion():
                     c=a+b
                     ruta = "C:\\comun\\"+c
                     diccionario2.to_excel(ruta, index=None)
-                    messagebox.showinfo(message="Su Archivo Excel fue generado en C:comun",title="ERROR")
+                    messagebox.showinfo(message="Su Archivo Excel fue generado en C:comun",title=":)")
 
         except:
              messagebox.showerror(message="Ingreso un dato Incorrecto",title="ERROR")
@@ -405,6 +405,7 @@ class Aplicacion():
     def InsEx(self):
         self.ventana5=tk.Tk()
         self.ventana5.title("EXCEL : ")
+        self.ventana5.iconbitmap("excel.ico")
         self.ancho_ventana = 600
         self.alto_ventana = 200
 
@@ -415,7 +416,6 @@ class Aplicacion():
         self.ventana5.geometry(self.posicion)
 
         self.ventana5.geometry("600x200")
-        self.ventana5.iconbitmap("icono.ico")
         self.ventana5.maxsize(600, 200)
         self.ventana5.minsize(600, 200)
 
@@ -520,7 +520,7 @@ class Aplicacion():
                         c=a+b
                         ruta = "C:\\comun\\"+c
                         diccionario2.to_excel(ruta, index=None)
-                        messagebox.showinfo(message="Su Archivo Excel fue generado en C:comun",title="ERROR")
+                        messagebox.showinfo(message="Su Archivo Excel fue generado en C:comun",title=":)")
     
             except:
                 messagebox.showerror(message="Ingreso un dato Incorrecto",title="ERROR")
@@ -533,6 +533,7 @@ class Aplicacion():
     def FechaEx(self):
         self.ventana5=tk.Tk()
         self.ventana5.title("EXCEL : ")
+        self.ventana5.iconbitmap("excel.ico")
         self.ancho_ventana = 600
         self.alto_ventana = 200
 
@@ -543,7 +544,6 @@ class Aplicacion():
         self.ventana5.geometry(self.posicion)
 
         self.ventana5.geometry("600x200")
-        self.ventana5.iconbitmap("icono.ico")
         self.ventana5.maxsize(600, 200)
         self.ventana5.minsize(600, 200)
 
@@ -648,7 +648,7 @@ class Aplicacion():
                         c=a+b
                         ruta = "C:\\comun\\"+c
                         diccionario2.to_excel(ruta, index=None)
-                        messagebox.showinfo(message="Su Archivo Excel fue generado en C:comun",title="ERROR")
+                        messagebox.showinfo(message="Su Archivo Excel fue generado en C:comun",title=":)")
     
             except:
                 messagebox.showerror(message="Ingreso un dato Incorrecto",title="ERROR")
@@ -702,7 +702,7 @@ class Aplicacion():
                 c=a+b
                 ruta = "C:\\comun\\"+c
                 diccionario2.to_excel(ruta, index=None)
-                messagebox.showinfo(message="Su Archivo Excel fue generado en C:comun",title="ERROR")
+                messagebox.showinfo(message="Su Archivo Excel fue generado en C:comun",title=":)")
 
         except:
             print("error")
