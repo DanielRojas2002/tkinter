@@ -459,54 +459,76 @@ class Aplicacion():
         listatel=[]
         listains=[]
         listamod=[]
-        inscripcion=self.caja00011.get()
         try:
-            with sqlite3.connect("Empleados.db") as conn:
-                c = conn.cursor()
-                valor={"inscripcion":inscripcion}
-                c.execute("SELECT * FROM registro WHERE inscripcion = :inscripcion" , valor)
-                registros=c.fetchall()
+            dia=self.cajadia.get()
+            mes=self.cajames.get()
+            año=self.cajaaño.get()
+            d=int(dia)
+            m=int(mes)
+            a=int(año)
+            
+            if len(dia)!=2:
+                x="kk"+2
 
-            
-                for elemento in registros:
-                    contador=contador+1
-            
-                if contador==0:
-                    messagebox.showerror(message="No se encontro el Registro o \n Ingreso un dato Incorrecto",title="ERROR")
+            if len(mes)!=2:
+                x="kk"+2
+
+            if len(año)!=4:
+                x="kk"+2
+
+            try:
+                inscripcion=(dia+"/"+mes+"/"+año)
+                with sqlite3.connect("Empleados.db") as conn:
+                    c = conn.cursor()
+                    valor={"inscripcion":inscripcion}
+                    c.execute("SELECT * FROM registro WHERE inscripcion = :inscripcion" , valor)
+                    registros=c.fetchall()
+
                 
-                else:
-                    for clave,nombre,apellido,edad,telefono,domicilio,inscripcion,fecha_Modificacion in registros:
-                        listaid.append(clave)
-                        listanom.append(nombre)
-                        listaape.append(apellido)
-                        listaedad.append(edad)
-                        listatel.append(telefono)
-                        listadom.append(domicilio)
-                        listains.append(inscripcion)
-                        listamod.append(fecha_Modificacion)
-                    diccionariov={}
-                    diccionariov["MATRICULA"]=listaid
-                    diccionariov["NOMBRE"]=listanom
-                    diccionariov["APELLIDO"]=listaape
-                    diccionariov["EDAD"]=listaedad
-                    diccionariov["TELEFONO"]=listatel
-                    diccionariov["DOMICILIO"]=listadom
-                    diccionariov["INSCRIPCION"]=listains
-                    diccionariov["FECHA_MODIFICACION"]=listamod
-                    diccionario2=pd.DataFrame(diccionariov)
+                    for elemento in registros:
+                        contador=contador+1
+                
+                    if contador==0:
+                        messagebox.showerror(message="No se encontro el Registro ",title="ERROR")
                     
-                    
-                    fecha=datetime.datetime.now()
-                    fecha2=fecha.strftime('%d_%m_%Y_%H_%M_%S')
-                    a="Reporte_"+str(inscripcion)+"_"+str(fecha2)
-                    b=".xlsx"
-                    c=a+b
-                    ruta = "C:\\comun\\"+c
-                    diccionario2.to_excel(ruta, index=None)
-                    messagebox.showinfo(message="Su Archivo Excel fue generado en C:comun",title="ERROR")
+                    else:
+                        for clave,nombre,apellido,edad,telefono,domicilio,inscripcion,fecha_Modificacion in registros:
+                            listaid.append(clave)
+                            listanom.append(nombre)
+                            listaape.append(apellido)
+                            listaedad.append(edad)
+                            listatel.append(telefono)
+                            listadom.append(domicilio)
+                            listains.append(inscripcion)
+                            listamod.append(fecha_Modificacion)
+                        diccionariov={}
+                        diccionariov["MATRICULA"]=listaid
+                        diccionariov["NOMBRE"]=listanom
+                        diccionariov["APELLIDO"]=listaape
+                        diccionariov["EDAD"]=listaedad
+                        diccionariov["TELEFONO"]=listatel
+                        diccionariov["DOMICILIO"]=listadom
+                        diccionariov["INSCRIPCION"]=listains
+                        diccionariov["FECHA_MODIFICACION"]=listamod
+                        diccionario2=pd.DataFrame(diccionariov)
+                        
+                        
+                        fecha=datetime.datetime.now()
+                        fecha2=fecha.strftime('%d_%m_%Y_%H_%M_%S')
+                        a="Reporte_"+"fecha"+str(dia)+"_"+str(fecha2)
+                        b=".xlsx"
+                        c=a+b
+                        ruta = "C:\\comun\\"+c
+                        diccionario2.to_excel(ruta, index=None)
+                        messagebox.showinfo(message="Su Archivo Excel fue generado en C:comun",title="ERROR")
+    
+            except:
+                messagebox.showerror(message="Ingreso un dato Incorrecto",title="ERROR")
+
+        
 
         except:
-             messagebox.showerror(message="Ingreso un dato Incorrecto",title="ERROR")
+            messagebox.showerror(message="Ingreso mal el dia,mes o año",title="ERROR")
 
 
     def Alta(self):
