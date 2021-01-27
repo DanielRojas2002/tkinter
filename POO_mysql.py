@@ -1461,7 +1461,7 @@ class Aplicacion():
                         self.ventana6.mainloop()
 
         except:
-            messagebox.showerror(message="Ingreso un Dato Incorrecto ",title="ERROR")
+            messagebox.showerror(message="Ingreso un Dato Incorrecto\n o No existen ningun registro ",title="ERROR")
 
 
     def BuscNom(self):
@@ -1571,7 +1571,7 @@ class Aplicacion():
                     self.ventana9.mainloop()
 
         except :
-            print ("e")
+            messagebox.showerror(message="No Existe ningun dato \nLlena la tabla ",title="ERROR")
 
     def BuscApe(self):
         self.ventana5=tk.Tk()
@@ -1678,7 +1678,7 @@ class Aplicacion():
                         
                     self.ventana9.mainloop()
         except :
-            print ("d")
+            messagebox.showerror(message="No Existe ningun dato \nLlena la tabla ",title="ERROR")
     
     def BuscEd(self):
         self.ventana7=tk.Tk()
@@ -1785,7 +1785,7 @@ class Aplicacion():
                         
                     self.ventana9.mainloop()
         except :
-            messagebox.showerror(message="Ingreso un dato Incorrecto",title="ERROR")
+            messagebox.showerror(message="Ingreso un Dato Incorrecto\n o No existen ningun registro ",title="ERROR")
     
     def BuscTel(self):
         self.ventana7=tk.Tk()
@@ -1892,7 +1892,7 @@ class Aplicacion():
                         
                     self.ventana9.mainloop()
         except :
-            messagebox.showerror(message="Ingreso un dato incorrecto",title="ERROR")
+            messagebox.showerror(message="Ingreso un Dato Incorrecto\n o No existen ningun registro ",title="ERROR")
     
     def BuscDom(self):
         self.ventana7=tk.Tk()
@@ -1999,7 +1999,7 @@ class Aplicacion():
                         
                     self.ventana9.mainloop()
         except :
-            print ("d")
+            messagebox.showerror(message="No Existe ningun dato \nLlena la tabla ",title="ERROR")
 
     def BuscarTodos(self):
         try:
@@ -2064,7 +2064,7 @@ class Aplicacion():
                 
             self.ventana9.mainloop()
         except:
-            print("d")
+            messagebox.showerror(message="No Existe ningun dato \nLlena la tabla ",title="ERROR")
 
 
 
