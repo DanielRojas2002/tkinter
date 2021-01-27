@@ -118,7 +118,7 @@ class Aplicacion():
         self.boton03=tk.Button(self.frame,text="Edad",command=self.EdadEx,bd=5)
         self.boton03.place(x=80,y=140,width=140,height=30)
 
-        self.boton04=tk.Button(self.frame,text="Inscripcion",command=None,bd=5)
+        self.boton04=tk.Button(self.frame,text="Inscripcion",command=self.InsEx,bd=5)
         self.boton04.place(x=80,y=180,width=140,height=30)
 
         self.boton05=tk.Button(self.frame,text="Fecha_Modificacion",command=None,bd=5)
@@ -402,9 +402,112 @@ class Aplicacion():
              messagebox.showerror(message="Ingreso un dato Incorrecto",title="ERROR")
 
 
-            
+    def InsEx(self):
+        self.ventana5=tk.Tk()
+        self.ventana5.title("EXCEL : ")
+        self.ancho_ventana = 600
+        self.alto_ventana = 200
+
+        self.x_ventana = self.ventana5.winfo_screenwidth() - 810 - self.ancho_ventana // 2
+        self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana5.geometry(self.posicion)
+
+        self.ventana5.geometry("600x200")
+        self.ventana5.iconbitmap("icono.ico")
+        self.ventana5.maxsize(600, 200)
+        self.ventana5.minsize(600, 200)
+
+        self.frame4=tk.Frame(self.ventana5,bg="springgreen4")
+        self.frame4.pack(expand=True,fill="both")
+
+        self.txt001=tk.Label(self.frame4,text="Inscripcion: : ",bg="olivedrab1")
+        self.txt001.place(x=250,y=10,width=100,height=30)
+
+
+        self.txt001=tk.Label(self.frame4,text="DIA : ",bg="olivedrab1")
+        self.txt001.place(x=50,y=50,width=100,height=30)
+
+        self.cajadia=tk.Entry(self.frame4)
+        self.cajadia.place(x=50,y=90,width=100,height=30)
+
+        self.txt001=tk.Label(self.frame4,text="MES : ",bg="olivedrab1")
+        self.txt001.place(x=250,y=50,width=100,height=30)
+
+        self.cajames=tk.Entry(self.frame4)
+        self.cajames.place(x=250,y=90,width=100,height=30)
+
+        self.txt001=tk.Label(self.frame4,text="AÑO : ",bg="olivedrab1")
+        self.txt001.place(x=450,y=50,width=100,height=30)
+
+        self.cajaaño=tk.Entry(self.frame4)
+        self.cajaaño.place(x=450,y=90,width=100,height=30)
+
+        self.boton11=tk.Button(self.frame4,text="PASARLO A EXCEL",command=self.INCRIPCIONEXCEL,bd=5)
+        self.boton11.place(x=245,y=150,width=120,height=30)
+        self.ventana5.mainloop()
+
+
+    def INCRIPCIONEXCEL(self):
+        contador=0
+        listaid=[]
+        listanom=[]
+        listaape=[]
+        listaedad=[]
+        listadom=[]
+        listatel=[]
+        listains=[]
+        listamod=[]
+        inscripcion=self.caja00011.get()
+        try:
+            with sqlite3.connect("Empleados.db") as conn:
+                c = conn.cursor()
+                valor={"inscripcion":inscripcion}
+                c.execute("SELECT * FROM registro WHERE inscripcion = :inscripcion" , valor)
+                registros=c.fetchall()
 
             
+                for elemento in registros:
+                    contador=contador+1
+            
+                if contador==0:
+                    messagebox.showerror(message="No se encontro el Registro o \n Ingreso un dato Incorrecto",title="ERROR")
+                
+                else:
+                    for clave,nombre,apellido,edad,telefono,domicilio,inscripcion,fecha_Modificacion in registros:
+                        listaid.append(clave)
+                        listanom.append(nombre)
+                        listaape.append(apellido)
+                        listaedad.append(edad)
+                        listatel.append(telefono)
+                        listadom.append(domicilio)
+                        listains.append(inscripcion)
+                        listamod.append(fecha_Modificacion)
+                    diccionariov={}
+                    diccionariov["MATRICULA"]=listaid
+                    diccionariov["NOMBRE"]=listanom
+                    diccionariov["APELLIDO"]=listaape
+                    diccionariov["EDAD"]=listaedad
+                    diccionariov["TELEFONO"]=listatel
+                    diccionariov["DOMICILIO"]=listadom
+                    diccionariov["INSCRIPCION"]=listains
+                    diccionariov["FECHA_MODIFICACION"]=listamod
+                    diccionario2=pd.DataFrame(diccionariov)
+                    
+                    
+                    fecha=datetime.datetime.now()
+                    fecha2=fecha.strftime('%d_%m_%Y_%H_%M_%S')
+                    a="Reporte_"+str(inscripcion)+"_"+str(fecha2)
+                    b=".xlsx"
+                    c=a+b
+                    ruta = "C:\\comun\\"+c
+                    diccionario2.to_excel(ruta, index=None)
+                    messagebox.showinfo(message="Su Archivo Excel fue generado en C:comun",title="ERROR")
+
+        except:
+             messagebox.showerror(message="Ingreso un dato Incorrecto",title="ERROR")
+
 
     def Alta(self):
         self.ventana=tk.Tk()
