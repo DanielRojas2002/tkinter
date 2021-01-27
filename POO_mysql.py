@@ -975,11 +975,14 @@ class Aplicacion():
         
     def modificar_yaa(self):
         clave=self.caja000.get()
-        nombre=(self.caja1.get() )
-        apellido=(self.caja2.get())
+        nomb=(self.caja1.get())
+        nombre=nomb.capitalize()
+        apell=(self.caja2.get())
+        apellido=apell.capitalize()
         edad=(self.caja3.get())
         telefono=(self.caja4.get())
-        domicilio=(self.caja5.get())
+        domi=(self.caja5.get())
+        domicilio=domi.capitalize()
         fecha=datetime.datetime.now()
         fecha_Modificacion=fecha.strftime('%d/%m/%Y')
 
