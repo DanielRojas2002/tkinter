@@ -10,7 +10,9 @@ from sqlite3 import Error
 
 import pandas as pd
 import os
+from fpdf import FPDF
 
+from tabulate import tabulate
 class Aplicacion():
     def __init__(self):
 
@@ -152,10 +154,14 @@ class Aplicacion():
 
     def titulo(self):
         archivoA=open("C:\\comun\\Reporte.txt" , 'a')
-        archivoA.write("MATRICULA" +" "*15+"NOMBRE"+" "*15+"APELLIDO"+" "*15+"EDAD"+" "*15+"TELEFONO"+" "*15+"DOMICILIO"+" "*15+"INCRIPCION"+" "*15+"FECHA_MODIFICACION" +"\n" )
+        archivoA.write("ID" +"\t"*20+"N"+"\t"*20+"AP"+"\t"*20+"E"+"\t"*20+"TEL"+"\t"*20+"DOM"+"\t"*20+"INS"+"\t"*20+"UM"+"\n" )
         archivoA.close()
 
     def NOMBREPDF(self):
+        pdf=FPDF()
+        pdf.add_page()
+        pdf.set_font("Times",size=8)
+
         contador=0
         self.titulo()
         nom=self.caja000.get()
@@ -177,17 +183,29 @@ class Aplicacion():
                     messagebox.showerror(message="No se encontro el Registro o \n Ingreso un dato Incorrecto",title="ERROR")
                 
                 else:
-                    for clave,nombre,apellido,edad,telefono,domicilio,inscripcion,fecha_Modificacion in registros:
-                        archivoA.write(str(clave)+" "*18)
-                        archivoA.write(str(nombre)+" "*18)
-                        archivoA.write(str(apellido)+" "*18)
-                        archivoA.write(str(edad)+" "*18)
-                        archivoA.write(str(telefono)+" "*18)
-                        archivoA.write(str(domicilio)+" "*18)
-                        archivoA.write(str(inscripcion)+" "*18)
-                        archivoA.write(str(fecha_Modificacion)+"\n")
+                   
+                    datos=[]
+                    for conjunto in registros:
+                        datos.append(conjunto)
+
+                       # archivoA.write(str(clave)+"\t"*20)
+                        #archivoA.write(str(nombre)+"\t"*20)
+                       # archivoA.write(str(apellido)+"\t"*20)
+                       # archivoA.write(str(edad)+"\t"*20)
+                        #archivoA.write(str(telefono)+"\t"*20)
+                       # archivoA.write(str(domicilio)+"\t"*20)
+                       # archivoA.write(str(inscripcion)+"\t"*20)
+                        #archivoA.write(str(fecha_Modificacion)+"\n")
+                    archivoA.write(tabulate(datos))
                     archivoA.close()
-                    messagebox.showinfo(message="Su Archivo PDF fue generado en C:comun",title=":)")
+                fd=open("C:\\comun\\Reporte.txt" , 'r')
+                y=10
+                for i in fd:
+                    pdf.cell(200,y,txt=i,ln=1,align="C")
+                    
+
+                pdf.output("C:\\comun\\Reporte.pdf")
+                messagebox.showinfo(message="Su Archivo PDF fue generado en C:comun",title=":)")
         except:
             print("dd")
         
