@@ -103,11 +103,27 @@ class Aplicacion():
 
         self.combo=ttk.Combobox(self.frame)
         self.combo.place(x=30,y=100)
-        self.combo["values"]=("Nombre","Apellido","Edad","Domicilio","Inscripcion","Fecha_Modificacion")
+        self.combo["values"]=("Nombre","Apellido","Edad","Domicilio","Inscripcion","Fecha_Modificacion","Todos")
 
         self.boton01=tk.Button(self.frame,text="BUSCAR",command=self.BUSCAR,bd=5)
         self.boton01.place(x=30,y=160,width=140,height=30)
         self.ventana.mainloop()
+
+
+    def titulo(self):
+        archivoA=open("C:\\comun\\Reporte.txt" , 'a')
+        self.datos=[]
+        self.datos2=[]
+        self.datos.append(self.datos2)
+        self.datos2.append("ID")
+        self.datos2.append("NOMBRE")
+        self.datos2.append("APELLIDO")
+        self.datos2.append("EDAD")
+        self.datos2.append("TELEFONO")
+        self.datos2.append("DOMICILIO")
+        self.datos2.append("INSCRIPCION")
+        self.datos2.append("ULTIMA_MODIFICACION")
+        archivoA.close()
 
     def BUSCAR(self):
         if self.combo.get()=="Nombre":
@@ -321,26 +337,32 @@ class Aplicacion():
             self.boton11=tk.Button(self.frame4,text="PASARLO A TXT",command=self.FECHA_MODIFICACIONTXT,bd=5)
             self.boton11.place(x=245,y=150,width=120,height=30)
             self.ventana5.mainloop()
+        
+        elif self.combo.get()=="Todos":
+            try:
+                with sqlite3.connect("Empleados.db") as conn:
+                    c = conn.cursor()
+                    c.execute("SELECT * FROM registro ")
+                    registros=c.fetchall()
+
+                    self.titulo()
+                    archivoA=open("C:\\comun\\Reporte.txt" , 'a')
+                    archivoA.write("\n")
+                    archivoA.write("-"*20+"Buscado por : "+"TODOS los Registros :"+"-"*20)
+                    archivoA.write("\n")
+                    for conjunto in registros:
+                        self.datos.append(conjunto)
+                    archivoA.write(tabulate(self.datos))
+                    archivoA.write("\n")
+                    archivoA.write("-"*100)
+                    archivoA.close()
+                    self.datos=[]
+                    messagebox.showinfo(message="Su Archivo TXT fue generado en C:comun",title=":)")
+
+            except:
+                print("No creo que pase ")
 
 
-
-
-
-
-    def titulo(self):
-        archivoA=open("C:\\comun\\Reporte.txt" , 'a')
-        self.datos=[]
-        self.datos2=[]
-        self.datos.append(self.datos2)
-        self.datos2.append("ID")
-        self.datos2.append("NOMBRE")
-        self.datos2.append("APELLIDO")
-        self.datos2.append("EDAD")
-        self.datos2.append("TELEFONO")
-        self.datos2.append("DOMICILIO")
-        self.datos2.append("INSCRIPCION")
-        self.datos2.append("ULTIMA_MODIFICACION")
-        archivoA.close()
 
     def NOMBRETXT(self):
         try:
@@ -603,9 +625,6 @@ class Aplicacion():
 
         
         
-
-    def Todotxt(self):
-        pass
 
     def GMAIL(self):
         pass
