@@ -82,7 +82,7 @@ class Aplicacion():
         self.ventana=tk.Tk()
         self.ancho_ventana = 300
         self.alto_ventana = 300
-        self.ventana.iconbitmap("excel.ico")
+        self.ventana.iconbitmap("txt.ico")
 
         self.x_ventana = self.ventana.winfo_screenwidth() - 610 - self.ancho_ventana // 2
         self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
@@ -125,7 +125,7 @@ class Aplicacion():
     def Nomtxt(self):
         self.ventana5=tk.Tk()
         self.ventana5.title("TXT : ")
-        self.ventana5.iconbitmap("excel.ico")
+        self.ventana5.iconbitmap("txt.ico")
         self.ancho_ventana = 300
         self.alto_ventana = 300
 
