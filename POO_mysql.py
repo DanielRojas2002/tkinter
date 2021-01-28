@@ -313,7 +313,7 @@ class Aplicacion():
             self.frame4.pack(expand=True,fill="both")
 
             self.txt001=tk.Label(self.frame4,text="Fecha_Modificacion : ",bg="medium spring green")
-            self.txt001.place(x=250,y=10,width=100,height=30)
+            self.txt001.place(x=230,y=10,width=140,height=30)
 
 
             self.txt001=tk.Label(self.frame4,text="DIA : ",bg="snow")
