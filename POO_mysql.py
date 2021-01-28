@@ -77,6 +77,136 @@ class Aplicacion():
 
 
     def PDF(self):
+        self.ventana=tk.Tk()
+        self.ancho_ventana = 300
+        self.alto_ventana = 300
+        self.ventana.iconbitmap("excel.ico")
+
+        self.x_ventana = self.ventana.winfo_screenwidth() - 610 - self.ancho_ventana // 2
+        self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana.geometry(self.posicion)
+
+        self.ventana.title("OPCIONES")
+        self.ventana.maxsize(300, 300)
+        self.ventana.minsize(300, 300)
+        self.ventana.geometry("300x300")
+
+        self.frame=tk.Frame(self.ventana,bg="springgreen4")
+        self.frame.pack(expand=True,fill="both")
+
+        self.label=tk.Label(self.frame,text="Filtros",bg="olivedrab1")
+        self.label.place(x=100,y=20,width=100,height=30)
+
+        self.boton01=tk.Button(self.frame,text="Nombre",command=self.Nompdf,bd=5)
+        self.boton01.place(x=80,y=60,width=140,height=30)
+
+        self.boton02=tk.Button(self.frame,text="Apellido",command=self.Apellpdf,bd=5)
+        self.boton02.place(x=80,y=100,width=140,height=30)
+
+        self.boton03=tk.Button(self.frame,text="Edad",command=self.Edadpdf,bd=5)
+        self.boton03.place(x=80,y=140,width=140,height=30)
+
+        self.boton04=tk.Button(self.frame,text="Inscripcion",command=self.Inspdf,bd=5)
+        self.boton04.place(x=80,y=180,width=140,height=30)
+
+        self.boton05=tk.Button(self.frame,text="Fecha_Modificacion",command=self.Fechapdf,bd=5)
+        self.boton05.place(x=80,y=220,width=140,height=30)
+
+        self.boton06=tk.Button(self.frame,text="Todos los Registros",command=self.Todopdf,bd=5)
+        self.boton06.place(x=80,y=260,width=140,height=30)
+
+        self.ventana.mainloop()
+
+
+    def Nompdf(self):
+        self.ventana5=tk.Tk()
+        self.ventana5.title("EXCEL : ")
+        self.ventana5.iconbitmap("excel.ico")
+        self.ancho_ventana = 300
+        self.alto_ventana = 300
+
+        self.x_ventana = self.ventana5.winfo_screenwidth() - 810 - self.ancho_ventana // 2
+        self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana5.geometry(self.posicion)
+
+        self.ventana5.geometry("200x200")
+        self.ventana5.maxsize(200, 200)
+        self.ventana5.minsize(200, 200)
+
+        self.frame4=tk.Frame(self.ventana5,bg="springgreen4")
+        self.frame4.pack(expand=True,fill="both")
+
+        self.txt001=tk.Label(self.frame4,text="Nombre: : ",bg="olivedrab1")
+        self.txt001.place(x=30,y=30,width=140,height=30)
+
+        self.caja000=tk.Entry(self.frame4)
+        self.caja000.place(x=50,y=80,width=100,height=30)
+
+        self.boton11=tk.Button(self.frame4,text="PASARLO A PDF",command=self.NOMBREPDF,bd=5)
+        self.boton11.place(x=40,y=130,width=120,height=30)
+        self.ventana5.mainloop()
+
+    def titulo(self):
+        archivoA=open("C:\\comun\\Reporte.txt" , 'a')
+        archivoA.write("MATRICULA" +" "*15+"NOMBRE"+" "*15+"APELLIDO"+" "*15+"EDAD"+" "*15+"TELEFONO"+" "*15+"DOMICILIO"+" "*15+"INCRIPCION"+" "*15+"FECHA_MODIFICACION" +"\n" )
+        archivoA.close()
+
+    def NOMBREPDF(self):
+        contador=0
+        self.titulo()
+        nom=self.caja000.get()
+        nombre=nom.capitalize()
+        archivoA=open("C:\\comun\\Reporte.txt" , 'a')
+        archivoA.write("\n")
+        try:
+            with sqlite3.connect("Empleados.db") as conn:
+                c = conn.cursor()
+                valor={"nombre":nombre}
+                c.execute("SELECT * FROM registro WHERE nombre = :nombre" , valor)
+                registros=c.fetchall()
+
+            
+                for elemento in registros:
+                    contador=contador+1
+            
+                if contador==0:
+                    messagebox.showerror(message="No se encontro el Registro o \n Ingreso un dato Incorrecto",title="ERROR")
+                
+                else:
+                    for clave,nombre,apellido,edad,telefono,domicilio,inscripcion,fecha_Modificacion in registros:
+                        archivoA.write(str(clave)+" "*18)
+                        archivoA.write(str(nombre)+" "*18)
+                        archivoA.write(str(apellido)+" "*18)
+                        archivoA.write(str(edad)+" "*18)
+                        archivoA.write(str(telefono)+" "*18)
+                        archivoA.write(str(domicilio)+" "*18)
+                        archivoA.write(str(inscripcion)+" "*18)
+                        archivoA.write(str(fecha_Modificacion)+"\n")
+                    archivoA.close()
+                    messagebox.showinfo(message="Su Archivo PDF fue generado en C:comun",title=":)")
+        except:
+            print("dd")
+        
+
+
+
+    def Apellpdf(self):
+        pass
+
+    def Edadpdf(self):
+        pass
+
+    def Inspdf(self):
+        pass
+
+    def Fechapdf(self):
+        pass
+
+    def Todopdf(self):
         pass
 
     def GMAIL(self):
