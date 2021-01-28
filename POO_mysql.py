@@ -98,7 +98,7 @@ class Aplicacion():
         self.frame=tk.Frame(self.ventana,bg="gray22")
         self.frame.pack(expand=True,fill="both")
 
-        self.label=tk.Label(self.frame,text="Filtros",bg="snow2")
+        self.label=tk.Label(self.frame,text="Filtros",bg="snow")
         self.label.place(x=50,y=20,width=100,height=30)
 
         self.combo=ttk.Combobox(self.frame)
