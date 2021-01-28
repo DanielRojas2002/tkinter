@@ -95,10 +95,10 @@ class Aplicacion():
         self.ventana.minsize(200, 200)
         self.ventana.geometry("200x200")
 
-        self.frame=tk.Frame(self.ventana,bg="springgreen4")
+        self.frame=tk.Frame(self.ventana,bg="gray22")
         self.frame.pack(expand=True,fill="both")
 
-        self.label=tk.Label(self.frame,text="Filtros",bg="olivedrab1")
+        self.label=tk.Label(self.frame,text="Filtros",bg="snow2")
         self.label.place(x=50,y=20,width=100,height=30)
 
         self.combo=ttk.Combobox(self.frame)
@@ -143,7 +143,7 @@ class Aplicacion():
             self.ventana5.maxsize(200, 200)
             self.ventana5.minsize(200, 200)
 
-            self.frame4=tk.Frame(self.ventana5,bg="springgreen4")
+            self.frame4=tk.Frame(self.ventana5,bg="gray22")
             self.frame4.pack(expand=True,fill="both")
 
             self.txt001=tk.Label(self.frame4,text="Nombre: : ",bg="olivedrab1")
@@ -173,7 +173,7 @@ class Aplicacion():
             self.ventana5.maxsize(200, 200)
             self.ventana5.minsize(200, 200)
 
-            self.frame4=tk.Frame(self.ventana5,bg="springgreen4")
+            self.frame4=tk.Frame(self.ventana5,bg="gray22")
             self.frame4.pack(expand=True,fill="both")
 
             self.txt001=tk.Label(self.frame4,text="Apellido : ",bg="olivedrab1")
@@ -203,7 +203,7 @@ class Aplicacion():
             self.ventana5.maxsize(200, 200)
             self.ventana5.minsize(200, 200)
 
-            self.frame4=tk.Frame(self.ventana5,bg="springgreen4")
+            self.frame4=tk.Frame(self.ventana5,bg="gray22")
             self.frame4.pack(expand=True,fill="both")
 
             self.txt001=tk.Label(self.frame4,text="Edad : ",bg="olivedrab1")
@@ -233,7 +233,7 @@ class Aplicacion():
             self.ventana5.maxsize(200, 200)
             self.ventana5.minsize(200, 200)
 
-            self.frame4=tk.Frame(self.ventana5,bg="springgreen4")
+            self.frame4=tk.Frame(self.ventana5,bg="gray22")
             self.frame4.pack(expand=True,fill="both")
 
             self.txt001=tk.Label(self.frame4,text="Domicilio : ",bg="olivedrab1")
@@ -263,7 +263,7 @@ class Aplicacion():
             self.ventana5.maxsize(600, 200)
             self.ventana5.minsize(600, 200)
 
-            self.frame4=tk.Frame(self.ventana5,bg="springgreen4")
+            self.frame4=tk.Frame(self.ventana5,bg="gray22")
             self.frame4.pack(expand=True,fill="both")
 
             self.txt001=tk.Label(self.frame4,text="Inscripcion: : ",bg="medium spring green")
@@ -309,7 +309,7 @@ class Aplicacion():
             self.ventana5.maxsize(600, 200)
             self.ventana5.minsize(600, 200)
 
-            self.frame4=tk.Frame(self.ventana5,bg="springgreen4")
+            self.frame4=tk.Frame(self.ventana5,bg="gray22")
             self.frame4.pack(expand=True,fill="both")
 
             self.txt001=tk.Label(self.frame4,text="Fecha_Modificacion : ",bg="medium spring green")
