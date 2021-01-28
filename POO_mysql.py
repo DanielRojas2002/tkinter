@@ -146,7 +146,7 @@ class Aplicacion():
             self.frame4=tk.Frame(self.ventana5,bg="gray22")
             self.frame4.pack(expand=True,fill="both")
 
-            self.txt001=tk.Label(self.frame4,text="Nombre: : ",bg="olivedrab1")
+            self.txt001=tk.Label(self.frame4,text="Nombre: : ",bg="snow")
             self.txt001.place(x=30,y=30,width=140,height=30)
 
             self.caja000=tk.Entry(self.frame4)
@@ -176,7 +176,7 @@ class Aplicacion():
             self.frame4=tk.Frame(self.ventana5,bg="gray22")
             self.frame4.pack(expand=True,fill="both")
 
-            self.txt001=tk.Label(self.frame4,text="Apellido : ",bg="olivedrab1")
+            self.txt001=tk.Label(self.frame4,text="Apellido : ",bg="snow")
             self.txt001.place(x=30,y=30,width=140,height=30)
 
             self.caja000=tk.Entry(self.frame4)
@@ -206,7 +206,7 @@ class Aplicacion():
             self.frame4=tk.Frame(self.ventana5,bg="gray22")
             self.frame4.pack(expand=True,fill="both")
 
-            self.txt001=tk.Label(self.frame4,text="Edad : ",bg="olivedrab1")
+            self.txt001=tk.Label(self.frame4,text="Edad : ",bg="snow")
             self.txt001.place(x=30,y=30,width=140,height=30)
 
             self.caja000=tk.Entry(self.frame4)
@@ -236,7 +236,7 @@ class Aplicacion():
             self.frame4=tk.Frame(self.ventana5,bg="gray22")
             self.frame4.pack(expand=True,fill="both")
 
-            self.txt001=tk.Label(self.frame4,text="Domicilio : ",bg="olivedrab1")
+            self.txt001=tk.Label(self.frame4,text="Domicilio : ",bg="snow")
             self.txt001.place(x=30,y=30,width=140,height=30)
 
             self.caja000=tk.Entry(self.frame4)
@@ -270,19 +270,19 @@ class Aplicacion():
             self.txt001.place(x=250,y=10,width=100,height=30)
 
 
-            self.txt001=tk.Label(self.frame4,text="DIA : ",bg="olivedrab1")
+            self.txt001=tk.Label(self.frame4,text="DIA : ",bg="snow")
             self.txt001.place(x=50,y=50,width=100,height=30)
 
             self.cajadia=tk.Entry(self.frame4)
             self.cajadia.place(x=50,y=90,width=100,height=30)
 
-            self.txt001=tk.Label(self.frame4,text="MES : ",bg="olivedrab1")
+            self.txt001=tk.Label(self.frame4,text="MES : ",bg="snow")
             self.txt001.place(x=250,y=50,width=100,height=30)
 
             self.cajames=tk.Entry(self.frame4)
             self.cajames.place(x=250,y=90,width=100,height=30)
 
-            self.txt001=tk.Label(self.frame4,text="AÑO : ",bg="olivedrab1")
+            self.txt001=tk.Label(self.frame4,text="AÑO : ",bg="snow")
             self.txt001.place(x=450,y=50,width=100,height=30)
 
             self.cajaaño=tk.Entry(self.frame4)
@@ -316,19 +316,19 @@ class Aplicacion():
             self.txt001.place(x=250,y=10,width=100,height=30)
 
 
-            self.txt001=tk.Label(self.frame4,text="DIA : ",bg="olivedrab1")
+            self.txt001=tk.Label(self.frame4,text="DIA : ",bg="snow")
             self.txt001.place(x=50,y=50,width=100,height=30)
 
             self.cajadia=tk.Entry(self.frame4)
             self.cajadia.place(x=50,y=90,width=100,height=30)
 
-            self.txt001=tk.Label(self.frame4,text="MES : ",bg="olivedrab1")
+            self.txt001=tk.Label(self.frame4,text="MES : ",bg="snow")
             self.txt001.place(x=250,y=50,width=100,height=30)
 
             self.cajames=tk.Entry(self.frame4)
             self.cajames.place(x=250,y=90,width=100,height=30)
 
-            self.txt001=tk.Label(self.frame4,text="AÑO : ",bg="olivedrab1")
+            self.txt001=tk.Label(self.frame4,text="AÑO : ",bg="snow")
             self.txt001.place(x=450,y=50,width=100,height=30)
 
             self.cajaaño=tk.Entry(self.frame4)
