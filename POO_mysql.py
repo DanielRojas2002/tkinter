@@ -276,6 +276,53 @@ class Aplicacion():
             self.boton11.place(x=245,y=150,width=120,height=30)
             self.ventana5.mainloop()
 
+        elif self.combo.get()=="Fecha_Modificacion":
+            self.ventana5=tk.Tk()
+            self.ventana5.title("TXT : ")
+            self.ventana5.iconbitmap("excel.ico")
+            self.ancho_ventana = 600
+            self.alto_ventana = 200
+
+            self.x_ventana = self.ventana5.winfo_screenwidth() - 810 - self.ancho_ventana // 2
+            self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+            self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+            self.ventana5.geometry(self.posicion)
+
+            self.ventana5.geometry("600x200")
+            self.ventana5.maxsize(600, 200)
+            self.ventana5.minsize(600, 200)
+
+            self.frame4=tk.Frame(self.ventana5,bg="springgreen4")
+            self.frame4.pack(expand=True,fill="both")
+
+            self.txt001=tk.Label(self.frame4,text="Fecha_Modificacion : ",bg="medium spring green")
+            self.txt001.place(x=250,y=10,width=100,height=30)
+
+
+            self.txt001=tk.Label(self.frame4,text="DIA : ",bg="olivedrab1")
+            self.txt001.place(x=50,y=50,width=100,height=30)
+
+            self.cajadia=tk.Entry(self.frame4)
+            self.cajadia.place(x=50,y=90,width=100,height=30)
+
+            self.txt001=tk.Label(self.frame4,text="MES : ",bg="olivedrab1")
+            self.txt001.place(x=250,y=50,width=100,height=30)
+
+            self.cajames=tk.Entry(self.frame4)
+            self.cajames.place(x=250,y=90,width=100,height=30)
+
+            self.txt001=tk.Label(self.frame4,text="AÑO : ",bg="olivedrab1")
+            self.txt001.place(x=450,y=50,width=100,height=30)
+
+            self.cajaaño=tk.Entry(self.frame4)
+            self.cajaaño.place(x=450,y=90,width=100,height=30)
+
+            self.boton11=tk.Button(self.frame4,text="PASARLO A TXT",command=self.FECHA_MODIFICACIONTXT,bd=5)
+            self.boton11.place(x=245,y=150,width=120,height=30)
+            self.ventana5.mainloop()
+
+
 
 
 
@@ -318,7 +365,7 @@ class Aplicacion():
                     self.titulo()
                     archivoA=open("C:\\comun\\Reporte.txt" , 'a')
                     archivoA.write("\n")
-                    archivoA.write("-"*20+"Buscado por : "+str(nombre)+"-"*20)
+                    archivoA.write("-"*20+"Buscado por : "+"Nombre : "+str(nombre)+"-"*20)
                     archivoA.write("\n")
                     for conjunto in registros:
                         self.datos.append(conjunto)
@@ -355,7 +402,7 @@ class Aplicacion():
                     self.titulo()
                     archivoA=open("C:\\comun\\Reporte.txt" , 'a')
                     archivoA.write("\n")
-                    archivoA.write("-"*20+"Buscado por : "+str(apellido)+"-"*20)
+                    archivoA.write("-"*20+"Buscado por : "+"Apellido : "+str(apellido)+"-"*20)
                     archivoA.write("\n")
                     for conjunto in registros:
                         self.datos.append(conjunto)
@@ -394,7 +441,7 @@ class Aplicacion():
                     self.titulo()
                     archivoA=open("C:\\comun\\Reporte.txt" , 'a')
                     archivoA.write("\n")
-                    archivoA.write("-"*20+"Buscado por : "+str(edad)+"-"*20)
+                    archivoA.write("-"*20+"Buscado por : "+"Edad : "+str(edad)+"-"*20)
                     archivoA.write("\n")
                     for conjunto in registros:
                         self.datos.append(conjunto)
@@ -431,7 +478,7 @@ class Aplicacion():
                     self.titulo()
                     archivoA=open("C:\\comun\\Reporte.txt" , 'a')
                     archivoA.write("\n")
-                    archivoA.write("-"*20+"Buscado por : "+str(domicilio)+"-"*20)
+                    archivoA.write("-"*20+"Buscado por : "+"Domcilio : "+str(domicilio)+"-"*20)
                     archivoA.write("\n")
                     for conjunto in registros:
                         self.datos.append(conjunto)
@@ -483,7 +530,7 @@ class Aplicacion():
                         self.titulo()
                         archivoA=open("C:\\comun\\Reporte.txt" , 'a')
                         archivoA.write("\n")
-                        archivoA.write("-"*20+"Buscado por : "+str(inscripcion)+"-"*20)
+                        archivoA.write("-"*20+"Buscado por : "+"Inscripcion : "+str(inscripcion)+"-"*20)
                         archivoA.write("\n")
                         for conjunto in registros:
                             self.datos.append(conjunto)
@@ -500,7 +547,60 @@ class Aplicacion():
             messagebox.showerror(message="Ingreso mal el dia,mes o año",title="ERROR")
             
 
-        
+    def FECHA_MODIFICACIONTXT(self):
+        try:
+            contador=0
+            dia=self.cajadia.get()
+            mes=self.cajames.get()
+            año=self.cajaaño.get()
+            d=int(dia)
+            m=int(mes)
+            a=int(año)
+            
+            if len(dia)!=2:
+                x="kk"+2
+
+            if len(mes)!=2:
+                x="kk"+2
+
+            if len(año)!=4:
+                x="kk"+2
+
+            try:
+                fecha_Modificacion=(dia+"/"+mes+"/"+año)
+                with sqlite3.connect("Empleados.db") as conn:
+                    c = conn.cursor()
+                    valor={"fecha_Modificacion":fecha_Modificacion}
+                    c.execute("SELECT * FROM registro WHERE fecha_Modificacion = :fecha_Modificacion" , valor)
+                    registros=c.fetchall()
+
+                
+                    for elemento in registros:
+                        contador=contador+1
+                
+                    if contador==0:
+                        messagebox.showerror(message="No se encontro el Registro ",title="ERROR")
+
+                    else:
+                        self.titulo()
+                        archivoA=open("C:\\comun\\Reporte.txt" , 'a')
+                        archivoA.write("\n")
+                        archivoA.write("-"*20+"Buscado por : "+"Fecha_Modificacion : "+str(fecha_Modificacion)+"-"*20)
+                        archivoA.write("\n")
+                        for conjunto in registros:
+                            self.datos.append(conjunto)
+                        archivoA.write(tabulate(self.datos))
+                        archivoA.write("\n")
+                        archivoA.write("-"*100)
+                        archivoA.close()
+                        self.datos=[]
+                        messagebox.showinfo(message="Su Archivo TXT fue generado en C:comun",title=":)")
+
+            except:
+                messagebox.showerror(message="Ingreso un dato Incorrecto",title="ERROR")
+        except:
+            messagebox.showerror(message="Ingreso mal el dia,mes o año",title="ERROR")
+
         
         
 
