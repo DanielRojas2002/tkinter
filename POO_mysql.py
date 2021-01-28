@@ -154,7 +154,17 @@ class Aplicacion():
 
     def titulo(self):
         archivoA=open("C:\\comun\\Reporte.txt" , 'a')
-        archivoA.write("ID" +"\t"*20+"N"+"\t"*20+"AP"+"\t"*20+"E"+"\t"*20+"TEL"+"\t"*20+"DOM"+"\t"*20+"INS"+"\t"*20+"UM"+"\n" )
+        self.datos=[]
+        self.datos2=[]
+        self.datos.append(self.datos2)
+        self.datos2.append("ID")
+        self.datos2.append("NOMBRE")
+        self.datos2.append("APELLIDO")
+        self.datos2.append("EDAD")
+        self.datos2.append("TELEFONO")
+        self.datos2.append("DOMICILIO")
+        self.datos2.append("INSCRIPCION")
+        self.datos2.append("ULTIMA_MODIFICACION")
         archivoA.close()
 
     def NOMBREPDF(self):
@@ -183,28 +193,11 @@ class Aplicacion():
                     messagebox.showerror(message="No se encontro el Registro o \n Ingreso un dato Incorrecto",title="ERROR")
                 
                 else:
-                   
-                    datos=[]
                     for conjunto in registros:
-                        datos.append(conjunto)
-
-                       # archivoA.write(str(clave)+"\t"*20)
-                        #archivoA.write(str(nombre)+"\t"*20)
-                       # archivoA.write(str(apellido)+"\t"*20)
-                       # archivoA.write(str(edad)+"\t"*20)
-                        #archivoA.write(str(telefono)+"\t"*20)
-                       # archivoA.write(str(domicilio)+"\t"*20)
-                       # archivoA.write(str(inscripcion)+"\t"*20)
-                        #archivoA.write(str(fecha_Modificacion)+"\n")
-                    archivoA.write(tabulate(datos))
+                        self.datos.append(conjunto)
+                    archivoA.write(tabulate(self.datos))
                     archivoA.close()
-                fd=open("C:\\comun\\Reporte.txt" , 'r')
-                y=10
-                for i in fd:
-                    pdf.cell(200,y,txt=i,ln=1,align="C")
-                    
-
-                pdf.output("C:\\comun\\Reporte.pdf")
+                    self.datos=[]
                 messagebox.showinfo(message="Su Archivo PDF fue generado en C:comun",title=":)")
         except:
             print("dd")
