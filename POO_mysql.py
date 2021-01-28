@@ -63,7 +63,7 @@ class Aplicacion():
         self.boton4=tk.Button(self.frame2,text="CONSULTA",command=self.Buscar_Registros,bd=5)
         self.boton4.place(x=140,y=70,width=100,height=30)
 
-        self.boton5=tk.Button(self.frame2,text="PDF",command=self.PDF,bd=5)
+        self.boton5=tk.Button(self.frame2,text="TXT",command=self.TXT,bd=5)
         self.boton5.place(x=350,y=20,width=100,height=30)
 
         self.boton6=tk.Button(self.frame2,text="GMAIL",command=self.GMAIL,bd=5)
@@ -78,7 +78,7 @@ class Aplicacion():
         self.ventanai.mainloop()
 
 
-    def PDF(self):
+    def TXT(self):
         self.ventana=tk.Tk()
         self.ancho_ventana = 300
         self.alto_ventana = 300
@@ -101,30 +101,30 @@ class Aplicacion():
         self.label=tk.Label(self.frame,text="Filtros",bg="olivedrab1")
         self.label.place(x=100,y=20,width=100,height=30)
 
-        self.boton01=tk.Button(self.frame,text="Nombre",command=self.Nompdf,bd=5)
+        self.boton01=tk.Button(self.frame,text="Nombre",command=self.Nomtxt,bd=5)
         self.boton01.place(x=80,y=60,width=140,height=30)
 
-        self.boton02=tk.Button(self.frame,text="Apellido",command=self.Apellpdf,bd=5)
+        self.boton02=tk.Button(self.frame,text="Apellido",command=self.Apelltxt,bd=5)
         self.boton02.place(x=80,y=100,width=140,height=30)
 
-        self.boton03=tk.Button(self.frame,text="Edad",command=self.Edadpdf,bd=5)
+        self.boton03=tk.Button(self.frame,text="Edad",command=self.Edadtxt,bd=5)
         self.boton03.place(x=80,y=140,width=140,height=30)
 
-        self.boton04=tk.Button(self.frame,text="Inscripcion",command=self.Inspdf,bd=5)
+        self.boton04=tk.Button(self.frame,text="Inscripcion",command=self.Instxt,bd=5)
         self.boton04.place(x=80,y=180,width=140,height=30)
 
-        self.boton05=tk.Button(self.frame,text="Fecha_Modificacion",command=self.Fechapdf,bd=5)
+        self.boton05=tk.Button(self.frame,text="Fecha_Modificacion",command=self.Fechatxt,bd=5)
         self.boton05.place(x=80,y=220,width=140,height=30)
 
-        self.boton06=tk.Button(self.frame,text="Todos los Registros",command=self.Todopdf,bd=5)
+        self.boton06=tk.Button(self.frame,text="Todos los Registros",command=self.Todotxt,bd=5)
         self.boton06.place(x=80,y=260,width=140,height=30)
 
         self.ventana.mainloop()
 
 
-    def Nompdf(self):
+    def Nomtxt(self):
         self.ventana5=tk.Tk()
-        self.ventana5.title("EXCEL : ")
+        self.ventana5.title("TXT : ")
         self.ventana5.iconbitmap("excel.ico")
         self.ancho_ventana = 300
         self.alto_ventana = 300
@@ -148,7 +148,7 @@ class Aplicacion():
         self.caja000=tk.Entry(self.frame4)
         self.caja000.place(x=50,y=80,width=100,height=30)
 
-        self.boton11=tk.Button(self.frame4,text="PASARLO A PDF",command=self.NOMBREPDF,bd=5)
+        self.boton11=tk.Button(self.frame4,text="PASARLO A TXT",command=self.NOMBRETXT,bd=5)
         self.boton11.place(x=40,y=130,width=120,height=30)
         self.ventana5.mainloop()
 
@@ -167,11 +167,7 @@ class Aplicacion():
         self.datos2.append("ULTIMA_MODIFICACION")
         archivoA.close()
 
-    def NOMBREPDF(self):
-        pdf=FPDF()
-        pdf.add_page()
-        pdf.set_font("Times",size=8)
-
+    def NOMBRETXT(self):
         contador=0
         self.titulo()
         nom=self.caja000.get()
@@ -198,26 +194,26 @@ class Aplicacion():
                     archivoA.write(tabulate(self.datos))
                     archivoA.close()
                     self.datos=[]
-                messagebox.showinfo(message="Su Archivo PDF fue generado en C:comun",title=":)")
+                messagebox.showinfo(message="Su Archivo TXT fue generado en C:comun",title=":)")
         except:
             print("dd")
         
 
 
 
-    def Apellpdf(self):
+    def Apelltxt(self):
         pass
 
-    def Edadpdf(self):
+    def Edadtxt(self):
         pass
 
-    def Inspdf(self):
+    def Instxt(self):
         pass
 
-    def Fechapdf(self):
+    def Fechatxt(self):
         pass
 
-    def Todopdf(self):
+    def Todotxt(self):
         pass
 
     def GMAIL(self):
