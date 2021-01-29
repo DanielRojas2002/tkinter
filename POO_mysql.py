@@ -74,17 +74,61 @@ class Aplicacion():
         self.boton8=tk.Button(self.frame2,text="EXCEL",command=self.excel,bd=5)
         self.boton8.place(x=480,y=70,width=100,height=30)
 
-        self.boton9=tk.Button(self.frame2,text=" + ",command=None,bd=5,font=self.fontStyle)
+        self.boton9=tk.Button(self.frame2,text=" + ",command=self.MAS,bd=5,font=self.fontStyle)
         self.boton9.place(x=270,y=30,width=50,height=60)
 
         self.ventanai.mainloop()
+
+
+
+    def MAS(self):
+        self.ventana=tk.Tk()
+        self.ancho_ventana = 200
+        self.alto_ventana = 200
+        self.ventana.iconbitmap("filtro.ico")
+
+        self.x_ventana = self.ventana.winfo_screenwidth() - 610 - self.ancho_ventana // 2
+        self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana.geometry(self.posicion)
+
+        self.ventana.title("OPCIONES")
+        self.ventana.maxsize(200, 200)
+        self.ventana.minsize(200, 200)
+        self.ventana.geometry("200x200")
+
+        self.frame=tk.Frame(self.ventana,bg="gray22")
+        self.frame.pack(expand=True,fill="both")
+
+        self.label=tk.Label(self.frame,text="Filtros",bg="snow")
+        self.label.place(x=50,y=20,width=100,height=30)
+
+        self.combo=ttk.Combobox(self.frame)
+        self.combo.place(x=30,y=100)
+        self.combo["values"]=("Informacion","Contar_Registros","Like")
+
+        self.boton01=tk.Button(self.frame,text="CHECAR",command=self.CHECAR,bd=5)
+        self.boton01.place(x=30,y=160,width=140,height=30)
+        self.ventana.mainloop()
+
+    def CHECAR(self):
+        if self.combo.get()=="Informacion":
+            messagebox.showinfo(message="Para poder ejecutar este programa con todos sus botones tienes que : \n\n *Instalar la libreria tabulate (pip install tabulate (en el cmd)) \n *Tener instalado la base de datos llamada sqlite", title="Título")
+        elif self.combo.get()=="Contar_Registros":
+            pass
+
+        elif self.combo.get()=="Like":
+            pass
+
+
 
 
     def TXT(self):
         self.ventana=tk.Tk()
         self.ancho_ventana = 200
         self.alto_ventana = 200
-        self.ventana.iconbitmap("txt.ico")
+        self.ventana.iconbitmap("filtro.ico")
 
         self.x_ventana = self.ventana.winfo_screenwidth() - 610 - self.ancho_ventana // 2
         self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
@@ -639,7 +683,7 @@ class Aplicacion():
         self.ventana=tk.Tk()
         self.ancho_ventana = 300
         self.alto_ventana = 300
-        self.ventana.iconbitmap("excel.ico")
+        self.ventana.iconbitmap("filtro.ico")
 
         self.x_ventana = self.ventana.winfo_screenwidth() - 610 - self.ancho_ventana // 2
         self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
@@ -1863,7 +1907,7 @@ class Aplicacion():
 
         self.ventana4.title("Buscador : ")
         self.ventana4.geometry("250x350")
-        self.ventana4.iconbitmap("icono.ico")
+        self.ventana4.iconbitmap("filtro.ico")
         self.ventana4.maxsize(250, 350)
         self.ventana4.minsize(250, 350)
 
