@@ -716,7 +716,8 @@ class Aplicacion():
         listatel=[]
         listains=[]
         listamod=[]
-        nombre=self.caja000.get()
+        nomb=self.caja000.get()
+        nombre=nomb.capitalize()
         try:
             with sqlite3.connect("Empleados.db") as conn:
                 c = conn.cursor()
@@ -806,7 +807,8 @@ class Aplicacion():
         listatel=[]
         listains=[]
         listamod=[]
-        apellido=self.caja0001.get()
+        ape=self.caja0001.get()
+        apellido=ape.capitalize()
         try:
             with sqlite3.connect("Empleados.db") as conn:
                 c = conn.cursor()
