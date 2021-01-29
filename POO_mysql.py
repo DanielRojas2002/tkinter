@@ -74,6 +74,9 @@ class Aplicacion():
         self.boton8=tk.Button(self.frame2,text="EXCEL",command=self.excel,bd=5)
         self.boton8.place(x=480,y=70,width=100,height=30)
 
+        self.boton9=tk.Button(self.frame2,text=" + ",command=None,bd=5,font=self.fontStyle)
+        self.boton9.place(x=270,y=30,width=50,height=60)
+
         self.ventanai.mainloop()
 
 
@@ -1700,7 +1703,7 @@ class Aplicacion():
 
         self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
         self.ventana5.geometry(self.posicion)
-        
+
         self.ventana5.iconbitmap("icono.ico")
         self.ventana5.maxsize(200, 200)
         self.ventana5.minsize(200, 200)
