@@ -10,7 +10,6 @@ from sqlite3 import Error
 
 import pandas as pd
 import os
-from fpdf import FPDF
 
 from tabulate import tabulate
 class Aplicacion():
@@ -1334,6 +1333,14 @@ class Aplicacion():
     def Modificacion(self):
         self.ventana5=tk.Tk()
         self.ventana5.title("Actualizacion : ")
+        self.ancho_ventana = 200
+        self.alto_ventana = 200
+
+        self.x_ventana = self.ventana5.winfo_screenwidth() - 1050 - self.ancho_ventana // 2
+        self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana5.geometry(self.posicion)
         self.ventana5.geometry("200x200")
         self.ventana5.iconbitmap("icono.ico")
         self.ventana5.maxsize(200, 200)
@@ -1685,6 +1692,15 @@ class Aplicacion():
         self.ventana5=tk.Tk()
         self.ventana5.title("Borrar Registro : ")
         self.ventana5.geometry("200x200")
+        self.ancho_ventana = 200
+        self.alto_ventana = 200
+
+        self.x_ventana = self.ventana5.winfo_screenwidth() - 1050 - self.ancho_ventana // 2
+        self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana5.geometry(self.posicion)
+        
         self.ventana5.iconbitmap("icono.ico")
         self.ventana5.maxsize(200, 200)
         self.ventana5.minsize(200, 200)
