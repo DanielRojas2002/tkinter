@@ -98,10 +98,10 @@ class Aplicacion():
         self.ventana.minsize(200, 200)
         self.ventana.geometry("200x200")
 
-        self.frame=tk.Frame(self.ventana,bg="gray22")
+        self.frame=tk.Frame(self.ventana,bg="red2")
         self.frame.pack(expand=True,fill="both")
 
-        self.label=tk.Label(self.frame,text="Filtros",bg="snow")
+        self.label=tk.Label(self.frame,text="Filtros",bg="gold2")
         self.label.place(x=50,y=20,width=100,height=30)
 
         self.combo=ttk.Combobox(self.frame)
@@ -114,7 +114,7 @@ class Aplicacion():
 
     def CHECAR(self):
         if self.combo.get()=="Informacion":
-            messagebox.showinfo(message="Para poder ejecutar este programa con todos sus botones tienes que : \n\n *Instalar la libreria tabulate (pip install tabulate (en el cmd)) \n *Tener instalado la base de datos llamada sqlite", title="Título")
+            messagebox.showinfo(message="Para poder ejecutar este programa con todos sus botones tienes que : \n\n *Instalar la libreria tabulate (pip install tabulate (en el cmd)) \n *Tener instalado la base de datos llamada sqlite", title="Cosas Necesarias")
         elif self.combo.get()=="Contar_Registros":
             pass
 
