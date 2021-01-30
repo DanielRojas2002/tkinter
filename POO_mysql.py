@@ -118,7 +118,13 @@ class Aplicacion():
         elif self.combo.get()=="Contar_Registros":
             pass
 
+        elif self.combo.get()=="Contar Registros":
+            pass
+
         elif self.combo.get()=="Empiece con ":
+            pass
+
+        elif self.combo.get()=="Termine con ":
             pass
 
 
