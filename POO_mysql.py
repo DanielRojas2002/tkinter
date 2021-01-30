@@ -106,7 +106,7 @@ class Aplicacion():
 
         self.combo=ttk.Combobox(self.frame)
         self.combo.place(x=30,y=100)
-        self.combo["values"]=("Informacion","Contar_Registros","Like")
+        self.combo["values"]=("Informacion","Contar Registros","Empiece con ","Termine con ")
 
         self.boton01=tk.Button(self.frame,text="CHECAR",command=self.CHECAR,bd=5)
         self.boton01.place(x=30,y=160,width=140,height=30)
@@ -118,7 +118,7 @@ class Aplicacion():
         elif self.combo.get()=="Contar_Registros":
             pass
 
-        elif self.combo.get()=="Like":
+        elif self.combo.get()=="Empiece con ":
             pass
 
 
