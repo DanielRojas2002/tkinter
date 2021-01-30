@@ -737,13 +737,13 @@ class Aplicacion():
                     with sqlite3.connect("Empleados.db") as conn:
                         c = conn.cursor()
                         valor={"nombre":x}
-                        c.execute("SELECT COUNT (*)  from registro WHERE nombre = :x" , valor)
+                        c.execute("SELECT COUNT(nombre)  from registro WHERE ? = ?" , valor)
                         registros=c.fetchall()
                         listaContador.append(registros)
 
                 
-            except:
-                print("dds")
+            except Error as e:
+                print(e)
             print(listaNom)
             print(listaContador)
 
