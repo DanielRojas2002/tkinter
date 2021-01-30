@@ -737,7 +737,7 @@ class Aplicacion():
                     with sqlite3.connect("Empleados.db") as conn:
                         c = conn.cursor()
                         valor={"nombre":x}
-                        c.execute("SELECT COUNT(nombre)  from registro WHERE ? = ?" , valor)
+                        c.execute("SELECT COUNT(nombre)  from registro WHERE nombre = :x" , valor)
                         registros=c.fetchall()
                         listaContador.append(registros)
 
