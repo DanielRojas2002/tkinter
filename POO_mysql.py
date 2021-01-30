@@ -725,7 +725,9 @@ class Aplicacion():
                     
                     else:
                         for elemento in registros:
-                            listaNom.append(elemento)
+                            for x in elemento:
+                                listaNom.append(x)
+
             except:
                 print("sss")
 
@@ -735,19 +737,11 @@ class Aplicacion():
                     with sqlite3.connect("Empleados.db") as conn:
                         c = conn.cursor()
                         valor={"nombre":x}
-                        c.execute("SELECT COUNT (nombre)  from registro WHERE nombre = :x" , valor)
+                        c.execute("SELECT COUNT (*)  from registro WHERE nombre = :x" , valor)
                         registros=c.fetchall()
+                        listaContador.append(registros)
 
                 
-                    for elemento in registros:
-                        contador=contador+1
-                
-                    if contador==0:
-                        messagebox.showerror(message="No se encontro el Registro o \n Ingreso un dato Incorrecto",title="ERROR")
-                    
-                    else:
-                        for elemento in registros:
-                            listaContador.append(elemento)
             except:
                 print("dds")
             print(listaNom)
