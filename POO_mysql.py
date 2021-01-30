@@ -676,7 +676,87 @@ class Aplicacion():
         pass
 
     def GRAFICAR(self):
-        pass
+        self.ventana=tk.Tk()
+        self.ancho_ventana = 200
+        self.alto_ventana = 200
+        self.ventana.iconbitmap("filtro.ico")
+
+        self.x_ventana = self.ventana.winfo_screenwidth() - 610 - self.ancho_ventana // 2
+        self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana.geometry(self.posicion)
+
+        self.ventana.title("OPCIONES")
+        self.ventana.maxsize(200, 200)
+        self.ventana.minsize(200, 200)
+        self.ventana.geometry("200x200")
+
+        self.frame=tk.Frame(self.ventana,bg="gray22")
+        self.frame.pack(expand=True,fill="both")
+
+        self.label=tk.Label(self.frame,text="Filtros",bg="snow")
+        self.label.place(x=50,y=20,width=100,height=30)
+
+        self.combo=ttk.Combobox(self.frame)
+        self.combo.place(x=30,y=100)
+        self.combo["values"]=("Nombre","Apellido","Edad","Domicilio")
+
+        self.boton01=tk.Button(self.frame,text="BUSCAR",command=self.BUSCAR2,bd=5)
+        self.boton01.place(x=30,y=160,width=140,height=30)
+        self.ventana.mainloop()
+
+    def BUSCAR2(self):
+        contador=0
+        listaNom=[]
+        if self.combo.get()=="Nombre":
+            try:
+                with sqlite3.connect("Empleados.db") as conn:
+                    c = conn.cursor()
+                    c.execute("SELECT distinct (nombre) from registro")
+                    registros=c.fetchall()
+
+                
+                    for elemento in registros:
+                        contador=contador+1
+                
+                    if contador==0:
+                        messagebox.showerror(message="No se encontro el Registro o \n Ingreso un dato Incorrecto",title="ERROR")
+                    
+                    else:
+                        for elemento in registros:
+                            listaNom.append(elemento)
+            except:
+                print("sss")
+
+            try:
+                listaContador=[]
+                for x in listaNom:
+                    with sqlite3.connect("Empleados.db") as conn:
+                        c = conn.cursor()
+                        valor={"nombre":x}
+                        c.execute("SELECT COUNT (nombre)  from registro WHERE nombre = :x" , valor)
+                        registros=c.fetchall()
+
+                
+                    for elemento in registros:
+                        contador=contador+1
+                
+                    if contador==0:
+                        messagebox.showerror(message="No se encontro el Registro o \n Ingreso un dato Incorrecto",title="ERROR")
+                    
+                    else:
+                        for elemento in registros:
+                            listaContador.append(elemento)
+            except:
+                print("dds")
+            print(listaNom)
+            print(listaContador)
+
+
+
+
+        #select distinct (Nombre) from Registros;
     
 
     def excel(self):
