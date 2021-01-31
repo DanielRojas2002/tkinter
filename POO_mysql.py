@@ -756,8 +756,9 @@ class Aplicacion():
                 
             except Error as e:
                 print(e)
-            print(listaNom)
-            print(listaContador)
+            plt.pie(listaContador,labels=listaNom,autopct="%0.1f %%")
+            plt.title("NOMBRES : ")
+            plt.show()
 
 
 
