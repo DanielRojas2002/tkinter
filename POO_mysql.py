@@ -703,12 +703,12 @@ class Aplicacion():
         self.frame=tk.Frame(self.ventana,bg="seagreen3")
         self.frame.pack(expand=True,fill="both")
 
-        self.label=tk.Label(self.frame,text="Filtros",bg="lightcyan2")
+        self.label=tk.Label(self.frame,text="Tipo de Grafica",bg="lightcyan2")
         self.label.place(x=50,y=20,width=100,height=30)
 
-        self.combo=ttk.Combobox(self.frame)
-        self.combo.place(x=30,y=100)
-        self.combo["values"]=("Pastel","Barras")
+        self.combo1=ttk.Combobox(self.frame)
+        self.combo1.place(x=30,y=100)
+        self.combo1["values"]=("Pastel","Barras")
 
         self.boton01=tk.Button(self.frame,text="BUSCAR",command=self.BUSCAR1,bd=5)
         self.boton01.place(x=30,y=160,width=140,height=30)
@@ -716,13 +716,13 @@ class Aplicacion():
 
 
     def BUSCAR1(self):
-        if self.combo.get()=="Pastel":
+        if self.combo1.get()=="Pastel":
             self.ventana=tk.Tk()
             self.ancho_ventana = 200
             self.alto_ventana = 200
             self.ventana.iconbitmap("filtro.ico")
 
-            self.x_ventana = self.ventana.winfo_screenwidth() - 610 - self.ancho_ventana // 2
+            self.x_ventana = self.ventana.winfo_screenwidth() - 310 - self.ancho_ventana // 2
             self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
 
             self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
@@ -736,7 +736,7 @@ class Aplicacion():
             self.frame=tk.Frame(self.ventana,bg="seagreen3")
             self.frame.pack(expand=True,fill="both")
 
-            self.label=tk.Label(self.frame,text="Filtros",bg="lightcyan2")
+            self.label=tk.Label(self.frame,text="Filtros Pastel",bg="lightcyan2")
             self.label.place(x=50,y=20,width=100,height=30)
 
             self.combo=ttk.Combobox(self.frame)
@@ -747,13 +747,13 @@ class Aplicacion():
             self.boton01.place(x=30,y=160,width=140,height=30)
             self.ventana.mainloop()
 
-        else:
+        elif self.combo1.get()=="Barras":
             self.ventana=tk.Tk()
             self.ancho_ventana = 200
             self.alto_ventana = 200
             self.ventana.iconbitmap("filtro.ico")
 
-            self.x_ventana = self.ventana.winfo_screenwidth() - 610 - self.ancho_ventana // 2
+            self.x_ventana = self.ventana.winfo_screenwidth() - 310 - self.ancho_ventana // 2
             self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
 
             self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
@@ -767,8 +767,8 @@ class Aplicacion():
             self.frame=tk.Frame(self.ventana,bg="seagreen3")
             self.frame.pack(expand=True,fill="both")
 
-            self.label=tk.Label(self.frame,text="Filtros",bg="lightcyan2")
-            self.label.place(x=50,y=20,width=100,height=30)
+            self.label=tk.Label(self.frame,text="Filtros Barras",bg="lightcyan2")
+            self.label.place(x=50,y=20,width=110,height=30)
 
             self.combo=ttk.Combobox(self.frame)
             self.combo.place(x=30,y=100)
