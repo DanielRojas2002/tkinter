@@ -1095,7 +1095,9 @@ class Aplicacion():
                 print(e)
             plt.bar(listaNom,height=listaContador,width=0.5)
             plt.title("NOMBRES : ")
-            plt.set_ylabel=("CANTIDAD: ")
+            plt.grid(True)
+            plt.xlabel("DATOS")
+            plt.ylabel("CANTIDAD")
             plt.show()
 
         elif self.combo.get()=="Apellido":
@@ -1141,7 +1143,9 @@ class Aplicacion():
                 print(e)
             plt.bar(listaNom,height=listaContador,width=0.5)
             plt.title("APELLIDOS : ")
-            plt.set_ylabel=("CANTIDAD: ")
+            plt.grid(True)
+            plt.xlabel("DATOS")
+            plt.ylabel("CANTIDAD")
             plt.show()
 
         elif self.combo.get()=="Edad":
@@ -1187,7 +1191,9 @@ class Aplicacion():
                 print(e)
             plt.bar(listaNom,height=listaContador,width=0.5)
             plt.title("EDAD : ")
-            plt.set_ylabel=("CANTIDAD: ")
+            plt.grid(True)
+            plt.xlabel("DATOS")
+            plt.ylabel("CANTIDAD")
             plt.show()
         
         elif self.combo.get()=="Domicilio":
@@ -1233,7 +1239,9 @@ class Aplicacion():
                 print(e)
             plt.bar(listaNom,height=listaContador,width=0.5)
             plt.title("DOMICILIO : ")
-            plt.set_ylabel=("CANTIDAD: ")
+            plt.grid(True)
+            plt.xlabel("DATOS")
+            plt.ylabel("CANTIDAD")
             plt.show()
 
         elif self.combo.get()=="Inscripcion":
@@ -1279,7 +1287,9 @@ class Aplicacion():
                 print(e)
             plt.bar(listaNom,height=listaContador,width=0.5)
             plt.title("INSCRIPCION : ")
-            plt.set_ylabel=("CANTIDAD: ")
+            plt.grid(True)
+            plt.xlabel("DATOS")
+            plt.ylabel("CANTIDAD")
             plt.show()
         
         elif self.combo.get()=="Fecha Modificacion":
@@ -1324,8 +1334,10 @@ class Aplicacion():
             except Error as e:
                 print(e)
             plt.bar(listaNom,height=listaContador,width=0.5)
+            plt.grid(True)
             plt.title("FECHA MODIFICACION : ")
-            plt.set_ylabel=("CANTIDAD: ")
+            plt.xlabel("DATOS")
+            plt.ylabel("CANTIDAD")
             plt.show()
 
 
