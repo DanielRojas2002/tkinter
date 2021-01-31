@@ -700,10 +700,10 @@ class Aplicacion():
         self.ventana.minsize(200, 200)
         self.ventana.geometry("200x200")
 
-        self.frame=tk.Frame(self.ventana,bg="gray22")
+        self.frame=tk.Frame(self.ventana,bg="seagreen3")
         self.frame.pack(expand=True,fill="both")
 
-        self.label=tk.Label(self.frame,text="Filtros",bg="snow")
+        self.label=tk.Label(self.frame,text="Filtros",bg="lightcyan2")
         self.label.place(x=50,y=20,width=100,height=30)
 
         self.combo=ttk.Combobox(self.frame)
