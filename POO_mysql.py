@@ -708,11 +708,77 @@ class Aplicacion():
 
         self.combo=ttk.Combobox(self.frame)
         self.combo.place(x=30,y=100)
-        self.combo["values"]=("Nombre","Apellido","Edad","Domicilio","Inscripcion","Fecha Modificacion")
+        self.combo["values"]=("Pastel","Barras")
 
-        self.boton01=tk.Button(self.frame,text="BUSCAR",command=self.BUSCAR2,bd=5)
+        self.boton01=tk.Button(self.frame,text="BUSCAR",command=self.BUSCAR1,bd=5)
         self.boton01.place(x=30,y=160,width=140,height=30)
         self.ventana.mainloop()
+
+
+    def BUSCAR1(self):
+        if self.combo.get()=="Pastel":
+            self.ventana=tk.Tk()
+            self.ancho_ventana = 200
+            self.alto_ventana = 200
+            self.ventana.iconbitmap("filtro.ico")
+
+            self.x_ventana = self.ventana.winfo_screenwidth() - 610 - self.ancho_ventana // 2
+            self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+            self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+            self.ventana.geometry(self.posicion)
+
+            self.ventana.title("OPCIONES")
+            self.ventana.maxsize(200, 200)
+            self.ventana.minsize(200, 200)
+            self.ventana.geometry("200x200")
+
+            self.frame=tk.Frame(self.ventana,bg="seagreen3")
+            self.frame.pack(expand=True,fill="both")
+
+            self.label=tk.Label(self.frame,text="Filtros",bg="lightcyan2")
+            self.label.place(x=50,y=20,width=100,height=30)
+
+            self.combo=ttk.Combobox(self.frame)
+            self.combo.place(x=30,y=100)
+            self.combo["values"]=("Nombre","Apellido","Edad","Domicilio","Inscripcion","Fecha Modificacion")
+
+            self.boton01=tk.Button(self.frame,text="BUSCAR",command=self.BUSCAR2,bd=5)
+            self.boton01.place(x=30,y=160,width=140,height=30)
+            self.ventana.mainloop()
+
+        else:
+            self.ventana=tk.Tk()
+            self.ancho_ventana = 200
+            self.alto_ventana = 200
+            self.ventana.iconbitmap("filtro.ico")
+
+            self.x_ventana = self.ventana.winfo_screenwidth() - 610 - self.ancho_ventana // 2
+            self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+            self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+            self.ventana.geometry(self.posicion)
+
+            self.ventana.title("OPCIONES")
+            self.ventana.maxsize(200, 200)
+            self.ventana.minsize(200, 200)
+            self.ventana.geometry("200x200")
+
+            self.frame=tk.Frame(self.ventana,bg="seagreen3")
+            self.frame.pack(expand=True,fill="both")
+
+            self.label=tk.Label(self.frame,text="Filtros",bg="lightcyan2")
+            self.label.place(x=50,y=20,width=100,height=30)
+
+            self.combo=ttk.Combobox(self.frame)
+            self.combo.place(x=30,y=100)
+            self.combo["values"]=("Nombre","Apellido","Edad","Domicilio","Inscripcion","Fecha Modificacion")
+
+            self.boton01=tk.Button(self.frame,text="BUSCAR",command=self.BUSCAR3,bd=5)
+            self.boton01.place(x=30,y=160,width=140,height=30)
+            self.ventana.mainloop()
+
+
 
     def BUSCAR2(self):
         contador=0
@@ -984,6 +1050,278 @@ class Aplicacion():
             plt.pie(listaContador,labels=listaNom,autopct="%0.1f %%")
             plt.title("Fecha Modificacion : ")
             plt.show()
+
+    def BUSCAR3(self):
+        contador=0
+        listaNom=[]
+        if self.combo.get()=="Nombre":
+            try:
+                with sqlite3.connect("Empleados.db") as conn:
+                    c = conn.cursor()
+                    c.execute("SELECT distinct (nombre) from registro")
+                    registros=c.fetchall()
+
+                
+                    for elemento in registros:
+                        contador=contador+1
+                
+                    if contador==0:
+                        messagebox.showerror(message="No se encontro el Registro o \n Ingreso un dato Incorrecto",title="ERROR")
+                    
+                    else:
+                        for elemento in registros:
+                            for x in elemento:
+                                listaNom.append(x)
+
+            except:
+                print("sss")
+
+            try:
+                listaContador=[]
+                for x in listaNom:
+                    with sqlite3.connect("Empleados.db") as conn:
+                        c = conn.cursor()
+                        nombre=str(x)
+                        valor={"nombre":nombre}
+                        c.execute("SELECT count(nombre) from registro WHERE nombre = :nombre", valor)
+                        registros=c.fetchall()
+
+                    for elemento in registros:
+                            for x in elemento:
+                                listaContador.append(x)
+
+                
+            except Error as e:
+                print(e)
+            plt.bar(listaNom,height=listaContador,width=0.5)
+            plt.title("NOMBRES : ")
+            plt.show()
+
+        elif self.combo.get()=="Apellido":
+            try:
+                contador=0
+                listaNom=[]
+                with sqlite3.connect("Empleados.db") as conn:
+                    c = conn.cursor()
+                    c.execute("SELECT distinct (apellido) from registro")
+                    registros=c.fetchall()
+
+                
+                    for elemento in registros:
+                        contador=contador+1
+                
+                    if contador==0:
+                        messagebox.showerror(message="No se encontro el Registro o \n Ingreso un dato Incorrecto",title="ERROR")
+                    
+                    else:
+                        for elemento in registros:
+                            for x in elemento:
+                                listaNom.append(x)
+
+            except:
+                print("sss")
+
+            try:
+                listaContador=[]
+                for x in listaNom:
+                    with sqlite3.connect("Empleados.db") as conn:
+                        c = conn.cursor()
+                        apellido=str(x)
+                        valor={"apellido":apellido}
+                        c.execute("SELECT count(apellido) from registro WHERE apellido = :apellido", valor)
+                        registros=c.fetchall()
+
+                    for elemento in registros:
+                            for x in elemento:
+                                listaContador.append(x)
+
+                
+            except Error as e:
+                print(e)
+            plt.pie(listaContador,labels=listaNom,autopct="%0.1f %%")
+            plt.title("APELLIDOS : ")
+            plt.show()
+
+        elif self.combo.get()=="Edad":
+            try:
+                contador=0
+                listaNom=[]
+                with sqlite3.connect("Empleados.db") as conn:
+                    c = conn.cursor()
+                    c.execute("SELECT distinct (edad) from registro")
+                    registros=c.fetchall()
+
+                
+                    for elemento in registros:
+                        contador=contador+1
+                
+                    if contador==0:
+                        messagebox.showerror(message="No se encontro el Registro o \n Ingreso un dato Incorrecto",title="ERROR")
+                    
+                    else:
+                        for elemento in registros:
+                            for x in elemento:
+                                listaNom.append(x)
+
+            except:
+                print("sss")
+
+            try:
+                listaContador=[]
+                for x in listaNom:
+                    with sqlite3.connect("Empleados.db") as conn:
+                        c = conn.cursor()
+                        edad=str(x)
+                        valor={"edad":edad}
+                        c.execute("SELECT count(edad) from registro WHERE edad = :edad", valor)
+                        registros=c.fetchall()
+
+                    for elemento in registros:
+                            for x in elemento:
+                                listaContador.append(x)
+
+                
+            except Error as e:
+                print(e)
+            plt.pie(listaContador,labels=listaNom,autopct="%0.1f %%")
+            plt.title("EDAD : ")
+            plt.show()
+        
+        elif self.combo.get()=="Domicilio":
+            try:
+                contador=0
+                listaNom=[]
+                with sqlite3.connect("Empleados.db") as conn:
+                    c = conn.cursor()
+                    c.execute("SELECT distinct (domicilio) from registro")
+                    registros=c.fetchall()
+
+                
+                    for elemento in registros:
+                        contador=contador+1
+                
+                    if contador==0:
+                        messagebox.showerror(message="No se encontro el Registro o \n Ingreso un dato Incorrecto",title="ERROR")
+                    
+                    else:
+                        for elemento in registros:
+                            for x in elemento:
+                                listaNom.append(x)
+
+            except:
+                print("sss")
+
+            try:
+                listaContador=[]
+                for x in listaNom:
+                    with sqlite3.connect("Empleados.db") as conn:
+                        c = conn.cursor()
+                        domicilio=str(x)
+                        valor={"domicilio":domicilio}
+                        c.execute("SELECT count(domicilio) from registro WHERE domicilio = :domicilio", valor)
+                        registros=c.fetchall()
+
+                    for elemento in registros:
+                            for x in elemento:
+                                listaContador.append(x)
+
+                
+            except Error as e:
+                print(e)
+            plt.pie(listaContador,labels=listaNom,autopct="%0.1f %%")
+            plt.title("DOMICILIO : ")
+            plt.show()
+
+        elif self.combo.get()=="Inscripcion":
+            try:
+                contador=0
+                listaNom=[]
+                with sqlite3.connect("Empleados.db") as conn:
+                    c = conn.cursor()
+                    c.execute("SELECT distinct (inscripcion) from registro")
+                    registros=c.fetchall()
+
+                
+                    for elemento in registros:
+                        contador=contador+1
+                
+                    if contador==0:
+                        messagebox.showerror(message="No se encontro el Registro o \n Ingreso un dato Incorrecto",title="ERROR")
+                    
+                    else:
+                        for elemento in registros:
+                            for x in elemento:
+                                listaNom.append(x)
+
+            except:
+                print("sss")
+
+            try:
+                listaContador=[]
+                for x in listaNom:
+                    with sqlite3.connect("Empleados.db") as conn:
+                        c = conn.cursor()
+                        inscripcion=str(x)
+                        valor={"inscripcion":inscripcion}
+                        c.execute("SELECT count(inscripcion) from registro WHERE inscripcion = :inscripcion", valor)
+                        registros=c.fetchall()
+
+                    for elemento in registros:
+                            for x in elemento:
+                                listaContador.append(x)
+
+                
+            except Error as e:
+                print(e)
+            plt.pie(listaContador,labels=listaNom,autopct="%0.1f %%")
+            plt.title("INSCRIPCION: ")
+            plt.show()
+        
+        elif self.combo.get()=="Fecha Modificacion":
+            try:
+                contador=0
+                listaNom=[]
+                with sqlite3.connect("Empleados.db") as conn:
+                    c = conn.cursor()
+                    c.execute("SELECT distinct (fecha_Modificacion) from registro")
+                    registros=c.fetchall()
+
+                
+                    for elemento in registros:
+                        contador=contador+1
+                
+                    if contador==0:
+                        messagebox.showerror(message="No se encontro el Registro o \n Ingreso un dato Incorrecto",title="ERROR")
+                    
+                    else:
+                        for elemento in registros:
+                            for x in elemento:
+                                listaNom.append(x)
+
+            except:
+                print("sss")
+
+            try:
+                listaContador=[]
+                for x in listaNom:
+                    with sqlite3.connect("Empleados.db") as conn:
+                        c = conn.cursor()
+                        fecha_Modificacion=str(x)
+                        valor={"fecha_Modificacion":fecha_Modificacion}
+                        c.execute("SELECT count(fecha_Modificacion) from registro WHERE fecha_Modificacion = :fecha_Modificacion", valor)
+                        registros=c.fetchall()
+
+                    for elemento in registros:
+                            for x in elemento:
+                                listaContador.append(x)
+
+                
+            except Error as e:
+                print(e)
+            plt.pie(listaContador,labels=listaNom,autopct="%0.1f %%")
+            plt.title("Fecha Modificacion : ")
+            plt.show()
+
 
 
 
