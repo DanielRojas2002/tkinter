@@ -760,6 +760,51 @@ class Aplicacion():
             plt.title("NOMBRES : ")
             plt.show()
 
+        elif self.combo.get()=="Apellido":
+            try:
+                contador=0
+                listaNom=[]
+                with sqlite3.connect("Empleados.db") as conn:
+                    c = conn.cursor()
+                    c.execute("SELECT distinct (apellido) from registro")
+                    registros=c.fetchall()
+
+                
+                    for elemento in registros:
+                        contador=contador+1
+                
+                    if contador==0:
+                        messagebox.showerror(message="No se encontro el Registro o \n Ingreso un dato Incorrecto",title="ERROR")
+                    
+                    else:
+                        for elemento in registros:
+                            for x in elemento:
+                                listaNom.append(x)
+
+            except:
+                print("sss")
+
+            try:
+                listaContador=[]
+                for x in listaNom:
+                    with sqlite3.connect("Empleados.db") as conn:
+                        c = conn.cursor()
+                        apellido=str(x)
+                        valor={"apellido":apellido}
+                        c.execute("SELECT count(apellido) from registro WHERE apellido = :apellido", valor)
+                        registros=c.fetchall()
+
+                    for elemento in registros:
+                            for x in elemento:
+                                listaContador.append(x)
+
+                
+            except Error as e:
+                print(e)
+            plt.pie(listaContador,labels=listaNom,autopct="%0.1f %%")
+            plt.title("APELLIDOS : ")
+            plt.show()
+
 
 
 
