@@ -1095,6 +1095,7 @@ class Aplicacion():
                 print(e)
             plt.bar(listaNom,height=listaContador,width=0.5)
             plt.title("NOMBRES : ")
+            plt.set_ylabel=("CANTIDAD: ")
             plt.show()
 
         elif self.combo.get()=="Apellido":
