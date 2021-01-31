@@ -849,6 +849,51 @@ class Aplicacion():
             plt.pie(listaContador,labels=listaNom,autopct="%0.1f %%")
             plt.title("EDAD : ")
             plt.show()
+        
+        elif self.combo.get()=="Domicilio":
+            try:
+                contador=0
+                listaNom=[]
+                with sqlite3.connect("Empleados.db") as conn:
+                    c = conn.cursor()
+                    c.execute("SELECT distinct (domicilio) from registro")
+                    registros=c.fetchall()
+
+                
+                    for elemento in registros:
+                        contador=contador+1
+                
+                    if contador==0:
+                        messagebox.showerror(message="No se encontro el Registro o \n Ingreso un dato Incorrecto",title="ERROR")
+                    
+                    else:
+                        for elemento in registros:
+                            for x in elemento:
+                                listaNom.append(x)
+
+            except:
+                print("sss")
+
+            try:
+                listaContador=[]
+                for x in listaNom:
+                    with sqlite3.connect("Empleados.db") as conn:
+                        c = conn.cursor()
+                        domicilio=str(x)
+                        valor={"domicilio":domicilio}
+                        c.execute("SELECT count(domicilio) from registro WHERE domicilio = :domicilio", valor)
+                        registros=c.fetchall()
+
+                    for elemento in registros:
+                            for x in elemento:
+                                listaContador.append(x)
+
+                
+            except Error as e:
+                print(e)
+            plt.pie(listaContador,labels=listaNom,autopct="%0.1f %%")
+            plt.title("DOMICILIO : ")
+            plt.show()
 
 
 
