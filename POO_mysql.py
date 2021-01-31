@@ -708,7 +708,7 @@ class Aplicacion():
 
         self.combo=ttk.Combobox(self.frame)
         self.combo.place(x=30,y=100)
-        self.combo["values"]=("Nombre","Apellido","Edad","Domicilio")
+        self.combo["values"]=("Nombre","Apellido","Edad","Domicilio","Inscripcion","Fecha Modificacion")
 
         self.boton01=tk.Button(self.frame,text="BUSCAR",command=self.BUSCAR2,bd=5)
         self.boton01.place(x=30,y=160,width=140,height=30)
@@ -893,6 +893,96 @@ class Aplicacion():
                 print(e)
             plt.pie(listaContador,labels=listaNom,autopct="%0.1f %%")
             plt.title("DOMICILIO : ")
+            plt.show()
+
+        elif self.combo.get()=="Inscripcion":
+            try:
+                contador=0
+                listaNom=[]
+                with sqlite3.connect("Empleados.db") as conn:
+                    c = conn.cursor()
+                    c.execute("SELECT distinct (inscripcion) from registro")
+                    registros=c.fetchall()
+
+                
+                    for elemento in registros:
+                        contador=contador+1
+                
+                    if contador==0:
+                        messagebox.showerror(message="No se encontro el Registro o \n Ingreso un dato Incorrecto",title="ERROR")
+                    
+                    else:
+                        for elemento in registros:
+                            for x in elemento:
+                                listaNom.append(x)
+
+            except:
+                print("sss")
+
+            try:
+                listaContador=[]
+                for x in listaNom:
+                    with sqlite3.connect("Empleados.db") as conn:
+                        c = conn.cursor()
+                        inscripcion=str(x)
+                        valor={"inscripcion":inscripcion}
+                        c.execute("SELECT count(inscripcion) from registro WHERE inscripcion = :inscripcion", valor)
+                        registros=c.fetchall()
+
+                    for elemento in registros:
+                            for x in elemento:
+                                listaContador.append(x)
+
+                
+            except Error as e:
+                print(e)
+            plt.pie(listaContador,labels=listaNom,autopct="%0.1f %%")
+            plt.title("INSCRIPCION: ")
+            plt.show()
+        
+        elif self.combo.get()=="Fecha Modificacion":
+            try:
+                contador=0
+                listaNom=[]
+                with sqlite3.connect("Empleados.db") as conn:
+                    c = conn.cursor()
+                    c.execute("SELECT distinct (fecha_Modificacion) from registro")
+                    registros=c.fetchall()
+
+                
+                    for elemento in registros:
+                        contador=contador+1
+                
+                    if contador==0:
+                        messagebox.showerror(message="No se encontro el Registro o \n Ingreso un dato Incorrecto",title="ERROR")
+                    
+                    else:
+                        for elemento in registros:
+                            for x in elemento:
+                                listaNom.append(x)
+
+            except:
+                print("sss")
+
+            try:
+                listaContador=[]
+                for x in listaNom:
+                    with sqlite3.connect("Empleados.db") as conn:
+                        c = conn.cursor()
+                        fecha_Modificacion=str(x)
+                        valor={"fecha_Modificacion":fecha_Modificacion}
+                        c.execute("SELECT count(fecha_Modificacion) from registro WHERE fecha_Modificacion = :fecha_Modificacion", valor)
+                        registros=c.fetchall()
+
+                    for elemento in registros:
+                            for x in elemento:
+                                listaContador.append(x)
+
+                
+            except Error as e:
+                print(e)
+            plt.pie(listaContador,labels=listaNom,autopct="%0.1f %%")
+            plt.title("Fecha Modificacion : ")
             plt.show()
 
 
