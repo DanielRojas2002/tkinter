@@ -1139,8 +1139,9 @@ class Aplicacion():
                 
             except Error as e:
                 print(e)
-            plt.pie(listaContador,labels=listaNom,autopct="%0.1f %%")
+            plt.bar(listaNom,height=listaContador,width=0.5)
             plt.title("APELLIDOS : ")
+            plt.set_ylabel=("CANTIDAD: ")
             plt.show()
 
         elif self.combo.get()=="Edad":
@@ -1184,8 +1185,9 @@ class Aplicacion():
                 
             except Error as e:
                 print(e)
-            plt.pie(listaContador,labels=listaNom,autopct="%0.1f %%")
+            plt.bar(listaNom,height=listaContador,width=0.5)
             plt.title("EDAD : ")
+            plt.set_ylabel=("CANTIDAD: ")
             plt.show()
         
         elif self.combo.get()=="Domicilio":
@@ -1229,8 +1231,9 @@ class Aplicacion():
                 
             except Error as e:
                 print(e)
-            plt.pie(listaContador,labels=listaNom,autopct="%0.1f %%")
+            plt.bar(listaNom,height=listaContador,width=0.5)
             plt.title("DOMICILIO : ")
+            plt.set_ylabel=("CANTIDAD: ")
             plt.show()
 
         elif self.combo.get()=="Inscripcion":
@@ -1274,8 +1277,9 @@ class Aplicacion():
                 
             except Error as e:
                 print(e)
-            plt.pie(listaContador,labels=listaNom,autopct="%0.1f %%")
-            plt.title("INSCRIPCION: ")
+            plt.bar(listaNom,height=listaContador,width=0.5)
+            plt.title("INSCRIPCION : ")
+            plt.set_ylabel=("CANTIDAD: ")
             plt.show()
         
         elif self.combo.get()=="Fecha Modificacion":
@@ -1319,8 +1323,9 @@ class Aplicacion():
                 
             except Error as e:
                 print(e)
-            plt.pie(listaContador,labels=listaNom,autopct="%0.1f %%")
-            plt.title("Fecha Modificacion : ")
+            plt.bar(listaNom,height=listaContador,width=0.5)
+            plt.title("FECHA MODIFICACION : ")
+            plt.set_ylabel=("CANTIDAD: ")
             plt.show()
 
 
