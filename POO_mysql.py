@@ -11,6 +11,8 @@ from sqlite3 import Error
 import pandas as pd
 import os
 
+import matplotlib.pyplot as plt 
+
 from tabulate import tabulate
 class Aplicacion():
     def __init__(self):
@@ -742,10 +744,14 @@ class Aplicacion():
                 for x in listaNom:
                     with sqlite3.connect("Empleados.db") as conn:
                         c = conn.cursor()
-                        valor={"nombre":x}
-                        c.execute("SELECT COUNT(nombre)  from registro WHERE nombre = :x" , valor)
+                        nombre=str(x)
+                        valor={"nombre":nombre}
+                        c.execute("SELECT count(nombre) from registro WHERE nombre = :nombre", valor)
                         registros=c.fetchall()
-                        listaContador.append(registros)
+
+                    for elemento in registros:
+                            for x in elemento:
+                                listaContador.append(x)
 
                 
             except Error as e:
