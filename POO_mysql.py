@@ -103,7 +103,7 @@ class Aplicacion():
         self.frame=tk.Frame(self.ventana,bg="red2")
         self.frame.pack(expand=True,fill="both")
 
-        self.label=tk.Label(self.frame,text="Filtros",bg="gold2")
+        self.label=tk.Label(self.frame,text="FUNCIONES : ",bg="gold2")
         self.label.place(x=50,y=20,width=100,height=30)
 
         self.combo=ttk.Combobox(self.frame)
@@ -125,7 +125,7 @@ class Aplicacion():
             self.alto_ventana = 200
             self.ventana.iconbitmap("filtro.ico")
 
-            self.x_ventana = self.ventana.winfo_screenwidth() - 310 - self.ancho_ventana // 2
+            self.x_ventana = self.ventana.winfo_screenwidth() - 350 - self.ancho_ventana // 2
             self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
 
             self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
@@ -142,9 +142,9 @@ class Aplicacion():
             self.label=tk.Label(self.frame,text="Filtros",bg="gold2")
             self.label.place(x=50,y=20,width=100,height=30)
 
-            self.combo=ttk.Combobox(self.frame)
-            self.combo.place(x=30,y=100)
-            self.combo["values"]=("Nombre","Apellido","Edad","Domicilio","Todos")
+            self.combo1=ttk.Combobox(self.frame)
+            self.combo1.place(x=30,y=100)
+            self.combo1["values"]=("Nombre","Apellido","Edad","Domicilio","Todos")
 
             self.boton01=tk.Button(self.frame,text="CHECAR",command=self.MASCHECAR,bd=5)
             self.boton01.place(x=30,y=160,width=140,height=30)
@@ -159,14 +159,14 @@ class Aplicacion():
 
     def MASCHECAR(self):
 
-        if self.combo.get()=="Nombre":
+        if self.combo1.get()=="Nombre":
             self.ventana5=tk.Tk()
             self.ventana5.title("Contar : ")
             self.ventana5.iconbitmap("txt.ico")
-            self.ancho_ventana = 300
-            self.alto_ventana = 300
+            self.ancho_ventana = 200
+            self.alto_ventana = 200
 
-            self.x_ventana = self.ventana5.winfo_screenwidth() - 810 - self.ancho_ventana // 2
+            self.x_ventana = self.ventana5.winfo_screenwidth() - 110 - self.ancho_ventana // 2
             self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
 
             self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
@@ -176,10 +176,10 @@ class Aplicacion():
             self.ventana5.maxsize(200, 200)
             self.ventana5.minsize(200, 200)
 
-            self.frame4=tk.Frame(self.ventana5,bg="gray22")
+            self.frame4=tk.Frame(self.ventana5,bg="red2")
             self.frame4.pack(expand=True,fill="both")
 
-            self.txt001=tk.Label(self.frame4,text="Nombre: ",bg="snow")
+            self.txt001=tk.Label(self.frame4,text="Nombre: ",bg="gold2")
             self.txt001.place(x=30,y=30,width=140,height=30)
 
             self.caja000=tk.Entry(self.frame4)
@@ -189,14 +189,14 @@ class Aplicacion():
             self.boton11.place(x=40,y=130,width=120,height=30)
             self.ventana5.mainloop()
 
-        elif self.combo.get()=="Apellido":
+        elif self.combo1.get()=="Apellido":
             self.ventana5=tk.Tk()
             self.ventana5.title("Contar : ")
             self.ventana5.iconbitmap("txt.ico")
-            self.ancho_ventana = 300
-            self.alto_ventana = 300
+            self.ancho_ventana = 200
+            self.alto_ventana = 200
 
-            self.x_ventana = self.ventana5.winfo_screenwidth() - 810 - self.ancho_ventana // 2
+            self.x_ventana = self.ventana5.winfo_screenwidth() - 110 - self.ancho_ventana // 2
             self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
 
             self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
@@ -206,10 +206,10 @@ class Aplicacion():
             self.ventana5.maxsize(200, 200)
             self.ventana5.minsize(200, 200)
 
-            self.frame4=tk.Frame(self.ventana5,bg="gray22")
+            self.frame4=tk.Frame(self.ventana5,bg="red2")
             self.frame4.pack(expand=True,fill="both")
 
-            self.txt001=tk.Label(self.frame4,text="Apellido: ",bg="snow")
+            self.txt001=tk.Label(self.frame4,text="Apellido: ",bg="gold2")
             self.txt001.place(x=30,y=30,width=140,height=30)
 
             self.caja000=tk.Entry(self.frame4)
@@ -219,14 +219,14 @@ class Aplicacion():
             self.boton11.place(x=40,y=130,width=120,height=30)
             self.ventana5.mainloop()
 
-        elif self.combo.get()=="Edad":
+        elif self.combo1.get()=="Edad":
             self.ventana5=tk.Tk()
             self.ventana5.title("Contar : ")
             self.ventana5.iconbitmap("txt.ico")
-            self.ancho_ventana = 300
-            self.alto_ventana = 300
+            self.ancho_ventana = 200
+            self.alto_ventana = 200
 
-            self.x_ventana = self.ventana5.winfo_screenwidth() - 810 - self.ancho_ventana // 2
+            self.x_ventana = self.ventana5.winfo_screenwidth() - 110 - self.ancho_ventana // 2
             self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
 
             self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
@@ -236,10 +236,10 @@ class Aplicacion():
             self.ventana5.maxsize(200, 200)
             self.ventana5.minsize(200, 200)
 
-            self.frame4=tk.Frame(self.ventana5,bg="gray22")
+            self.frame4=tk.Frame(self.ventana5,bg="red2")
             self.frame4.pack(expand=True,fill="both")
 
-            self.txt001=tk.Label(self.frame4,text="Edad: ",bg="snow")
+            self.txt001=tk.Label(self.frame4,text="Edad: ",bg="gold2")
             self.txt001.place(x=30,y=30,width=140,height=30)
 
             self.caja000=tk.Entry(self.frame4)
@@ -249,14 +249,14 @@ class Aplicacion():
             self.boton11.place(x=40,y=130,width=120,height=30)
             self.ventana5.mainloop()
 
-        elif self.combo.get()=="Domicilio":
+        elif self.combo1.get()=="Domicilio":
             self.ventana5=tk.Tk()
             self.ventana5.title("Contar : ")
             self.ventana5.iconbitmap("txt.ico")
-            self.ancho_ventana = 300
-            self.alto_ventana = 300
+            self.ancho_ventana = 200
+            self.alto_ventana = 200
 
-            self.x_ventana = self.ventana5.winfo_screenwidth() - 810 - self.ancho_ventana // 2
+            self.x_ventana = self.ventana5.winfo_screenwidth() - 110 - self.ancho_ventana // 2
             self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
 
             self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
@@ -266,10 +266,10 @@ class Aplicacion():
             self.ventana5.maxsize(200, 200)
             self.ventana5.minsize(200, 200)
 
-            self.frame4=tk.Frame(self.ventana5,bg="gray22")
+            self.frame4=tk.Frame(self.ventana5,bg="red2")
             self.frame4.pack(expand=True,fill="both")
 
-            self.txt001=tk.Label(self.frame4,text="Domicilio: ",bg="snow")
+            self.txt001=tk.Label(self.frame4,text="Domicilio: ",bg="gold2")
             self.txt001.place(x=30,y=30,width=140,height=30)
 
             self.caja000=tk.Entry(self.frame4)
@@ -279,7 +279,7 @@ class Aplicacion():
             self.boton11.place(x=40,y=130,width=120,height=30)
             self.ventana5.mainloop()
 
-        elif self.combo.get()=="Todos":
+        elif self.combo1.get()=="Todos":
             try:
                 with sqlite3.connect("Empleados.db") as conn:
                     c = conn.cursor()
