@@ -189,16 +189,39 @@ class Aplicacion():
             self.boton11.place(x=40,y=130,width=120,height=30)
             self.ventana5.mainloop()
 
+        elif self.combo.get()=="Apellido":
+            self.ventana5=tk.Tk()
+            self.ventana5.title("Contar : ")
+            self.ventana5.iconbitmap("txt.ico")
+            self.ancho_ventana = 300
+            self.alto_ventana = 300
 
+            self.x_ventana = self.ventana5.winfo_screenwidth() - 810 - self.ancho_ventana // 2
+            self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
 
-    
+            self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+            self.ventana5.geometry(self.posicion)
 
+            self.ventana5.geometry("200x200")
+            self.ventana5.maxsize(200, 200)
+            self.ventana5.minsize(200, 200)
+
+            self.frame4=tk.Frame(self.ventana5,bg="gray22")
+            self.frame4.pack(expand=True,fill="both")
+
+            self.txt001=tk.Label(self.frame4,text="Apellido: ",bg="snow")
+            self.txt001.place(x=30,y=30,width=140,height=30)
+
+            self.caja000=tk.Entry(self.frame4)
+            self.caja000.place(x=50,y=80,width=100,height=30)
+
+            self.boton11=tk.Button(self.frame4,text="BUSCAR",command=self.BUSCARAPE,bd=5)
+            self.boton11.place(x=40,y=130,width=120,height=30)
+            self.ventana5.mainloop()
 
 
     def BUSCARNOM(self):
         try:
-            contador=0
-        
             with sqlite3.connect("Empleados.db") as conn:
                 c = conn.cursor()
                 nom=str(self.caja000.get())
@@ -212,6 +235,25 @@ class Aplicacion():
                         encontrados=x
 
                 messagebox.showinfo(message=f"COINCIDENCIA DE REGISTROS : \n\nBuscado por : {nombre}\nCANTIDAD DE REGISTROS ENCONTRADOS : {encontrados}",title="ENCONTRADOS POR NOMBRE:")
+
+        except Error as e:
+            print(e)
+
+    def BUSCARAPE(self):
+        try:
+            with sqlite3.connect("Empleados.db") as conn:
+                c = conn.cursor()
+                ape=str(self.caja000.get())
+                apellido=ape.capitalize()
+                valor={"apellido":apellido}
+                c.execute("SELECT count(apellido) from registro WHERE apellido = :apellido", valor)
+                registros=c.fetchall()
+
+                for elemento in registros:
+                    for x in elemento:
+                        encontrados=x
+
+                messagebox.showinfo(message=f"COINCIDENCIA DE REGISTROS : \n\nBuscado por : {apellido}\nCANTIDAD DE REGISTROS ENCONTRADOS : {encontrados}",title="ENCONTRADOS POR APELLIDO:")
 
         except Error as e:
             print(e)
