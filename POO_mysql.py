@@ -144,7 +144,7 @@ class Aplicacion():
 
             self.combo=ttk.Combobox(self.frame)
             self.combo.place(x=30,y=100)
-            self.combo["values"]=("Nombre","Apellido","Edad","Domicilio")
+            self.combo["values"]=("Nombre","Apellido","Edad","Domicilio","Todos")
 
             self.boton01=tk.Button(self.frame,text="CHECAR",command=self.MASCHECAR,bd=5)
             self.boton01.place(x=30,y=160,width=140,height=30)
@@ -278,6 +278,23 @@ class Aplicacion():
             self.boton11=tk.Button(self.frame4,text="BUSCAR",command=self.BUSCARDOMI,bd=5)
             self.boton11.place(x=40,y=130,width=120,height=30)
             self.ventana5.mainloop()
+
+        elif self.combo.get()=="Todos":
+            try:
+                with sqlite3.connect("Empleados.db") as conn:
+                    c = conn.cursor()
+                    c.execute("SELECT count(*) from registro")
+                    registros=c.fetchall()
+
+                    for elemento in registros:
+                        for x in elemento:
+                            encontrados=x
+
+                    messagebox.showinfo(message=f"CATIDAD DE REGISTROS EN LA TABLA : \n\nCANTIDAD DE REGISTROS ENCONTRADOS : {encontrados}",title="CANTIDAD DE REGISTROS:")
+
+            except Error as e:
+                print(e)
+
 
 
     def BUSCARNOM(self):
