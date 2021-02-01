@@ -158,11 +158,10 @@ class Aplicacion():
 
 
     def MASCHECAR(self):
-
         if self.combo1.get()=="Nombre":
             self.ventana5=tk.Tk()
             self.ventana5.title("Contar : ")
-            self.ventana5.iconbitmap("txt.ico")
+            self.ventana5.iconbitmap("funcion.ico")
             self.ancho_ventana = 200
             self.alto_ventana = 200
 
@@ -192,7 +191,7 @@ class Aplicacion():
         elif self.combo1.get()=="Apellido":
             self.ventana5=tk.Tk()
             self.ventana5.title("Contar : ")
-            self.ventana5.iconbitmap("txt.ico")
+            self.ventana5.iconbitmap("funcion.ico")
             self.ancho_ventana = 200
             self.alto_ventana = 200
 
@@ -222,7 +221,7 @@ class Aplicacion():
         elif self.combo1.get()=="Edad":
             self.ventana5=tk.Tk()
             self.ventana5.title("Contar : ")
-            self.ventana5.iconbitmap("txt.ico")
+            self.ventana5.iconbitmap("funcion.ico")
             self.ancho_ventana = 200
             self.alto_ventana = 200
 
@@ -252,7 +251,7 @@ class Aplicacion():
         elif self.combo1.get()=="Domicilio":
             self.ventana5=tk.Tk()
             self.ventana5.title("Contar : ")
-            self.ventana5.iconbitmap("txt.ico")
+            self.ventana5.iconbitmap("funcion.ico")
             self.ancho_ventana = 200
             self.alto_ventana = 200
 
