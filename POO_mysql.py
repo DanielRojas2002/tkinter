@@ -117,11 +117,38 @@ class Aplicacion():
     def CHECAR(self):
         if self.combo.get()=="Informacion":
             messagebox.showinfo(message="Para poder ejecutar este programa con todos sus botones tienes que : \n\n *Instalar la libreria tabulate (pip install tabulate (en el cmd)) \n *Tener instalado la base de datos llamada sqlite", title="Cosas Necesarias")
-        elif self.combo.get()=="Contar_Registros":
-            pass
+        
 
         elif self.combo.get()=="Contar Registros":
-            pass
+            self.ventana=tk.Tk()
+            self.ancho_ventana = 200
+            self.alto_ventana = 200
+            self.ventana.iconbitmap("filtro.ico")
+
+            self.x_ventana = self.ventana.winfo_screenwidth() - 310 - self.ancho_ventana // 2
+            self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+            self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+            self.ventana.geometry(self.posicion)
+
+            self.ventana.title("OPCIONES")
+            self.ventana.maxsize(200, 200)
+            self.ventana.minsize(200, 200)
+            self.ventana.geometry("200x200")
+
+            self.frame=tk.Frame(self.ventana,bg="red2")
+            self.frame.pack(expand=True,fill="both")
+
+            self.label=tk.Label(self.frame,text="Filtros",bg="gold2")
+            self.label.place(x=50,y=20,width=100,height=30)
+
+            self.combo=ttk.Combobox(self.frame)
+            self.combo.place(x=30,y=100)
+            self.combo["values"]=("Nombre","Apellido","Edad","Domcilio")
+
+            self.boton01=tk.Button(self.frame,text="CHECAR",command=self.MASCHECAR,bd=5)
+            self.boton01.place(x=30,y=160,width=140,height=30)
+            self.ventana.mainloop()
 
         elif self.combo.get()=="Empiece con ":
             pass
@@ -130,6 +157,64 @@ class Aplicacion():
             pass
 
 
+    def MASCHECAR(self):
+
+        if self.combo.get()=="Nombre":
+            self.ventana5=tk.Tk()
+            self.ventana5.title("Contar : ")
+            self.ventana5.iconbitmap("txt.ico")
+            self.ancho_ventana = 300
+            self.alto_ventana = 300
+
+            self.x_ventana = self.ventana5.winfo_screenwidth() - 810 - self.ancho_ventana // 2
+            self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+            self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+            self.ventana5.geometry(self.posicion)
+
+            self.ventana5.geometry("200x200")
+            self.ventana5.maxsize(200, 200)
+            self.ventana5.minsize(200, 200)
+
+            self.frame4=tk.Frame(self.ventana5,bg="gray22")
+            self.frame4.pack(expand=True,fill="both")
+
+            self.txt001=tk.Label(self.frame4,text="Nombre: ",bg="snow")
+            self.txt001.place(x=30,y=30,width=140,height=30)
+
+            self.caja000=tk.Entry(self.frame4)
+            self.caja000.place(x=50,y=80,width=100,height=30)
+
+            self.boton11=tk.Button(self.frame4,text="BUSCAR",command=self.BUSCARNOM,bd=5)
+            self.boton11.place(x=40,y=130,width=120,height=30)
+            self.ventana5.mainloop()
+
+
+
+    
+
+
+
+    def BUSCARNOM(self):
+        try:
+            contador=0
+        
+            with sqlite3.connect("Empleados.db") as conn:
+                c = conn.cursor()
+                nom=str(self.caja000.get())
+                nombre=nom.capitalize()
+                valor={"nombre":nombre}
+                c.execute("SELECT count(nombre) from registro WHERE nombre = :nombre", valor)
+                registros=c.fetchall()
+
+                for elemento in registros:
+                    for x in elemento:
+                        encontrados=x
+
+                messagebox.showinfo(message=f"COINCIDENCIA DE REGISTROS : \n\nBuscado por : {nombre}\nCANTIDAD DE REGISTROS ENCONTRADOS : {encontrados}",title="ENCONTRADOS POR NOMBRE:")
+
+        except Error as e:
+            print(e)
 
 
     def TXT(self):
