@@ -280,7 +280,22 @@ class Aplicacion():
 
 
     def BUSCARNOM2(self):
-        pass
+        try:
+            nom=self.caja000.get()
+            if len(nom)!=1 or len(nom)!=2:
+                x="x"+4
+
+        except:
+            messagebox.showerror(message="Ingreso valores no validos :(",title="ERROR :)")
+
+        try:
+            with sqlite3.connect("Empleados.db") as conn:
+                c=conn.cursor()
+                
+
+        except:
+            print("aqui")
+
 
     def BUSCARAPE2(self):
         pass
