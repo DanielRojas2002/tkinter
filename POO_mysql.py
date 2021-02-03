@@ -380,16 +380,162 @@ class Aplicacion():
                         index = iid = index + 1
 
                     self.ventana9.mainloop()
-
-
         except Error as e:
             print(e)
 
     def BUSCARAPE3(self):
-        pass
+        try:
+            contador=0
+            apellido=self.caja000.get()
+
+        except:
+            messagebox.showerror(message="Ingreso valores no validos :(",title="ERROR :)")
+
+        try:
+            with sqlite3.connect("Empleados.db") as conn:
+                c=conn.cursor()
+                c.execute("SELECT * FROM registro WHERE apellido LIKE '%%%s'" % apellido)
+                registros=c.fetchall()
+
+                for elemento in registros:
+                    contador=contador+1
+
+                if contador==0:
+                    messagebox.showerror(message=f"No se encontraron registros\nCon estas especificaciones :  {apellido}",title="ERROR :)")
+
+                else:
+                    self.ventana9=tk.Tk()
+                    self.ancho_ventana = 790
+                    self.alto_ventana = 200
+
+                    self.x_ventana = self.ventana9.winfo_screenwidth() - 410 - self.ancho_ventana // 2
+                    self.y_ventana = self.ventana9.winfo_screenheight() - 500 - self.alto_ventana // 2
+                    self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+                    self.ventana9.geometry(self.posicion)
+
+                    self.ventana9.title("Buscado por Apellido : "+apellido)
+                    self.ventana9.geometry("800x500")
+                    self.ventana9.iconbitmap("icono.ico")
+                    self.ventana9.maxsize(800, 500)
+                    self.ventana9.minsize(800, 500)
+                    self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
+                    self.frame09.pack(expand=True,fill="both")
+
+                    self.scroll_x=tk.Scrollbar(self.frame09,orient="horizontal")
+                    self.scroll_y=tk.Scrollbar(self.frame09,orient="vertical")
+
+                    self.Empleado_Tabla=ttk.Treeview(self.frame09,columns=("matricula","nombre","apellido","edad","telefono","domicilio","inscripcion","fecha_Modificacion"),xscrollcommand=self.scroll_x.set,yscrollcommand=self.scroll_y.set)
+                    self.scroll_x.pack(side="bottom",fill="x")
+                    self.scroll_y.pack(side="right",fill="y")
+                    self.scroll_x.config(command=self.Empleado_Tabla.xview)
+                    self.scroll_y.config(command=self.Empleado_Tabla.yview)
+
+                    self.Empleado_Tabla.heading("matricula",text="Matricula")
+                    self.Empleado_Tabla.heading("nombre",text="Nombre")
+                    self.Empleado_Tabla.heading("apellido",text="Apellido")
+                    self.Empleado_Tabla.heading("edad",text="Edad")
+                    self.Empleado_Tabla.heading("telefono",text="Telefono")
+                    self.Empleado_Tabla.heading("domicilio",text="Domicilio")
+                    self.Empleado_Tabla.heading("inscripcion",text="Inscripcion")
+                    self.Empleado_Tabla.heading("fecha_Modificacion",text="Fecha_Modificacion")
+                    self.Empleado_Tabla.pack(fill="both",expand=1)
+
+                    self.Empleado_Tabla['show']='headings'
+                    self.Empleado_Tabla.column("matricula",width=100)
+                    self.Empleado_Tabla.column("nombre",width=100)
+                    self.Empleado_Tabla.column("apellido",width=100)
+                    self.Empleado_Tabla.column("edad",width=50)
+                    self.Empleado_Tabla.column("telefono",width=90)
+                    self.Empleado_Tabla.column("domicilio",width=120)
+                    self.Empleado_Tabla.column("inscripcion",width=100)
+                    self.Empleado_Tabla.column("fecha_Modificacion",width=120)
+                    
+
+                    index = iid = 0
+                    for elemento in registros:
+                        self.Empleado_Tabla.insert("", index, iid, values=elemento)
+                        index = iid = index + 1
+
+                    self.ventana9.mainloop()
+        except Error as e:
+            print(e)
 
     def BUSCARDOMI3(self):
-        pass
+        try:
+            contador=0
+            nombre=self.caja000.get()
+
+        except:
+            messagebox.showerror(message="Ingreso valores no validos :(",title="ERROR :)")
+
+        try:
+            with sqlite3.connect("Empleados.db") as conn:
+                c=conn.cursor()
+                c.execute("SELECT * FROM registro WHERE nombre LIKE '%%%s'" % nombre)
+                registros=c.fetchall()
+
+                for elemento in registros:
+                    contador=contador+1
+
+                if contador==0:
+                    messagebox.showerror(message=f"No se encontraron registros\nCon estas especificaciones :  {nombre}",title="ERROR :)")
+
+                else:
+                    self.ventana9=tk.Tk()
+                    self.ancho_ventana = 790
+                    self.alto_ventana = 200
+
+                    self.x_ventana = self.ventana9.winfo_screenwidth() - 410 - self.ancho_ventana // 2
+                    self.y_ventana = self.ventana9.winfo_screenheight() - 500 - self.alto_ventana // 2
+                    self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+                    self.ventana9.geometry(self.posicion)
+
+                    self.ventana9.title("Nombre : ")
+                    self.ventana9.geometry("800x500")
+                    self.ventana9.iconbitmap("icono.ico")
+                    self.ventana9.maxsize(800, 500)
+                    self.ventana9.minsize(800, 500)
+                    self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
+                    self.frame09.pack(expand=True,fill="both")
+
+                    self.scroll_x=tk.Scrollbar(self.frame09,orient="horizontal")
+                    self.scroll_y=tk.Scrollbar(self.frame09,orient="vertical")
+
+                    self.Empleado_Tabla=ttk.Treeview(self.frame09,columns=("matricula","nombre","apellido","edad","telefono","domicilio","inscripcion","fecha_Modificacion"),xscrollcommand=self.scroll_x.set,yscrollcommand=self.scroll_y.set)
+                    self.scroll_x.pack(side="bottom",fill="x")
+                    self.scroll_y.pack(side="right",fill="y")
+                    self.scroll_x.config(command=self.Empleado_Tabla.xview)
+                    self.scroll_y.config(command=self.Empleado_Tabla.yview)
+
+                    self.Empleado_Tabla.heading("matricula",text="Matricula")
+                    self.Empleado_Tabla.heading("nombre",text="Nombre")
+                    self.Empleado_Tabla.heading("apellido",text="Apellido")
+                    self.Empleado_Tabla.heading("edad",text="Edad")
+                    self.Empleado_Tabla.heading("telefono",text="Telefono")
+                    self.Empleado_Tabla.heading("domicilio",text="Domicilio")
+                    self.Empleado_Tabla.heading("inscripcion",text="Inscripcion")
+                    self.Empleado_Tabla.heading("fecha_Modificacion",text="Fecha_Modificacion")
+                    self.Empleado_Tabla.pack(fill="both",expand=1)
+
+                    self.Empleado_Tabla['show']='headings'
+                    self.Empleado_Tabla.column("matricula",width=100)
+                    self.Empleado_Tabla.column("nombre",width=100)
+                    self.Empleado_Tabla.column("apellido",width=100)
+                    self.Empleado_Tabla.column("edad",width=50)
+                    self.Empleado_Tabla.column("telefono",width=90)
+                    self.Empleado_Tabla.column("domicilio",width=120)
+                    self.Empleado_Tabla.column("inscripcion",width=100)
+                    self.Empleado_Tabla.column("fecha_Modificacion",width=120)
+                    
+
+                    index = iid = 0
+                    for elemento in registros:
+                        self.Empleado_Tabla.insert("", index, iid, values=elemento)
+                        index = iid = index + 1
+
+                    self.ventana9.mainloop()
+        except Error as e:
+            print(e)
 
     def MASCHECAR2(self):
         if self.combo2.get()=="Nombre":
