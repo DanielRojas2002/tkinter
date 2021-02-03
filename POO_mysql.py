@@ -183,9 +183,215 @@ class Aplicacion():
             
 
         elif self.combo.get()=="Termine con ":
-            pass
+            self.ventana=tk.Tk()
+            self.ancho_ventana = 200
+            self.alto_ventana = 200
+            self.ventana.iconbitmap("filtro.ico")
 
-    
+            self.x_ventana = self.ventana.winfo_screenwidth() - 350 - self.ancho_ventana // 2
+            self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+            self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+            self.ventana.geometry(self.posicion)
+
+            self.ventana.title("OPCIONES")
+            self.ventana.maxsize(200, 200)
+            self.ventana.minsize(200, 200)
+            self.ventana.geometry("200x200")
+
+            self.frame=tk.Frame(self.ventana,bg="red2")
+            self.frame.pack(expand=True,fill="both")
+
+            self.label=tk.Label(self.frame,text="Filtros",bg="gold2")
+            self.label.place(x=50,y=20,width=100,height=30)
+
+            self.combo2=ttk.Combobox(self.frame)
+            self.combo2.place(x=30,y=100)
+            self.combo2["values"]=("Nombre","Apellido","Domicilio")
+
+            self.boton01=tk.Button(self.frame,text="CHECAR",command=self.MASCHECAR3,bd=5)
+            self.boton01.place(x=30,y=160,width=140,height=30)
+            self.ventana.mainloop()
+            
+
+    def MASCHECAR3(self):
+        if self.combo2.get()=="Nombre":
+            self.ventana5=tk.Tk()
+            self.ventana5.title("Contar : ")
+            self.ventana5.iconbitmap("funcion.ico")
+            self.ancho_ventana = 200
+            self.alto_ventana = 200
+
+            self.x_ventana = self.ventana5.winfo_screenwidth() - 110 - self.ancho_ventana // 2
+            self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+            self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+            self.ventana5.geometry(self.posicion)
+
+            self.ventana5.geometry("200x200")
+            self.ventana5.maxsize(200, 200)
+            self.ventana5.minsize(200, 200)
+
+            self.frame4=tk.Frame(self.ventana5,bg="red2")
+            self.frame4.pack(expand=True,fill="both")
+
+            self.txt001=tk.Label(self.frame4,text="Nombre: ",bg="gold2")
+            self.txt001.place(x=30,y=30,width=140,height=30)
+
+            self.caja000=tk.Entry(self.frame4)
+            self.caja000.place(x=50,y=80,width=100,height=30)
+
+            self.boton11=tk.Button(self.frame4,text="BUSCAR",command=self.BUSCARNOM3,bd=5)
+            self.boton11.place(x=40,y=130,width=120,height=30)
+            self.ventana5.mainloop()
+
+        elif self.combo2.get()=="Apellido":
+            self.ventana5=tk.Tk()
+            self.ventana5.title("Contar : ")
+            self.ventana5.iconbitmap("funcion.ico")
+            self.ancho_ventana = 200
+            self.alto_ventana = 200
+
+            self.x_ventana = self.ventana5.winfo_screenwidth() - 110 - self.ancho_ventana // 2
+            self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+            self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+            self.ventana5.geometry(self.posicion)
+
+            self.ventana5.geometry("200x200")
+            self.ventana5.maxsize(200, 200)
+            self.ventana5.minsize(200, 200)
+
+            self.frame4=tk.Frame(self.ventana5,bg="red2")
+            self.frame4.pack(expand=True,fill="both")
+
+            self.txt001=tk.Label(self.frame4,text="Apellido: ",bg="gold2")
+            self.txt001.place(x=30,y=30,width=140,height=30)
+
+            self.caja000=tk.Entry(self.frame4)
+            self.caja000.place(x=50,y=80,width=100,height=30)
+
+            self.boton11=tk.Button(self.frame4,text="BUSCAR",command=self.BUSCARAPE3,bd=5)
+            self.boton11.place(x=40,y=130,width=120,height=30)
+            self.ventana5.mainloop()
+
+        elif self.combo2.get()=="Domicilio":
+            self.ventana5=tk.Tk()
+            self.ventana5.title("Contar : ")
+            self.ventana5.iconbitmap("funcion.ico")
+            self.ancho_ventana = 200
+            self.alto_ventana = 200
+
+            self.x_ventana = self.ventana5.winfo_screenwidth() - 110 - self.ancho_ventana // 2
+            self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+            self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+            self.ventana5.geometry(self.posicion)
+
+            self.ventana5.geometry("200x200")
+            self.ventana5.maxsize(200, 200)
+            self.ventana5.minsize(200, 200)
+
+            self.frame4=tk.Frame(self.ventana5,bg="red2")
+            self.frame4.pack(expand=True,fill="both")
+
+            self.txt001=tk.Label(self.frame4,text="Domicilio: ",bg="gold2")
+            self.txt001.place(x=30,y=30,width=140,height=30)
+
+            self.caja000=tk.Entry(self.frame4)
+            self.caja000.place(x=50,y=80,width=100,height=30)
+
+            self.boton11=tk.Button(self.frame4,text="BUSCAR",command=self.BUSCARDOMI3,bd=5)
+            self.boton11.place(x=40,y=130,width=120,height=30)
+            self.ventana5.mainloop()
+
+
+    def BUSCARNOM3(self):
+        try:
+            contador=0
+            nom=self.caja000.get()
+            nombre=nom.capitalize()
+
+        except:
+            messagebox.showerror(message="Ingreso valores no validos :(",title="ERROR :)")
+
+        try:
+            with sqlite3.connect("Empleados.db") as conn:
+                c=conn.cursor()
+                c.execute("SELECT * FROM registro WHERE nombre LIKE '%s%%'" % nombre)
+                registros=c.fetchall()
+
+                for elemento in registros:
+                    contador=contador+1
+
+                if contador==0:
+                    messagebox.showerror(message=f"No se encontraron registros\nCon estas especificaciones :  {nombre}",title="ERROR :)")
+
+                else:
+                    self.ventana9=tk.Tk()
+                    self.ancho_ventana = 790
+                    self.alto_ventana = 200
+
+                    self.x_ventana = self.ventana9.winfo_screenwidth() - 410 - self.ancho_ventana // 2
+                    self.y_ventana = self.ventana9.winfo_screenheight() - 500 - self.alto_ventana // 2
+                    self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+                    self.ventana9.geometry(self.posicion)
+
+                    self.ventana9.title("Nombre : ")
+                    self.ventana9.geometry("800x500")
+                    self.ventana9.iconbitmap("icono.ico")
+                    self.ventana9.maxsize(800, 500)
+                    self.ventana9.minsize(800, 500)
+                    self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
+                    self.frame09.pack(expand=True,fill="both")
+
+                    self.scroll_x=tk.Scrollbar(self.frame09,orient="horizontal")
+                    self.scroll_y=tk.Scrollbar(self.frame09,orient="vertical")
+
+                    self.Empleado_Tabla=ttk.Treeview(self.frame09,columns=("matricula","nombre","apellido","edad","telefono","domicilio","inscripcion","fecha_Modificacion"),xscrollcommand=self.scroll_x.set,yscrollcommand=self.scroll_y.set)
+                    self.scroll_x.pack(side="bottom",fill="x")
+                    self.scroll_y.pack(side="right",fill="y")
+                    self.scroll_x.config(command=self.Empleado_Tabla.xview)
+                    self.scroll_y.config(command=self.Empleado_Tabla.yview)
+
+                    self.Empleado_Tabla.heading("matricula",text="Matricula")
+                    self.Empleado_Tabla.heading("nombre",text="Nombre")
+                    self.Empleado_Tabla.heading("apellido",text="Apellido")
+                    self.Empleado_Tabla.heading("edad",text="Edad")
+                    self.Empleado_Tabla.heading("telefono",text="Telefono")
+                    self.Empleado_Tabla.heading("domicilio",text="Domicilio")
+                    self.Empleado_Tabla.heading("inscripcion",text="Inscripcion")
+                    self.Empleado_Tabla.heading("fecha_Modificacion",text="Fecha_Modificacion")
+                    self.Empleado_Tabla.pack(fill="both",expand=1)
+
+                    self.Empleado_Tabla['show']='headings'
+                    self.Empleado_Tabla.column("matricula",width=100)
+                    self.Empleado_Tabla.column("nombre",width=100)
+                    self.Empleado_Tabla.column("apellido",width=100)
+                    self.Empleado_Tabla.column("edad",width=50)
+                    self.Empleado_Tabla.column("telefono",width=90)
+                    self.Empleado_Tabla.column("domicilio",width=120)
+                    self.Empleado_Tabla.column("inscripcion",width=100)
+                    self.Empleado_Tabla.column("fecha_Modificacion",width=120)
+                    
+
+                    index = iid = 0
+                    for elemento in registros:
+                        self.Empleado_Tabla.insert("", index, iid, values=elemento)
+                        index = iid = index + 1
+
+                    self.ventana9.mainloop()
+
+
+        except Error as e:
+            print(e)
+
+    def BUSCARAPE3(self):
+        pass
+
+    def BUSCARDOMI3(self):
+        pass
+
     def MASCHECAR2(self):
         if self.combo2.get()=="Nombre":
             self.ventana5=tk.Tk()
