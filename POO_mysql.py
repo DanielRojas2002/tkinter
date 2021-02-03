@@ -336,7 +336,7 @@ class Aplicacion():
                     self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
                     self.ventana9.geometry(self.posicion)
 
-                    self.ventana9.title("Nombre : ")
+                    self.ventana9.title("Buscado por Nombre : "+nombre)
                     self.ventana9.geometry("800x500")
                     self.ventana9.iconbitmap("icono.ico")
                     self.ventana9.maxsize(800, 500)
@@ -661,7 +661,7 @@ class Aplicacion():
                     self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
                     self.ventana9.geometry(self.posicion)
 
-                    self.ventana9.title("Nombre : ")
+                    self.ventana9.title("Buscado por Nombre : "+nombre)
                     self.ventana9.geometry("800x500")
                     self.ventana9.iconbitmap("icono.ico")
                     self.ventana9.maxsize(800, 500)
@@ -742,7 +742,7 @@ class Aplicacion():
                     self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
                     self.ventana9.geometry(self.posicion)
 
-                    self.ventana9.title("Apellido : ")
+                    self.ventana9.title("Buscado por Apellido : "+apellido)
                     self.ventana9.geometry("800x500")
                     self.ventana9.iconbitmap("icono.ico")
                     self.ventana9.maxsize(800, 500)
@@ -822,7 +822,7 @@ class Aplicacion():
                     self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
                     self.ventana9.geometry(self.posicion)
 
-                    self.ventana9.title("Domicilio : ")
+                    self.ventana9.title("Buscado por Domicilio : "+domicilio)
                     self.ventana9.geometry("800x500")
                     self.ventana9.iconbitmap("icono.ico")
                     self.ventana9.maxsize(800, 500)
