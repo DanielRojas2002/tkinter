@@ -309,8 +309,7 @@ class Aplicacion():
     def BUSCARNOM3(self):
         try:
             contador=0
-            nom=self.caja000.get()
-            nombre=nom.capitalize()
+            nombre=self.caja000.get()
 
         except:
             messagebox.showerror(message="Ingreso valores no validos :(",title="ERROR :)")
@@ -318,7 +317,7 @@ class Aplicacion():
         try:
             with sqlite3.connect("Empleados.db") as conn:
                 c=conn.cursor()
-                c.execute("SELECT * FROM registro WHERE nombre LIKE '%s%%'" % nombre)
+                c.execute("SELECT * FROM registro WHERE nombre LIKE '%%%s'" % nombre)
                 registros=c.fetchall()
 
                 for elemento in registros:
