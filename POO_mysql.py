@@ -463,7 +463,7 @@ class Aplicacion():
     def BUSCARDOMI3(self):
         try:
             contador=0
-            nombre=self.caja000.get()
+            domicilio=self.caja000.get()
 
         except:
             messagebox.showerror(message="Ingreso valores no validos :(",title="ERROR :)")
@@ -471,14 +471,14 @@ class Aplicacion():
         try:
             with sqlite3.connect("Empleados.db") as conn:
                 c=conn.cursor()
-                c.execute("SELECT * FROM registro WHERE nombre LIKE '%%%s'" % nombre)
+                c.execute("SELECT * FROM registro WHERE domicilio LIKE '%%%s'" % domicilio)
                 registros=c.fetchall()
 
                 for elemento in registros:
                     contador=contador+1
 
                 if contador==0:
-                    messagebox.showerror(message=f"No se encontraron registros\nCon estas especificaciones :  {nombre}",title="ERROR :)")
+                    messagebox.showerror(message=f"No se encontraron registros\nCon estas especificaciones :  {domicilio}",title="ERROR :)")
 
                 else:
                     self.ventana9=tk.Tk()
@@ -490,7 +490,7 @@ class Aplicacion():
                     self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
                     self.ventana9.geometry(self.posicion)
 
-                    self.ventana9.title("Nombre : ")
+                    self.ventana9.title("Buscado por Domicilio : "+domicilio)
                     self.ventana9.geometry("800x500")
                     self.ventana9.iconbitmap("icono.ico")
                     self.ventana9.maxsize(800, 500)
