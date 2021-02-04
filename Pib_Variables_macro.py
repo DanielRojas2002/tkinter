@@ -267,33 +267,98 @@ class Aplicacion:
         self.ventana.mainloop()
 
     def PIB1(self):
-        if menu==1:
-            print("")
-            print("*"*30 +"BIENVENIDO AL PROGRAMA" + "*"*30)
-            print("Este programa te saca el PIB con el metodo del ingreso :)")
-            print("-"*30)
-            II=float(input("Dime los Impuestos Indirectos : "))
-            IP=float(input("Dime los Ingresos de los Propietarios : "))
-            IN=float(input("Dime los Intereses : "))
-            D=float(input("Dime la Depreciacion : "))
-            BC=float(input("Dime los Beneficios Corporativos : "))
-            R=float(input("Dime la Renta : "))
-            RT=float(input("Dime la Remuneraciones de los trabajadores : "))
-            INFE=float(input("Dime el Ingreso Neto de los Factores Extranjeros : "))
-            objeto=MetodoDelIngreso(II,IP,IN,D,BC,R,RT,INFE)
-            objeto.formulas()
-            objeto.PIB()
-            print(separador)
-            print("")
-            print("1=SI\n2=NO")
-            opcion=int(input("Deseas regresar al Menu Principal : "))
-            print("")
+        if self.combo.get()=="Metodo del Ingreso":
+            self.ventana=tk.Tk()
+            self.ancho_ventana = 600
+            self.alto_ventana = 700
+
+            self.x_ventana = self.ventanai.winfo_screenwidth() - 440 - self.ancho_ventana // 2
+            self.y_ventana = self.ventanai.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+            self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+            self.ventana.geometry(self.posicion)
+
+            self.ventana.title("PIB INGRESO : ")
+            self.ventana.geometry("600x800")
+            self.ventana.iconbitmap("icono.ico")
+            self.ventana.maxsize(600, 700)
+            self.ventana.minsize(600, 700)
+
+            self.frame=tk.Frame(self.ventana,bg="slate gray")
+            self.frame.pack(expand=True,fill="both")
             
-        elif menu==2:
-            print("")
-            print("*"*30 +"BIENVENIDO AL PROGRAMA" + "*"*30)
-            print("Este programa te saca el PIB con el metodo del gasto :)")
-            print("-"*30)
+
+            self.txt0=tk.Label(self.frame,text="METODO DEL INGRESO: ",bg="gold",font=self.fontStyle)
+            self.txt0.place(x=220,y=30,width=220,height=40)
+
+            self.txt1=tk.Label(self.frame,text="Impuestos Indirectos : ",bg="sky blue")
+            self.txt1.place(x=40,y=110,width=230,height=40)
+
+            self.caja1=tk.Entry(self.frame)
+            self.caja1.place(x=290,y=110,width=120,height=40)
+
+            self.txt2=tk.Label(self.frame,text="Ingresos de los Propietarios : ",bg="sky blue")
+            self.txt2.place(x=40,y=170,width=230,height=40)
+
+            self.caja2=tk.Entry(self.frame)
+            self.caja2.place(x=290,y=170,width=120,height=40)
+
+            self.txt3=tk.Label(self.frame,text="Intereses : ",bg="sky blue")
+            self.txt3.place(x=40,y=230,width=230,height=40)
+
+            self.caja3=tk.Entry(self.frame)
+            self.caja3.place(x=290,y=230,width=120,height=40)
+
+            self.txt4=tk.Label(self.frame,text="Depreciacion : ",bg="sky blue")
+            self.txt4.place(x=40,y=290,width=230,height=40)
+
+            self.caja4=tk.Entry(self.frame)
+            self.caja4.place(x=290,y=290,width=120,height=40)
+
+            self.txt5=tk.Label(self.frame,text="Beneficios Corporativos : ",bg="sky blue")
+            self.txt5.place(x=40,y=350,width=230,height=40)
+
+            self.caja5=tk.Entry(self.frame)
+            self.caja5.place(x=290,y=350,width=120,height=40)
+
+            self.txt6=tk.Label(self.frame,text="Renta : ",bg="sky blue")
+            self.txt6.place(x=40,y=410,width=230,height=40)
+
+            self.caja6=tk.Entry(self.frame)
+            self.caja6.place(x=290,y=410,width=120,height=40)
+
+            self.txt7=tk.Label(self.frame,text="Renumeraciones de los Trabajadores : ",bg="sky blue")
+            self.txt7.place(x=40,y=470,width=230,height=40)
+
+            self.caja7=tk.Entry(self.frame)
+            self.caja7.place(x=290,y=470,width=120,height=40)
+
+            self.txt8=tk.Label(self.frame,text="Ingresos Neto de los Factores Extranjeros:" ,bg="sky blue")
+            self.txt8.place(x=40,y=540,width=230,height=40)
+
+            self.caja8=tk.Entry(self.frame)
+            self.caja8.place(x=290,y=540,width=120,height=40)
+
+
+
+            #self.frame2=tk.Frame(self.ventana,bg="deep sky blue")
+            #self.frame2.place(x=380,y=510,width=230,height=100)
+            #self.frame2.config(cursor="pencil")
+
+           
+            #II=float(input("Dime los Impuestos Indirectos : "))
+            #IP=float(input("Dime los Ingresos de los Propietarios : "))
+            #IN=float(input("Dime los Intereses : "))
+            #D=float(input("Dime la Depreciacion : "))
+            #BC=float(input("Dime los Beneficios Corporativos : "))
+            #R=float(input("Dime la Renta : "))
+            #RT=float(input("Dime la Remuneraciones de los trabajadores : "))
+            #INFE=float(input("Dime el Ingreso Neto de los Factores Extranjeros : "))
+            #objeto=MetodoDelIngreso(II,IP,IN,D,BC,R,RT,INFE)
+            #objeto.formulas()
+            #objeto.PIB()
+            
+        elif self.combo.get()=="Metodo del Gasto":
             ID=float(input("Dime el impuesto indirecto : "))
             INFEE=float(input("Dime el ingreso neto de los factores extranjeros : "))
             E=float(input("Dime las Exportaciones : "))
