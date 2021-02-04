@@ -1,7 +1,7 @@
 import tkinter as tk
 import tkinter.font as tkFont
 from tkinter import messagebox
-
+from tkinter import ttk
 
 
 
@@ -238,26 +238,31 @@ class Aplicacion:
     
     def PIB(self):
         self.ventana=tk.Tk()
-        self.ancho_ventana = 300
-        self.alto_ventana = 300
+        self.ancho_ventana = 200
+        self.alto_ventana = 180
 
-        self.x_ventana = self.ventanai.winfo_screenwidth() - 1050 - self.ancho_ventana // 2
-        self.y_ventana = self.ventanai.winfo_screenheight() // 2 - self.alto_ventana // 2
+        self.x_ventana = self.ventana.winfo_screenwidth() - 350 - self.ancho_ventana // 2
+        self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
 
         self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
-        self.ventanai.geometry(self.posicion)
-        self.ventanai.title("METODOS PARA SACAR EL PIB : ")
-        self.ventanai.geometry("300x300")
-        self.ventanai.maxsize(300, 300)
-        self.ventanai.minsize(300, 300)
+        self.ventana.geometry(self.posicion)
+        self.ventana.title("METODOS PARA SACAR EL PIB : ")
+        self.ventana.geometry("200x180")
+        self.ventana.maxsize(100, 180)
+        self.ventana.minsize(200, 180)
 
         self.frame=tk.Frame(self.ventana,bg="yellow")
         self.frame.pack(expand=True,fill="both")
-        self.boton=tk.Button(self.frame,text="Metodo Ingreso",command=self.PIB1,bd=5)
-        self.boton.place(x=10,y=20,width=100,height=30)
+        
+        self.txt=tk.Label(self.frame,text="METODOS :",bg="orange")
+        self.txt.place(x=50,y=30,width=100,height=30)
 
-        self.boton2=tk.Button(self.frame,text="Metodo Gasto",command=None,bd=5)
-        self.boton2.place(x=10,y=70,width=120,height=30)
+        self.combo=ttk.Combobox(self.frame)
+        self.combo.place(x=30,y=80)
+        self.combo["values"]=("Metodo del Ingreso","Metodo del Gasto")
+
+        self.boton2=tk.Button(self.frame,text="SELECCIONAR",command=self.PIB1,bd=5)
+        self.boton2.place(x=40,y=120,width=120,height=30)
 
         self.ventana.mainloop()
 
