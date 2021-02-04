@@ -2,6 +2,7 @@ import sys
 import datetime
 import matplotlib.pyplot as plt
 from tkinter import *
+import pandas as pd
 
 
 def Borrar():
@@ -26,6 +27,7 @@ def Borrar():
 
 def RealizarEF():
     try:
+        dic={}
         a=(MPDI.get())
         b=(PPI.get())
         c=(ATI.get())
@@ -43,6 +45,15 @@ def RealizarEF():
         caja4.insert(0,ahora1)
 
         lista=[]
+        lista1=[]
+        lista2=[]
+        lista3=[]
+        lista4=[]
+        lista5=[]
+        lista6=[]
+        lista7=[]
+        lista8=[]
+        lista9=[]
         ComprasTotales=float(d)+float(k)
         ComprasNetasDeMateriales=ComprasTotales-float(l)
         MaterialesDisponibles=ComprasNetasDeMateriales+float(a)
@@ -54,31 +65,40 @@ def RealizarEF():
         TotalDeArticulosListosParaLaVenta=(CostoDeProduccion)+float(c)
         CostoDeProduccionDeLoVendido=(TotalDeArticulosListosParaLaVenta)-float(g)
 
+  
+        lista.append(ComprasTotales)
+        lista1.append(ComprasNetasDeMateriales)
+        lista2.append(MaterialesDisponibles)
+        lista3.append(MateriaPrimaUtilizada)
+        lista4.append(CostoPrimo)
+        lista5.append(CostoIncurrido)
+        lista6.append(TotalDeProduccionEnProcesos)
+        lista7.append(CostoDeProduccion)
+        lista8.append(TotalDeProduccionEnProcesos)
+        lista9.append(CostoDeProduccionDeLoVendido)
 
+        dic["Compras Totales"]=lista
+        dic["Compras Netas de Materiales"]=lista1
+        dic["Materiales Disponibles"]=lista2
+        dic["Materia Prima Utilizada"]=lista3
+        dic["Costo Primo"]=lista4
+        dic["Costo Incurrido"]=lista5
+        dic["Total de Produccion en Procesos"]=lista6
+        dic["Costo de Produccion"]=lista7
+        dic["Total de Articulos para la Venta"]=lista8
+        dic["Costo de Produccion de lo Vendido"]=lista9
 
-        ventana2=Tk()
-        ventana2.title("Estado Financiero Respuestas : ")
-        ventana2.geometry("600x600")
+        dic2=pd.DataFrame(dic)
 
-        
-        
-        lista.append("Compras Totales : "+str(ComprasTotales))
-        lista.append("Compras Netas De Materiales : "+str(ComprasNetasDeMateriales))
-        lista.append("Materiales Disponibles : "+str(MaterialesDisponibles))
-        lista.append("Materia Prima Utilizanda"+str(MateriaPrimaUtilizada))
-        lista.append("Costo Primo : "+str(CostoPrimo))
-        lista.append("Costo Incurrido/Costo Previo : "+str(CostoIncurrido))
-        lista.append("Total De Produccion En Procesos : "+str(TotalDeProduccionEnProcesos))
-        lista.append("Costo De Produccion : "+str(CostoDeProduccion))
-        lista.append("Total De Articulos Listos Para La Venta : "+str(TotalDeProduccionEnProcesos))
-        lista.append("Costo De Produccion De Lo Vendido : "+str(CostoDeProduccionDeLoVendido))
+        fecha=datetime.datetime.now()
+        fecha2=fecha.strftime('%d_%m_%Y_%H_%M_%S')
+        a="Reporte_"+str(fecha2)
+        b=".xlsx"
+        c=a+b
+        ruta = "C:\\comun\\"+c
+        dic2.to_excel(ruta, index=None)
 
-        contador=1
-        for elemento in lista:
-            txt16=Label(ventana2,text=elemento,bg="yellow")
-            txt16.grid(row=contador,column=5)
-            contador=contador+1
-        ventana2.mainloop()
+        messagebox.showinfo(message="Su Archivo Excel fue generado en C:comun",title=":)")
     except:
         Borrar()
         MPDI.insert(0,'Llena todos los Datos :)')
