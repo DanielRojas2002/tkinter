@@ -1,3 +1,10 @@
+import tkinter as tk
+import tkinter.font as tkFont
+from tkinter import messagebox
+
+
+
+
 class desempleos:
     def __init__ (self,desempleados,PEA):
         self.__desempleados=desempleados
@@ -192,7 +199,7 @@ class Aplicacion:
 
         self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
         self.ventanai.geometry(self.posicion)
-        self.ventanai.title("BIENVENIDO AL GESTOR DE EMPLEADOS : ")
+        self.ventanai.title("BIENVENIDO AL MENU PRINCIPAL : ")
         self.ventanai.geometry("600x600")
         self.ventanai.maxsize(600, 600)
         self.ventanai.minsize(600, 600)
@@ -205,7 +212,7 @@ class Aplicacion:
         self.framee=tk.Frame(self.ventanai,bg="royal blue")
         self.framee.place(x=0,y=0,width=600,height=120)
 
-        self.txt0101=tk.Label(self.framee,text="GESTOR DE EMPLEADOS",background="gold",font=self.fontStyle)
+        self.txt0101=tk.Label(self.framee,text="SELECCIONE LO QUE DESEA HACER",background="gold",font=self.fontStyle)
         self.txt0101.place(x=40,y=10,width=500,height=100)
 
     
@@ -218,160 +225,169 @@ class Aplicacion:
         self.frame2.place(x=0,y=480,width=600,height=130)
         self.frame2.config(cursor="hand1")
 
-        self.botonAlta=tk.Button(self.frame2,text="PIB",command=None,bd=5)
-        self.botonAlta.place(x=10,y=20,width=100,height=30)
+        self.botonAlta=tk.Button(self.frame2,text="PIB",command=self.PIB,bd=5)
+        self.botonAlta.place(x=10,y=40,width=100,height=30)
 
         self.boton2=tk.Button(self.frame2,text="TASA DE DESEMPLEO",command=None,bd=5)
-        self.boton2.place(x=10,y=70,width=120,height=30)
+        self.boton2.place(x=460,y=40,width=130,height=30)
 
         self.boton4=tk.Button(self.frame2,text="INDICE DE PRECIOS ,INFLACION Y PRODUCTO REAL",command=None,bd=5)
-        self.boton4.place(x=140,y=70,width=150,height=30)
+        self.boton4.place(x=140,y=40,width=300,height=30)
 
         self.ventanai.mainloop()
     
-    try:
-        opcion=1
-        while opcion==1:
-            separador=("*"*40)
-            print("-"*30 +"MENU PRINCIPAL" + "-"*30)
-            print("1-Sacar el PIB por el Metodo del Ingreso\n2-Sacar el PIB por el metodo del Gasto\n3-Sacar el Indice de Precios,Inflacion y Producto Interno Bruto Real")
-            print("4-Sacar la Tasa de Desempleo")
-            print("-"*30)
-            menu=int(input("Ingrese el numero de opcion que desea ejecutar : "))
-            print("-"*30)
+    def PIB(self):
+        self.ventana=tk.Tk()
+        self.ancho_ventana = 300
+        self.alto_ventana = 300
 
-            if menu==1:
-                print("")
-                print("*"*30 +"BIENVENIDO AL PROGRAMA" + "*"*30)
-                print("Este programa te saca el PIB con el metodo del ingreso :)")
-                print("-"*30)
-                II=float(input("Dime los Impuestos Indirectos : "))
-                IP=float(input("Dime los Ingresos de los Propietarios : "))
-                IN=float(input("Dime los Intereses : "))
-                D=float(input("Dime la Depreciacion : "))
-                BC=float(input("Dime los Beneficios Corporativos : "))
-                R=float(input("Dime la Renta : "))
-                RT=float(input("Dime la Remuneraciones de los trabajadores : "))
-                INFE=float(input("Dime el Ingreso Neto de los Factores Extranjeros : "))
-                objeto=MetodoDelIngreso(II,IP,IN,D,BC,R,RT,INFE)
-                objeto.formulas()
-                objeto.PIB()
-                print(separador)
-                print("")
-                print("1=SI\n2=NO")
-                opcion=int(input("Deseas regresar al Menu Principal : "))
-                print("")
-            
-            elif menu==2:
-                print("")
-                print("*"*30 +"BIENVENIDO AL PROGRAMA" + "*"*30)
-                print("Este programa te saca el PIB con el metodo del gasto :)")
-                print("-"*30)
-                ID=float(input("Dime el impuesto indirecto : "))
-                INFEE=float(input("Dime el ingreso neto de los factores extranjeros : "))
-                E=float(input("Dime las Exportaciones : "))
-                D=float(input("Dime la Depreciacion : "))
-                IM=float(input("Dime las Importaciones : "))
-                GG=float(input("Dime el Gasto de Gobierno : "))
-                GCF=float(input("Dime el Gasto en Consumo de las familias : "))
-                objeto=MetodoDelGasto(ID,INFEE,E,D,IM,GG,GCF)
-                objeto.formulas()
-                objeto.PIB()
-                print(separador)
-                print("")
-                print("1=SI\n2=NO")
-                opcion=int(input("Deseas regresar al Menu Principal : "))
-                print("")
-            
-            elif menu==3:
-                listaAño=[]
-                contador1=1
-                listaNivel=[]
-                listaPIBN=[]
-                listaIndice=[]
-                listaInflacion=[]
-                listaPIBR=[]
-                contador=0
-                contadoor=0
-                cuantos=int(input("Cuantos Años vas a registrar : "))
-                print(separador)
-                for año in range(cuantos):
-                    año=int(input("Ingresa el Año : "))
-                    listaAño.append(año)
-                    
-                print(separador)
-                for año in listaAño:
-                    print(f"{contador1}-{año}")
-                    contador1=contador1+1
-                base=int(input("Cual es el indice del año base : "))
-                baseo=(base-1)
-                print(separador)
-                
-                    
-                for precio in range(cuantos):
-                    nivel_precios=float(input(f"Ingresa el Nivel de Precios del Año {listaAño[contador]} :"))
-                    listaNivel.append(nivel_precios)
-                    contador=contador+1
-                print(separador)
-                    
-                for producto in range(cuantos):
-                    PIBN=float(input(f"Ingrese el Producto Interno Bruto Nominal del Año {listaAño[contadoor]} : "))
-                    listaPIBN.append(PIBN)
-                    contadoor=contadoor+1
-                print(separador)
-                
-                print("")
-                print(separador)
-                print("Estas son las Formulas :) ")
-                formulas()
-                print(separador)
-                print("")
-                
-                print(separador)
-                indice(listaNivel,listaIndice,baseo,listaAño)
-                print(separador)
-                print("")
-                
-                print(separador)
-                inflacion(listaIndice,listaAño,cuantos,listaInflacion)
-                print("")
-                
-                print(separador)
-                PIBR(listaPIBN,listaIndice,listaPIBR,listaAño,cuantos)
-                print("")
-                
-                print(separador)
-                print("")
-                print("1=SI\n2=NO")
-                opcion=int(input("Deseas regresar al Menu Principal : "))
-                print("")
-            
-            elif menu==4:
-                desempleo=int(input("Ingresa los Desempleados o la poblacion no ocupada : "))
-                PEA=int(input("Ingresa La Fueza Laboral o PEA : "))
-                objeto=desempleos(desempleo,PEA)
-                objeto.calculo()
-                print(separador)
-                print("")
-                print("1=SI\n2=NO")
-                opcion=int(input("Deseas regresar al Menu Principal : "))
-                print("")
-            
-            elif menu <=0 or menu>4:
-                print("Ingresaste el numero de opcion mal , porfavor intentelo de nuevo :)")
-                print(separador)
-                print("")
+        self.x_ventana = self.ventanai.winfo_screenwidth() - 1050 - self.ancho_ventana // 2
+        self.y_ventana = self.ventanai.winfo_screenheight() // 2 - self.alto_ventana // 2
 
-    except:
-        print("*"*30)
-        print(f"Ocurrió un problema {sys.exc_info()[1]}")
-        print(f"Ocurrió un problema {sys.exc_info()[0]}")
-        print(f"Ocurrió un problema {sys.exc_info()[2]}")
-        print("Intenta respetar lo que se te pide :) ")
-        print("*"*30)
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventanai.geometry(self.posicion)
+        self.ventanai.title("METODOS PARA SACAR EL PIB : ")
+        self.ventanai.geometry("300x300")
+        self.ventanai.maxsize(300, 300)
+        self.ventanai.minsize(300, 300)
+
+        self.frame=tk.Frame(self.ventana,bg="yellow")
+        self.frame.pack(expand=True,fill="both")
+        self.boton=tk.Button(self.frame,text="Metodo Ingreso",command=self.PIB1,bd=5)
+        self.boton.place(x=10,y=20,width=100,height=30)
+
+        self.boton2=tk.Button(self.frame,text="Metodo Gasto",command=None,bd=5)
+        self.boton2.place(x=10,y=70,width=120,height=30)
+
+        self.ventana.mainloop()
+
+    def PIB1(self):
+        if menu==1:
+            print("")
+            print("*"*30 +"BIENVENIDO AL PROGRAMA" + "*"*30)
+            print("Este programa te saca el PIB con el metodo del ingreso :)")
+            print("-"*30)
+            II=float(input("Dime los Impuestos Indirectos : "))
+            IP=float(input("Dime los Ingresos de los Propietarios : "))
+            IN=float(input("Dime los Intereses : "))
+            D=float(input("Dime la Depreciacion : "))
+            BC=float(input("Dime los Beneficios Corporativos : "))
+            R=float(input("Dime la Renta : "))
+            RT=float(input("Dime la Remuneraciones de los trabajadores : "))
+            INFE=float(input("Dime el Ingreso Neto de los Factores Extranjeros : "))
+            objeto=MetodoDelIngreso(II,IP,IN,D,BC,R,RT,INFE)
+            objeto.formulas()
+            objeto.PIB()
+            print(separador)
+            print("")
+            print("1=SI\n2=NO")
+            opcion=int(input("Deseas regresar al Menu Principal : "))
+            print("")
+            
+        elif menu==2:
+            print("")
+            print("*"*30 +"BIENVENIDO AL PROGRAMA" + "*"*30)
+            print("Este programa te saca el PIB con el metodo del gasto :)")
+            print("-"*30)
+            ID=float(input("Dime el impuesto indirecto : "))
+            INFEE=float(input("Dime el ingreso neto de los factores extranjeros : "))
+            E=float(input("Dime las Exportaciones : "))
+            D=float(input("Dime la Depreciacion : "))
+            IM=float(input("Dime las Importaciones : "))
+            GG=float(input("Dime el Gasto de Gobierno : "))
+            GCF=float(input("Dime el Gasto en Consumo de las familias : "))
+            objeto=MetodoDelGasto(ID,INFEE,E,D,IM,GG,GCF)
+            objeto.formulas()
+            objeto.PIB()
+            print(separador)
+            print("")
+            print("1=SI\n2=NO")
+            opcion=int(input("Deseas regresar al Menu Principal : "))
+            print("")
         
-    finally:
-        print("FIN DEL CODIGO ...")
-        print("*"*30)
+        elif menu==3:
+            listaAño=[]
+            contador1=1
+            listaNivel=[]
+            listaPIBN=[]
+            listaIndice=[]
+            listaInflacion=[]
+            listaPIBR=[]
+            contador=0
+            contadoor=0
+            cuantos=int(input("Cuantos Años vas a registrar : "))
+            print(separador)
+            for año in range(cuantos):
+                año=int(input("Ingresa el Año : "))
+                listaAño.append(año)
+                
+            print(separador)
+            for año in listaAño:
+                print(f"{contador1}-{año}")
+                contador1=contador1+1
+            base=int(input("Cual es el indice del año base : "))
+            baseo=(base-1)
+            print(separador)
+            
+                
+            for precio in range(cuantos):
+                nivel_precios=float(input(f"Ingresa el Nivel de Precios del Año {listaAño[contador]} :"))
+                listaNivel.append(nivel_precios)
+                contador=contador+1
+            print(separador)
+                
+            for producto in range(cuantos):
+                PIBN=float(input(f"Ingrese el Producto Interno Bruto Nominal del Año {listaAño[contadoor]} : "))
+                listaPIBN.append(PIBN)
+                contadoor=contadoor+1
+            print(separador)
+            
+            print("")
+            print(separador)
+            print("Estas son las Formulas :) ")
+            formulas()
+            print(separador)
+            print("")
+            
+            print(separador)
+            indice(listaNivel,listaIndice,baseo,listaAño)
+            print(separador)
+            print("")
+            
+            print(separador)
+            inflacion(listaIndice,listaAño,cuantos,listaInflacion)
+            print("")
+            
+            print(separador)
+            PIBR(listaPIBN,listaIndice,listaPIBR,listaAño,cuantos)
+            print("")
+            
+            print(separador)
+            print("")
+            print("1=SI\n2=NO")
+            opcion=int(input("Deseas regresar al Menu Principal : "))
+            print("")
+        
+        elif menu==4:
+            desempleo=int(input("Ingresa los Desempleados o la poblacion no ocupada : "))
+            PEA=int(input("Ingresa La Fueza Laboral o PEA : "))
+            objeto=desempleos(desempleo,PEA)
+            objeto.calculo()
+            print(separador)
+            print("")
+            print("1=SI\n2=NO")
+            opcion=int(input("Deseas regresar al Menu Principal : "))
+            print("")
+        
+        elif menu <=0 or menu>4:
+            print("Ingresaste el numero de opcion mal , porfavor intentelo de nuevo :)")
+            print(separador)
+            print("")
+
+
+   
+
+           
+
 
 app=Aplicacion()
