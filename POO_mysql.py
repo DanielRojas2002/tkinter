@@ -116,7 +116,7 @@ class Aplicacion():
 
     def CHECAR(self):
         if self.combo.get()=="Informacion":
-            messagebox.showinfo(message="Para poder ejecutar este programa con todos sus botones tienes que : \n\n *Instalar la libreria tabulate (pip install tabulate (en el cmd)) \n *Tener instalado la base de datos llamada sqlite", title="Cosas Necesarias")
+            messagebox.showinfo(message="Para poder ejecutar este programa con todos sus botones tienes que : \n\n *Instalar la libreria tabulate (pip install tabulate (en el cmd)) \n *Tener instalado la base de datos llamada sqlite3 \n *Tener instalado Pandas \n *Tener instalado Matplotlib", title="Cosas Necesarias")
         
 
         elif self.combo.get()=="Contar Registros":
