@@ -478,6 +478,10 @@ class Aplicacion:
         self.caja6.delete(0,"end")
         self.caja7.delete(0,"end")
 
+    def borrar3(self):
+        self.caja1.delete(0,"end")
+        self.caja2.delete(0,"end")
+
 
 
     def CALCULAR(self):
@@ -514,18 +518,58 @@ class Aplicacion:
         except:
             messagebox.showerror(message="Ingreso letras en lugar de Numeros :(",title="ERROR ")
 
+    def CALCULAR3(self):
+        pass
+
 
     def TD(self):
-            desempleo=int(input("Ingresa los Desempleados o la poblacion no ocupada : "))
-            PEA=int(input("Ingresa La Fueza Laboral o PEA : "))
-            objeto=desempleos(desempleo,PEA)
-            objeto.calculo()
-            print(separador)
-            print("")
-            print("1=SI\n2=NO")
-            opcion=int(input("Deseas regresar al Menu Principal : "))
-            print("")
+        self.ventana=tk.Tk()
+        self.ancho_ventana = 400
+        self.alto_ventana = 300
 
+        self.x_ventana = self.ventanai.winfo_screenwidth() - 440 - self.ancho_ventana // 2
+        self.y_ventana = self.ventanai.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana.geometry(self.posicion)
+
+        self.ventana.title("DESEMPLEO : ")
+        self.ventana.geometry("400x300")
+        self.ventana.iconbitmap("icono.ico")
+        self.ventana.maxsize(400, 300)
+        self.ventana.minsize(400, 300)
+
+        self.frame=tk.Frame(self.ventana,bg="slate gray")
+        self.frame.pack(expand=True,fill="both")
+        
+
+        self.txt0=tk.Label(self.frame,text="TASA DE DESEMPLEO: ",bg="gold",font=self.fontStyle)
+        self.txt0.place(x=100,y=30,width=200,height=40)
+
+        self.txt1=tk.Label(self.frame,text="Desempleados o \nPoblacion no ocupada : ",bg="sky blue")
+        self.txt1.place(x=40,y=80,width=150,height=50)
+
+        self.caja1=tk.Entry(self.frame)
+        self.caja1.place(x=220,y=80,width=150,height=50)
+
+        self.txt2=tk.Label(self.frame,text="Fuerza Laboral o \n PEA : ",bg="sky blue")
+        self.txt2.place(x=40,y=160,width=150,height=50)
+
+        self.caja2=tk.Entry(self.frame)
+        self.caja2.place(x=220,y=160,width=150,height=50)
+
+        self.boton1=tk.Button(self.frame,text="BORRAR TODO",command=self.borrar3,bd=5)
+        self.boton1.place(x=80,y=250,width=100,height=30)
+
+        self.boton2=tk.Button(self.frame,text="CALCULAR",command=self.CALCULAR3,bd=5)
+        self.boton2.place(x=250,y=250,width=100,height=30)
+
+            
+            #objeto=desempleos(desempleo,PEA)
+            #objeto.calculo()
+
+
+            
     def IIP(self):
         listaAño=[]
         contador1=1
