@@ -50,18 +50,14 @@ class MetodoDelIngreso():
         pib=(IN+self.__II+self.__D+self.__INFE)
         textoa=str(IN)
         textob=str(pib)
-        print("")
-        print("¿¿¿RESPUESTAS???:")
-        print(f"Ingreso Nacional(IN) = {IN}  ")
-        print(f"Producto Interno Bruto(PIB) = {pib} ")
-        archivoA=open("C:\\comun\\Reporte.txt" , 'a')
+        archivoA=open("C:\\comun\\Metodo_Ingreso.txt" , 'a')
         archivoA.write("RESPUESTAS DEL METODO DEL INGRESO :)" +"\n" )
         archivoA.write("Ingreso Nacional(IN) = " + textoa +  "\n" )
         archivoA.write("Producto Interno Bruto(PIB) =" + textob + "\n" )
         archivoA.write("///////////////////////////////////////////////////////////////" +"\n" )
         archivoA.write("///////////////////////////////////////////////////////////////" +"\n" )
         archivoA.close()
-        print("")
+        messagebox.showinfo(message="Su archivo TXT fue generado e C\\comun",title="Metodo Ingreso ")
 
 #-------------------------------------------------------------------------------------------------------------------------------------
 #METODO DEL GASTO
@@ -234,7 +230,62 @@ class Aplicacion:
         self.boton4=tk.Button(self.frame2,text="INDICE DE PRECIOS ,INFLACION Y PRODUCTO REAL",command=self.IIP,bd=5)
         self.boton4.place(x=140,y=40,width=300,height=30)
 
+        self.boton5=tk.Button(self.frame2,text="FORMULAS",command=self.formulas,bd=5)
+        self.boton5.place(x=230,y=80,width=100,height=30)
+
         self.ventanai.mainloop()
+
+    def formulas(self):
+        self.ventana=tk.Tk()
+        self.ancho_ventana = 500
+        self.alto_ventana = 500
+
+        self.x_ventana = self.ventanai.winfo_screenwidth() - 440 - self.ancho_ventana // 2
+        self.y_ventana = self.ventanai.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana.geometry(self.posicion)
+
+        self.ventana.title("FORMULAS : ")
+        self.ventana.geometry("500x500")
+        self.ventana.iconbitmap("icono.ico")
+        self.ventana.maxsize(500, 500)
+        self.ventana.minsize(500, 500)
+
+        self.MI=tk.Frame(self.ventana,bg="slate gray")
+        self.MI.place(x=0,y=0,width=250,height=250)
+
+        self.G=tk.Frame(self.ventana,bg="yellow")
+        self.G.place(x=250,y=0,width=250,height=250)
+
+        self.T=tk.Frame(self.ventana,bg="red")
+        self.T.place(x=0,y=250,width=250,height=250)
+
+        self.IIP=tk.Frame(self.ventana,bg="blue")
+        self.IIP.place(x=250,y=250,width=250,height=250)
+
+        #self.frame=tk.Frame(self.ventana,bg="slate gray")
+        #self.frame.place(x=0,y=0,width=250,height=250)
+
+        #self.frame=tk.Frame(self.ventana,bg="slate gray")
+        #self.frame.place(x=0,y=0,width=250,height=250)
+        
+
+        self.txt0=tk.Label(self.MI,text="METODO DEL INGRESO: ",bg="gold")
+        self.txt0.place(x=20,y=20,width=200,height=30)
+
+        self.txt1=tk.Label(self.G,text="METODO DEL GASTO: ",bg="slate gray")
+        self.txt1.place(x=20,y=20,width=200,height=30)
+
+        self.txt2=tk.Label(self.T,text="TASA DE DESEMPLEO: ",bg="slate gray")
+        self.txt2.place(x=20,y=20,width=200,height=30)
+
+        self.txt3=tk.Label(self.IIP,text="IIP",bg="slate gray")
+        self.txt3.place(x=20,y=20,width=200,height=30)
+
+        self.ventana.mainloop()
+        
+
     
     def PIB(self):
         self.ventana=tk.Tk()
