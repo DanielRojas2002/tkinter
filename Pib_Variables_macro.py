@@ -15,12 +15,12 @@ class desempleos:
         archivoA=open("C:\\comun\\Desempleo.txt" , 'a')
         resultado=(self.__desempleados/self.__PEA)*100
         textoa=str(resultado)
-        print(f"La tasa de Desempleo es : {resultado}")
         archivoA.write("RESPUESTA DE LA TASA DE DESEMPLEO :)" +"\n" )
         archivoA.write("TASA DE DESEMPLEO = " + textoa +  "\n" )
         archivoA.write("///////////////////////////////////////////////////////////////" +"\n" )
         archivoA.write("///////////////////////////////////////////////////////////////" +"\n" )
         archivoA.close()
+        messagebox.showinfo(message="Su archivo TXT fue generado e C\\comun",title="Tasa Desempleo ")
 
 
 #--------------------------------------------------------------------------------------------------------------------------------------
@@ -519,7 +519,15 @@ class Aplicacion:
             messagebox.showerror(message="Ingreso letras en lugar de Numeros :(",title="ERROR ")
 
     def CALCULAR3(self):
-        pass
+        try:
+            desempleo=float(self.caja1.get())
+            PEA=float(self.caja2.get())
+            
+            objeto=desempleos(desempleo,PEA)
+            objeto.calculo()
+        except:
+            messagebox.showerror(message="Ingreso letras en lugar de Numeros :(",title="ERROR ")
+
 
 
     def TD(self):
