@@ -73,15 +73,6 @@ class MetodoDelGasto():
         self.__GCF=GCF
         
     
-    def formulas(self):
-        print("-"*40)
-        print("Estas son las Formulas ")
-        print("Xn=(E-I)")
-        print("PIB=(C+I+G+Xn)")
-        print("IN=(PIN-ingreso neto de los factores-impuestos indirectos)")
-        print("-"*40)
-    
-    
     def PIB(self):
         XN=(self.__E-self.__IM)
         pib=(self.__GCF+self.__INFEE+self.__GG+XN)
@@ -274,9 +265,16 @@ class Aplicacion:
         self.txt0=tk.Label(self.MI,text="METODO DEL INGRESO: ",bg="gold")
         self.txt0.place(x=20,y=20,width=200,height=30)
 
+        self.txt00=tk.Label(self.MI,text="IN=(RT+R+IN+IP+BC)\nPIB=(IN+IIE+DEP+INFE)")
+        self.txt00.place(x=20,y=100,width=200,height=30)
+
         self.txt1=tk.Label(self.G,text="METODO DEL GASTO: ",bg="seagreen")
         self.txt1.place(x=20,y=20,width=200,height=30)
 
+        self.txt11=tk.Label(self.G,text="XN=(E-I)\nPIB=(C+I+G+XN)\nIN=(PIN-ingreso neto de los factores\n-impuestos indirectos)")
+        self.txt11.place(x=20,y=100,width=220,height=80)
+
+        
         self.txt2=tk.Label(self.T,text="TASA DE DESEMPLEO: ",bg="olive drab")
         self.txt2.place(x=20,y=20,width=200,height=30)
 
