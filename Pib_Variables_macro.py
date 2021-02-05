@@ -600,7 +600,7 @@ class Aplicacion:
 
         self.combo=ttk.Combobox(self.frame)
         self.combo.place(x=30,y=80)
-        self.combo["values"]=("2","3")
+        self.combo["values"]=("2","3","4","5","6","7","8","9","10")
 
         self.boton2=tk.Button(self.frame,text="SELECCIONAR",command=self.IIP1,bd=5)
         self.boton2.place(x=40,y=120,width=120,height=30)
@@ -610,6 +610,80 @@ class Aplicacion:
     def IIP1(self):
         if self.combo.get()=="2":
 
+            self.ventana=tk.Tk()
+            self.ancho_ventana = 700
+            self.alto_ventana = 600
+
+            self.x_ventana = self.ventanai.winfo_screenwidth() - 440 - self.ancho_ventana // 2
+            self.y_ventana = self.ventanai.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+            self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+            self.ventana.geometry(self.posicion)
+
+            self.ventana.title("DESEMPLEO : ")
+            self.ventana.geometry("700x600")
+            self.ventana.iconbitmap("icono.ico")
+            self.ventana.maxsize(700, 600)
+            self.ventana.minsize(700, 600)
+
+            self.frame=tk.Frame(self.ventana,bg="slate gray")
+            self.frame.pack(expand=True,fill="both")
+            
+
+            self.txt0=tk.Label(self.frame,text="AÑOS: ",bg="gold",font=self.fontStyle)
+            self.txt0.place(x=250,y=30,width=220,height=40)
+
+            self.txt3=tk.Label(self.frame,text="Año base",bg="sky blue")
+            self.txt3.place(x=20,y=30,width=80,height=30)
+
+            self.caja3=tk.Entry(self.frame)
+            self.caja3.place(x=130,y=30,width=80,height=30)
+
+            self.txt1=tk.Label(self.frame,text="Ingrese el año 1: ",bg="sky blue")
+            self.txt1.place(x=20,y=80,width=100,height=30)
+
+            self.caja1=tk.Entry(self.frame)
+            self.caja1.place(x=130,y=80,width=100,height=30)
+
+            self.txt11=tk.Label(self.frame,text="Nivel de precios del año 1: ",bg="sky blue")
+            self.txt11.place(x=350,y=80,width=170,height=30)
+
+            self.caja11=tk.Entry(self.frame)
+            self.caja11.place(x=550,y=80,width=100,height=30)
+
+            self.txt2=tk.Label(self.frame,text="Ingrese el Año 2 ",bg="sky blue")
+            self.txt2.place(x=20,y=160,width=100,height=30)
+
+
+            self.caja2=tk.Entry(self.frame)
+            self.caja2.place(x=130,y=160,width=100,height=30)
+
+            self.txt22=tk.Label(self.frame,text="Nivel de precios del año 2: ",bg="sky blue")
+            self.txt22.place(x=350,y=160,width=170,height=30)
+
+            self.caja22=tk.Entry(self.frame)
+            self.caja22.place(x=550,y=160,width=100,height=30)
+
+
+            self.txt4=tk.Label(self.frame,text="PIB Nominal del Año 1",bg="sky blue")
+            self.txt4.place(x=20,y=400,width=140,height=30)
+
+            self.caja5=tk.Entry(self.frame)
+            self.caja5.place(x=170,y=400,width=100,height=30)
+
+            self.txt6=tk.Label(self.frame,text="PIB Nominal del Año 2",bg="sky blue")
+            self.txt6.place(x=360,y=400,width=140,height=30)
+
+            self.caja6=tk.Entry(self.frame)
+            self.caja6.place(x=520,y=400,width=100,height=30)
+
+        #self.boton1=tk.Button(self.frame,text="BORRAR TOD",command=self.borrar4,bd=5)
+        #self.boton1.place(x=80,y=250,width=100,height=30)
+
+        #self.boton2=tk.Button(self.frame,text="CALCULAR",command=self.CALCULAR4,bd=5)
+        #self.boton2.place(x=250,y=250,width=100,height=30)
+    
+        elif self.combo.get()=="10":
             self.ventana=tk.Tk()
             self.ancho_ventana = 700
             self.alto_ventana = 600
@@ -657,11 +731,6 @@ class Aplicacion:
             self.caja3=tk.Entry(self.frame)
             self.caja3.place(x=310,y=340,width=100,height=30)
 
-        #self.boton1=tk.Button(self.frame,text="BORRAR TOD",command=self.borrar4,bd=5)
-        #self.boton1.place(x=80,y=250,width=100,height=30)
-
-        #self.boton2=tk.Button(self.frame,text="CALCULAR",command=self.CALCULAR4,bd=5)
-        #self.boton2.place(x=250,y=250,width=100,height=30)
         
         
     def CALCULAR4(self):
@@ -678,20 +747,20 @@ class Aplicacion:
         contadoor=0
         cuantos=int(input("Cuantos Años vas a registrar : "))
         print(separador)
-        for año in range(cuantos):
-            año=int(input("Ingresa el Año : "))
-            listaAño.append(año)
+        #for año in range(cuantos):
+            #año=int(input("Ingresa el Año : "))
+           # listaAño.append(año)
             
        
-        base=int(input("Cual es el indice del año base : "))
-        baseo=(base-1)
+        #base=int(input("Cual es el indice del año base : "))
+        #baseo=(base-1)
         
             
-        for precio in range(cuantos):
-            nivel_precios=float(input(f"Ingresa el Nivel de Precios del Año {listaAño[contador]} :"))
-            listaNivel.append(nivel_precios)
-            contador=contador+1
-        print(separador)
+        #for precio in range(cuantos):
+          #  nivel_precios=float(input(f"Ingresa el Nivel de Precios del Año {listaAño[contador]} :"))
+           # listaNivel.append(nivel_precios)
+            #contador=contador+1
+        #print(separador)
             
         for producto in range(cuantos):
             PIBN=float(input(f"Ingrese el Producto Interno Bruto Nominal del Año {listaAño[contadoor]} : "))
