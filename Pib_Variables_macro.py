@@ -271,15 +271,25 @@ class Aplicacion:
         self.txt1=tk.Label(self.G,text="METODO DEL GASTO: ",bg="seagreen")
         self.txt1.place(x=20,y=20,width=200,height=30)
 
-        self.txt11=tk.Label(self.G,text="XN=(E-I)\nPIB=(C+I+G+XN)\nIN=(PIN-ingreso neto de los factores\n-impuestos indirectos)")
-        self.txt11.place(x=20,y=100,width=220,height=80)
+        self.txt11=tk.Label(self.G,text="XN=(E-I)\nPIB=(C+I+G+XN)\nIN=(PIN-ingreso neto de los factores\n-Impuestos indirectos)")
+        self.txt11.place(x=20,y=80,width=220,height=80)
 
         
         self.txt2=tk.Label(self.T,text="TASA DE DESEMPLEO: ",bg="olive drab")
         self.txt2.place(x=20,y=20,width=200,height=30)
 
-        self.txt3=tk.Label(self.IIP,text="IIP",bg="green yellow")
+        self.txt22=tk.Label(self.T,text="TD=(Desempleados/PEA)*100")
+        self.txt22.place(x=20,y=100,width=200,height=30)
+
+        self.txt3=tk.Label(self.IIP,text="Indice de precios,Inflacion,PIBR",bg="green yellow")
         self.txt3.place(x=20,y=20,width=200,height=30)
+
+        self.txt33=tk.Label(self.IIP,text="IP=(Nivel de precios/\nBase de nivel de precios)*100\n\nINFLACION=(Indice de precios-\nIndice de precios uno atras)*100\n\nPIBR=\n(Producto interno bruto nominal/\nIndice de precios)")
+        self.txt33.place(x=20,y=60,width=200,height=180)
+
+       # print("*Indice de Precios : "+ "=" +"(NIVEL DE PRECIOS / BASE DE NIVEL DE PRECIOS * 100")
+    #print("*Inflacion : "+ "=" + "INDICE DE PRECIOS – INDICE DE PRECIOS UNO ATRÁS / INDICE DE PRECIOS UNO ATRÁS * 100")
+    #print("*PIBR : " + "=" + "PRODUCTO INTERNO BRUTO NOMINAL / INDICE DE PRECIOS * 100")
 
         self.ventana.mainloop()
         
