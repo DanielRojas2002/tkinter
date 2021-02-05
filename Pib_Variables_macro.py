@@ -252,16 +252,16 @@ class Aplicacion:
         self.ventana.maxsize(500, 500)
         self.ventana.minsize(500, 500)
 
-        self.MI=tk.Frame(self.ventana,bg="slate gray")
+        self.MI=tk.Frame(self.ventana,bg="seagreen")
         self.MI.place(x=0,y=0,width=250,height=250)
 
         self.G=tk.Frame(self.ventana,bg="yellow")
         self.G.place(x=250,y=0,width=250,height=250)
 
-        self.T=tk.Frame(self.ventana,bg="red")
+        self.T=tk.Frame(self.ventana,bg="green yellow")
         self.T.place(x=0,y=250,width=250,height=250)
 
-        self.IIP=tk.Frame(self.ventana,bg="blue")
+        self.IIP=tk.Frame(self.ventana,bg="olive drab")
         self.IIP.place(x=250,y=250,width=250,height=250)
 
         #self.frame=tk.Frame(self.ventana,bg="slate gray")
@@ -274,13 +274,13 @@ class Aplicacion:
         self.txt0=tk.Label(self.MI,text="METODO DEL INGRESO: ",bg="gold")
         self.txt0.place(x=20,y=20,width=200,height=30)
 
-        self.txt1=tk.Label(self.G,text="METODO DEL GASTO: ",bg="slate gray")
+        self.txt1=tk.Label(self.G,text="METODO DEL GASTO: ",bg="seagreen")
         self.txt1.place(x=20,y=20,width=200,height=30)
 
-        self.txt2=tk.Label(self.T,text="TASA DE DESEMPLEO: ",bg="slate gray")
+        self.txt2=tk.Label(self.T,text="TASA DE DESEMPLEO: ",bg="olive drab")
         self.txt2.place(x=20,y=20,width=200,height=30)
 
-        self.txt3=tk.Label(self.IIP,text="IIP",bg="slate gray")
+        self.txt3=tk.Label(self.IIP,text="IIP",bg="green yellow")
         self.txt3.place(x=20,y=20,width=200,height=30)
 
         self.ventana.mainloop()
