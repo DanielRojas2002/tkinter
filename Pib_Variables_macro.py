@@ -54,7 +54,7 @@ class MetodoDelIngreso():
         print("¿¿¿RESPUESTAS???:")
         print(f"Ingreso Nacional(IN) = {IN}  ")
         print(f"Producto Interno Bruto(PIB) = {pib} ")
-        archivoA=open("./archivos/datos.txt" , 'a')
+        archivoA=open("C:\\comun\\Reporte.txt" , 'a')
         archivoA.write("RESPUESTAS DEL METODO DEL INGRESO :)" +"\n" )
         archivoA.write("Ingreso Nacional(IN) = " + textoa +  "\n" )
         archivoA.write("Producto Interno Bruto(PIB) =" + textob + "\n" )
@@ -470,7 +470,17 @@ class Aplicacion:
 
 
     def CALCULAR(self):
-        pass
+        II=self.caja1.get()
+        IP=self.caja2.get()
+        IN=self.caja3.get()
+        D=self.caja4.get()
+        BC=self.caja5.get()
+        R=self.caja6.get()
+        RT=self.caja7.get()
+        INFE=self.caja8.get()
+        objeto=MetodoDelIngreso(II,IP,IN,D,BC,R,RT,INFE)
+        objeto.formulas()
+        objeto.PIB()
 
     def CALCULAR2(self):
         pass
