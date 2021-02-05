@@ -12,7 +12,7 @@ class desempleos:
     
     
     def calculo(self):
-        archivoA=open("./archivos/datos.txt" , 'a')
+        archivoA=open("C:\\comun\\Desempleo.txt" , 'a')
         resultado=(self.__desempleados/self.__PEA)*100
         textoa=str(resultado)
         print(f"La tasa de Desempleo es : {resultado}")
@@ -37,14 +37,7 @@ class MetodoDelIngreso():
         self.__RT=RT
         self.__INFE=INFE
         
-          
-    def formulas(self):
-        print("-"*40)
-        print("IN=(Rt+R+In+Ip+Bc)")
-        print("PIB=(IN+IIE+dep+INFE)")
-        print("-"*40)
-
-    
+         
     def PIB(self):
         IN=(self.__RT+self.__R+self.__IN+self.__IP+self.__BC)
         pib=(IN+self.__II+self.__D+self.__INFE)
@@ -81,13 +74,8 @@ class MetodoDelGasto():
         textoa=str(pib)
         textob=str(PIN)
         textoc=str(IN)
-        print("¿¿¿RESPUESTAS???:")
-        print(f"Producto Interno Bruto(PIB) = {pib} ")
-        print(f"Producto Interno Neto(PIN) = {PIN}  ")
-        print(f"Ingreso Nacional(IN) = {IN}  ")
-        print("")
 
-        archivoA=open("./archivos/datos.txt" , 'a')
+        archivoA=open("C:\\comun\\Metodo_Gasto.txt" , 'a')
         archivoA.write("RESPUESTAS DEL METODO DEL GASTO :)" +"\n" )
         archivoA.write("Producto Interno Bruto(PIB) =" + textoa +  "\n" )
         archivoA.write("Producto Interno Neto(PIN) = " + textob +  "\n" )
@@ -95,20 +83,16 @@ class MetodoDelGasto():
         archivoA.write("///////////////////////////////////////////////////////////////" +"\n" )
         archivoA.write("///////////////////////////////////////////////////////////////" +"\n" )
         archivoA.close()
+        messagebox.showinfo(message="Su archivo TXT fue generado e C\\comun",title="Metodo Gasto ")
         
     
     
 
 
 #VARIABLES MACROECONOMICAS
-def formulas():
-    print("*Indice de Precios : "+ "=" +"(NIVEL DE PRECIOS / BASE DE NIVEL DE PRECIOS * 100")
-    print("*Inflacion : "+ "=" + "INDICE DE PRECIOS – INDICE DE PRECIOS UNO ATRÁS / INDICE DE PRECIOS UNO ATRÁS * 100")
-    print("*PIBR : " + "=" + "PRODUCTO INTERNO BRUTO NOMINAL / INDICE DE PRECIOS * 100")
-
-    
+   
 def indice(listaNivel,listaIndice,baseo,listaAño):
-    archivoA=open("./archivos/datos.txt" , 'a')
+    archivoA=open("C:\\comun\\Variables_Economicas.txt" , 'a')
     archivoA.write("RESPUESTAS DE LAS VARIABLES MACROECONOMICAS :)" +"\n" )
     contador=0
     separador=("*"*40)
@@ -129,7 +113,7 @@ def indice(listaNivel,listaIndice,baseo,listaAño):
 
 
 def inflacion(listaIndice,listaAño,cuantos,listaInflacion):
-    archivoA=open("./archivos/datos.txt" , 'a')
+    archivoA=open("C:\\comun\\Variables_Economicas.txt" , 'a')
     contador=1
     contador2=0
     contadorA=1
@@ -143,18 +127,14 @@ def inflacion(listaIndice,listaAño,cuantos,listaInflacion):
             listaInflacion.append(resultado)
     
     for numero in listaInflacion:
-        print("INFLACION : ")
-        print(f"La Inflacion del año {listaAño[contadorA]} es = {numero}")
         textoa=str(numero)
         archivoA.write("Inflacion = " + textoa +  "\n" )
         contadorA=contadorA+1
-        print(separador)
-        print("")
     archivoA.close()
 
 
 def PIBR(listaPIBN,listaIndice,listaPIBR,listaAño,cuantos):
-    archivoA=open("./archivos/datos.txt" , 'a')
+    archivoA=open("C:\\comun\\Variables_Economicas.txt" , 'a')
     contador=0
     contadorA=0
     separador=("*"*40)
@@ -255,13 +235,7 @@ class Aplicacion:
         self.IIP=tk.Frame(self.ventana,bg="olive drab")
         self.IIP.place(x=250,y=250,width=250,height=250)
 
-        #self.frame=tk.Frame(self.ventana,bg="slate gray")
-        #self.frame.place(x=0,y=0,width=250,height=250)
-
-        #self.frame=tk.Frame(self.ventana,bg="slate gray")
-        #self.frame.place(x=0,y=0,width=250,height=250)
-        
-
+     
         self.txt0=tk.Label(self.MI,text="METODO DEL INGRESO: ",bg="gold")
         self.txt0.place(x=20,y=20,width=200,height=30)
 
@@ -284,12 +258,8 @@ class Aplicacion:
         self.txt3=tk.Label(self.IIP,text="Indice de precios,Inflacion,PIBR",bg="green yellow")
         self.txt3.place(x=20,y=20,width=200,height=30)
 
-        self.txt33=tk.Label(self.IIP,text="IP=(Nivel de precios/\nBase de nivel de precios)*100\n\nINFLACION=(Indice de precios-\nIndice de precios uno atras)*100\n\nPIBR=\n(Producto interno bruto nominal/\nIndice de precios)")
+        self.txt33=tk.Label(self.IIP,text="IP=(Nivel de precios/\nBase de nivel de precios)*100\n\nINFLACION=(Indice de precios-\nIndice de precios uno atras)*100\n\nPIBR=\n(Producto interno bruto nominal/\nIndice de precios)*100")
         self.txt33.place(x=20,y=60,width=200,height=180)
-
-       # print("*Indice de Precios : "+ "=" +"(NIVEL DE PRECIOS / BASE DE NIVEL DE PRECIOS * 100")
-    #print("*Inflacion : "+ "=" + "INDICE DE PRECIOS – INDICE DE PRECIOS UNO ATRÁS / INDICE DE PRECIOS UNO ATRÁS * 100")
-    #print("*PIBR : " + "=" + "PRODUCTO INTERNO BRUTO NOMINAL / INDICE DE PRECIOS * 100")
 
         self.ventana.mainloop()
         
@@ -404,25 +374,7 @@ class Aplicacion:
             self.boton4=tk.Button(self.frame,text="CALCULAR",command=self.CALCULAR,bd=5)
             self.boton4.place(x=460,y=350,width=100,height=30)
 
-
-
-            #self.frame2=tk.Frame(self.ventana,bg="deep sky blue")
-            #self.frame2.place(x=380,y=510,width=230,height=100)
-            #self.frame2.config(cursor="pencil")
-
-           
-            #II=float(input("Dime los Impuestos Indirectos : "))
-            #IP=float(input("Dime los Ingresos de los Propietarios : "))
-            #IN=float(input("Dime los Intereses : "))
-            #D=float(input("Dime la Depreciacion : "))
-            #BC=float(input("Dime los Beneficios Corporativos : "))
-            #R=float(input("Dime la Renta : "))
-            #RT=float(input("Dime la Remuneraciones de los trabajadores : "))
-            #INFE=float(input("Dime el Ingreso Neto de los Factores Extranjeros : "))
-            #objeto=MetodoDelIngreso(II,IP,IN,D,BC,R,RT,INFE)
-            #objeto.formulas()
-            #objeto.PIB()
-            
+   
         elif self.combo.get()=="Metodo del Gasto":
             self.ventana=tk.Tk()
             self.ancho_ventana = 600
@@ -529,20 +481,39 @@ class Aplicacion:
 
 
     def CALCULAR(self):
-        II=self.caja1.get()
-        IP=self.caja2.get()
-        IN=self.caja3.get()
-        D=self.caja4.get()
-        BC=self.caja5.get()
-        R=self.caja6.get()
-        RT=self.caja7.get()
-        INFE=self.caja8.get()
-        objeto=MetodoDelIngreso(II,IP,IN,D,BC,R,RT,INFE)
-        objeto.formulas()
-        objeto.PIB()
+        try:
+            II=float(self.caja1.get())
+            IP=float(self.caja2.get())
+            IN=float(self.caja3.get())
+            D=float(self.caja4.get())
+            BC=float(self.caja5.get())
+            R=float(self.caja6.get())
+            RT=float(self.caja7.get())
+            INFE=float(self.caja8.get())
+
+            objeto=MetodoDelIngreso(II,IP,IN,D,BC,R,RT,INFE)
+            objeto.PIB()
+        except:
+            messagebox.showerror(message="Ingreso letras en lugar de Numeros :(",title="ERROR ")
+
+        
 
     def CALCULAR2(self):
-        pass
+        try:
+            ID=float(self.caja1.get())
+            INFEE=float(self.caja2.get())
+            E=float(self.caja3.get())
+            D=float(self.caja4.get())
+            IM=float(self.caja5.get())
+            GG=float(self.caja6.get())
+            GCF=float(self.caja7.get())
+
+            objeto=MetodoDelGasto(ID,INFEE,E,D,IM,GG,GCF)
+            objeto.PIB()
+
+        except:
+            messagebox.showerror(message="Ingreso letras en lugar de Numeros :(",title="ERROR ")
+
 
     def TD(self):
             desempleo=int(input("Ingresa los Desempleados o la poblacion no ocupada : "))
