@@ -339,6 +339,12 @@ class Aplicacion:
             self.caja8=tk.Entry(self.frame)
             self.caja8.place(x=290,y=540,width=120,height=40)
 
+            self.boton3=tk.Button(self.frame,text="BORRAR TODO",command=self.borrar,bd=5)
+            self.boton3.place(x=460,y=300,width=100,height=30)
+
+            self.boton4=tk.Button(self.frame,text="CALCULAR",command=self.CALCULAR,bd=5)
+            self.boton4.place(x=460,y=350,width=100,height=30)
+
 
 
             #self.frame2=tk.Frame(self.ventana,bg="deep sky blue")
@@ -424,6 +430,12 @@ class Aplicacion:
             self.caja7=tk.Entry(self.frame)
             self.caja7.place(x=290,y=470,width=120,height=40)
 
+            self.boton5=tk.Button(self.frame,text="BORRAR TODO",command=self.borrar2,bd=5)
+            self.boton5.place(x=460,y=300,width=100,height=30)
+
+            self.boton6=tk.Button(self.frame,text="CALCULAR",command=self.CALCULAR2,bd=5)
+            self.boton6.place(x=460,y=350,width=100,height=30)
+
             
             #ID=float(input("Dime el impuesto indirecto : "))
            # INFEE=float(input("Dime el ingreso neto de los factores extranjeros : "))
@@ -435,6 +447,33 @@ class Aplicacion:
             #objeto=MetodoDelGasto(ID,INFEE,E,D,IM,GG,GCF)
             #objeto.formulas()
             #objeto.PIB()
+
+    def borrar(self):
+        self.caja1.delete(0,"end")
+        self.caja2.delete(0,"end")
+        self.caja3.delete(0,"end")
+        self.caja4.delete(0,"end")
+        self.caja5.delete(0,"end")
+        self.caja6.delete(0,"end")
+        self.caja7.delete(0,"end")
+        self.caja8.delete(0,"end")
+
+    def borrar2(self):
+        self.caja1.delete(0,"end")
+        self.caja2.delete(0,"end")
+        self.caja3.delete(0,"end")
+        self.caja4.delete(0,"end")
+        self.caja5.delete(0,"end")
+        self.caja6.delete(0,"end")
+        self.caja7.delete(0,"end")
+
+
+
+    def CALCULAR(self):
+        pass
+
+    def CALCULAR2(self):
+        pass
 
     def TD(self):
             desempleo=int(input("Ingresa los Desempleados o la poblacion no ocupada : "))
