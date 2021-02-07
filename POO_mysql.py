@@ -31,7 +31,7 @@ class Aplicacion():
         self.ventanai.maxsize(600, 600)
         self.ventanai.minsize(600, 600)
         self.fontStyle = tkFont.Font(family="Lucida Grande", size=20)
-        self.ventanai.iconbitmap("icono.ico")
+        self.ventanai.iconbitmap("Multimedia\\icono.ico")
 
         self.frame=tk.Frame(self.ventanai,bg="slate gray")
         self.frame.pack(expand=True,fill="both")
@@ -43,7 +43,7 @@ class Aplicacion():
         self.txt0101.place(x=40,y=10,width=500,height=100)
 
     
-        self.image=tk.PhotoImage(file="base.gif")
+        self.image=tk.PhotoImage(file="Multimedia\\base.gif")
         self.txt=tk.Label(image=self.image)
         self.txt.place(x=85,y=150)
 
@@ -87,7 +87,7 @@ class Aplicacion():
         self.ventana=tk.Tk()
         self.ancho_ventana = 200
         self.alto_ventana = 200
-        self.ventana.iconbitmap("filtro.ico")
+        self.ventana.iconbitmap("Multimedia\\filtro.ico")
 
         self.x_ventana = self.ventana.winfo_screenwidth() - 610 - self.ancho_ventana // 2
         self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
@@ -123,7 +123,7 @@ class Aplicacion():
             self.ventana=tk.Tk()
             self.ancho_ventana = 200
             self.alto_ventana = 200
-            self.ventana.iconbitmap("filtro.ico")
+            self.ventana.iconbitmap("Multimedia\\filtro.ico")
 
             self.x_ventana = self.ventana.winfo_screenwidth() - 350 - self.ancho_ventana // 2
             self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
@@ -154,7 +154,7 @@ class Aplicacion():
             self.ventana=tk.Tk()
             self.ancho_ventana = 200
             self.alto_ventana = 200
-            self.ventana.iconbitmap("filtro.ico")
+            self.ventana.iconbitmap("Multimedia\\filtro.ico")
 
             self.x_ventana = self.ventana.winfo_screenwidth() - 350 - self.ancho_ventana // 2
             self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
@@ -186,7 +186,7 @@ class Aplicacion():
             self.ventana=tk.Tk()
             self.ancho_ventana = 200
             self.alto_ventana = 200
-            self.ventana.iconbitmap("filtro.ico")
+            self.ventana.iconbitmap("Multimedia\\filtro.ico")
 
             self.x_ventana = self.ventana.winfo_screenwidth() - 350 - self.ancho_ventana // 2
             self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
@@ -218,7 +218,7 @@ class Aplicacion():
         if self.combo2.get()=="Nombre":
             self.ventana5=tk.Tk()
             self.ventana5.title("Contar : ")
-            self.ventana5.iconbitmap("funcion.ico")
+            self.ventana5.iconbitmap("Multimedia\\funcion.ico")
             self.ancho_ventana = 200
             self.alto_ventana = 200
 
@@ -248,7 +248,7 @@ class Aplicacion():
         elif self.combo2.get()=="Apellido":
             self.ventana5=tk.Tk()
             self.ventana5.title("Contar : ")
-            self.ventana5.iconbitmap("funcion.ico")
+            self.ventana5.iconbitmap("Multimedia\\funcion.ico")
             self.ancho_ventana = 200
             self.alto_ventana = 200
 
@@ -278,7 +278,7 @@ class Aplicacion():
         elif self.combo2.get()=="Domicilio":
             self.ventana5=tk.Tk()
             self.ventana5.title("Contar : ")
-            self.ventana5.iconbitmap("funcion.ico")
+            self.ventana5.iconbitmap("Multimedia\\funcion.ico")
             self.ancho_ventana = 200
             self.alto_ventana = 200
 
@@ -338,7 +338,7 @@ class Aplicacion():
 
                     self.ventana9.title("Buscado por Nombre : "+nombre)
                     self.ventana9.geometry("800x500")
-                    self.ventana9.iconbitmap("icono.ico")
+                    self.ventana9.iconbitmap("Multimedia\\icono.ico")
                     self.ventana9.maxsize(800, 500)
                     self.ventana9.minsize(800, 500)
                     self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
@@ -415,7 +415,7 @@ class Aplicacion():
 
                     self.ventana9.title("Buscado por Apellido : "+apellido)
                     self.ventana9.geometry("800x500")
-                    self.ventana9.iconbitmap("icono.ico")
+                    self.ventana9.iconbitmap("Multimedia\\icono.ico")
                     self.ventana9.maxsize(800, 500)
                     self.ventana9.minsize(800, 500)
                     self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
@@ -492,7 +492,7 @@ class Aplicacion():
 
                     self.ventana9.title("Buscado por Domicilio : "+domicilio)
                     self.ventana9.geometry("800x500")
-                    self.ventana9.iconbitmap("icono.ico")
+                    self.ventana9.iconbitmap("Multimedia\\icono.ico")
                     self.ventana9.maxsize(800, 500)
                     self.ventana9.minsize(800, 500)
                     self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
@@ -541,7 +541,7 @@ class Aplicacion():
         if self.combo2.get()=="Nombre":
             self.ventana5=tk.Tk()
             self.ventana5.title("Contar : ")
-            self.ventana5.iconbitmap("funcion.ico")
+            self.ventana5.iconbitmap("Multimedia\\funcion.ico")
             self.ancho_ventana = 200
             self.alto_ventana = 200
 
@@ -571,7 +571,7 @@ class Aplicacion():
         elif self.combo2.get()=="Apellido":
             self.ventana5=tk.Tk()
             self.ventana5.title("Contar : ")
-            self.ventana5.iconbitmap("funcion.ico")
+            self.ventana5.iconbitmap("Multimedia\\funcion.ico")
             self.ancho_ventana = 200
             self.alto_ventana = 200
 
@@ -601,7 +601,7 @@ class Aplicacion():
         elif self.combo2.get()=="Domicilio":
             self.ventana5=tk.Tk()
             self.ventana5.title("Contar : ")
-            self.ventana5.iconbitmap("funcion.ico")
+            self.ventana5.iconbitmap("Multimedia\\funcion.ico")
             self.ancho_ventana = 200
             self.alto_ventana = 200
 
@@ -663,7 +663,7 @@ class Aplicacion():
 
                     self.ventana9.title("Buscado por Nombre : "+nombre)
                     self.ventana9.geometry("800x500")
-                    self.ventana9.iconbitmap("icono.ico")
+                    self.ventana9.iconbitmap("Multimedia\\icono.ico")
                     self.ventana9.maxsize(800, 500)
                     self.ventana9.minsize(800, 500)
                     self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
@@ -744,7 +744,7 @@ class Aplicacion():
 
                     self.ventana9.title("Buscado por Apellido : "+apellido)
                     self.ventana9.geometry("800x500")
-                    self.ventana9.iconbitmap("icono.ico")
+                    self.ventana9.iconbitmap("Multimedia\\icono.ico")
                     self.ventana9.maxsize(800, 500)
                     self.ventana9.minsize(800, 500)
                     self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
@@ -824,7 +824,7 @@ class Aplicacion():
 
                     self.ventana9.title("Buscado por Domicilio : "+domicilio)
                     self.ventana9.geometry("800x500")
-                    self.ventana9.iconbitmap("icono.ico")
+                    self.ventana9.iconbitmap("Multimedia\\icono.ico")
                     self.ventana9.maxsize(800, 500)
                     self.ventana9.minsize(800, 500)
                     self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
@@ -877,7 +877,7 @@ class Aplicacion():
         if self.combo1.get()=="Nombre":
             self.ventana5=tk.Tk()
             self.ventana5.title("Contar : ")
-            self.ventana5.iconbitmap("funcion.ico")
+            self.ventana5.iconbitmap("Multimedia\\funcion.ico")
             self.ancho_ventana = 200
             self.alto_ventana = 200
 
@@ -907,7 +907,7 @@ class Aplicacion():
         elif self.combo1.get()=="Apellido":
             self.ventana5=tk.Tk()
             self.ventana5.title("Contar : ")
-            self.ventana5.iconbitmap("funcion.ico")
+            self.ventana5.iconbitmap("Multimedia\\funcion.ico")
             self.ancho_ventana = 200
             self.alto_ventana = 200
 
@@ -937,7 +937,7 @@ class Aplicacion():
         elif self.combo1.get()=="Edad":
             self.ventana5=tk.Tk()
             self.ventana5.title("Contar : ")
-            self.ventana5.iconbitmap("funcion.ico")
+            self.ventana5.iconbitmap("Multimedia\\funcion.ico")
             self.ancho_ventana = 200
             self.alto_ventana = 200
 
@@ -967,7 +967,7 @@ class Aplicacion():
         elif self.combo1.get()=="Domicilio":
             self.ventana5=tk.Tk()
             self.ventana5.title("Contar : ")
-            self.ventana5.iconbitmap("funcion.ico")
+            self.ventana5.iconbitmap("Multimedia\\funcion.ico")
             self.ancho_ventana = 200
             self.alto_ventana = 200
 
@@ -1099,7 +1099,7 @@ class Aplicacion():
         self.ventana=tk.Tk()
         self.ancho_ventana = 200
         self.alto_ventana = 200
-        self.ventana.iconbitmap("filtro.ico")
+        self.ventana.iconbitmap("Multimedia\\filtro.ico")
 
         self.x_ventana = self.ventana.winfo_screenwidth() - 610 - self.ancho_ventana // 2
         self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
@@ -1146,7 +1146,7 @@ class Aplicacion():
         if self.combo.get()=="Nombre":
             self.ventana5=tk.Tk()
             self.ventana5.title("TXT : ")
-            self.ventana5.iconbitmap("txt.ico")
+            self.ventana5.iconbitmap("Multimedia\\txt.ico")
             self.ancho_ventana = 300
             self.alto_ventana = 300
 
@@ -1176,7 +1176,7 @@ class Aplicacion():
         elif self.combo.get()=="Apellido":
             self.ventana5=tk.Tk()
             self.ventana5.title("TXT : ")
-            self.ventana5.iconbitmap("txt.ico")
+            self.ventana5.iconbitmap("Multimedia\\txt.ico")
             self.ancho_ventana = 300
             self.alto_ventana = 300
 
@@ -1206,7 +1206,7 @@ class Aplicacion():
         elif self.combo.get()=="Edad":
             self.ventana5=tk.Tk()
             self.ventana5.title("TXT : ")
-            self.ventana5.iconbitmap("txt.ico")
+            self.ventana5.iconbitmap("Multimedia\\txt.ico")
             self.ancho_ventana = 300
             self.alto_ventana = 300
 
@@ -1236,7 +1236,7 @@ class Aplicacion():
         elif self.combo.get()=="Domicilio":
             self.ventana5=tk.Tk()
             self.ventana5.title("TXT : ")
-            self.ventana5.iconbitmap("txt.ico")
+            self.ventana5.iconbitmap("Multimedia\\txt.ico")
             self.ancho_ventana = 300
             self.alto_ventana = 300
 
@@ -1265,8 +1265,8 @@ class Aplicacion():
 
         elif self.combo.get()=="Inscripcion":
             self.ventana5=tk.Tk()
-            self.ventana5.title("EXCEL : ")
-            self.ventana5.iconbitmap("excel.ico")
+            self.ventana5.title("TXT : ")
+            self.ventana5.iconbitmap("Multimedia\\excel.ico")
             self.ancho_ventana = 600
             self.alto_ventana = 200
 
@@ -1312,7 +1312,7 @@ class Aplicacion():
         elif self.combo.get()=="Fecha_Modificacion":
             self.ventana5=tk.Tk()
             self.ventana5.title("TXT : ")
-            self.ventana5.iconbitmap("excel.ico")
+            self.ventana5.iconbitmap("Multimedia\\excel.ico")
             self.ancho_ventana = 600
             self.alto_ventana = 200
 
@@ -1650,7 +1650,7 @@ class Aplicacion():
         self.ventana=tk.Tk()
         self.ancho_ventana = 200
         self.alto_ventana = 200
-        self.ventana.iconbitmap("filtro.ico")
+        self.ventana.iconbitmap("Multimedia\\filtro.ico")
 
         self.x_ventana = self.ventana.winfo_screenwidth() - 610 - self.ancho_ventana // 2
         self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
@@ -1683,7 +1683,7 @@ class Aplicacion():
             self.ventana=tk.Tk()
             self.ancho_ventana = 200
             self.alto_ventana = 200
-            self.ventana.iconbitmap("filtro.ico")
+            self.ventana.iconbitmap("Multimedia\\filtro.ico")
 
             self.x_ventana = self.ventana.winfo_screenwidth() - 310 - self.ancho_ventana // 2
             self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
@@ -1714,7 +1714,7 @@ class Aplicacion():
             self.ventana=tk.Tk()
             self.ancho_ventana = 200
             self.alto_ventana = 200
-            self.ventana.iconbitmap("filtro.ico")
+            self.ventana.iconbitmap("Multimedia\\filtro.ico")
 
             self.x_ventana = self.ventana.winfo_screenwidth() - 310 - self.ancho_ventana // 2
             self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
@@ -2314,7 +2314,7 @@ class Aplicacion():
         self.ventana=tk.Tk()
         self.ancho_ventana = 300
         self.alto_ventana = 300
-        self.ventana.iconbitmap("filtro.ico")
+        self.ventana.iconbitmap("Multimedia\\filtro.ico")
 
         self.x_ventana = self.ventana.winfo_screenwidth() - 610 - self.ancho_ventana // 2
         self.y_ventana = self.ventana.winfo_screenheight() // 2 - self.alto_ventana // 2
@@ -2356,7 +2356,7 @@ class Aplicacion():
     def NomEx(self):
         self.ventana5=tk.Tk()
         self.ventana5.title("EXCEL : ")
-        self.ventana5.iconbitmap("excel.ico")
+        self.ventana5.iconbitmap("Multimedia\\excel.ico")
         self.ancho_ventana = 300
         self.alto_ventana = 300
 
@@ -2447,7 +2447,7 @@ class Aplicacion():
     def ApeEx(self):
         self.ventana5=tk.Tk()
         self.ventana5.title("EXCEL : ")
-        self.ventana5.iconbitmap("excel.ico")
+        self.ventana5.iconbitmap("Multimedia\\excel.ico")
         self.ancho_ventana = 300
         self.alto_ventana = 300
 
@@ -2538,7 +2538,7 @@ class Aplicacion():
     def EdadEx(self):
         self.ventana5=tk.Tk()
         self.ventana5.title("EXCEL : ")
-        self.ventana5.iconbitmap("excel.ico")
+        self.ventana5.iconbitmap("Multimedia\\excel.ico")
         self.ancho_ventana = 300
         self.alto_ventana = 300
 
@@ -2631,7 +2631,7 @@ class Aplicacion():
     def InsEx(self):
         self.ventana5=tk.Tk()
         self.ventana5.title("EXCEL : ")
-        self.ventana5.iconbitmap("excel.ico")
+        self.ventana5.iconbitmap("Multimedia\\excel.ico")
         self.ancho_ventana = 600
         self.alto_ventana = 200
 
@@ -2759,7 +2759,7 @@ class Aplicacion():
     def FechaEx(self):
         self.ventana5=tk.Tk()
         self.ventana5.title("EXCEL : ")
-        self.ventana5.iconbitmap("excel.ico")
+        self.ventana5.iconbitmap("Multimedia\\excel.ico")
         self.ancho_ventana = 600
         self.alto_ventana = 200
 
@@ -2947,7 +2947,7 @@ class Aplicacion():
 
         self.ventana.title("Registro de Empleados : ")
         self.ventana.geometry("600x600")
-        self.ventana.iconbitmap("icono.ico")
+        self.ventana.iconbitmap("Multimedia\\icono.ico")
         self.ventana.maxsize(600, 600)
         self.ventana.minsize(600, 600)
 
@@ -3020,7 +3020,7 @@ class Aplicacion():
         self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
         self.ventana5.geometry(self.posicion)
         self.ventana5.geometry("200x200")
-        self.ventana5.iconbitmap("icono.ico")
+        self.ventana5.iconbitmap("Multimedia\\icono.ico")
         self.ventana5.maxsize(200, 200)
         self.ventana5.minsize(200, 200)
 
@@ -3069,7 +3069,7 @@ class Aplicacion():
                     self.ventana6.geometry(self.posicion)
                     self.ventana6.title("Matricula : ")
                     self.ventana6.geometry("790x200")
-                    self.ventana6.iconbitmap("icono.ico")
+                    self.ventana6.iconbitmap("Multimedia\\icono.ico")
                     self.ventana6.maxsize(790, 200)
                     self.ventana6.minsize(790, 200)
 
@@ -3160,7 +3160,7 @@ class Aplicacion():
         self.ventana.geometry(self.posicion)
         self.ventana.title("Actualizacion del Empleado : ")
         self.ventana.geometry("600x600")
-        self.ventana.iconbitmap("icono.ico")
+        self.ventana.iconbitmap("Multimedia\\icono.ico")
         self.ventana.maxsize(600, 600)
         self.ventana.minsize(600, 600)
 
@@ -3320,7 +3320,7 @@ class Aplicacion():
 
                 self.ventana.title("Registro Datos : ")
                 self.ventana.geometry("500x500")
-                self.ventana.iconbitmap("icono.ico")
+                self.ventana.iconbitmap("Multimedia\\icono.ico")
                 self.ventana.maxsize(500, 500)
                 self.ventana.minsize(500, 500)
                 self.txt00=tk.Label(self.ventana,text="Registro Completado Satisfactoriamente: ",bg="peach puff")
@@ -3379,7 +3379,7 @@ class Aplicacion():
         self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
         self.ventana5.geometry(self.posicion)
 
-        self.ventana5.iconbitmap("icono.ico")
+        self.ventana5.iconbitmap("Multimedia\\icono.ico")
         self.ventana5.maxsize(200, 200)
         self.ventana5.minsize(200, 200)
 
@@ -3428,7 +3428,7 @@ class Aplicacion():
 
                     self.ventana.title("DATOS A BORRAR : ")
                     self.ventana.geometry("500x600")
-                    self.ventana.iconbitmap("icono.ico")
+                    self.ventana.iconbitmap("Multimedia\\icono.ico")
                     self.ventana.maxsize(500, 600)
                     self.ventana.minsize(500, 600)
                     self.txt00=tk.Label(self.ventana,text="Registro a Borrar: ",bg="peach puff")
@@ -3538,7 +3538,7 @@ class Aplicacion():
 
         self.ventana4.title("Buscador : ")
         self.ventana4.geometry("250x350")
-        self.ventana4.iconbitmap("filtro.ico")
+        self.ventana4.iconbitmap("Multimedia\\filtro.ico")
         self.ventana4.maxsize(250, 350)
         self.ventana4.minsize(250, 350)
 
@@ -3584,7 +3584,7 @@ class Aplicacion():
 
         self.ventana5.title("Buscador por Matricula : ")
         self.ventana5.geometry("150x160")
-        self.ventana5.iconbitmap("icono.ico")
+        self.ventana5.iconbitmap("Multimedia\\icono.ico")
         self.ventana5.maxsize(150, 160)
         self.ventana5.minsize(150, 160)
 
@@ -3633,7 +3633,7 @@ class Aplicacion():
 
                     self.ventana6.title("Matricula : ")
                     self.ventana6.geometry("790x200")
-                    self.ventana6.iconbitmap("icono.ico")
+                    self.ventana6.iconbitmap("Multimedia\\icono.ico")
                     self.ventana6.maxsize(790, 200)
                     self.ventana6.minsize(790, 200)
 
@@ -3722,7 +3722,7 @@ class Aplicacion():
 
         self.ventana7.title("Buscador por Nombre : ")
         self.ventana7.geometry("150x160")
-        self.ventana7.iconbitmap("icono.ico")
+        self.ventana7.iconbitmap("Multimedia\\icono.ico")
         self.ventana7.maxsize(150, 160)
         self.ventana7.minsize(150, 160)
 
@@ -3773,7 +3773,7 @@ class Aplicacion():
 
                     self.ventana9.title("Matricula : ")
                     self.ventana9.geometry("800x500")
-                    self.ventana9.iconbitmap("icono.ico")
+                    self.ventana9.iconbitmap("Multimedia\\icono.ico")
                     self.ventana9.maxsize(800, 500)
                     self.ventana9.minsize(800, 500)
                     self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
@@ -3832,7 +3832,7 @@ class Aplicacion():
 
         self.ventana5.title("Buscador por Apellido : ")
         self.ventana5.geometry("150x160")
-        self.ventana5.iconbitmap("icono.ico")
+        self.ventana5.iconbitmap("Multimedia\\icono.ico")
         self.ventana5.maxsize(150, 160)
         self.ventana5.minsize(150, 160)
 
@@ -3882,7 +3882,7 @@ class Aplicacion():
 
                     self.ventana9.title("Apellido : ")
                     self.ventana9.geometry("800x500")
-                    self.ventana9.iconbitmap("icono.ico")
+                    self.ventana9.iconbitmap("Multimedia\\icono.ico")
                     self.ventana9.maxsize(800, 500)
                     self.ventana9.minsize(800, 500)
                     self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
@@ -3940,7 +3940,7 @@ class Aplicacion():
 
         self.ventana7.title("Buscador por Edad : ")
         self.ventana7.geometry("150x160")
-        self.ventana7.iconbitmap("icono.ico")
+        self.ventana7.iconbitmap("Multimedia\\icono.ico")
         self.ventana7.maxsize(150, 160)
         self.ventana7.minsize(150, 160)
 
@@ -3989,7 +3989,7 @@ class Aplicacion():
 
                     self.ventana9.title("Edad : ")
                     self.ventana9.geometry("800x500")
-                    self.ventana9.iconbitmap("icono.ico")
+                    self.ventana9.iconbitmap("Multimedia\\icono.ico")
                     self.ventana9.maxsize(800, 500)
                     self.ventana9.minsize(800, 500)
                     self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
@@ -4047,7 +4047,7 @@ class Aplicacion():
 
         self.ventana7.title("Buscador por Telefono : ")
         self.ventana7.geometry("150x160")
-        self.ventana7.iconbitmap("icono.ico")
+        self.ventana7.iconbitmap("Multimedia\\icono.ico")
         self.ventana7.maxsize(150, 160)
         self.ventana7.minsize(150, 160)
 
@@ -4096,7 +4096,7 @@ class Aplicacion():
 
                     self.ventana9.title("Telefono : ")
                     self.ventana9.geometry("800x500")
-                    self.ventana9.iconbitmap("icono.ico")
+                    self.ventana9.iconbitmap("Multimedia\\icono.ico")
                     self.ventana9.maxsize(800, 500)
                     self.ventana9.minsize(800, 500)
                     self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
@@ -4154,7 +4154,7 @@ class Aplicacion():
 
         self.ventana7.title("Buscador por Domicilio : ")
         self.ventana7.geometry("150x160")
-        self.ventana7.iconbitmap("icono.ico")
+        self.ventana7.iconbitmap("Multimedia\\icono.ico")
         self.ventana7.maxsize(150, 160)
         self.ventana7.minsize(150, 160)
 
@@ -4204,7 +4204,7 @@ class Aplicacion():
 
                     self.ventana9.title("Domicilio : ")
                     self.ventana9.geometry("800x500")
-                    self.ventana9.iconbitmap("icono.ico")
+                    self.ventana9.iconbitmap("Multimedia\\icono.ico")
                     self.ventana9.maxsize(800, 500)
                     self.ventana9.minsize(800, 500)
                     self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
@@ -4271,7 +4271,7 @@ class Aplicacion():
             self.ventana9.geometry("800x500")
             self.ventana9.maxsize(800, 500)
             self.ventana9.minsize(800, 500)
-            self.ventana9.iconbitmap("icono.ico")
+            self.ventana9.iconbitmap("Multimedia\\icono.ico")
             self.frame09=tk.Frame(self.ventana9,bd=4,relief="ridge",bg="crimson")
             self.frame09.pack(expand=True,fill="both")
 
