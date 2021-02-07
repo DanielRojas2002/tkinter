@@ -167,7 +167,7 @@ class Aplicacion:
         self.ventanai.maxsize(600, 600)
         self.ventanai.minsize(600, 600)
         self.fontStyle = tkFont.Font(family="Lucida Grande", size=20)
-        self.ventanai.iconbitmap("icono.ico")
+        self.ventanai.iconbitmap("Multimedia\\Pib.ico")
 
         self.frame=tk.Frame(self.ventanai,bg="slate gray")
         self.frame.pack(expand=True,fill="both")
@@ -179,9 +179,9 @@ class Aplicacion:
         self.txt0101.place(x=40,y=10,width=500,height=100)
 
     
-        self.image=tk.PhotoImage(file="base.gif")
+        self.image=tk.PhotoImage(file="Multimedia\\PIB.gif")
         self.txt=tk.Label(image=self.image)
-        self.txt.place(x=85,y=150)
+        self.txt.place(x=150,y=200)
 
 
         self.frame2=tk.Frame(self.ventanai,bg="deep sky blue")
@@ -215,7 +215,7 @@ class Aplicacion:
 
         self.ventana.title("FORMULAS : ")
         self.ventana.geometry("500x500")
-        self.ventana.iconbitmap("icono.ico")
+        self.ventana.iconbitmap("Multimedia\\Pib.ico")
         self.ventana.maxsize(500, 500)
         self.ventana.minsize(500, 500)
 
@@ -273,6 +273,7 @@ class Aplicacion:
         self.ventana.geometry(self.posicion)
         self.ventana.title("METODOS PARA SACAR EL PIB : ")
         self.ventana.geometry("200x180")
+        self.ventana.iconbitmap("Multimedia\\Pib.ico")
         self.ventana.maxsize(100, 180)
         self.ventana.minsize(200, 180)
 
@@ -305,7 +306,7 @@ class Aplicacion:
 
             self.ventana.title("PIB INGRESO : ")
             self.ventana.geometry("600x650")
-            self.ventana.iconbitmap("icono.ico")
+            self.ventana.iconbitmap("Multimedia\\Pib.ico")
             self.ventana.maxsize(600, 650)
             self.ventana.minsize(600, 650)
 
@@ -384,7 +385,7 @@ class Aplicacion:
 
             self.ventana.title("PIB GASTO : ")
             self.ventana.geometry("600x650")
-            self.ventana.iconbitmap("icono.ico")
+            self.ventana.iconbitmap("Multimedia\\Pib.ico")
             self.ventana.maxsize(600, 650)
             self.ventana.minsize(600, 650)
 
@@ -539,7 +540,7 @@ class Aplicacion:
 
         self.ventana.title("DESEMPLEO : ")
         self.ventana.geometry("400x300")
-        self.ventana.iconbitmap("icono.ico")
+        self.ventana.iconbitmap("Multimedia\\Pib.ico")
         self.ventana.maxsize(400, 300)
         self.ventana.minsize(400, 300)
 
@@ -584,6 +585,7 @@ class Aplicacion:
         self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
         self.ventana.geometry(self.posicion)
         self.ventana.title("AÑOS : ")
+        self.ventana.iconbitmap("Multimedia\\Pib.ico")
         self.ventana.geometry("200x180")
         self.ventana.maxsize(100, 180)
         self.ventana.minsize(200, 180)
@@ -615,9 +617,9 @@ class Aplicacion:
             self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
             self.ventana.geometry(self.posicion)
 
-            self.ventana.title("DESEMPLEO : ")
+            self.ventana.title("Variables Macroeconomicas : ")
             self.ventana.geometry("700x600")
-            self.ventana.iconbitmap("icono.ico")
+            self.ventana.iconbitmap("Multimedia\\Pib.ico")
             self.ventana.maxsize(700, 600)
             self.ventana.minsize(700, 600)
 
@@ -693,7 +695,7 @@ class Aplicacion:
 
             self.ventana.title("DESEMPLEO : ")
             self.ventana.geometry("700x600")
-            self.ventana.iconbitmap("icono.ico")
+            self.ventana.iconbitmap("Multimedia\\Pib.ico")
             self.ventana.maxsize(700, 600)
             self.ventana.minsize(700, 600)
 
