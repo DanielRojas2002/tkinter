@@ -495,7 +495,7 @@ class Aplicacion:
             objeto=MetodoDelIngreso(II,IP,IN,D,BC,R,RT,INFE)
             objeto.PIB()
         except:
-            messagebox.showerror(message="Ingreso letras en lugar de Numeros :(",title="ERROR ")
+            messagebox.showerror(message="Ingreso letras en lugar de Numeros o\nNo lleno todos los datos",title="ERROR ")
 
         
 
@@ -513,7 +513,7 @@ class Aplicacion:
             objeto.PIB()
 
         except:
-            messagebox.showerror(message="Ingreso letras en lugar de Numeros :(",title="ERROR ")
+            messagebox.showerror(message="Ingreso letras en lugar de Numeros o\nNo lleno todos los datos",title="ERROR ")
 
     def CALCULAR3(self):
         try:
@@ -523,7 +523,7 @@ class Aplicacion:
             objeto=desempleos(desempleo,PEA)
             objeto.calculo()
         except:
-            messagebox.showerror(message="Ingreso letras en lugar de Numeros :(",title="ERROR ")
+            messagebox.showerror(message="Ingreso letras en lugar de Numeros o \nNo lleno todos los datos",title="ERROR ")
 
 
 
@@ -693,7 +693,7 @@ class Aplicacion:
             self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
             self.ventana.geometry(self.posicion)
 
-            self.ventana.title("DESEMPLEO : ")
+            self.ventana.title("Variables Macroeconomicas : ")
             self.ventana.geometry("700x600")
             self.ventana.iconbitmap("Multimedia\\Pib.ico")
             self.ventana.maxsize(700, 600)
