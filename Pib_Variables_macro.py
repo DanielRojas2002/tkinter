@@ -95,20 +95,16 @@ def indice(listaNivel,listaIndice,baseo,listaAño):
     archivoA=open("C:\\comun\\Variables_Economicas.txt" , 'a')
     archivoA.write("RESPUESTAS DE LAS VARIABLES MACROECONOMICAS :)" +"\n" )
     contador=0
-    separador=("*"*40)
+    
     for precio in listaNivel:
         z=(precio/(listaNivel[baseo]))*100
         listaIndice.append(z)
-    print(separador)
-    print("")
+    
     for numero in listaIndice:
-        print("INDICE DE PRECIOS : ")
-        print(f"El indice de Precios del año {listaAño[contador]} es = {numero}")
         textoa=str(numero)
         archivoA.write("Indice de Precios = " + textoa +  "\n" )
         contador=contador+1
-        print(separador)
-        print("")
+    archivoA.write("\n")
     archivoA.close()
 
 
@@ -609,7 +605,6 @@ class Aplicacion:
 
     def IIP1(self):
         if self.combo.get()=="2":
-
             self.ventana=tk.Tk()
             self.ancho_ventana = 700
             self.alto_ventana = 600
@@ -630,14 +625,14 @@ class Aplicacion:
             self.frame.pack(expand=True,fill="both")
             
 
-            self.txt0=tk.Label(self.frame,text="AÑOS: ",bg="gold",font=self.fontStyle)
-            self.txt0.place(x=250,y=30,width=220,height=40)
+            self.txt=tk.Label(self.frame,text="AÑOS: ",bg="gold",font=self.fontStyle)
+            self.txt.place(x=250,y=30,width=220,height=40)
 
-            self.txt3=tk.Label(self.frame,text="Año base",bg="sky blue")
-            self.txt3.place(x=20,y=30,width=80,height=30)
+            self.txt0=tk.Label(self.frame,text="Año base",bg="sky blue")
+            self.txt0.place(x=20,y=30,width=80,height=30)
 
-            self.caja3=tk.Entry(self.frame)
-            self.caja3.place(x=130,y=30,width=80,height=30)
+            self.caja0=tk.Entry(self.frame)
+            self.caja0.place(x=130,y=30,width=80,height=30)
 
             self.txt1=tk.Label(self.frame,text="Ingrese el año 1: ",bg="sky blue")
             self.txt1.place(x=20,y=80,width=100,height=30)
@@ -645,28 +640,27 @@ class Aplicacion:
             self.caja1=tk.Entry(self.frame)
             self.caja1.place(x=130,y=80,width=100,height=30)
 
-            self.txt11=tk.Label(self.frame,text="Nivel de precios del año 1: ",bg="sky blue")
-            self.txt11.place(x=350,y=80,width=170,height=30)
-
-            self.caja11=tk.Entry(self.frame)
-            self.caja11.place(x=550,y=80,width=100,height=30)
-
-            self.txt2=tk.Label(self.frame,text="Ingrese el Año 2 ",bg="sky blue")
-            self.txt2.place(x=20,y=160,width=100,height=30)
-
+            self.txt2=tk.Label(self.frame,text="Nivel de precios del año 1: ",bg="sky blue")
+            self.txt2.place(x=350,y=80,width=170,height=30)
 
             self.caja2=tk.Entry(self.frame)
-            self.caja2.place(x=130,y=160,width=100,height=30)
+            self.caja2.place(x=550,y=80,width=100,height=30)
 
-            self.txt22=tk.Label(self.frame,text="Nivel de precios del año 2: ",bg="sky blue")
-            self.txt22.place(x=350,y=160,width=170,height=30)
+            self.txt3=tk.Label(self.frame,text="Ingrese el Año 2 ",bg="sky blue")
+            self.txt3.place(x=20,y=160,width=100,height=30)
 
-            self.caja22=tk.Entry(self.frame)
-            self.caja22.place(x=550,y=160,width=100,height=30)
+            self.caja3=tk.Entry(self.frame)
+            self.caja3.place(x=130,y=160,width=100,height=30)
+
+            self.txt4=tk.Label(self.frame,text="Nivel de precios del año 2: ",bg="sky blue")
+            self.txt4.place(x=350,y=160,width=170,height=30)
+
+            self.caja4=tk.Entry(self.frame)
+            self.caja4.place(x=550,y=160,width=100,height=30)
 
 
-            self.txt4=tk.Label(self.frame,text="PIB Nominal del Año 1",bg="sky blue")
-            self.txt4.place(x=20,y=400,width=140,height=30)
+            self.txt5=tk.Label(self.frame,text="PIB Nominal del Año 1",bg="sky blue")
+            self.txt5.place(x=20,y=400,width=140,height=30)
 
             self.caja5=tk.Entry(self.frame)
             self.caja5.place(x=170,y=400,width=100,height=30)
@@ -676,6 +670,9 @@ class Aplicacion:
 
             self.caja6=tk.Entry(self.frame)
             self.caja6.place(x=520,y=400,width=100,height=30)
+
+            self.boton1=tk.Button(self.frame,text="CALCULAR",command=self.C2,bd=5)
+            self.boton1.place(x=520,y=500,width=100,height=30)
 
         #self.boton1=tk.Button(self.frame,text="BORRAR TOD",command=self.borrar4,bd=5)
         #self.boton1.place(x=80,y=250,width=100,height=30)
@@ -731,11 +728,11 @@ class Aplicacion:
             self.caja3=tk.Entry(self.frame)
             self.caja3.place(x=310,y=340,width=100,height=30)
 
+            
+
         
         
-    def CALCULAR4(self):
-        pass
-        
+    def C2(self):
         listaAño=[]
         contador1=1
         listaNivel=[]
@@ -745,8 +742,26 @@ class Aplicacion:
         listaPIBR=[]
         contador=0
         contadoor=0
-        cuantos=int(input("Cuantos Años vas a registrar : "))
-        print(separador)
+
+        try:
+            baseo=int(self.caja0.get())
+            año1=int(self.caja1.get())
+            precio1=int(self.caja2.get())
+            año2=int(self.caja3.get())
+            precio2=int(self.caja4.get())
+            pib1=int(self.caja5.get())
+            pib2=int(self.caja6.get())
+
+            listaNivel.append(precio1)
+            listaNivel.append(precio2)
+            listaAño.append(año1)
+            listaAño.append(año2)
+
+            indice(listaNivel,listaIndice,baseo,listaAño)
+
+        except:
+            print("error")
+        
         #for año in range(cuantos):
             #año=int(input("Ingresa el Año : "))
            # listaAño.append(año)
@@ -762,16 +777,16 @@ class Aplicacion:
             #contador=contador+1
         #print(separador)
             
-        for producto in range(cuantos):
-            PIBN=float(input(f"Ingrese el Producto Interno Bruto Nominal del Año {listaAño[contadoor]} : "))
-            listaPIBN.append(PIBN)
-            contadoor=contadoor+1
-        print(separador)
+        #for producto in range(cuantos):
+           # PIBN=float(input(f"Ingrese el Producto Interno Bruto Nominal del Año {listaAño[contadoor]} : "))
+           # listaPIBN.append(PIBN)
+           # contadoor=contadoor+1
+        #print(separador)
         
      
-        indice(listaNivel,listaIndice,baseo,listaAño)
-        inflacion(listaIndice,listaAño,cuantos,listaInflacion)
-        PIBR(listaPIBN,listaIndice,listaPIBR,listaAño,cuantos)
+        
+        #inflacion(listaIndice,listaAño,cuantos,listaInflacion)
+        #PIBR(listaPIBN,listaIndice,listaPIBR,listaAño,cuantos)
    
         
        
