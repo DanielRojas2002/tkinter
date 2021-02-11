@@ -16,6 +16,7 @@ import matplotlib.pyplot as plt
 from tabulate import tabulate
 class Aplicacion():
     def __init__(self):
+        diccionariocsv={}
 
         self.ventanai=tk.Tk()
         self.ancho_ventana = 600
@@ -1644,7 +1645,63 @@ class Aplicacion():
         
 
     def CSV(self):
-        pass
+        try:
+            contador=0
+            diccionariocsv={}
+            listacsvm=[]
+            listacsvn=[]
+            listacsva=[]
+            listacsve=[]
+            listacsvt=[]
+            listacsvd=[]
+            listacsvfi=[]
+            listacsvfm=[]
+            with sqlite3.connect("Empleados.db") as conn:
+                c=conn.cursor()
+                c.execute("Select * from registro")
+                datos=c.fetchall()
+
+                for registro in datos:
+                    contador=contador+1
+
+                if contador==0:
+                    messagebox.showwarning(message="No Existen resgistros en la BD aun :(",title="NO HAY REGISTROS")
+        
+                else:
+                    for matricula,nombre,apellido,edad,telefono,domicilio,fechai,fecham in datos:
+                        listacsvm.append(matricula)
+                        listacsvn.append(nombre)
+                        listacsva.append(apellido)
+                        listacsve.append(edad)
+                        listacsvt.append(telefono)
+                        listacsvd.append(domicilio)
+                        listacsvfi.append(fechai)
+                        listacsvfm.append(fecham)
+                    diccionariocsv["MATRICULA"]=listacsvm
+                    diccionariocsv["NOMBRE"]=listacsvn
+                    diccionariocsv["APELLIDO"]=listacsva
+                    diccionariocsv["EDAD"]=listacsve
+                    diccionariocsv["TELEFONO"]=listacsvt
+                    diccionariocsv["FECHA_INSCRIPCION"]=listacsvfi
+                    diccionariocsv["FECHA_MODIFICACION"]=listacsvfm
+                    diccionario2=pd.DataFrame(diccionariocsv)
+
+                    fecha=datetime.datetime.now()
+                    fecha2=fecha.strftime('%d_%m_%Y_%H_%M_%S')
+
+                    a="Reporte_"+str(fecha2)
+                    b=".csv"
+                    c=a+b
+                    ruta = "C:\\comun\\"+c
+
+                    diccionario2.to_csv(ruta, index=None, mode="a", header=not os.path.isfile(ruta))
+                messagebox.showinfo(message="Su Archivo CSV se genero en c:\\comun :)",title=":)")
+
+        except Error as e:
+            print(e)
+
+        
+
 
     def GRAFICAR(self):
         self.ventana=tk.Tk()
