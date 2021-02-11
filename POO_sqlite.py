@@ -67,7 +67,7 @@ class Aplicacion():
         self.boton5=tk.Button(self.frame2,text="TXT",command=self.TXT,bd=5)
         self.boton5.place(x=350,y=20,width=100,height=30)
 
-        self.boton6=tk.Button(self.frame2,text="GMAIL",command=self.GMAIL,bd=5)
+        self.boton6=tk.Button(self.frame2,text="CSV",command=self.CSV,bd=5)
         self.boton6.place(x=350,y=70,width=100,height=30)
 
         self.boton7=tk.Button(self.frame2,text="GRAFICAR",command=self.GRAFICAR,bd=5)
@@ -1643,7 +1643,7 @@ class Aplicacion():
         
         
 
-    def GMAIL(self):
+    def CSV(self):
         pass
 
     def GRAFICAR(self):
