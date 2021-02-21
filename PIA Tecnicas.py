@@ -211,7 +211,18 @@ class Aplicacion():
 
 
     def De_a_hex(self):
-        numero=self.caja000.get()
+        try:
+            self.numero=int(self.caja000.get())
+            self.numeroO=int(self.caja000.get())
+
+            hexadecimal=hex(self.numero)
+            hexadecimal=format(self.numero,"0X")
+            resultado=(hexadecimal)
+
+            messagebox.showinfo(message=f"Numero Decimal -> {self.numeroO}\nNumero Hexagonal -> {resultado}",title=" Decimal -> Hexagonal")
+
+        except:
+            messagebox.showerror(message="Ingreso mal el dato :(",title="ERROR")
 
 
     def binario(self):
@@ -236,22 +247,7 @@ class Aplicacion():
     
 
 
-    def DecimalAHexadecimal(numero):
-        lista=[]
-        while numero>=1:
-            lista.insert(0,numero%16)
-            numero=numero//16
     
-        resultado="".join(str(i) for i in lista)
-        #print("Toma en cuenta que :")
-        #print("10=A")
-        #print("11=B")
-        #print("12=C")
-        #print("13=D")
-        #print("14=E")
-        #print("15=F")
-        #print("16=G")
-        #print("Este es el numero convertido en Hexadecimal : ",resultado)
 
 app = Aplicacion()
 
