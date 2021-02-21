@@ -8,8 +8,8 @@ from tkinter import messagebox
 class Aplicacion():
     def __init__(self):
         self.ventanai=tk.Tk()
-        self.ancho_ventana = 600
-        self.alto_ventana = 600
+        self.ancho_ventana = 500
+        self.alto_ventana = 500
 
         self.x_ventana = self.ventanai.winfo_screenwidth() - 1050 - self.ancho_ventana // 2
         self.y_ventana = self.ventanai.winfo_screenheight() // 2 - self.alto_ventana // 2
@@ -17,9 +17,9 @@ class Aplicacion():
         self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
         self.ventanai.geometry(self.posicion)
         self.ventanai.title("BIENVENIDO AL Convertidor de Numeros: ")
-        self.ventanai.geometry("600x600")
-        self.ventanai.maxsize(600, 600)
-        self.ventanai.minsize(600, 600)
+        self.ventanai.geometry("500x500")
+        self.ventanai.maxsize(500, 500)
+        self.ventanai.minsize(500, 500)
         self.fontStyle = tkFont.Font(family="Lucida Grande", size=20)
         self.ventanai.iconbitmap("Multimedia\\icono.ico")
 
@@ -30,25 +30,23 @@ class Aplicacion():
         self.framee.place(x=0,y=0,width=600,height=120)
 
         self.txt0101=tk.Label(self.framee,text="Conversor de Numeros",background="gold",font=self.fontStyle)
-        self.txt0101.place(x=40,y=10,width=500,height=100)
+        self.txt0101.place(x=20,y=10,width=450,height=100)
 
     
-        self.image=tk.PhotoImage(file="Multimedia\\base.gif")
+        self.image=tk.PhotoImage(file="Multimedia\\numero.gif")
         self.txt=tk.Label(image=self.image)
-        self.txt.place(x=85,y=150)
+        self.txt.place(x=100,y=170)
 
 
         self.frame2=tk.Frame(self.ventanai,bg="deep sky blue")
-        self.frame2.place(x=0,y=480,width=600,height=130)
+        self.frame2.place(x=0,y=400,width=500,height=100)
         self.frame2.config(cursor="hand1")
 
-        self.botonAlta=tk.Button(self.frame2,text="DECIMAL",command=self.Decimal,bd=5)
-        self.botonAlta.place(x=120,y=40,width=100,height=30)
+        self.botonDecimal=tk.Button(self.frame2,text="DECIMAL",command=self.Decimal,bd=5)
+        self.botonDecimal.place(x=80,y=40,width=100,height=30)
 
-        self.boton2=tk.Button(self.frame2,text="BINARIO",command=self.binario,bd=5)
-        self.boton2.place(x=360,y=40,width=100,height=30)
-
-
+        self.botonb=tk.Button(self.frame2,text="BINARIO",command=self.binario,bd=5)
+        self.botonb.place(x=300,y=40,width=100,height=30)
 
         self.ventanai.mainloop()
 
