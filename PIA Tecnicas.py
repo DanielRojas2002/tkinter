@@ -227,7 +227,7 @@ class Aplicacion():
 
     def binario(self):
         self.ventana5=tk.Tk()
-        self.ventana5.title("Contar : ")
+        self.ventana5.title("Convertir: ")
         self.ventana5.iconbitmap("Multimedia\\num.ico")
         self.ancho_ventana = 200
         self.alto_ventana = 200
