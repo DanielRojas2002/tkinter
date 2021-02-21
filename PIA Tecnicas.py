@@ -188,10 +188,27 @@ class Aplicacion():
             messagebox.showinfo(message=f"Numero Decimal -> {self.numeroO}\nNumero Binario -> {resultado}",title=" Decimal -> Binario")
 
         except:
-            messagebox.showerror(message="Ingresa mal el dato :(",title="ERROR")
+            messagebox.showerror(message="Ingreso mal el dato :(",title="ERROR")
 
     def De_a_oct(self):
-        numero=self.caja000.get()
+        try:
+            self.numero=int(self.caja000.get())
+            self.numeroO=int(self.caja000.get())
+            lista=[]
+            while self.numero>=1:
+                lista.insert(0,self.numero%8)
+                self.numero=self.numero//8
+        
+            resultado="".join(str(i) for i in lista)
+            messagebox.showinfo(message=f"Numero Decimal -> {self.numeroO}\nNumero Octagonal -> {resultado}",title=" Decimal -> Octagonal")
+
+        except:
+            messagebox.showerror(message="Ingreso mal el dato :(",title="ERROR")
+
+            
+
+
+
 
     def De_a_hex(self):
         numero=self.caja000.get()
@@ -216,14 +233,7 @@ class Aplicacion():
     
 
 
-    def DecimalAOctagonal(numero):
-        lista=[]
-        while numero>=1:
-            lista.insert(0,numero%8)
-            numero=numero//8
-        
-        resultado="".join(str(i) for i in lista)
-        print("Este es el numero convertido en Octagonal : ",resultado)
+    
 
 
     def DecimalAHexadecimal(numero):
