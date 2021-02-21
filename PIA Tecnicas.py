@@ -89,7 +89,7 @@ class Aplicacion():
             self.ancho_ventana = 200
             self.alto_ventana = 200
 
-            self.x_ventana = self.ventana5.winfo_screenwidth() - 110 - self.ancho_ventana // 2
+            self.x_ventana = self.ventana5.winfo_screenwidth() - 310 - self.ancho_ventana // 2
             self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
 
             self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
@@ -119,7 +119,7 @@ class Aplicacion():
             self.ancho_ventana = 200
             self.alto_ventana = 200
 
-            self.x_ventana = self.ventana5.winfo_screenwidth() - 110 - self.ancho_ventana // 2
+            self.x_ventana = self.ventana5.winfo_screenwidth() - 310 - self.ancho_ventana // 2
             self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
 
             self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
@@ -149,7 +149,7 @@ class Aplicacion():
             self.ancho_ventana = 200
             self.alto_ventana = 200
 
-            self.x_ventana = self.ventana5.winfo_screenwidth() - 110 - self.ancho_ventana // 2
+            self.x_ventana = self.ventana5.winfo_screenwidth() - 310 - self.ancho_ventana // 2
             self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
 
             self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
