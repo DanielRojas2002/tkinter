@@ -226,16 +226,51 @@ class Aplicacion():
 
 
     def binario(self):
-        pass
+        self.ventana5=tk.Tk()
+        self.ventana5.title("Contar : ")
+        self.ventana5.iconbitmap("Multimedia\\num.ico")
+        self.ancho_ventana = 200
+        self.alto_ventana = 200
+
+        self.x_ventana = self.ventana5.winfo_screenwidth() - 610 - self.ancho_ventana // 2
+        self.y_ventana = self.ventana5.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+        self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+        self.ventana5.geometry(self.posicion)
+
+        self.ventana5.geometry("200x200")
+        self.ventana5.maxsize(200, 200)
+        self.ventana5.minsize(200, 200)
+
+        self.frame4=tk.Frame(self.ventana5,bg="red2")
+        self.frame4.pack(expand=True,fill="both")
+
+        self.txt001=tk.Label(self.frame4,text="Numero a Convertir: ",bg="gold2")
+        self.txt001.place(x=30,y=30,width=140,height=30)
+
+        self.caja000=tk.Entry(self.frame4)
+        self.caja000.place(x=50,y=80,width=100,height=30)
+
+        self.boton11=tk.Button(self.frame4,text="BUSCAR",command=self.BinarioADecimal,bd=5)
+        self.boton11.place(x=40,y=130,width=120,height=30)
+        self.ventana5.mainloop()
 
 
-    def BinarioADecimal(numero):
-        cadena=numero[::-1]
-        salida=0;contador=0
-        while contador<len(cadena):
-            if int(cadena[contador])==1:
-                salida+=int(cadena[contador])*2**contador
-            contador+=1
+    def BinarioADecimal(self):
+        try:
+            numero=self.caja000.get()
+            self.numeroO=int(self.caja000.get())
+            cadena=numero[::-1]
+            salida=0;contador=0
+            while contador<len(cadena):
+                if int(cadena[contador])==1:
+                    salida+=int(cadena[contador])*2**contador
+                contador+=1
+
+            messagebox.showinfo(message=f"Numero Binario -> {self.numeroO}\nNumero Decimal -> {salida}",title=" Binario -> Decimal")
+
+        except:
+            messagebox.showerror(message="Ingreso mal el dato :(",title="ERROR")
 
     
     
