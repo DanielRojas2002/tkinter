@@ -46,7 +46,7 @@ class Aplicacion():
         self.combo.place(x=50,y=160,width=200,height=30)
         self.combo["values"]=("ChecarEncabezadosDelCSV","ChecarElCsv","Graficar")
 
-        self.boton1=tk.Button(self.frame,text="Realizar",command=self.realizar,bd=5)
+        self.boton1=tk.Button(self.frame,text="Realizar",bd=5,command=self.realizar)
         self.boton1.place(x=50,y=210,width=200,height=30)
 
     
@@ -175,7 +175,7 @@ class Aplicacion():
                     self.combo2.place(x=20,y=90,width=150,height=30)
                     self.combo2["values"]=("Pastel","Barras")
 
-                    self.botong=tk.Button(self.frame,text="Realizar",command=self.grafica)
+                    self.botong=tk.Button(self.frame,text="Realizar",bd=5,command=self.grafica)
                     self.botong.place(x=20,y=140,width=150,height=30)
                     self.ventana.mainloop()
 
@@ -188,7 +188,7 @@ class Aplicacion():
     def grafica(self):
         if self.combo2.get()=="Pastel":
             self.ventana=tk.Tk()
-            self.ventana.title("Graficos")
+            self.ventana.title("Datos necesarios para graficar(Pastel)")
             self.ancho_ventana = 400
             self.alto_ventana = 200
 
@@ -219,7 +219,17 @@ class Aplicacion():
             self.cajaval=tk.Entry(self.frame)
             self.cajaval.place(x=230,y=110,width=120,height=30)
 
+            self.botongraficar=tk.Button(self.frame,text="GRAFICAR",bd=5,command=self.GRAFICAR)
+            self.botongraficar.place(x=150,y=160,width=100,height=30)
+
             self.ventana.mainloop()
+
+        elif self.combo2.get()=="Barras":
+            pass
+
+        
+    def GRAFICAR(self):
+        pass
         
         
         
