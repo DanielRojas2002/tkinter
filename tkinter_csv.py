@@ -232,9 +232,74 @@ class Aplicacion():
             self.ventana.mainloop()
 
         elif self.combo2.get()=="Barras":
-            pass
+            self.ventana=tk.Tk()
+            self.ventana.title("Datos necesarios para graficar(Barras)")
+            self.ancho_ventana = 400
+            self.alto_ventana = 250
 
+            self.x_ventana = self.ventanai.winfo_screenwidth() - 300 - self.ancho_ventana // 2
+            self.y_ventana = self.ventanai.winfo_screenheight() // 2 - self.alto_ventana // 2
+
+            self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
+            self.ventana.geometry(self.posicion)
         
+            self.ventana.maxsize(400, 250)
+            self.ventana.minsize(400, 250)
+
+            self.frame=tk.Frame(self.ventana,bg="slate gray")
+            self.frame.pack(expand=True,fill="both")
+
+            self.txt0=tk.Label(self.frame,text="Ingrese los Datos para poder Graficar :)")
+            self.txt0.place(x=80,y=20,width=250,height=30)
+            
+            self.txt1=tk.Label(self.frame,text="Ingrese el Titulo del Grafico:")
+            self.txt1.place(x=20,y=60,width=180,height=30)
+
+            self.cajatit=tk.Entry(self.frame)
+            self.cajatit.place(x=230,y=60,width=120,height=30)
+
+            self.txt2=tk.Label(self.frame,text="Eliga la etiqueta del Nombre:")
+            self.txt2.place(x=20,y=110,width=180,height=30)
+
+            self.cajanom=tk.Entry(self.frame)
+            self.cajanom.place(x=230,y=110,width=120,height=30)
+
+            self.txt3=tk.Label(self.frame,text="Eliga la etiqueta del Valor:")
+            self.txt3.place(x=20,y=160,width=180,height=30)
+
+            self.cajaval=tk.Entry(self.frame)
+            self.cajaval.place(x=230,y=160,width=120,height=30)
+
+            self.botongraficar=tk.Button(self.frame,text="GRAFICAR",bd=5,command=self.GRAFICARB)
+            self.botongraficar.place(x=150,y=210,width=100,height=30)
+
+            self.ventana.mainloop()
+            
+
+    def GRAFICARB(self):
+        try:
+            ex=self.caja0.get()
+            excel=ex+".csv"
+            notas=pd.read_csv(excel)
+
+            titulo=self.cajatit.get()
+            etiqueta1=self.cajanom.get()
+            etiqueta2=self.cajaval.get()
+            
+            nombre=notas[etiqueta1]
+            valor=notas[etiqueta2]
+        
+            fig,ax=plt.subplots()
+            ax.set_ylabel(etiqueta2)
+            ax.set_xlabel(etiqueta1)
+            ax.set_title(titulo)
+            plt.bar(nombre,valor)
+            plt.show()
+
+        except:
+            messagebox.showerror(message="No se pueden graficar\nDe esa forma por los tipos de valores\no No ingreso bien las etiquetas",title="ERROR")
+
+
     def GRAFICARP(self):
         try:
             ex=self.caja0.get()
@@ -254,7 +319,7 @@ class Aplicacion():
             plt.show()
 
         except:
-            messagebox.showerror(message="No se pueden graficar\nDe esa forma por los tipos de valores",title="ERROR")
+            messagebox.showerror(message="No se pueden graficar\nDe esa forma por los tipos de valores\no No ingreso bien las etiquetas",title="ERROR")
         
 
             
