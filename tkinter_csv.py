@@ -313,10 +313,13 @@ class Aplicacion():
             nombre=notas[etiqueta1]
             valor=notas[etiqueta2]
         
-            plt.pie(valor,labels=nombre,autopct="%1.1f %%",shadow=True, startangle=90)
+            plt.pie(valor,labels=None,autopct="%0.1f %%")
             plt.title(titulo)
-            plt.legend()
+            plt.legend(labels=nombre,bbox_to_anchor=(1.05, 1.0), loc='upper left')
             plt.show()
+
+
+            
 
         except:
             messagebox.showerror(message="No se pueden graficar\nDe esa forma por los tipos de valores\no No ingreso bien las etiquetas",title="ERROR")
