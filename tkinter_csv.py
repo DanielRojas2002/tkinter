@@ -288,12 +288,16 @@ class Aplicacion():
             
             nombre=notas[etiqueta1]
             valor=notas[etiqueta2]
+
+            
         
             fig,ax=plt.subplots()
             ax.set_ylabel(etiqueta2)
             ax.set_xlabel(etiqueta1)
+            plt.xticks(rotation=45)
             ax.set_title(titulo)
             plt.bar(nombre,valor)
+            plt.grid(True)
             plt.show()
 
         except:
