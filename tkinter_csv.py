@@ -291,11 +291,11 @@ class Aplicacion():
 
             
         
-            fig,ax=plt.subplots()
-            ax.set_ylabel(etiqueta2)
-            ax.set_xlabel(etiqueta1)
+            fig=plt.subplots()
+            plt.xlabel(etiqueta1,fontsize=20)
+            plt.ylabel(etiqueta2,fontsize=20)
             plt.xticks(rotation=45)
-            ax.set_title(titulo)
+            plt.title(titulo,fontsize=20)
             plt.bar(nombre,valor)
             plt.grid(True)
             plt.show()
