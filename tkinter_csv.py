@@ -289,8 +289,6 @@ class Aplicacion():
             nombre=notas[etiqueta1]
             valor=notas[etiqueta2]
 
-            
-        
             fig=plt.subplots()
             plt.xlabel(etiqueta1,fontsize=20)
             plt.ylabel(etiqueta2,fontsize=20)
@@ -305,7 +303,7 @@ class Aplicacion():
 
 
     def GRAFICARP(self):
-        try:
+        try: 
             ex=self.caja0.get()
             excel=ex+".csv"
             notas=pd.read_csv(excel)
@@ -316,15 +314,24 @@ class Aplicacion():
             
             nombre=notas[etiqueta1]
             valor=notas[etiqueta2]
-        
-            plt.pie(valor,labels=None,autopct="%0.1f %%")
-            plt.title(titulo)
-            plt.legend(labels=nombre,bbox_to_anchor=(1.05, 1.0), loc='upper left')
-            plt.show()
 
+            porcentaje=notas[etiqueta2].sum()
+            porcentajeb=round(porcentaje)
+          
+        
+            
+            leyenda = []
+            for navegador, mercado in zip(nombre,valor):
+                mercado2=round((mercado/porcentajeb*100),2)
+                leyenda.append(navegador + '  (' + str(mercado2) + '%)')
 
             
-
+            plt.pie(valor,labels=None,autopct="%0.1f %%")
+            plt.title(titulo)
+            plt.rc('legend', fontsize=6)
+            plt.legend(leyenda,loc='lower left',bbox_to_anchor=(1.05, 1.0))
+            plt.tight_layout()
+            plt.show()
         except:
             messagebox.showerror(message="No se pueden graficar\nDe esa forma por los tipos de valores\no No ingreso bien las etiquetas",title="ERROR")
         
