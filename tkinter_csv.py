@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 class Aplicacion():
     def __init__(self):
         self.ventanai=tk.Tk()
-        self.ancho_ventana = 300
+        self.ancho_ventana = 360
         self.alto_ventana = 300
 
         self.x_ventana = self.ventanai.winfo_screenwidth() - 1050 - self.ancho_ventana // 2
@@ -18,10 +18,10 @@ class Aplicacion():
 
         self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
         self.ventanai.geometry(self.posicion)
-        self.ventanai.title("BIENVENIDO :) ")
-        self.ventanai.geometry("300x300")
-        self.ventanai.maxsize(300, 300)
-        self.ventanai.minsize(300, 300)
+        self.ventanai.title("VECTOR CASA DE BOLSA SA DE CV")
+        self.ventanai.geometry("360x300")
+        self.ventanai.maxsize(360, 300)
+        self.ventanai.minsize(360, 300)
         self.fontStyle = tkFont.Font(family="Lucida Grande", size=10)
         #self.ventanai.iconbitmap("Multimedia\\num.ico")
 
@@ -29,26 +29,26 @@ class Aplicacion():
         self.frame.pack(expand=True,fill="both")
 
         self.framee=tk.Frame(self.ventanai,bg="royal blue")
-        self.framee.place(x=0,y=0,width=300,height=50)
+        self.framee.place(x=0,y=0,width=360,height=50)
 
-        self.txt01=tk.Label(self.framee,text="BIENVENIDO AL MANEJADOR DE CSV",background="gold",font=self.fontStyle)
-        self.txt01.place(x=30,y=10,width=250,height=30)
+        self.txt01=tk.Label(self.framee,text="GRAFICAS DE PROMOCION",background="gold",font=self.fontStyle)
+        self.txt01.place(x=30,y=10,width=300,height=30)
 
         self.txt02=tk.Label(self.frame,text="Ingresa el nombre del Archivo CSV:")
-        self.txt02.place(x=50,y=70,width=200,height=30)
+        self.txt02.place(x=50,y=70,width=250,height=30)
 
         self.caja0=tk.Entry(self.frame)
-        self.caja0.place(x=50,y=110,width=200,height=30)
+        self.caja0.place(x=50,y=110,width=250,height=30)
 
         self.txt03=tk.Label(self.frame,text=".csv")
-        self.txt03.place(x=255,y=120,width=30,height=20)
+        self.txt03.place(x=310,y=120,width=30,height=20)
 
         self.combo=ttk.Combobox(self.frame)
-        self.combo.place(x=50,y=160,width=200,height=30)
+        self.combo.place(x=50,y=160,width=250,height=30)
         self.combo["values"]=("ChecarEncabezadosDelCSV","ChecarElCsv","Graficar")
 
         self.boton1=tk.Button(self.frame,text="Realizar",bd=5,command=self.realizar)
-        self.boton1.place(x=50,y=210,width=200,height=30)
+        self.boton1.place(x=50,y=210,width=250,height=30)
 
     
         self.ventanai.mainloop()
@@ -329,7 +329,7 @@ class Aplicacion():
             plt.pie(valor,labels=None,autopct="%0.1f %%")
             plt.title(titulo)
             plt.rc('legend', fontsize=6)
-            plt.legend(leyenda,loc='lower left',bbox_to_anchor=(1.05, 1.0))
+            plt.legend(leyenda,loc='best',bbox_to_anchor=(1.05, 1.0))
             plt.tight_layout()
             plt.show()
         except:
