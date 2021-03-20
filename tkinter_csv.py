@@ -337,6 +337,11 @@ class Aplicacion():
             etiqueta2=self.cajaval.get()
             etiqueta3=self.cajatiempo.get()
 
+            nombre=notas[etiqueta1]
+            valor=notas[etiqueta2]
+            tiempo=notas[etiqueta3]
+
+
         except:
             messagebox.showerror(message="No se pueden graficar\nDe esa forma por los tipos de valores\no No ingreso bien las etiquetas",title="ERROR")
 
