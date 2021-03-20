@@ -341,6 +341,9 @@ class Aplicacion():
             valor=notas[etiqueta2]
             tiempo=notas[etiqueta3]
 
+            plt.style.use('seaborn')
+            plt.plot_date(tiempo,valor,linestyle="solid")
+
 
         except:
             messagebox.showerror(message="No se pueden graficar\nDe esa forma por los tipos de valores\no No ingreso bien las etiquetas",title="ERROR")
