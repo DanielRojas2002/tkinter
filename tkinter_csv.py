@@ -6,6 +6,7 @@ import tkinter.font as tkFont
 from tkinter import messagebox
 import pandas as pd
 import matplotlib.pyplot as plt 
+from matplotlib import dates as mpl_dates
 
 class Aplicacion():
     def __init__(self):
@@ -174,7 +175,7 @@ class Aplicacion():
 
                     self.combo2=ttk.Combobox(self.frame)
                     self.combo2.place(x=20,y=90,width=150,height=30)
-                    self.combo2["values"]=("Pastel","Barras","Tendencia")
+                    self.combo2["values"]=("Pastel","Barras","Tendencia(Usuario)")
 
                     self.botong=tk.Button(self.frame,text="Realizar",bd=5,command=self.grafica)
                     self.botong.place(x=20,y=140,width=150,height=30)
@@ -275,11 +276,11 @@ class Aplicacion():
 
             self.ventana.mainloop()
 
-        elif self.combo2.get()=="Tendencia":
+        elif self.combo2.get()=="Tendencia(Usuario)":
             self.ventana=tk.Tk()
             self.ventana.title("Datos necesarios para graficar(Tendencia)")
             self.ancho_ventana = 400
-            self.alto_ventana = 350
+            self.alto_ventana = 380
 
             self.x_ventana = self.ventanai.winfo_screenwidth() - 300 - self.ancho_ventana // 2
             self.y_ventana = self.ventanai.winfo_screenheight() // 2 - self.alto_ventana // 2
@@ -287,8 +288,8 @@ class Aplicacion():
             self.posicion = str(self.ancho_ventana) + "x" + str(self.alto_ventana) + "+" + str(self.x_ventana) + "+" + str(self.y_ventana)
             self.ventana.geometry(self.posicion)
         
-            self.ventana.maxsize(400, 350)
-            self.ventana.minsize(400, 350)
+            self.ventana.maxsize(400, 380)
+            self.ventana.minsize(400, 380)
 
             self.frame=tk.Frame(self.ventana,bg="slate gray")
             self.frame.pack(expand=True,fill="both")
@@ -308,25 +309,31 @@ class Aplicacion():
             self.cajanom=tk.Entry(self.frame)
             self.cajanom.place(x=230,y=110,width=120,height=30)
 
+            self.txt22=tk.Label(self.frame,text="Ingrese el Nombre del Usuario:")
+            self.txt22.place(x=20,y=160,width=180,height=30)
+
+            self.cajanombre=tk.Entry(self.frame)
+            self.cajanombre.place(x=230,y=160,width=120,height=30)
+
             self.txt3=tk.Label(self.frame,text="Eliga la etiqueta del Valor:")
-            self.txt3.place(x=20,y=160,width=180,height=30)
+            self.txt3.place(x=20,y=210,width=180,height=30)
 
             self.cajaval=tk.Entry(self.frame)
-            self.cajaval.place(x=230,y=160,width=120,height=30)
+            self.cajaval.place(x=230,y=210,width=120,height=30)
 
             self.txt4=tk.Label(self.frame,text="Eliga la etiqueta del Tiempo:")
-            self.txt4.place(x=20,y=210,width=180,height=30)
+            self.txt4.place(x=20,y=260,width=180,height=30)
 
             self.cajatiempo=tk.Entry(self.frame)
-            self.cajatiempo.place(x=230,y=210,width=120,height=30)
+            self.cajatiempo.place(x=230,y=260,width=120,height=30)
 
-            self.botongraficar=tk.Button(self.frame,text="GRAFICAR",bd=5,command=self.GRAFICART)
-            self.botongraficar.place(x=150,y=260,width=100,height=30)
+            self.botongraficar=tk.Button(self.frame,text="GRAFICAR",bd=5,command=self.GRAFICARTU)
+            self.botongraficar.place(x=150,y=310,width=100,height=30)
 
             self.ventana.mainloop()
 
 
-    def GRAFICART(self):
+    def GRAFICARTU(self):
         try:
             ex=self.caja0.get()
             excel=ex+".csv"
@@ -336,17 +343,35 @@ class Aplicacion():
             etiqueta1=self.cajanom.get()
             etiqueta2=self.cajaval.get()
             etiqueta3=self.cajatiempo.get()
+            etiqueta4=self.cajanombre.get()
 
-            nombre=notas[etiqueta1]
-            valor=notas[etiqueta2]
-            tiempo=notas[etiqueta3]
+            notas[etiqueta3]=pd.to_datetime(notas[etiqueta3])
 
-            plt.style.use('seaborn')
-            plt.plot_date(tiempo,valor,linestyle="solid")
+            dato=notas[etiqueta1]==etiqueta4
+            DATOS=notas[dato]
+            DATOS.sort_values(etiqueta3,inplace=True)
 
+            valor=DATOS[etiqueta2]
+            tiempo=DATOS[etiqueta3]
 
+            try:
+                plt.style.use('seaborn')
+                plt.plot_date(tiempo,valor,linestyle="solid")
+                plt.gcf().autofmt_xdate()
+                formato=mpl_dates.DateFormatter('%b, %d, %Y')
+                plt.gca().xaxis.set_major_formatter(formato)
+                plt.title(titulo+": "+etiqueta1+": "+etiqueta4)
+                plt.xlabel(etiqueta3)
+                plt.ylabel(etiqueta2)
+                plt.tight_layout()
+                plt.show()
+
+            except:
+                messagebox.showerror(message="No se pueden graficar\nDe esa forma por los tipos de valores",title="ERROR")
+            
         except:
-            messagebox.showerror(message="No se pueden graficar\nDe esa forma por los tipos de valores\no No ingreso bien las etiquetas",title="ERROR")
+            messagebox.showerror(message="No ingreso bien el nombre de las etiquetas",title="ERROR")
+        
 
     
             
