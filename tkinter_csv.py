@@ -385,7 +385,6 @@ class Aplicacion():
 
 
     def GRAFICARTG(self):
-        pass
         ex=self.caja0.get()
         excel=ex+".csv"
         notas=pd.read_csv(excel)
@@ -393,10 +392,26 @@ class Aplicacion():
         titulo=self.cajatit.get()
         etiqueta1=self.cajanom.get()
         etiqueta2=self.cajaval.get()
-       # etiqueta3=self.
-    
-        datos=notas[[etiqueta1,etiqueta2]]
+        etiqueta3=self.cajatiempo.get()
 
+        notas[etiqueta3]=pd.to_datetime(notas[etiqueta3])
+
+        datos=notas[[etiqueta1,etiqueta2,etiqueta3]]
+        print(datos)
+
+        valor=datos[etiqueta2]
+        tiempo=datos[etiqueta3]
+
+        plt.style.use('seaborn')
+        plt.plot_date(tiempo,valor,linestyle="solid")
+        plt.gcf().autofmt_xdate()
+        formato=mpl_dates.DateFormatter('%b, %d, %Y')
+        plt.gca().xaxis.set_major_formatter(formato)
+        plt.title(titulo+": "+etiqueta1)
+        plt.xlabel(etiqueta3)
+        plt.ylabel(etiqueta2)
+        plt.tight_layout()
+        plt.show()
         
         
 
@@ -418,7 +433,6 @@ class Aplicacion():
 
             dato=notas[etiqueta1]==etiqueta4
             DATOS=notas[dato]
-            #DATOS.sort_values(etiqueta3,inplace=True)
 
             valor=DATOS[etiqueta2]
             tiempo=DATOS[etiqueta3]
@@ -427,8 +441,8 @@ class Aplicacion():
                 plt.style.use('seaborn')
                 plt.plot_date(tiempo,valor,linestyle="solid")
                 plt.gcf().autofmt_xdate()
-                formato=mpl_dates.DateFormatter('%b, %d, %Y')
-                plt.gca().xaxis.set_major_formatter(formato)
+                #formato=mpl_dates.DateFormatter('%b, %d, %Y')
+                #plt.gca().xaxis.set_major_formatter(formato)
                 plt.title(titulo+": "+etiqueta1+": "+etiqueta4)
                 plt.xlabel(etiqueta3)
                 plt.ylabel(etiqueta2)
