@@ -23,6 +23,7 @@ class Aplicacion():
         self.ventanai.geometry("360x300")
         self.ventanai.maxsize(360, 300)
         self.ventanai.minsize(360, 300)
+        self.ventanai.iconbitmap("Multimedia\\vector.ico")
         self.fontStyle = tkFont.Font(family="Lucida Grande", size=10)
         #self.ventanai.iconbitmap("Multimedia\\num.ico")
 
@@ -66,6 +67,7 @@ class Aplicacion():
                     self.ventana.title("ENCABEZADOS :) ")
                     self.ancho_ventana = 300
                     self.alto_ventana = 300
+                    self.ventana.iconbitmap("Multimedia\\vector.ico")
 
                     self.x_ventana = self.ventanai.winfo_screenwidth() - 500 - self.ancho_ventana // 2
                     self.y_ventana = self.ventanai.winfo_screenheight() // 2 - self.alto_ventana // 2
@@ -102,6 +104,7 @@ class Aplicacion():
                         encabezados.append(i)
 
                     self.ventana9=tk.Tk()
+                    self.ventana9.iconbitmap("Multimedia\\vector.ico")
                     self.ancho_ventana = 790
                     self.alto_ventana = 200
 
@@ -155,6 +158,7 @@ class Aplicacion():
 
                     self.ventana=tk.Tk()
                     self.ventana.title("Graficos")
+                    self.ventana.iconbitmap("Multimedia\\vector.ico")
                     self.ancho_ventana = 200
                     self.alto_ventana = 200
 
@@ -191,6 +195,7 @@ class Aplicacion():
         if self.combo2.get()=="Pastel":
             self.ventana=tk.Tk()
             self.ventana.title("Datos necesarios para graficar(Pastel)")
+            self.ventana.iconbitmap("Multimedia\\vector.ico")
             self.ancho_ventana = 400
             self.alto_ventana = 250
 
@@ -235,6 +240,7 @@ class Aplicacion():
         elif self.combo2.get()=="Barras":
             self.ventana=tk.Tk()
             self.ventana.title("Datos necesarios para graficar(Barras)")
+            self.ventana.iconbitmap("Multimedia\\vector.ico")
             self.ancho_ventana = 400
             self.alto_ventana = 250
 
@@ -279,6 +285,7 @@ class Aplicacion():
         elif self.combo2.get()=="Tendencia(Usuario)":
             self.ventana=tk.Tk()
             self.ventana.title("Datos necesarios para graficar(Tendencia(Individual))")
+            self.ventana.iconbitmap("Multimedia\\vector.ico")
             self.ancho_ventana = 400
             self.alto_ventana = 380
 
@@ -336,6 +343,7 @@ class Aplicacion():
         elif self.combo2.get()=="Tendencia(General)":
             self.ventana=tk.Tk()
             self.ventana.title("Datos necesarios para graficar(Barras)")
+            self.ventana.iconbitmap("Multimedia\\vector.ico")
             self.ancho_ventana = 400
             self.alto_ventana = 300
 
